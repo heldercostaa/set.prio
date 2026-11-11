@@ -589,6 +589,9 @@ export function App() {
             <span className="footer-note">{t.officialNote}</span>
           </div>
           <div>
+            <a href="https://github.com/heldercostaa/set.prio" target="_blank" rel="noreferrer">
+              GitHub <ArrowUpRight size={12} />
+            </a>
             <a
               href="https://brasil.tomorrowland.com/pt/line-up/?page=artists"
               target="_blank"
