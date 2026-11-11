@@ -77,6 +77,12 @@ pnpm test:e2e
 
 Linux CI also installs browser system dependencies with --with-deps. Tests use an isolated browser context and do not modify your saved plan.
 
+## Development workflow
+
+`main` is the default integration branch. Start features, fixes, and documentation changes on a descriptive `helder/` branch from the latest `origin/main`. Push that branch and open a pull request targeting `main`. Merge only after review and an explicit request; do not push new work directly to `main`.
+
+Repository instructions are in [AGENTS.md](./AGENTS.md).
+
 ## Architecture
 
 - src/components: artist discovery, details, and accessible UI primitives.
