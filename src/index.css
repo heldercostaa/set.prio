@@ -1993,20 +1993,3 @@ fieldset {
 .member-details-body .detail-topline h3 {
   font-size: 20px;
 }
-
-.member-set-links {
-  display: grid;
-  gap: 10px;
-}
-.member-set-links > h3 {
-  font-size: 13px;
-  font-weight: 600;
-}
-.artist-detail-body > .member-set-links {
-  margin-bottom: 20px;
-}
-.set-link .set-link-text > .set-artist-name {
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 650;
-}

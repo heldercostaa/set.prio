@@ -307,14 +307,10 @@ test('b2b details show both artists with independent recording ratings and one p
     const preview = page.locator('.artist-preview');
     await expect(preview.getByText(name, { exact: true })).toBeInViewport({ ratio: 1 });
     await expect(
-      preview
-        .getByRole('region', { name: 'YouTube sets', exact: true })
-        .getByRole('link', { name: /^Massano .*YouTube/ })
+      preview.getByRole('region', { name: 'Massano', exact: true }).getByRole('link')
     ).toHaveAttribute('href', 'https://www.youtube.com/watch?v=Myv0L3opWEI');
     await expect(
-      preview
-        .getByRole('region', { name: 'YouTube sets', exact: true })
-        .getByRole('link', { name: /^Volkoder .*YouTube/ })
+      preview.getByRole('region', { name: 'Volkoder', exact: true }).getByRole('link')
     ).toHaveAttribute('href', 'https://www.youtube.com/watch?v=nSYt0B-EGwA');
     if (testInfo.project.name === 'chromium') {
       await preview
@@ -325,16 +321,6 @@ test('b2b details show both artists with independent recording ratings and one p
   }
   await label.click();
   const dialog = page.getByRole('dialog', { name, exact: true });
-  const setLinks = dialog.getByRole('region', { name: 'YouTube sets', exact: true });
-  await expect(setLinks.getByRole('link')).toHaveCount(2);
-  await expect(setLinks.getByRole('link', { name: /^Massano .*YouTube/ })).toHaveAttribute(
-    'href',
-    'https://www.youtube.com/watch?v=Myv0L3opWEI'
-  );
-  await expect(setLinks.getByRole('link', { name: /^Volkoder .*YouTube/ })).toHaveAttribute(
-    'href',
-    'https://www.youtube.com/watch?v=nSYt0B-EGwA'
-  );
   const massano = dialog.getByRole('region', { name: 'Massano', exact: true });
   const volkoder = dialog.getByRole('region', { name: 'Volkoder', exact: true });
   await expect(massano.getByText('Progressive house', { exact: true })).toBeVisible();
@@ -352,9 +338,6 @@ test('b2b details show both artists with independent recording ratings and one p
   await expect(
     dialog.getByRole('heading', { name: 'Artistas desta apresentação', exact: true })
   ).toBeVisible();
-  await expect(
-    dialog.getByRole('region', { name: 'Sets no YouTube', exact: true }).getByRole('link')
-  ).toHaveCount(2);
   await expect(massano.getByRole('spinbutton')).toHaveValue('0');
   await expect(volkoder.getByRole('spinbutton')).toHaveValue('8');
   await expect(dialog.getByRole('combobox')).toHaveValue('P0');

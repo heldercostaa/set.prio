@@ -4,7 +4,7 @@ import { appearancesFor, artistById, catalog, recordingById, membersFor } from '
 import { dayName, longDate, messages, priorityLabel } from '../i18n';
 import { usePlanner } from '../store/planner';
 import { PRIORITIES, type Artist, type Language, type Priority } from '../types';
-import { Genres, Portrait, SetLink, MemberSetLinks } from './artist';
+import { Genres, Portrait, SetLink } from './artist';
 import { Modal } from './ui/modal';
 
 export function ArtistDetails({
@@ -40,7 +40,6 @@ export function ArtistDetails({
       <div className="artist-modal-scroll">
         {!members.length && <Portrait artist={artist} className="artist-hero" />}
         <div className="artist-detail-body">
-          {members.length > 0 && <MemberSetLinks members={members} language={language} />}
           {!members.length && (
             <>
               <div className="detail-topline">
