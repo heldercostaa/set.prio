@@ -1,0 +1,4593 @@
+{
+  "version": "2026-11-11.1",
+  "verifiedAt": "2026-11-11",
+  "sources": [
+    "https://brasil.tomorrowland.com/pt/line-up/?page=artists",
+    "https://components.tomorrowland.com/tml-live-lineup/live-lineup-base.js",
+    "https://artist-lineup-cdn.tomorrowland.com/config-TL27BR-7e1ab3d6-761f-4324-bac0-5af845b3e9b8.json",
+    "https://artist-lineup-cdn.tomorrowland.com/TL27BR-W1-7e1ab3d6-761f-4324-bac0-5af845b3e9b8.json"
+  ],
+  "artists": [
+    {
+      "id": "1536134704",
+      "name": "999999999",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536134704",
+      "genre": "Techno",
+      "subgenres": [
+        "Acid techno",
+        "Hard techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ubblk4txmbQ"
+      ],
+      "recommendedSetId": "ubblk4txmbQ",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236178606",
+      "name": "Adalamoon",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236178606",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance",
+        "Full-on"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Rsx_3U55Z2M"
+      ],
+      "recommendedSetId": "Rsx_3U55Z2M",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1302186739",
+      "name": "Agents of Time",
+      "photoUrl": "/artists/1302186739.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171544499-Agents Of Time.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1302186739",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=a5IR5EqgxMo"
+      ],
+      "recommendedSetId": "a5IR5EqgxMo",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1889131930",
+      "name": "Alan Walker",
+      "photoUrl": "/artists/1889131930-official.jpg",
+      "photoSourceUrl": "https://www.alanwalker.com/Alan-Walker-presskit.jpg",
+      "photoFallback": {
+        "url": "/artists/1889131930-official.jpg",
+        "sourceUrl": "https://www.alanwalker.com/Alan-Walker-presskit.jpg",
+        "pageUrl": "https://www.alanwalker.com/en/presskit",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1889131930",
+      "genre": "EDM",
+      "subgenres": [
+        "Electro house",
+        "Dance pop"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=wuwPiyvPqLA"
+      ],
+      "recommendedSetId": "wuwPiyvPqLA",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262707755",
+      "name": "Aline Rocha",
+      "photoUrl": "/artists/1262707755.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16684467-IMG_3526.JPG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707755",
+      "genre": "House",
+      "subgenres": [
+        "Disco house",
+        "Soulful house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=MHtzcOfLGyU"
+      ],
+      "recommendedSetId": "MHtzcOfLGyU",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3236176548",
+      "name": "Aline Rocha b2b Ratier",
+      "photoUrl": "/artists/1262707755.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16684467-IMG_3526.JPG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236175811",
+      "genre": "House",
+      "subgenres": [
+        "Disco house",
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=SpM52EYms14"
+      ],
+      "recommendedSetId": "SpM52EYms14",
+      "memberIds": [
+        "3236175811",
+        "1262707755"
+      ],
+      "recommendedSetRepresentative": false,
+      "recommendationNote": "Exact billed pairing; YouTube may require sign-in to view this recording."
+    },
+    {
+      "id": "1262707253",
+      "name": "ALOK",
+      "photoUrl": "/artists/1262707253.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16607466-large-Alok2.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707253",
+      "genre": "House",
+      "subgenres": [
+        "Brazilian bass",
+        "Slap house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=zHAUZ02aCwo"
+      ],
+      "recommendedSetId": "zHAUZ02aCwo",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262705755",
+      "name": "Amber Broos",
+      "photoUrl": "/artists/1262705755.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607249-large-Amber Broos2 (1).jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262705755",
+      "genre": "Techno",
+      "subgenres": [
+        "Hard techno",
+        "Rave techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=f0w_3NvBJpg"
+      ],
+      "recommendedSetId": "f0w_3NvBJpg",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262708699",
+      "name": "Andromedik",
+      "photoUrl": "/artists/1262708699.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/96796503-Andromedik-2025.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262708699",
+      "genre": "Drum & Bass",
+      "subgenres": [
+        "Dancefloor",
+        "Liquid"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=8d8PbDm7mSY"
+      ],
+      "recommendedSetId": "8d8PbDm7mSY",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262718587",
+      "name": "Antdot",
+      "photoUrl": "/artists/1262718587.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/54850952-antdotmaio0346 (1).jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262718587",
+      "genre": "House",
+      "subgenres": [
+        "Afro house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=vgxoa2hQFdg"
+      ],
+      "recommendedSetId": "vgxoa2hQFdg",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262706247",
+      "name": "Ashibah",
+      "photoUrl": "/artists/1262706247.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16684174-Ashibah_edit_pb--9.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706247",
+      "genre": "House",
+      "subgenres": [
+        "Deep house",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=u2JVr6ljTa8"
+      ],
+      "recommendedSetId": "u2JVr6ljTa8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236171340",
+      "name": "Astrix",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236171340",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Full-on",
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=kdVElRhr4q4"
+      ],
+      "recommendedSetId": "kdVElRhr4q4",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1593866644",
+      "name": "Axwell",
+      "photoUrl": "/artists/1593866644.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/96830896-Axwell-img-2025.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593866644",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=-etxOvF1ZN0"
+      ],
+      "recommendedSetId": "-etxOvF1ZN0",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236184901",
+      "name": "Bauhouse",
+      "photoUrl": "/artists/3236184901-official.jpg",
+      "photoSourceUrl": "https://f4.bcbits.com/img/0048182106_23.jpg",
+      "photoFallback": {
+        "url": "/artists/3236184901-official.jpg",
+        "sourceUrl": "https://f4.bcbits.com/img/0048182106_23.jpg",
+        "pageUrl": "https://bauhouse.bandcamp.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236184901",
+      "genre": "House",
+      "subgenres": [
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=RLWsSgwB__U"
+      ],
+      "recommendedSetId": "RLWsSgwB__U",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3236170297",
+      "name": "Bauhouse b2b simo not simon",
+      "photoUrl": "/artists/3236184901-official.jpg",
+      "photoSourceUrl": "https://f4.bcbits.com/img/0048182106_23.jpg",
+      "photoFallback": {
+        "url": "/artists/3236184901-official.jpg",
+        "sourceUrl": "https://f4.bcbits.com/img/0048182106_23.jpg",
+        "pageUrl": "https://bauhouse.bandcamp.com/",
+        "verifiedAt": "2026-11-11",
+        "representativeArtist": "Bauhouse"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236184901",
+      "genre": "House",
+      "subgenres": [
+        "Afro house",
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=RLWsSgwB__U"
+      ],
+      "recommendedSetId": "RLWsSgwB__U",
+      "memberIds": [
+        "3236184901",
+        "3236187181"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring Bauhouse. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "2997898508",
+      "name": "Bebe Rexha",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2997898508",
+      "genre": "Electronic pop",
+      "subgenres": [
+        "Dance pop",
+        "EDM"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=KCeluZt3H9o"
+      ],
+      "recommendedSetId": "KCeluZt3H9o",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2651263482",
+      "name": "Bella Claxton",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651263482",
+      "genre": "House",
+      "subgenres": [
+        "Hard house",
+        "Trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=pjUz_2c3o8w"
+      ],
+      "recommendedSetId": "pjUz_2c3o8w",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3236105813",
+      "name": "Bella Claxton b2b Paige Tomlinson",
+      "photoUrl": "/artists/2651272268.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/235413950-Paige Tomlinson Photo 20-08-2024, 1 34 02 PM.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651263482",
+      "genre": "House",
+      "subgenres": [
+        "Hard house",
+        "Trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=iunhg1Y9K2M"
+      ],
+      "recommendedSetId": "iunhg1Y9K2M",
+      "memberIds": [
+        "2651263482",
+        "2651272268"
+      ],
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262707617",
+      "name": "Bhaskar",
+      "photoUrl": "/artists/1262707617.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16691225-Screenshot 2023-09-11 at 17.48.25.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707617",
+      "genre": "House",
+      "subgenres": [
+        "Deep house",
+        "Brazilian bass"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=HWIratXF1Bo"
+      ],
+      "recommendedSetId": "HWIratXF1Bo",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1345812045",
+      "name": "Bibi Seck",
+      "photoUrl": "/artists/1345812045.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/223318387-image.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1345812045",
+      "genre": "House",
+      "subgenres": [
+        "Disco",
+        "UK garage"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=QPvFSels9PU"
+      ],
+      "recommendedSetId": "QPvFSels9PU",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536134545",
+      "name": "Blazy",
+      "photoUrl": "/artists/1536134545.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/111938411-5.JPG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536134545",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=vh2VeY4tM24"
+      ],
+      "recommendedSetId": "vh2VeY4tM24",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262717903",
+      "name": "Brina Knauss",
+      "photoUrl": "/artists/1262717903.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16612582-large-Kopie von Brina Knauss (2).jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262717903",
+      "genre": "House",
+      "subgenres": [
+        "Melodic house",
+        "Melodic techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=xIxTT8fIA1c"
+      ],
+      "recommendedSetId": "xIxTT8fIA1c",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236144302",
+      "name": "Bruna Strait",
+      "photoUrl": "/artists/3236144302-official.jpg",
+      "photoSourceUrl": "https://cdn.solo.to/user/a/65c486ba4ff3e8_57147421.jpg",
+      "photoFallback": {
+        "url": "/artists/3236144302-official.jpg",
+        "sourceUrl": "https://cdn.solo.to/user/a/65c486ba4ff3e8_57147421.jpg",
+        "pageUrl": "https://solo.to/brunastrait",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236144302",
+      "genre": "House",
+      "subgenres": [
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=FphabMpCU3U"
+      ],
+      "recommendedSetId": "FphabMpCU3U",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1893969378",
+      "name": "Camila Jun",
+      "photoUrl": "/artists/1893969378.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157488284-CJ5.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1893969378",
+      "genre": "House",
+      "subgenres": [
+        "Tech house",
+        "Minimal house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=8Oq0TMeaY4I"
+      ],
+      "recommendedSetId": "8Oq0TMeaY4I",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262707036",
+      "name": "Carola",
+      "photoUrl": "/artists/1262707036.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607455-large-220729-160807-TML2022-R3A_8874-RUD-2048px.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707036",
+      "genre": "House",
+      "subgenres": [
+        "Bass house",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=kLD0dYuyWSI"
+      ],
+      "recommendedSetId": "kLD0dYuyWSI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3320596127",
+      "name": "Carola b2b LP Giobbi",
+      "photoUrl": "/artists/1262707036.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607455-large-220729-160807-TML2022-R3A_8874-RUD-2048px.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707036",
+      "genre": "House",
+      "subgenres": [
+        "Bass house",
+        "Piano house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=kLD0dYuyWSI"
+      ],
+      "recommendedSetId": "kLD0dYuyWSI",
+      "memberIds": [
+        "1262707036",
+        "1732094331"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring Carola. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "1262703370",
+      "name": "Cat Dealers",
+      "photoUrl": "/artists/1262703370.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607218-large-220716-143358-TML2022-R3CL9257-ALIVECOVERAGE.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262703370",
+      "genre": "House",
+      "subgenres": [
+        "Brazilian bass",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Ikc9wrhe9D8"
+      ],
+      "recommendedSetId": "Ikc9wrhe9D8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236151687",
+      "name": "Chelina Manuhutu",
+      "photoUrl": "/artists/3236151687-official.jpg",
+      "photoSourceUrl": "https://chelina-manuhutu.com/wp-content/uploads/2026/06/bynichara-01-2.jpg",
+      "photoFallback": {
+        "url": "/artists/3236151687-official.jpg",
+        "sourceUrl": "https://chelina-manuhutu.com/wp-content/uploads/2026/06/bynichara-01-2.jpg",
+        "pageUrl": "https://chelina-manuhutu.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236151687",
+      "genre": "House",
+      "subgenres": [
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=SSu5jnPAhag"
+      ],
+      "recommendedSetId": "SSu5jnPAhag",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1789089848",
+      "name": "Cyril",
+      "photoUrl": "/artists/1789089848.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/111964912-CYRIL2_WHITEBG.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1789089848",
+      "genre": "House",
+      "subgenres": [
+        "Stutter house",
+        "Dance pop"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=DAOlnMYA3nU"
+      ],
+      "recommendedSetId": "DAOlnMYA3nU",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1593885205",
+      "name": "D-Nox",
+      "photoUrl": "/artists/1593885205-official.jpg",
+      "photoSourceUrl": "https://d-nox.digital/assets/d-nox-biography-portrait.webp",
+      "photoFallback": {
+        "url": "/artists/1593885205-official.jpg",
+        "sourceUrl": "https://d-nox.digital/assets/d-nox-biography-portrait.webp",
+        "pageUrl": "https://d-nox.digital/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593885205",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=5kXgIfkAfOs"
+      ],
+      "recommendedSetId": "5kXgIfkAfOs",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236147570",
+      "name": "Deer Jade",
+      "photoUrl": "/artists/3236147570-official.jpg",
+      "photoSourceUrl": "https://www.deerjade.com/wp-content/uploads/2024/12/foto-01-1024x683.jpg",
+      "photoFallback": {
+        "url": "/artists/3236147570-official.jpg",
+        "sourceUrl": "https://www.deerjade.com/wp-content/uploads/2024/12/foto-01-1024x683.jpg",
+        "pageUrl": "https://www.deerjade.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236147570",
+      "genre": "House",
+      "subgenres": [
+        "Melodic house",
+        "Organic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=jxy-QTJYvU8"
+      ],
+      "recommendedSetId": "jxy-QTJYvU8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3320595906",
+      "name": "Delcu",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3320595906",
+      "genre": "Techno",
+      "subgenres": [
+        "Club",
+        "Latin club"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=01chIPfG9M0"
+      ],
+      "recommendedSetId": "01chIPfG9M0",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1292612863",
+      "name": "Dimitri Vegas",
+      "photoUrl": "/artists/1292612863.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/122923241-Dimitri Vegas 02.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1292612863",
+      "genre": "EDM",
+      "subgenres": [
+        "Big room",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=3o0T4z6oT4Y"
+      ],
+      "recommendedSetId": "3o0T4z6oT4Y",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262716164",
+      "name": "Dino Lenny",
+      "photoUrl": "/artists/1262716164.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16612536-large-dino-27.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262716164",
+      "genre": "House",
+      "subgenres": [
+        "Deep house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=CQBSRfaz1yY"
+      ],
+      "recommendedSetId": "CQBSRfaz1yY",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1790466129",
+      "name": "DJ Gigola",
+      "photoUrl": "/artists/1790466129.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112538288-R1-04331-028A DJ Gigola_by_iga_drobisz.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790466129",
+      "genre": "Electronic",
+      "subgenres": [
+        "Tech house",
+        "Breakbeat"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=dqRhx7LErAc"
+      ],
+      "recommendedSetId": "dqRhx7LErAc",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3320565302",
+      "name": "DJ Gigola b2b HAAi",
+      "photoUrl": "/artists/1790466129.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112538288-R1-04331-028A DJ Gigola_by_iga_drobisz.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790466129",
+      "genre": "Electronic",
+      "subgenres": [
+        "Techno",
+        "Breakbeat"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=dqRhx7LErAc"
+      ],
+      "recommendedSetId": "dqRhx7LErAc",
+      "memberIds": [
+        "1790466129",
+        "1264276719"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring DJ Gigola. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "1262713587",
+      "name": "Dubdogz",
+      "photoUrl": "/artists/1262713587.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129551786-DUB_DOGS_NOV_2023_2676.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262713587",
+      "genre": "House",
+      "subgenres": [
+        "Brazilian bass",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=L6-78fOsMHs"
+      ],
+      "recommendedSetId": "L6-78fOsMHs",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1790220673",
+      "name": "Dubvision",
+      "photoUrl": "/artists/1790220673.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129551086-3.JPG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790220673",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=lPLHOPVSw_Q"
+      ],
+      "recommendedSetId": "lPLHOPVSw_Q",
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative joint set: DubVision b2b Matisse & Sadko b2b Third Party at Tomorrowland Brasil 2025; not a solo DubVision performance."
+    },
+    {
+      "id": "1262716991",
+      "name": "Due",
+      "photoUrl": "/artists/1262716991.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16687165-IMG_8518.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262716991",
+      "genre": null,
+      "subgenres": [],
+      "genreSources": [],
+      "recommendedSetId": "pJ-TSqUOh6k",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1790219463",
+      "name": "Dyzen",
+      "photoUrl": "/artists/1790219463.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112560243-x beatport.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790219463",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=dCkH8G5pfOc"
+      ],
+      "recommendedSetId": "dCkH8G5pfOc",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1594421366",
+      "name": "Ekanta & Swarup",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594421366",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Full-on",
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=9j8ByvqzJkE"
+      ],
+      "recommendedSetId": "9j8ByvqzJkE",
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording of Ekanta only; no joint Ekanta & Swarup recording was verified. The title explicitly identifies Universo Paralello 2024/2025."
+    },
+    {
+      "id": "act:3236165984",
+      "name": "Ekanta & Swarup + Special Surprise Act",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594421366",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Full-on"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=9j8ByvqzJkE"
+      ],
+      "recommendedSetId": "9j8ByvqzJkE",
+      "memberIds": [
+        "1594421366",
+        "3236168275"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring Ekanta & Swarup. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "1568023510",
+      "name": "ELFIGO",
+      "photoUrl": "/artists/1568023510.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/134394498-IMG_0054.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1568023510",
+      "genre": "House",
+      "subgenres": [
+        "French house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Xg37kg6IkF4"
+      ],
+      "recommendedSetId": "Xg37kg6IkF4",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262722323",
+      "name": "Eli Iwasa",
+      "photoUrl": "/artists/1262722323.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16687794-ELIIWASA2517.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262722323",
+      "genre": "Techno",
+      "subgenres": [
+        "House",
+        "Minimal techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=4pu2fMdcOGI"
+      ],
+      "recommendedSetId": "4pu2fMdcOGI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536149852",
+      "name": "EMILIJA",
+      "photoUrl": "/artists/1536149852.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171547351-6934542E-C0CD-4BCE-8864-E5AD9615A5AC_1_201_a.jpeg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536149852",
+      "genre": "Techno",
+      "subgenres": [
+        "Hardgroove",
+        "Trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=A0gOcUGnQvI"
+      ],
+      "recommendedSetId": "A0gOcUGnQvI",
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative joint set: EMILIJA b2b Odymel at Paradise City 2025; not a solo EMILIJA performance."
+    },
+    {
+      "id": "2969753595",
+      "name": "Enrico Sangiuliano",
+      "photoUrl": "/artists/2969753595-official.jpg",
+      "photoSourceUrl": "https://enricosangiuliano.com/assets/images/_1200x630_crop_center-center_none/EnricoSangiuliano_presskit4249-copy-HR.jpg?v=1746267966",
+      "photoFallback": {
+        "url": "/artists/2969753595-official.jpg",
+        "sourceUrl": "https://enricosangiuliano.com/assets/images/_1200x630_crop_center-center_none/EnricoSangiuliano_presskit4249-copy-HR.jpg?v=1746267966",
+        "pageUrl": "https://enricosangiuliano.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2969753595",
+      "genre": "Techno",
+      "subgenres": [
+        "Peak-time techno",
+        "Minimal techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ubFrkYGGqo8"
+      ],
+      "recommendedSetId": "ubFrkYGGqo8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "5010888283",
+      "name": "ETTA",
+      "photoUrl": "/artists/5010888283-official.jpg",
+      "photoSourceUrl": "https://ugc.production.linktr.ee/0aa34397-602c-4fee-8647-93ca7694a468_IMG-6608.jpeg?io=true&size=avatar-v3_0",
+      "photoFallback": {
+        "url": "/artists/5010888283-official.jpg",
+        "sourceUrl": "https://ugc.production.linktr.ee/0aa34397-602c-4fee-8647-93ca7694a468_IMG-6608.jpeg?io=true&size=avatar-v3_0",
+        "pageUrl": "https://linktr.ee/ettamusic",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=5010888283",
+      "genre": null,
+      "subgenres": [],
+      "genreSources": [],
+      "recommendedSetId": "iEoCdaPxEG4",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262709791",
+      "name": "Fernanda Pistelli",
+      "photoUrl": "/artists/1262709791.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16685269-005.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262709791",
+      "genre": "Techno",
+      "subgenres": [
+        "Progressive house",
+        "Psytechno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=KWexSprlG08"
+      ],
+      "recommendedSetId": "KWexSprlG08",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2959431891",
+      "name": "Ferry Corsten",
+      "photoUrl": "/artists/2959431891.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/240490916-_PBF3858.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2959431891",
+      "genre": "Trance",
+      "subgenres": [
+        "Progressive trance",
+        "Uplifting trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=s37RNbAZ-rs"
+      ],
+      "recommendedSetId": "s37RNbAZ-rs",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3236170762",
+      "name": "Ferry Corsten b2b Marsh",
+      "photoUrl": "/artists/2959431891.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/240490916-_PBF3858.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2959431891",
+      "genre": "Electronic",
+      "subgenres": [
+        "Progressive trance",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=x3WsTI094t0"
+      ],
+      "recommendedSetId": "x3WsTI094t0",
+      "memberIds": [
+        "2959431891",
+        "1955298950"
+      ],
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236173691",
+      "name": "Fezzo",
+      "photoUrl": "/artists/3236173691-official.jpg",
+      "photoSourceUrl": "https://ugc.production.linktr.ee/674155ce-c293-48f3-9e5c-d9a11f61c4e2_Photo-Press-Kit-FEZZO--Photo001-.jpeg",
+      "photoFallback": {
+        "url": "/artists/3236173691-official.jpg",
+        "sourceUrl": "https://ugc.production.linktr.ee/674155ce-c293-48f3-9e5c-d9a11f61c4e2_Photo-Press-Kit-FEZZO--Photo001-.jpeg",
+        "pageUrl": "https://linktr.ee/fezzomusic",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236173691",
+      "genre": null,
+      "subgenres": [],
+      "genreSources": [],
+      "recommendedSetId": "SOeXzYSaERQ",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1264275505",
+      "name": "Fisher",
+      "photoUrl": "/artists/1264275505.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16693150-Screenshot 2023-09-11 at 18.09.46.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264275505",
+      "genre": "House",
+      "subgenres": [
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=DuXXMZLfAkQ"
+      ],
+      "recommendedSetId": "DuXXMZLfAkQ",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1789005670",
+      "name": "Funk Tribu",
+      "photoUrl": "/artists/1789005670.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112686402-FUNKTRIBU x alxpstudio_PROMO SHOOT 7.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1789005670",
+      "genre": "Trance",
+      "subgenres": [
+        "Hard trance",
+        "Hard house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=qJpoCdji3mI"
+      ],
+      "recommendedSetId": "qJpoCdji3mI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3320594685",
+      "name": "Gareth Emery",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3320594685",
+      "genre": "Trance",
+      "subgenres": [
+        "Uplifting trance",
+        "Progressive trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=kxC6B1pyRsw"
+      ],
+      "recommendedSetId": "kxC6B1pyRsw",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1264276719",
+      "name": "HAAi",
+      "photoUrl": "/artists/1264276719.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/21112352-HAAi LEAD IMAGE PLS CREDIT IMOGENE BARRON.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264276719",
+      "genre": "Electronic",
+      "subgenres": [
+        "Techno",
+        "Breakbeat"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=54mR3wf90Us"
+      ],
+      "recommendedSetId": "54mR3wf90Us",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1992358032",
+      "name": "HALŌ",
+      "photoUrl": "/artists/1992358032.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/242553369-PRESS PIC.jpeg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1992358032",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=4uHPAUR9bfk"
+      ],
+      "recommendedSetId": "4uHPAUR9bfk",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2655381348",
+      "name": "Illenium",
+      "photoUrl": "/artists/2655381348.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/247689053-ILLENIUM PRESS PIC 1.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2655381348",
+      "genre": "Bass",
+      "subgenres": [
+        "Melodic dubstep",
+        "Future bass"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=E1WH0nvaxAw"
+      ],
+      "recommendedSetId": "E1WH0nvaxAw",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1593860343",
+      "name": "Illusionize",
+      "photoUrl": "/artists/1593860343.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129546034-PRESSKIT ILLUSIONIZE _ GOOD TIMES 2025_-20.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593860343",
+      "genre": "House",
+      "subgenres": [
+        "Bass house",
+        "Brazilian bass"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=-zAKPJV0dgk"
+      ],
+      "recommendedSetId": "-zAKPJV0dgk",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262719608",
+      "name": "Jackson",
+      "photoUrl": "/artists/1262719608.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16687494-image00017.jpeg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262719608",
+      "genre": "House",
+      "subgenres": [
+        "Afro house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=44BquK38GRo"
+      ],
+      "recommendedSetId": "44BquK38GRo",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262713222",
+      "name": "Jørd",
+      "photoUrl": "/artists/1262713222.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16686183-_MG_1959.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262713222",
+      "genre": "House",
+      "subgenres": [
+        "Bass house",
+        "Brazilian bass"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=QZRD0Tb8sUI"
+      ],
+      "recommendedSetId": "QZRD0Tb8sUI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236160786",
+      "name": "K Motionz",
+      "photoUrl": "/artists/3236160786-official.jpg",
+      "photoSourceUrl": "https://ugc.production.linktr.ee/bff3e3a0-27e0-42cb-b347-6f4927a302e9_Screenshot-2026-06-23-at-14.14.50.png",
+      "photoFallback": {
+        "url": "/artists/3236160786-official.jpg",
+        "sourceUrl": "https://ugc.production.linktr.ee/bff3e3a0-27e0-42cb-b347-6f4927a302e9_Screenshot-2026-06-23-at-14.14.50.png",
+        "pageUrl": "https://linktr.ee/kmotionz",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236160786",
+      "genre": "Drum & Bass",
+      "subgenres": [
+        "Dancefloor",
+        "Jump-up"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=SkMIT6DTxeg"
+      ],
+      "recommendedSetId": "SkMIT6DTxeg",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1264276664",
+      "name": "Kevin de Vries",
+      "photoUrl": "/artists/1264276664.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/194849635-Kevin-de-Vries_Nina-Raasch_09_sRGB_4000px.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264276664",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=jAZiK2WJuhk"
+      ],
+      "recommendedSetId": "jAZiK2WJuhk",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262705600",
+      "name": "Kölsch",
+      "photoUrl": "/artists/1262705600.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/32580036-Kolsch-LS.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262705600",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ra8NYbzPMnk"
+      ],
+      "recommendedSetId": "ra8NYbzPMnk",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262723682",
+      "name": "Korolova",
+      "photoUrl": "/artists/1262723682.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129533695-IMG_2409.JPG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262723682",
+      "genre": "House",
+      "subgenres": [
+        "Melodic house",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=RLOghpXjuJI"
+      ],
+      "recommendedSetId": "RLOghpXjuJI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1593892326",
+      "name": "Krewella",
+      "photoUrl": "/artists/1593892326-official.jpg",
+      "photoSourceUrl": "https://krewella.com/cdn/shop/files/Krewella_2025_home.png?v=1792693218",
+      "photoFallback": {
+        "url": "/artists/1593892326-official.jpg",
+        "sourceUrl": "https://krewella.com/cdn/shop/files/Krewella_2025_home.png?v=1792693218",
+        "pageUrl": "https://krewella.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593892326",
+      "genre": "Bass",
+      "subgenres": [
+        "Dubstep",
+        "Dance pop"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=rPV3BWCpRNM"
+      ],
+      "recommendedSetId": "rPV3BWCpRNM",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1532622596",
+      "name": "Kris Kross Amsterdam",
+      "photoUrl": "/artists/1532622596-official.jpg",
+      "photoSourceUrl": "https://kriskross.amsterdam/wp-content/themes/bz-kriskross-3/assets/media/images/bg/KKA-bg-001.jpg",
+      "photoFallback": {
+        "url": "/artists/1532622596-official.jpg",
+        "sourceUrl": "https://kriskross.amsterdam/wp-content/themes/bz-kriskross-3/assets/media/images/bg/KKA-bg-001.jpg",
+        "pageUrl": "https://kriskross.amsterdam/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532622596",
+      "genre": "House",
+      "subgenres": [
+        "Dance pop",
+        "Tropical house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=n00xM8hfpVQ"
+      ],
+      "recommendedSetId": "n00xM8hfpVQ",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3016369307",
+      "name": "Lilly Palmer",
+      "photoUrl": "/artists/3016369307.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/240507866-Lilly Palmer 1.jpeg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3016369307",
+      "genre": "Techno",
+      "subgenres": [
+        "Peak-time techno",
+        "Hard techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=e_cmlGboRjA"
+      ],
+      "recommendedSetId": "e_cmlGboRjA",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262712880",
+      "name": "Liu",
+      "photoUrl": "/artists/1262712880.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16691497-Screenshot 2023-09-11 at 17.51.32.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262712880",
+      "genre": "House",
+      "subgenres": [
+        "Brazilian bass",
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=cNJTwP7Rh-g"
+      ],
+      "recommendedSetId": "cNJTwP7Rh-g",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262707391",
+      "name": "Lost Frequencies",
+      "photoUrl": "/artists/1262707391.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/209115527-lf bg v3.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707391",
+      "genre": "House",
+      "subgenres": [
+        "Deep house",
+        "Tropical house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=KLyeLMJuIOY"
+      ],
+      "recommendedSetId": "KLyeLMJuIOY",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1732094331",
+      "name": "LP Giobbi",
+      "photoUrl": "/artists/1732094331.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/96812007-LPGiobbi-img-2025.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1732094331",
+      "genre": "House",
+      "subgenres": [
+        "Piano house",
+        "Disco house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=-eOa77e_uJg"
+      ],
+      "recommendedSetId": "-eOa77e_uJg",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236102591",
+      "name": "M4RI Carrilho",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236102591",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=bTTQSt3Iq5o"
+      ],
+      "recommendedSetId": "bTTQSt3Iq5o",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2649994017",
+      "name": "Mad Maxx",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2649994017",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Full-on",
+        "Goa trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=eA6RijLGcbs"
+      ],
+      "recommendedSetId": "eA6RijLGcbs",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3236171312",
+      "name": "Mad Maxx b2b Stryker",
+      "photoUrl": "/artists/1790446015.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/114233611-Stryker 06.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2649994017",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Full-on",
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=eA6RijLGcbs"
+      ],
+      "recommendedSetId": "eA6RijLGcbs",
+      "memberIds": [
+        "2649994017",
+        "1790446015"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring Mad Maxx. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "1321229552",
+      "name": "Maddix",
+      "photoUrl": "/artists/1321229552.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/170341234-PHOTO-2025-11-18-17-07-20.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1321229552",
+      "genre": "Techno",
+      "subgenres": [
+        "Big room techno",
+        "Acid techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=1Fu89dxrXI0"
+      ],
+      "recommendedSetId": "1Fu89dxrXI0",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1894046042",
+      "name": "Malive",
+      "photoUrl": "/artists/1894046042.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157472621-Malive_Presskit_03.JPEG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1894046042",
+      "genre": "House",
+      "subgenres": [
+        "Tech house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=2uu8JrLapgs"
+      ],
+      "recommendedSetId": "2uu8JrLapgs",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3320611890",
+      "name": "Malu",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3320611890",
+      "genre": "House",
+      "subgenres": [
+        "Groovy house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=TmW7yXa1GY0"
+      ],
+      "recommendedSetId": "TmW7yXa1GY0",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262709306",
+      "name": "MANDY",
+      "photoUrl": "/artists/1262709306.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/128911568-08.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262709306",
+      "genre": "Hardstyle",
+      "subgenres": [
+        "Rawstyle",
+        "Euphoric hardstyle"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=NejgEM7O98M"
+      ],
+      "recommendedSetId": "NejgEM7O98M",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236151944",
+      "name": "Marian",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236151944",
+      "genre": null,
+      "subgenres": [],
+      "genreSources": [],
+      "recommendedSetId": "9JHw0jNSdks",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "5084115434",
+      "name": "Marie Vaunt",
+      "photoUrl": "/artists/5084115434.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/198752820-Marie Vaunt Press 2025-10-06.PNG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=5084115434",
+      "genre": "Techno",
+      "subgenres": [
+        "Acid techno",
+        "Peak-time techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=PPHBpXM64IY"
+      ],
+      "recommendedSetId": "PPHBpXM64IY",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3320612016",
+      "name": "Marie Vaunt b2b Space 92",
+      "photoUrl": "/artists/5084115434.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/198752820-Marie Vaunt Press 2025-10-06.PNG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=5084115434",
+      "genre": "Techno",
+      "subgenres": [
+        "Acid techno",
+        "Peak-time techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=PPHBpXM64IY"
+      ],
+      "recommendedSetId": "PPHBpXM64IY",
+      "memberIds": [
+        "5084115434",
+        "1790625633"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring Marie Vaunt. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "1955298950",
+      "name": "Marsh",
+      "photoUrl": "/artists/1955298950-official.jpg",
+      "photoSourceUrl": "https://static.wixstatic.com/media/65ebfa_9d888fe3c1774464882b57928297b051~mv2.jpg/v1/fill/w_2500,h_1145,al_c/65ebfa_9d888fe3c1774464882b57928297b051~mv2.jpg",
+      "photoFallback": {
+        "url": "/artists/1955298950-official.jpg",
+        "sourceUrl": "https://static.wixstatic.com/media/65ebfa_9d888fe3c1774464882b57928297b051~mv2.jpg/v1/fill/w_2500,h_1145,al_c/65ebfa_9d888fe3c1774464882b57928297b051~mv2.jpg",
+        "pageUrl": "https://marshmusician.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1955298950",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=oeiUVmMPjus"
+      ],
+      "recommendedSetId": "oeiUVmMPjus",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536165375",
+      "name": "Massano",
+      "photoUrl": "/artists/1536165375.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53907333-230730-160624-TML23-1599-JB.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536165375",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Myv0L3opWEI"
+      ],
+      "recommendedSetId": "Myv0L3opWEI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "act:3320565364",
+      "name": "Massano b2b Volkoder",
+      "photoUrl": "/artists/1536165375.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53907333-230730-160624-TML23-1599-JB.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536165375",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Myv0L3opWEI"
+      ],
+      "recommendedSetId": "Myv0L3opWEI",
+      "memberIds": [
+        "1536165375",
+        "3092469864"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative recording featuring Massano. This is not an exact recording of the billed joint act."
+    },
+    {
+      "id": "1532641775",
+      "name": "Mathame",
+      "photoUrl": "/artists/1532641775.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53520563-Mathame.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641775",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=3nkFtJMCs1Q"
+      ],
+      "recommendedSetId": "3nkFtJMCs1Q",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236094946",
+      "name": "Matisse & Sadko present Melodicca",
+      "photoUrl": "/artists/3236094946-official.jpg",
+      "photoSourceUrl": "https://framerusercontent.com/images/EX4AIpn4Vru57je0z1fnlBmo.webp",
+      "photoFallback": {
+        "url": "/artists/3236094946-official.jpg",
+        "sourceUrl": "https://framerusercontent.com/images/EX4AIpn4Vru57je0z1fnlBmo.webp",
+        "pageUrl": "https://www.matissesadko.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236094946",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=PwtLyHgmrXg"
+      ],
+      "recommendedSetId": "PwtLyHgmrXg",
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative Matisse & Sadko solo-billed set; not verified as the Melodicca production."
+    },
+    {
+      "id": "1262718751",
+      "name": "Maz",
+      "photoUrl": "/artists/1262718751.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16687376-DSC_1320 (1).jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262718751",
+      "genre": "House",
+      "subgenres": [
+        "Afro house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=DVqtJ1z_Ons"
+      ],
+      "recommendedSetId": "DVqtJ1z_Ons",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262706483",
+      "name": "MC STRETCH",
+      "photoUrl": "/artists/1262706483.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607334-large-220716-133038-TML2022-_Z9B1884-GU.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706483",
+      "genre": null,
+      "subgenres": [],
+      "genreSources": [],
+      "recommendedSetId": null
+    },
+    {
+      "id": "2651044584",
+      "name": "me n ü",
+      "photoUrl": "/artists/2651044584.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/235405438-me n ü NEW PRESS IMAGE 1 (1).JPG",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651044584",
+      "genre": "House",
+      "subgenres": [
+        "Chill house",
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ea3tMD9ohT8"
+      ],
+      "recommendedSetId": "ea3tMD9ohT8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1532641764",
+      "name": "Meduza",
+      "photoUrl": "/artists/1532641764.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53867332-230721-185343-TML23-R51_4326-KV.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641764",
+      "genre": "House",
+      "subgenres": [
+        "Deep house",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Y7Yzpqmq2ak"
+      ],
+      "recommendedSetId": "Y7Yzpqmq2ak",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1532634875",
+      "name": "Merow",
+      "photoUrl": "/artists/1532634875.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53857713-230729-144520-TML23-A7406983-RS.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532634875",
+      "genre": "House",
+      "subgenres": [
+        "Bass house",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=cGJ9aAAS6Kg"
+      ],
+      "recommendedSetId": "cGJ9aAAS6Kg",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262716857",
+      "name": "Mila Journée",
+      "photoUrl": "/artists/1262716857.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16687125-3I2A7227.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262716857",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Indie dance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=D63U4U8Gkaw"
+      ],
+      "recommendedSetId": "D63U4U8Gkaw",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262711176",
+      "name": "Miss Monique",
+      "photoUrl": "/artists/1262711176.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/177356045-5000x5000.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262711176",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Melodic techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=DdgyifI5k9o"
+      ],
+      "recommendedSetId": "DdgyifI5k9o",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1319002665",
+      "name": "MORTEN",
+      "photoUrl": "/artists/1319002665.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/209760884-250506_Morten_AURA56901 copy.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1319002665",
+      "genre": "EDM",
+      "subgenres": [
+        "Future rave",
+        "Big room"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=G5NbSng40X4"
+      ],
+      "recommendedSetId": "G5NbSng40X4",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262706956",
+      "name": "NERVO",
+      "photoUrl": "/artists/1262706956.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607441-large-220731-182539-TML2022-761A4930-JD.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706956",
+      "genre": "EDM",
+      "subgenres": [
+        "Progressive house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=JKM0Gy0lxYE"
+      ],
+      "recommendedSetId": "JKM0Gy0lxYE",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262708144",
+      "name": "NGHTMRE",
+      "photoUrl": "/artists/1262708144.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16691258-Screenshot 2023-09-11 at 17.49.09.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262708144",
+      "genre": "Bass",
+      "subgenres": [
+        "Trap",
+        "Dubstep"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=JsckNFtpHYI"
+      ],
+      "recommendedSetId": "JsckNFtpHYI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536145873",
+      "name": "Nico Moreno",
+      "photoUrl": "/artists/1536145873.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/113738214-5.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536145873",
+      "genre": "Techno",
+      "subgenres": [
+        "Hard techno",
+        "Industrial techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=UaZJislYAjA"
+      ],
+      "recommendedSetId": "UaZJislYAjA",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1532641793",
+      "name": "Novah",
+      "photoUrl": "/artists/1532641793.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171552159-image.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641793",
+      "genre": "Techno",
+      "subgenres": [
+        "Hard techno",
+        "Hard trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=sFPyP_qgLGU"
+      ],
+      "recommendedSetId": "sFPyP_qgLGU",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1894201211",
+      "name": "Omiki",
+      "photoUrl": "/artists/1894201211.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157510917-Omiki 2.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1894201211",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance",
+        "Full-on"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Bo-3ySzi_mU"
+      ],
+      "recommendedSetId": "Bo-3ySzi_mU",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1789030685",
+      "name": "Oscar and the Wolf",
+      "photoUrl": "/artists/1789030685.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171553284-image.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1789030685",
+      "genre": "Electronic pop",
+      "subgenres": [
+        "Indie pop",
+        "Dream pop"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=Ty03QjFnL90"
+      ],
+      "recommendedSetId": "Ty03QjFnL90",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236106261",
+      "name": "Pacs",
+      "photoUrl": "/artists/3236106261-official.jpg",
+      "photoSourceUrl": "https://cdn.solo.to/user/a/64aff5b01add42_12002909.jpg",
+      "photoFallback": {
+        "url": "/artists/3236106261-official.jpg",
+        "sourceUrl": "https://cdn.solo.to/user/a/64aff5b01add42_12002909.jpg",
+        "pageUrl": "https://solo.to/dj.pacs",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236106261",
+      "genre": "Techno",
+      "subgenres": [
+        "Melodic techno",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=M604IIvsx6k"
+      ],
+      "recommendedSetId": "M604IIvsx6k",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2651272268",
+      "name": "Paige Tomlinson",
+      "photoUrl": "/artists/2651272268.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/235413950-Paige Tomlinson Photo 20-08-2024, 1 34 02 PM.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651272268",
+      "genre": "House",
+      "subgenres": [
+        "Hard house",
+        "UK garage"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=DFWpQnE6ePg"
+      ],
+      "recommendedSetId": "DFWpQnE6ePg",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236152211",
+      "name": "Pendulum (DJ-set)",
+      "photoUrl": "/artists/3236152211-official.jpg",
+      "photoSourceUrl": "https://pendulum.com/cdn/shop/files/Pendulum-Plays_1_1024x1024.png?v=1724232057",
+      "photoFallback": {
+        "url": "/artists/3236152211-official.jpg",
+        "sourceUrl": "https://pendulum.com/cdn/shop/files/Pendulum-Plays_1_1024x1024.png?v=1724232057",
+        "pageUrl": "https://pendulum.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236152211",
+      "genre": "Drum & Bass",
+      "subgenres": [
+        "Dancefloor",
+        "Neurofunk"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=O0kvZqieZ00"
+      ],
+      "recommendedSetId": "O0kvZqieZ00",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1894205007",
+      "name": "Phaxe",
+      "photoUrl": "/artists/1894205007.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157511757-HCT04013.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1894205007",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance",
+        "Progressive trance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=X5kjX5jMTgU"
+      ],
+      "recommendedSetId": "X5kjX5jMTgU",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1361073186",
+      "name": "R3HAB",
+      "photoUrl": "/artists/1361073186.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53521174-R3hab-2024.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1361073186",
+      "genre": "EDM",
+      "subgenres": [
+        "Electro house",
+        "Dance pop"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=nS3zcPI8Syc"
+      ],
+      "recommendedSetId": "nS3zcPI8Syc",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236175811",
+      "name": "Ratier",
+      "photoUrl": "/artists/3236175811-official.jpg",
+      "photoSourceUrl": "https://static.wixstatic.com/media/050e55_57a8f1f583004238b46cf01b7edd5eae~mv2.jpg",
+      "photoFallback": {
+        "url": "/artists/3236175811-official.jpg",
+        "sourceUrl": "https://static.wixstatic.com/media/050e55_57a8f1f583004238b46cf01b7edd5eae~mv2.jpg",
+        "pageUrl": "https://www.ratier.com.br/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236175811",
+      "genre": "House",
+      "subgenres": [
+        "Tech house",
+        "Deep house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=wGrSkH3C20Q"
+      ],
+      "recommendedSetId": "wGrSkH3C20Q",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536151090",
+      "name": "Ray Volpe",
+      "photoUrl": "/artists/1536151090-official.jpg",
+      "photoSourceUrl": "https://linkstorage.linkfire.com/medialinks/images/4c03af8f-e75e-491f-8ca6-10ab2a35787b/artwork-600x315.jpg",
+      "photoFallback": {
+        "url": "/artists/1536151090-official.jpg",
+        "sourceUrl": "https://linkstorage.linkfire.com/medialinks/images/4c03af8f-e75e-491f-8ca6-10ab2a35787b/artwork-600x315.jpg",
+        "pageUrl": "https://rayvol.pe/tour",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536151090",
+      "genre": "Bass",
+      "subgenres": [
+        "Dubstep",
+        "Bass house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=QpVM_g6PPs8"
+      ],
+      "recommendedSetId": "QpVM_g6PPs8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236104786",
+      "name": "Renato Cohen",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236104786",
+      "genre": "Techno",
+      "subgenres": [
+        "Tech house",
+        "Indie dance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=jARvDeCswjM"
+      ],
+      "recommendedSetId": "jARvDeCswjM",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1593884399",
+      "name": "Riascode",
+      "photoUrl": "/artists/1593884399-official.jpg",
+      "photoSourceUrl": "https://ugc.production.linktr.ee/0ee5c167-e2f3-4070-b728-7394dbe1e41c_foto-riascode-perfil-2025.png",
+      "photoFallback": {
+        "url": "/artists/1593884399-official.jpg",
+        "sourceUrl": "https://ugc.production.linktr.ee/0ee5c167-e2f3-4070-b728-7394dbe1e41c_foto-riascode-perfil-2025.png",
+        "pageUrl": "https://linktr.ee/riascode",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593884399",
+      "genre": "House",
+      "subgenres": [
+        "Melodic house",
+        "Afro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=nAIJIDKAoiw"
+      ],
+      "recommendedSetId": "nAIJIDKAoiw",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262710270",
+      "name": "Sara Landry",
+      "photoUrl": "/artists/1262710270.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/135386184-VENOM_PORTRAIT_FINAL.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262710270",
+      "genre": "Techno",
+      "subgenres": [
+        "Hard techno",
+        "Industrial techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=aDAWctObTvI"
+      ],
+      "recommendedSetId": "aDAWctObTvI",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262708928",
+      "name": "Scorsi",
+      "photoUrl": "/artists/1262708928.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16684962-Scorsi_w_05.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262708928",
+      "genre": "EDM",
+      "subgenres": [
+        "Future bass",
+        "Bass house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=gMVdhN8BhtY"
+      ],
+      "recommendedSetId": "gMVdhN8BhtY",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2828462860",
+      "name": "SHEE",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2828462860",
+      "genre": "House",
+      "subgenres": [
+        "Disco house",
+        "Filter house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=-dwGn8UjogY"
+      ],
+      "recommendedSetId": "-dwGn8UjogY",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262723063",
+      "name": "Silvio Soul",
+      "photoUrl": "/artists/1262723063.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16688085-DSC01184 pb.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262723063",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=m4WiLCc01Yo"
+      ],
+      "recommendedSetId": "m4WiLCc01Yo",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236187181",
+      "name": "simo not simon",
+      "photoUrl": "/artists/3236187181-official.jpg",
+      "photoSourceUrl": "https://f4.bcbits.com/img/0034996108_23.jpg",
+      "photoFallback": {
+        "url": "/artists/3236187181-official.jpg",
+        "sourceUrl": "https://f4.bcbits.com/img/0034996108_23.jpg",
+        "pageUrl": "https://simonotsimon.bandcamp.com/",
+        "verifiedAt": "2026-11-11"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236187181",
+      "genre": "House",
+      "subgenres": [
+        "Afro house",
+        "Organic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=xURi3wERiBE"
+      ],
+      "recommendedSetId": "xURi3wERiBE",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236102328",
+      "name": "Smash The House Take Over: Bassjackers",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236102328",
+      "genre": "EDM",
+      "subgenres": [
+        "Big room",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ypYSzU3fj88"
+      ],
+      "recommendedSetId": "ypYSzU3fj88",
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Recent official Bassjackers full set, representative of the billed Smash The House takeover."
+    },
+    {
+      "id": "3236100424",
+      "name": "Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer",
+      "photoUrl": "/artists/1292612863.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/122923241-Dimitri Vegas 02.jpg",
+      "photoFallback": {
+        "url": "/artists/1292612863.jpg",
+        "sourceUrl": "https://artist-lineup-cdn.tomorrowland.com/122923241-Dimitri Vegas 02.jpg",
+        "pageUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1292612863",
+        "verifiedAt": "2026-11-11",
+        "representativeArtist": "Dimitri Vegas"
+      },
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236100424",
+      "genre": "Techno",
+      "subgenres": [
+        "Big room techno",
+        "Hard techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=3o0T4z6oT4Y"
+      ],
+      "recommendedSetId": "3o0T4z6oT4Y",
+      "memberIds": [
+        "1292612863",
+        "3016369307"
+      ],
+      "recommendedSetRepresentative": true,
+      "recommendationNote": "Representative solo set by Dimitri Vegas. This is not a recording of Dimitri Vegas b2b Lilly Palmer."
+    },
+    {
+      "id": "1790625633",
+      "name": "Space 92",
+      "photoUrl": "/artists/1790625633.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/114227476-Copy of 2.PhotoCred-yakindphoto_gmail.com.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790625633",
+      "genre": "Techno",
+      "subgenres": [
+        "Peak-time techno",
+        "Acid techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=3k66DQuU31A"
+      ],
+      "recommendedSetId": "3k66DQuU31A",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236168275",
+      "name": "Special Surprise Act",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236168275",
+      "genre": null,
+      "subgenres": [],
+      "genreSources": [],
+      "recommendedSetId": null
+    },
+    {
+      "id": "1532641809",
+      "name": "Stephani B",
+      "photoUrl": "/artists/1532641809.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/209079503-MAIN PRESS PIC 2.jpeg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641809",
+      "genre": "House",
+      "subgenres": [
+        "Electro house",
+        "Tech house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ePRSxcV3rDo"
+      ],
+      "recommendedSetId": "ePRSxcV3rDo",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262706637",
+      "name": "Steve Aoki",
+      "photoUrl": "/artists/1262706637.jpg",
+      "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607368-large-220723-002559-TML2022-DN102555-DN(3).jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706637",
+      "genre": "EDM",
+      "subgenres": [
+        "Electro house",
+        "Big room"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=8-J01-hcHfA"
+      ],
+      "recommendedSetId": "8-J01-hcHfA",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1790446015",
+      "name": "Stryker",
+      "photoUrl": "/artists/1790446015.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/114233611-Stryker 06.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790446015",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Full-on",
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=rLUS856iRXE"
+      ],
+      "recommendedSetId": "rLUS856iRXE",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1546635513",
+      "name": "Sub Zero Project",
+      "photoUrl": "/artists/1546635513.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/128857980-SZP_2024_highres--1.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1546635513",
+      "genre": "Hardstyle",
+      "subgenres": [
+        "Rawstyle",
+        "Hard dance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=a8OvVgfmzPk"
+      ],
+      "recommendedSetId": "a8OvVgfmzPk",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1532622883",
+      "name": "Symphony of Unity",
+      "photoUrl": "/artists/1532622883.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53568073-Symphony-of-Unity-2024.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532622883",
+      "genre": "Orchestral electronic",
+      "subgenres": [
+        "Orchestral",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=_gYlekjS6Nc"
+      ],
+      "recommendedSetId": "_gYlekjS6Nc",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "2655168539",
+      "name": "The Chainsmokers",
+      "photoUrl": "/artists/2655168539.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/247252890-Press Photo.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2655168539",
+      "genre": "EDM",
+      "subgenres": [
+        "Future bass",
+        "Dance pop"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=1lqmFLr-SkA"
+      ],
+      "recommendedSetId": "1lqmFLr-SkA",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536131096",
+      "name": "Third Party",
+      "photoUrl": "/artists/1536131096.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/98153698-写真 6-28-24 午前3 53 31 (8).jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536131096",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Electro house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=YLhLDGXPjJ8"
+      ],
+      "recommendedSetId": "YLhLDGXPjJ8",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1264276572",
+      "name": "Timmy Trumpet",
+      "photoUrl": "/artists/1264276572.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16693512-Screenshot 2023-09-11 at 18.11.57.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264276572",
+      "genre": "EDM",
+      "subgenres": [
+        "Big room",
+        "Hardstyle"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=QcvGuOhSVlc"
+      ],
+      "recommendedSetId": "QcvGuOhSVlc",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1894134243",
+      "name": "Unfazed",
+      "photoUrl": "/artists/1894134243.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157474131-2025-03-27 Klee.Media _ Unfazed _ Presskit _ 15.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1894134243",
+      "genre": "House",
+      "subgenres": [
+        "Afro house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=aKgAYvhhsz0"
+      ],
+      "recommendedSetId": "aKgAYvhhsz0",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1536133388",
+      "name": "Vegas",
+      "photoUrl": "/artists/1536133388.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/114275110-VEGAS - 5.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536133388",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=YDOFgbSvziw"
+      ],
+      "recommendedSetId": "YDOFgbSvziw",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3236175239",
+      "name": "Vermont",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236175239",
+      "genre": "Psytrance",
+      "subgenres": [
+        "Progressive psytrance",
+        "Full-on"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=UsNhZ-Czhgc"
+      ],
+      "recommendedSetId": "UsNhZ-Czhgc",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1594454421",
+      "name": "Viot",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594454421",
+      "genre": "House",
+      "subgenres": [
+        "Tech house",
+        "Minimal house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=_9msZamUiMw"
+      ],
+      "recommendedSetId": "_9msZamUiMw",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "3092469864",
+      "name": "Volkoder",
+      "photoUrl": null,
+      "photoSourceUrl": null,
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3092469864",
+      "genre": "House",
+      "subgenres": [
+        "Tech house",
+        "Techno"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=nSYt0B-EGwA"
+      ],
+      "recommendedSetId": "nSYt0B-EGwA",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262703149",
+      "name": "Yves V",
+      "photoUrl": "/artists/1262703149.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171553900-image.png",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262703149",
+      "genre": "EDM",
+      "subgenres": [
+        "Electro house",
+        "Progressive house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=ckjmlB4Sq44"
+      ],
+      "recommendedSetId": "ckjmlB4Sq44",
+      "recommendedSetRepresentative": false
+    },
+    {
+      "id": "1262712011",
+      "name": "ZAC",
+      "photoUrl": "/artists/1262712011.jpg",
+      "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/124076424-ZAC_Press-Pics_Y4A4981-02.jpg",
+      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262712011",
+      "genre": "House",
+      "subgenres": [
+        "Progressive house",
+        "Melodic house"
+      ],
+      "genreSources": [
+        "https://www.youtube.com/watch?v=cPuG83gMlI0"
+      ],
+      "recommendedSetId": "cPuG83gMlI0",
+      "recommendedSetRepresentative": false
+    }
+  ],
+  "appearances": [
+    {
+      "id": "3235874902",
+      "artistId": "1262707391",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236092003",
+      "artistId": "1361073186",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236097366",
+      "artistId": "1536145873",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236097662",
+      "artistId": "1262713587",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236097685",
+      "artistId": "1262712880",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236089622",
+      "artistId": "5010888283",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236093328",
+      "artistId": "1262706483",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236089638",
+      "artistId": "1319002665",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236086119",
+      "artistId": "1262707253",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236094495",
+      "artistId": "1568023510",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236097704",
+      "artistId": "1894046042",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236100656",
+      "artistId": "1593860343",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236098959",
+      "artistId": "3236100424",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236093667",
+      "artistId": "3236102328",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236114524",
+      "artistId": "1536131096",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236085897",
+      "artistId": "1790220673",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236089928",
+      "artistId": "1789089848",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236114777",
+      "artistId": "3236094946",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236101342",
+      "artistId": "1262703149",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236093701",
+      "artistId": "1532641809",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236107001",
+      "artistId": "3236102591",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236095933",
+      "artistId": "1789005670",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236105813",
+      "artistId": "act:3236105813",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236107908",
+      "artistId": "3236104786",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236116558",
+      "artistId": "1262716991",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236117082",
+      "artistId": "1532641775",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236105694",
+      "artistId": "1262705600",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236109283",
+      "artistId": "1262723682",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236109309",
+      "artistId": "1790219463",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236115886",
+      "artistId": "3236106261",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236104075",
+      "artistId": "1262716857",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3236127051",
+      "artistId": "1292612863",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236110809",
+      "artistId": "1532641793",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236129238",
+      "artistId": "1262711176",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236126777",
+      "artistId": "1536133388",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236148672",
+      "artistId": "1262706956",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236151622",
+      "artistId": "1532622596",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236145382",
+      "artistId": "1262703370",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236145429",
+      "artistId": "3236144302",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236153137",
+      "artistId": "1262706483",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236149274",
+      "artistId": "1262718587",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236153522",
+      "artistId": "3236151687",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236145702",
+      "artistId": "1594454421",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236154620",
+      "artistId": "3236151944",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236152497",
+      "artistId": "1593892326",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236153744",
+      "artistId": "1262708144",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236149595",
+      "artistId": "3236152211",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236146560",
+      "artistId": "1536151090",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236155302",
+      "artistId": "3236160786",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236150179",
+      "artistId": "1532634875",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236149877",
+      "artistId": "1262708928",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236154050",
+      "artistId": "1264276664",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236146951",
+      "artistId": "1262717903",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236146484",
+      "artistId": "1262707617",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236155111",
+      "artistId": "1262716164",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236150492",
+      "artistId": "3236147570",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236147769",
+      "artistId": "1262719608",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236155330",
+      "artistId": "1894134243",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236147899",
+      "artistId": "3016369307",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236159802",
+      "artistId": "2969753595",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236162001",
+      "artistId": "1262705755",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236147599",
+      "artistId": "1262722323",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236161777",
+      "artistId": "1262723063",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3236160112",
+      "artistId": "1262707253",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236172790",
+      "artistId": "2655381348",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236164619",
+      "artistId": "1992358032",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236170748",
+      "artistId": "1262708699",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236162161",
+      "artistId": "1262709306",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236158130",
+      "artistId": "3092469864",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236164811",
+      "artistId": "1262713222",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236164646",
+      "artistId": "3236173691",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236173617",
+      "artistId": "1262706483",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236170762",
+      "artistId": "act:3236170762",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236166697",
+      "artistId": "1262706247",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236167043",
+      "artistId": "1593885205",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236175024",
+      "artistId": "2651044584",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236167160",
+      "artistId": "1262712011",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236174764",
+      "artistId": "1593884399",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236168641",
+      "artistId": "1546635513",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236171312",
+      "artistId": "act:3236171312",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236167492",
+      "artistId": "3236171340",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236165984",
+      "artistId": "act:3236165984",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236167405",
+      "artistId": "1894201211",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236172165",
+      "artistId": "3236175239",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236178612",
+      "artistId": "1536134545",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236179162",
+      "artistId": "1894205007",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236175747",
+      "artistId": "1262709791",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236168365",
+      "artistId": "3236178606",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236179388",
+      "artistId": "1262718751",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236176329",
+      "artistId": "1893969378",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236176548",
+      "artistId": "act:3236176548",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236170297",
+      "artistId": "act:3236170297",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236185082",
+      "artistId": "1262710270",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236185203",
+      "artistId": "1536134704",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3236170415",
+      "artistId": "1321229552",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320565415",
+      "artistId": "1593866644",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320565445",
+      "artistId": "1264275505",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320560985",
+      "artistId": "1889131930",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320611895",
+      "artistId": "1302186739",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320565364",
+      "artistId": "act:3320565364",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320612557",
+      "artistId": "3320611890",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320565302",
+      "artistId": "act:3320565302",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320560903",
+      "artistId": "1345812045",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320595936",
+      "artistId": "2828462860",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320596481",
+      "artistId": "1532622883",
+      "day": "2027-04-30",
+      "stage": null
+    },
+    {
+      "id": "3320561276",
+      "artistId": "1262706637",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3320555049",
+      "artistId": "1532641764",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3320565225",
+      "artistId": "1532622883",
+      "day": "2027-05-01",
+      "stage": null
+    },
+    {
+      "id": "3320560993",
+      "artistId": "2655168539",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320612587",
+      "artistId": "3320594685",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320596127",
+      "artistId": "act:3320596127",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320612016",
+      "artistId": "act:3320612016",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320555151",
+      "artistId": "1532622883",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320561278",
+      "artistId": "1536149852",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3320560921",
+      "artistId": "3320595906",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3328972447",
+      "artistId": "1264276572",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3328986960",
+      "artistId": "2997898508",
+      "day": "2027-05-02",
+      "stage": null
+    },
+    {
+      "id": "3328971979",
+      "artistId": "1789030685",
+      "day": "2027-05-01",
+      "stage": null
+    }
+  ],
+  "recordings": [
+    {
+      "id": "-dwGn8UjogY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-dwGn8UjogY",
+      "title": "CORE Radio I SHEE at Tomorrowland Belgium",
+      "eventLabel": "Tomorrowland Belgium 2026 · CORE Radio",
+      "channel": "CORE",
+      "uploadedAt": null,
+      "viewCount": 265,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent full mix published by Tomorrowland CORE, recorded at Tomorrowland Belgium.",
+      "representative": false
+    },
+    {
+      "id": "-eOa77e_uJg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-eOa77e_uJg",
+      "title": "LP Giobbi WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 40635,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "-etxOvF1ZN0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-etxOvF1ZN0",
+      "title": "Axwell | Tomorrowland Winter 2026",
+      "eventLabel": "Tomorrowland Winter 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-03-30",
+      "viewCount": 681669,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "-zAKPJV0dgk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=-zAKPJV0dgk",
+      "title": "Illusionize in Saturn @ SURREAL PARK Camboriú, Brazil",
+      "eventLabel": "Surreal Park (published 2026)",
+      "channel": "ILLUSIONIZE",
+      "uploadedAt": "2026-08-12",
+      "viewCount": 347073,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "01chIPfG9M0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=01chIPfG9M0",
+      "title": "DJ DELCU | Submundo 808 DJ SET | São Paulo/SP",
+      "eventLabel": "Submundo 808 (published 2025)",
+      "channel": "SUBMUNDO 808",
+      "uploadedAt": "2025-12-09",
+      "viewCount": 16036,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "1Fu89dxrXI0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=1Fu89dxrXI0",
+      "title": "Maddix WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Maddix",
+      "uploadedAt": null,
+      "viewCount": 579187,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo set with substantial verified views.",
+      "representative": false
+    },
+    {
+      "id": "1lqmFLr-SkA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=1lqmFLr-SkA",
+      "title": "The Chainsmokers WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and The Chainsmokers",
+      "uploadedAt": null,
+      "viewCount": 519915,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set, preferred over older high-view recordings.",
+      "representative": false
+    },
+    {
+      "id": "2uu8JrLapgs",
+      "youtubeUrl": "https://www.youtube.com/watch?v=2uu8JrLapgs",
+      "title": "Malive B2B Nosi | Tomorrowland Winter 2026",
+      "eventLabel": "Tomorrowland Winter 2026",
+      "channel": "Tomorrowland and 2 more",
+      "uploadedAt": null,
+      "viewCount": 10031,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland recording of Malive performing b2b with Nosi.",
+      "representative": false
+    },
+    {
+      "id": "3k66DQuU31A",
+      "youtubeUrl": "https://www.youtube.com/watch?v=3k66DQuU31A",
+      "title": "Space 92 WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Space 92",
+      "uploadedAt": null,
+      "viewCount": 244735,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set with substantial verified views.",
+      "representative": false
+    },
+    {
+      "id": "3nkFtJMCs1Q",
+      "youtubeUrl": "https://www.youtube.com/watch?v=3nkFtJMCs1Q",
+      "title": "Mathame WE1 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 612875,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Popular official Tomorrowland full set from the latest matching available edition.",
+      "representative": false
+    },
+    {
+      "id": "3o0T4z6oT4Y",
+      "youtubeUrl": "https://www.youtube.com/watch?v=3o0T4z6oT4Y",
+      "title": "Dimitri Vegas - Live at Tomorrowland 2026 Mainstage (FULL SET 4K UHD)",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Dimitri Vegas & Like Mike",
+      "uploadedAt": "2026-08-05",
+      "viewCount": 2877475,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "44BquK38GRo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=44BquK38GRo",
+      "title": "JACKSON @ CORE | Tomorrowland Brasil 2025",
+      "eventLabel": "Tomorrowland Brasil 2025",
+      "channel": "JACKSON",
+      "uploadedAt": "2025-10-19",
+      "viewCount": 533129,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "4pu2fMdcOGI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4pu2fMdcOGI",
+      "title": "ELI IWASA @ WARUNG THE FINAL JOURNEY APR 18, 2026",
+      "eventLabel": "Warung: The Final Journey 2026",
+      "channel": "Eliana Iwasa",
+      "uploadedAt": "2026-05-07",
+      "viewCount": 64807,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "4uHPAUR9bfk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4uHPAUR9bfk",
+      "title": "HALŌ MAINSTAGE WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 154194,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "54mR3wf90Us",
+      "youtubeUrl": "https://www.youtube.com/watch?v=54mR3wf90Us",
+      "title": "HAAi UK Techno, Breaks & Dubstep DJ Set Live From DJ Mag",
+      "eventLabel": "DJ Mag HQ (published 2025)",
+      "channel": "DJ Mag",
+      "uploadedAt": "2025-11-14",
+      "viewCount": 26238,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "5kXgIfkAfOs",
+      "youtubeUrl": "https://www.youtube.com/watch?v=5kXgIfkAfOs",
+      "title": "D-Nox | Live Set at Boris Brejcha in Concert 2023 - Progressive House, Melodic, Techno #saopaulo 4K",
+      "eventLabel": "Boris Brejcha in Concert 2023",
+      "channel": "D-Nox",
+      "uploadedAt": "2024-01-26",
+      "viewCount": 436989,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "8-J01-hcHfA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8-J01-hcHfA",
+      "title": "Steve Aoki WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Steve Aoki",
+      "uploadedAt": null,
+      "viewCount": 373232,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set, preferred over duplicate artist uploads.",
+      "representative": false
+    },
+    {
+      "id": "8Oq0TMeaY4I",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8Oq0TMeaY4I",
+      "title": "Camila Jun WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 66873,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "8d8PbDm7mSY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8d8PbDm7mSY",
+      "title": "Andromedik WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 194840,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "9JHw0jNSdks",
+      "youtubeUrl": "https://www.youtube.com/watch?v=9JHw0jNSdks",
+      "title": "Marian (BR) @ La Juanita Club (BsAs - Argentina)",
+      "eventLabel": "La Juanita Club",
+      "channel": "La Juanita and Marian",
+      "uploadedAt": null,
+      "viewCount": 3419,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent full recording credited to Marian (BR) and the publishing club.",
+      "representative": false
+    },
+    {
+      "id": "9j8ByvqzJkE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=9j8ByvqzJkE",
+      "title": "Ekanta @Universo Paralello 2024/2025",
+      "eventLabel": "Universo Paralello 2024/2025",
+      "channel": "Ekanta Jake",
+      "uploadedAt": "2025-04-02",
+      "viewCount": 22017,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Representative recording of Ekanta only; no joint Ekanta & Swarup recording was verified. The title explicitly identifies Universo Paralello 2024/2025.",
+      "representative": true
+    },
+    {
+      "id": "A0gOcUGnQvI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=A0gOcUGnQvI",
+      "title": "EMILIJA b2b Odymel at Paradise City 2025 | Full Closing Set",
+      "eventLabel": "Paradise City 2025",
+      "channel": "EMILIJA",
+      "uploadedAt": "2025-07-24",
+      "viewCount": 51497,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Representative joint set: EMILIJA b2b Odymel at Paradise City 2025; not a solo EMILIJA performance.",
+      "representative": true
+    },
+    {
+      "id": "Bo-3ySzi_mU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Bo-3ySzi_mU",
+      "title": "Omiki - Indian Spirit Festival 2026 (Full Video Set)",
+      "eventLabel": "Indian Spirit Festival 2026",
+      "channel": "Omiki Official",
+      "uploadedAt": null,
+      "viewCount": 347440,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist-published full festival recording with substantial views.",
+      "representative": false
+    },
+    {
+      "id": "CQBSRfaz1yY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=CQBSRfaz1yY",
+      "title": "Dino Lenny WE2 | Tomorrowland 2024",
+      "eventLabel": "Tomorrowland Belgium 2024",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2024-07-29",
+      "viewCount": 45142,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "D63U4U8Gkaw",
+      "youtubeUrl": "https://www.youtube.com/watch?v=D63U4U8Gkaw",
+      "title": "MILA JOURNÉE live at @elementsba | 28.02.26",
+      "eventLabel": "Elements Buenos Aires 2026",
+      "channel": "Elements  and Mila Journée ",
+      "uploadedAt": null,
+      "viewCount": 29377,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Venue and artist-published full recording explicitly dated February 28, 2026.",
+      "representative": false
+    },
+    {
+      "id": "DAOlnMYA3nU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=DAOlnMYA3nU",
+      "title": "Cyril WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 111229,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "DFWpQnE6ePg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=DFWpQnE6ePg",
+      "title": "Paige Tomlinson  | Full set | Soenda Festival 2026",
+      "eventLabel": "Soenda Festival 2026",
+      "channel": "Soenda Festival",
+      "uploadedAt": null,
+      "viewCount": 14142,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent festival-published full set by the artist.",
+      "representative": false
+    },
+    {
+      "id": "DVqtJ1z_Ons",
+      "youtubeUrl": "https://www.youtube.com/watch?v=DVqtJ1z_Ons",
+      "title": "Labyrinth Live on the Thames: Maz",
+      "eventLabel": "Labyrinth · Live on the Thames",
+      "channel": "Labyrinth and Maz",
+      "uploadedAt": null,
+      "viewCount": 1100137,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Popular artist and promoter-published solo set, preferred over older joint Tomorrowland sets.",
+      "representative": false
+    },
+    {
+      "id": "DdgyifI5k9o",
+      "youtubeUrl": "https://www.youtube.com/watch?v=DdgyifI5k9o",
+      "title": "Miss Monique WE2 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 2151849,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Very popular recent official Tomorrowland set, balancing views with recency.",
+      "representative": false
+    },
+    {
+      "id": "DuXXMZLfAkQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=DuXXMZLfAkQ",
+      "title": "Fisher WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-08-05",
+      "viewCount": 90657,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "E1WH0nvaxAw",
+      "youtubeUrl": "https://www.youtube.com/watch?v=E1WH0nvaxAw",
+      "title": "ILLENIUM WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 534116,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "FphabMpCU3U",
+      "youtubeUrl": "https://www.youtube.com/watch?v=FphabMpCU3U",
+      "title": "BRUNA STRAIT @ House Mag Festival - Surreal Park 2025",
+      "eventLabel": "House Mag Festival 2025",
+      "channel": "BRUNA STRAIT",
+      "uploadedAt": "2025-09-26",
+      "viewCount": 78825,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "G5NbSng40X4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=G5NbSng40X4",
+      "title": "MORTEN WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and MORTEN",
+      "uploadedAt": null,
+      "viewCount": 233801,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set, preferred over a newer joint set.",
+      "representative": false
+    },
+    {
+      "id": "HWIratXF1Bo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=HWIratXF1Bo",
+      "title": "Bhaskar WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 81657,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "Ikc9wrhe9D8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Ikc9wrhe9D8",
+      "title": "Cat Dealers | Tomorrowland Brasil 2025",
+      "eventLabel": "Tomorrowland Brasil 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2025-10-15",
+      "viewCount": 71868,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "JKM0Gy0lxYE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=JKM0Gy0lxYE",
+      "title": "NERVO WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and NERVO",
+      "uploadedAt": null,
+      "viewCount": 154416,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set, preferred over much older high-view recordings.",
+      "representative": false
+    },
+    {
+      "id": "JsckNFtpHYI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=JsckNFtpHYI",
+      "title": "NGHTMRE - LIVE @ ULTRA MUSIC FESTIVAL MIAMI 2025",
+      "eventLabel": "Ultra Miami 2025",
+      "channel": "NGHTMRE",
+      "uploadedAt": null,
+      "viewCount": 133926,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full Ultra set; no suitable recent official Tomorrowland solo set found.",
+      "representative": false
+    },
+    {
+      "id": "KCeluZt3H9o",
+      "youtubeUrl": "https://www.youtube.com/watch?v=KCeluZt3H9o",
+      "title": "Bebe Rexha WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 702056,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "KLyeLMJuIOY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=KLyeLMJuIOY",
+      "title": "Lost Frequencies - Live at Tomorrowland 2026 (Mainstage) (Full Set HD)",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Lost Frequencies",
+      "uploadedAt": "2026-07-30",
+      "viewCount": 738325,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "KWexSprlG08",
+      "youtubeUrl": "https://www.youtube.com/watch?v=KWexSprlG08",
+      "title": "Fernanda Pistelli at Boom Festival 2025 (Full Set Movie)",
+      "eventLabel": "Boom Festival 2025",
+      "channel": "Fernanda Pistelli",
+      "uploadedAt": "2026-03-07",
+      "viewCount": 103895,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "L6-78fOsMHs",
+      "youtubeUrl": "https://www.youtube.com/watch?v=L6-78fOsMHs",
+      "title": "DUBDOGZ @ TOMORROWLAND BRASIL 2024",
+      "eventLabel": "Tomorrowland Brasil 2024",
+      "channel": "Dubdogz",
+      "uploadedAt": "2024-10-15",
+      "viewCount": 928114,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "M604IIvsx6k",
+      "youtubeUrl": "https://www.youtube.com/watch?v=M604IIvsx6k",
+      "title": "PACS @ ODIZIA FESTIVAL 2025 (Aix-En-Provence) [4K Melodic Techno Mix]",
+      "eventLabel": "Odizia Festival 2025",
+      "channel": "PACS",
+      "uploadedAt": null,
+      "viewCount": 10812,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full festival mix explicitly labeled melodic techno.",
+      "representative": false
+    },
+    {
+      "id": "MHtzcOfLGyU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MHtzcOfLGyU",
+      "title": "Aline Rocha WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 26491,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "Myv0L3opWEI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Myv0L3opWEI",
+      "title": "Massano WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Massano",
+      "uploadedAt": null,
+      "viewCount": 142861,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set, preferred over duplicate uploads of the same performance.",
+      "representative": false
+    },
+    {
+      "id": "NejgEM7O98M",
+      "youtubeUrl": "https://www.youtube.com/watch?v=NejgEM7O98M",
+      "title": "MANDY WE2 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 393362,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Popular official Tomorrowland solo set, preferred over a newer joint performance.",
+      "representative": false
+    },
+    {
+      "id": "O0kvZqieZ00",
+      "youtubeUrl": "https://www.youtube.com/watch?v=O0kvZqieZ00",
+      "title": "PENDULUM (DJ SET) - Live at Uprising Festival 2025",
+      "eventLabel": "Uprising Festival 2025",
+      "channel": "UPRISING FESTIVAL",
+      "uploadedAt": null,
+      "viewCount": 45505,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Festival-published full DJ set, matching the billed DJ-set format.",
+      "representative": false
+    },
+    {
+      "id": "PPHBpXM64IY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=PPHBpXM64IY",
+      "title": "MARIE VAUNT LIVE SET | S2O BANGKOK 2026",
+      "eventLabel": "S2O Bangkok 2026",
+      "channel": "S2O Festival",
+      "uploadedAt": null,
+      "viewCount": 68345,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent festival-published full set; no suitable official Tomorrowland solo recording found.",
+      "representative": false
+    },
+    {
+      "id": "PwtLyHgmrXg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=PwtLyHgmrXg",
+      "title": "Matisse & Sadko WE2 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 164822,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Representative Matisse & Sadko solo-billed set; not verified as the Melodicca production.",
+      "representative": true
+    },
+    {
+      "id": "QPvFSels9PU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=QPvFSels9PU",
+      "title": "Bibi Seck WE1 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2025-07-29",
+      "viewCount": 21820,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "QZRD0Tb8sUI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=QZRD0Tb8sUI",
+      "title": "JØRD @ Tomorrowland Brasil (The Gathering) 2024",
+      "eventLabel": "Tomorrowland Brasil: The Gathering 2024",
+      "channel": "JØRD",
+      "uploadedAt": "2024-10-25",
+      "viewCount": 5067,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "QcvGuOhSVlc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=QcvGuOhSVlc",
+      "title": "Timmy Trumpet WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Timmy Trumpet",
+      "uploadedAt": null,
+      "viewCount": 1299026,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set with over a million verified views.",
+      "representative": false
+    },
+    {
+      "id": "QpVM_g6PPs8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=QpVM_g6PPs8",
+      "title": "RAY VOLPE @ EDC Las Vegas 2026 (Full Set)",
+      "eventLabel": "EDC Las Vegas 2026",
+      "channel": "RAY VOLPE and Insomniac",
+      "uploadedAt": null,
+      "viewCount": 176827,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist and festival-published full set with substantial views.",
+      "representative": false
+    },
+    {
+      "id": "RLOghpXjuJI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=RLOghpXjuJI",
+      "title": "Korolova WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 316742,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "RLWsSgwB__U",
+      "youtubeUrl": "https://www.youtube.com/watch?v=RLWsSgwB__U",
+      "title": "Bauhouse Warmup @ GreenValley (29/11/25)",
+      "eventLabel": "Green Valley 2025",
+      "channel": "Bauhouse",
+      "uploadedAt": null,
+      "viewCount": 822,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "Rsx_3U55Z2M",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Rsx_3U55Z2M",
+      "title": "Adalamoon Live at UNIVERSO PARALELLO 25",
+      "eventLabel": "Universo Paralello 2025",
+      "channel": "Dj Moon / Adalamoon",
+      "uploadedAt": "2025-01-30",
+      "viewCount": 11739,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "SOeXzYSaERQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SOeXzYSaERQ",
+      "title": "FEZZO @ Elfortin Tour | Curitiba, Brazil",
+      "eventLabel": "Elfortin Tour (published 2026)",
+      "channel": "FEZZO",
+      "uploadedAt": "2026-10-17",
+      "viewCount": 37924,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "SSu5jnPAhag",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SSu5jnPAhag",
+      "title": "Chelina Manuhutu DJ Set – Creamfields: Halo 2026 | @beatport",
+      "eventLabel": "Creamfields 2026",
+      "channel": "Beatport",
+      "uploadedAt": "2026-09-25",
+      "viewCount": 19508,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "SkMIT6DTxeg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SkMIT6DTxeg",
+      "title": "K Motionz DJ Set – Beatport Live: London 2026 | @beatport Live",
+      "eventLabel": "Beatport Live: London 2026",
+      "channel": "Beatport",
+      "uploadedAt": "2026-09-24",
+      "viewCount": 103623,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "SpM52EYms14",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SpM52EYms14",
+      "title": "ALINE ROCHA B2B RATIER @ D-Edge, Rio de Janeiro",
+      "eventLabel": "D-Edge Rio (published 2026)",
+      "channel": "ALINE ROCHA",
+      "uploadedAt": "2026-07-02",
+      "viewCount": 2765,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Exact artist pairing in an official artist-published full set; YouTube currently requires sign-in to play this recording. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "TmW7yXa1GY0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=TmW7yXa1GY0",
+      "title": "MALU @ VERMELHA [BOMA RECORDS]",
+      "eventLabel": "Vermelha · BOMA Records",
+      "channel": "BOMA and MALU",
+      "uploadedAt": null,
+      "viewCount": 26637,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist and venue-published full set, matching the Brazilian artist.",
+      "representative": false
+    },
+    {
+      "id": "Ty03QjFnL90",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Ty03QjFnL90",
+      "title": "Oscar and the Wolf WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Oscar and the Wolf",
+      "uploadedAt": null,
+      "viewCount": 73137,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full live performance; this act is not a DJ set.",
+      "representative": false
+    },
+    {
+      "id": "UaZJislYAjA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=UaZJislYAjA",
+      "title": "Nico Moreno WE2 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 850445,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Popular official Tomorrowland solo recording, preferred over newer joint performances.",
+      "representative": false
+    },
+    {
+      "id": "UsNhZ-Czhgc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=UsNhZ-Czhgc",
+      "title": "Vermont | Adhana Festival 2025/2026 (Full Movie)",
+      "eventLabel": "Adhana Festival 2025/2026",
+      "channel": "Vermont Live",
+      "uploadedAt": null,
+      "viewCount": 73996,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist-published full festival set matching the Brazilian act.",
+      "representative": false
+    },
+    {
+      "id": "X5kjX5jMTgU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=X5kjX5jMTgU",
+      "title": "Phaxe @ Universo Paralello 24/25 (Full Set Movie)",
+      "eventLabel": "Universo Paralello 2024/2025",
+      "channel": "Magic Moments Records",
+      "uploadedAt": null,
+      "viewCount": 447930,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full festival recording published by Magic Moments Records with strong views.",
+      "representative": false
+    },
+    {
+      "id": "Xg37kg6IkF4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Xg37kg6IkF4",
+      "title": "ELFIGO WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 142766,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "Y7Yzpqmq2ak",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Y7Yzpqmq2ak",
+      "title": "Meduza³ WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Meduza",
+      "uploadedAt": null,
+      "viewCount": 349086,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland Meduza³ set with strong views.",
+      "representative": false
+    },
+    {
+      "id": "YDOFgbSvziw",
+      "youtubeUrl": "https://www.youtube.com/watch?v=YDOFgbSvziw",
+      "title": "VEGAS 15 ANOS @ FLORIANÓPOLIS (FULL VIDEO)",
+      "eventLabel": "Vegas 15 Anos · Florianópolis",
+      "channel": "Vegas Live",
+      "uploadedAt": null,
+      "viewCount": 190383,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published extended live show matching Brazilian psytrance artist Vegas, not Dimitri Vegas.",
+      "representative": false
+    },
+    {
+      "id": "YLhLDGXPjJ8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=YLhLDGXPjJ8",
+      "title": "Third Party | Tomorrowland Winter 2026",
+      "eventLabel": "Tomorrowland Winter 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 81491,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set, preferred over joint recordings.",
+      "representative": false
+    },
+    {
+      "id": "_9msZamUiMw",
+      "youtubeUrl": "https://www.youtube.com/watch?v=_9msZamUiMw",
+      "title": "VIOT dj set at The Terrace Miami   @OfficialClubSpace",
+      "eventLabel": "Club Space Miami",
+      "channel": "Club Space and Viot",
+      "uploadedAt": null,
+      "viewCount": 94204,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist and venue-published full set with substantial views.",
+      "representative": false
+    },
+    {
+      "id": "_gYlekjS6Nc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=_gYlekjS6Nc",
+      "title": "Symphony of Unity | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland and Symphony of Unity",
+      "uploadedAt": null,
+      "viewCount": 1310156,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Popular official Tomorrowland full orchestral show, matching the billed ensemble.",
+      "representative": false
+    },
+    {
+      "id": "a5IR5EqgxMo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=a5IR5EqgxMo",
+      "title": "Agents Of Time WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 76578,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "a8OvVgfmzPk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=a8OvVgfmzPk",
+      "title": "Sub Zero Project WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Sub Zero Project",
+      "uploadedAt": null,
+      "viewCount": 537335,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set, preferred over a joint performance.",
+      "representative": false
+    },
+    {
+      "id": "aDAWctObTvI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=aDAWctObTvI",
+      "title": "Sara Landry WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Sara Landry",
+      "uploadedAt": null,
+      "viewCount": 496980,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set with substantial views.",
+      "representative": false
+    },
+    {
+      "id": "aKgAYvhhsz0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=aKgAYvhhsz0",
+      "title": "Jackson b2b unfazed | Portal do Amanhã by Bybit.",
+      "eventLabel": "Portal do Amanhã 2026",
+      "channel": "Tomorrowland and 2 more",
+      "uploadedAt": null,
+      "viewCount": 17835,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland recording featuring unfazed b2b Jackson.",
+      "representative": false
+    },
+    {
+      "id": "bTTQSt3Iq5o",
+      "youtubeUrl": "https://www.youtube.com/watch?v=bTTQSt3Iq5o",
+      "title": "M4RI Carrilho Live Set @ Laroc Club | Opening Axwell Night",
+      "eventLabel": "Laroc Club · Axwell Night",
+      "channel": "M4RI Carrilho",
+      "uploadedAt": null,
+      "viewCount": 6207,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full opening set with more views than the newer local recordings.",
+      "representative": false
+    },
+    {
+      "id": "cGJ9aAAS6Kg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=cGJ9aAAS6Kg",
+      "title": "Merow WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Merow",
+      "uploadedAt": null,
+      "viewCount": 26539,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set.",
+      "representative": false
+    },
+    {
+      "id": "cNJTwP7Rh-g",
+      "youtubeUrl": "https://www.youtube.com/watch?v=cNJTwP7Rh-g",
+      "title": "Liu @ SO TRACK BOA Festival 26",
+      "eventLabel": "Só Track Boa Festival 2026",
+      "channel": "Liu",
+      "uploadedAt": null,
+      "viewCount": 787259,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "cPuG83gMlI0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=cPuG83gMlI0",
+      "title": "ZAC LIVE FROM CLUB SPACE MIAMI [3 HOUR DJ SET]",
+      "eventLabel": "Club Space Miami",
+      "channel": "ZAC and Club Space",
+      "uploadedAt": null,
+      "viewCount": 116201,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist and venue-published extended set, matching the Brazilian progressive artist.",
+      "representative": false
+    },
+    {
+      "id": "ckjmlB4Sq44",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ckjmlB4Sq44",
+      "title": "Yves V WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": null,
+      "viewCount": 35439,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set.",
+      "representative": false
+    },
+    {
+      "id": "dCkH8G5pfOc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dCkH8G5pfOc",
+      "title": "Dyzen DJ set | One World Radio at Tomorrowland Expo - ADE",
+      "eventLabel": "Tomorrowland Expo at ADE (published 2026)",
+      "channel": "Tomorrowland One World Radio",
+      "uploadedAt": "2026-10-29",
+      "viewCount": 1208,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "dqRhx7LErAc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dqRhx7LErAc",
+      "title": "DJ Gigola | Tech House Set | Tomorrowland 2026 – Crystal Garden",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 85969,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "eA6RijLGcbs",
+      "youtubeUrl": "https://www.youtube.com/watch?v=eA6RijLGcbs",
+      "title": "Mad Maxx Full Live Set @ Ozora Festival 2024 - Psytrance Festival in Hungary",
+      "eventLabel": "Ozora Festival 2024",
+      "channel": "Mad Maxx",
+      "uploadedAt": null,
+      "viewCount": 97684,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full festival set; no relevant recent official Tomorrowland full set found.",
+      "representative": false
+    },
+    {
+      "id": "ePRSxcV3rDo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ePRSxcV3rDo",
+      "title": "Stephani B WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Stephani B",
+      "uploadedAt": null,
+      "viewCount": 35584,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo full set.",
+      "representative": false
+    },
+    {
+      "id": "e_cmlGboRjA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=e_cmlGboRjA",
+      "title": "Lilly Palmer live @ ULTRA MUSIC FESTIVAL Miami Worldwide Stage (Asot) 27/03/2026",
+      "eventLabel": "Ultra Miami 2026",
+      "channel": "Lilly Palmer",
+      "uploadedAt": "2026-03-30",
+      "viewCount": 685618,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "ea3tMD9ohT8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ea3tMD9ohT8",
+      "title": "ME N Ü LIVE @ TOMORROWLAND (The Great Library Stage) 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "me n ü",
+      "uploadedAt": null,
+      "viewCount": 26551,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set from The Great Library stage at Tomorrowland 2026.",
+      "representative": false
+    },
+    {
+      "id": "f0w_3NvBJpg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=f0w_3NvBJpg",
+      "title": "Amber Broos WE2 | Tomorrowland 2024",
+      "eventLabel": "Tomorrowland Belgium 2024",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2024-07-29",
+      "viewCount": 815197,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Popular solo Tomorrowland set, chosen over newer b2b recordings to represent the solo billed artist.",
+      "representative": false
+    },
+    {
+      "id": "gMVdhN8BhtY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=gMVdhN8BhtY",
+      "title": "Scorsi | Tomorrowland Brasil 2023",
+      "eventLabel": "Tomorrowland Brasil 2023",
+      "channel": "Scorsi",
+      "uploadedAt": null,
+      "viewCount": 23706,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full Tomorrowland Brasil set; more recent search results were unrelated or studio excerpts.",
+      "representative": false
+    },
+    {
+      "id": "iEoCdaPxEG4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=iEoCdaPxEG4",
+      "title": "ETTA Live @ Zerando Chile - Farellones, Chile",
+      "eventLabel": "Zerando Chile (published 2026)",
+      "channel": "ETTA",
+      "uploadedAt": "2026-08-21",
+      "viewCount": 5080,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "iunhg1Y9K2M",
+      "youtubeUrl": "https://www.youtube.com/watch?v=iunhg1Y9K2M",
+      "title": "Bella Claxton & Paige Tomlinson | Full set | Into the Woods ADE Festival 2025",
+      "eventLabel": "Into the Woods ADE Festival 2025",
+      "channel": "Into the Woods Festival",
+      "uploadedAt": "2025-11-20",
+      "viewCount": 24901,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Exact billed artist pairing, full festival set published by Into the Woods; event dates explicitly stated as 24–25 October 2025.",
+      "representative": false
+    },
+    {
+      "id": "jARvDeCswjM",
+      "youtubeUrl": "https://www.youtube.com/watch?v=jARvDeCswjM",
+      "title": "Renato Cohen | HÖR - April 30 / 2025",
+      "eventLabel": "HÖR Berlin 2025",
+      "channel": "HÖR BERLIN",
+      "uploadedAt": null,
+      "viewCount": 10512,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent full set published by HÖR, explicitly dated April 30, 2025.",
+      "representative": false
+    },
+    {
+      "id": "jAZiK2WJuhk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=jAZiK2WJuhk",
+      "title": "Kevin de Vries WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 269525,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "jxy-QTJYvU8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=jxy-QTJYvU8",
+      "title": "Deer Jade at Ad Sidera Semper Festival 2024 🌠🌟 Bocas del Toro, Panamá (4K)",
+      "eventLabel": "Ad Sidera Semper Festival 2024",
+      "channel": "Ad Sidera Semper",
+      "uploadedAt": null,
+      "viewCount": 60605,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "kLD0dYuyWSI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=kLD0dYuyWSI",
+      "title": "Carola | Tomorrowland Brasil 2024",
+      "eventLabel": "Tomorrowland Brasil 2024",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2024-10-15",
+      "viewCount": 32741,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "kdVElRhr4q4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=kdVElRhr4q4",
+      "title": "Astrix @ Boom Festival 2023 (Full Set Movie)",
+      "eventLabel": "Boom Festival 2023",
+      "channel": "Astrix",
+      "uploadedAt": "2023-09-12",
+      "viewCount": 6217362,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "kxC6B1pyRsw",
+      "youtubeUrl": "https://www.youtube.com/watch?v=kxC6B1pyRsw",
+      "title": "Gareth Emery: LSR/CITY X at The Concourse Project | Full Set (12 Sep 2026)",
+      "eventLabel": "The Concourse Project 2026",
+      "channel": "The Concourse Project",
+      "uploadedAt": "2026-11-03",
+      "viewCount": 39819,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "lPLHOPVSw_Q",
+      "youtubeUrl": "https://www.youtube.com/watch?v=lPLHOPVSw_Q",
+      "title": "DubVision b2b Matisse & Sadko b2b Third Party | Tomorrowland Brasil 2025",
+      "eventLabel": "Tomorrowland Brasil 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2025-10-15",
+      "viewCount": 279697,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Representative joint set: DubVision b2b Matisse & Sadko b2b Third Party at Tomorrowland Brasil 2025; not a solo DubVision performance.",
+      "representative": true
+    },
+    {
+      "id": "m4WiLCc01Yo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=m4WiLCc01Yo",
+      "title": "Ame Sunset Beats presents After Hours with Silvio Soul",
+      "eventLabel": "Ame Club · Sunset Beats",
+      "channel": "Ame Club",
+      "uploadedAt": null,
+      "viewCount": 3209,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Venue-published full performance; only an older relevant complete recording was verified.",
+      "representative": false
+    },
+    {
+      "id": "n00xM8hfpVQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=n00xM8hfpVQ",
+      "title": "Kris Kross Amsterdam @ ADE (LIVE DJ-set) | SLAM!",
+      "eventLabel": "SLAM! at ADE (published 2023)",
+      "channel": "SLAM! - Music",
+      "uploadedAt": "2023-10-24",
+      "viewCount": 51805,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "nAIJIDKAoiw",
+      "youtubeUrl": "https://www.youtube.com/watch?v=nAIJIDKAoiw",
+      "title": "Out of Home. V @ Tomorrowland Brazil 2024",
+      "eventLabel": "Tomorrowland Brasil 2024",
+      "channel": "Riascode",
+      "uploadedAt": null,
+      "viewCount": 12740,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full Tomorrowland Brasil set.",
+      "representative": false
+    },
+    {
+      "id": "nS3zcPI8Syc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=nS3zcPI8Syc",
+      "title": "R3HAB | Tomorrowland Brasil 2025",
+      "eventLabel": "Tomorrowland Brasil 2025",
+      "channel": "Tomorrowland and R3HAB",
+      "uploadedAt": null,
+      "viewCount": 94672,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland Brasil solo set, preferred over newer joint performances.",
+      "representative": false
+    },
+    {
+      "id": "nSYt0B-EGwA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=nSYt0B-EGwA",
+      "title": "Volkoder WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and VOLKODER",
+      "uploadedAt": null,
+      "viewCount": 494730,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland full set with substantial views.",
+      "representative": false
+    },
+    {
+      "id": "oeiUVmMPjus",
+      "youtubeUrl": "https://www.youtube.com/watch?v=oeiUVmMPjus",
+      "title": "Marsh | Anjunadeep Open Air: London 2025 (Official Set)",
+      "eventLabel": "Anjunadeep Open Air London 2025",
+      "channel": "Anjunadeep and Marsh",
+      "uploadedAt": null,
+      "viewCount": 838374,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Official label and artist recording with strong views, preferred over unsourced uploads.",
+      "representative": false
+    },
+    {
+      "id": "pJ-TSqUOh6k",
+      "youtubeUrl": "https://www.youtube.com/watch?v=pJ-TSqUOh6k",
+      "title": "Due no @PistaLivreFestival 2026 | Museu Nacional, Brasilia",
+      "eventLabel": "Pista Livre Festival 2026",
+      "channel": "Pista Livre Festival",
+      "uploadedAt": null,
+      "viewCount": 226,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results. Title, channel, full-set duration, and view count were verified in public YouTube search; watch-page date lookup was rate-limited.",
+      "representative": false
+    },
+    {
+      "id": "pjUz_2c3o8w",
+      "youtubeUrl": "https://www.youtube.com/watch?v=pjUz_2c3o8w",
+      "title": "Bella Claxton (Full Set) | Beyond The Valley 2025",
+      "eventLabel": "Beyond The Valley 2025",
+      "channel": "Beyond The Valley",
+      "uploadedAt": "2026-01-29",
+      "viewCount": 278919,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "qJpoCdji3mI",
+      "youtubeUrl": "https://www.youtube.com/watch?v=qJpoCdji3mI",
+      "title": "Funk Tribu WE1 | Tomorrowland 2025",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2025-07-29",
+      "viewCount": 488041,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "rLUS856iRXE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=rLUS856iRXE",
+      "title": "DJ Stryker Hadra Festival 2023",
+      "eventLabel": "Hadra Festival 2023",
+      "channel": "STRYKER",
+      "uploadedAt": null,
+      "viewCount": 26690,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full festival performance; no suitable recent official Tomorrowland recording found.",
+      "representative": false
+    },
+    {
+      "id": "rPV3BWCpRNM",
+      "youtubeUrl": "https://www.youtube.com/watch?v=rPV3BWCpRNM",
+      "title": "KREWELLA LIVE @ ULTRA MUSIC FESTIVAL MIAMI 2022",
+      "eventLabel": "Ultra Miami 2022",
+      "channel": "Krewella",
+      "uploadedAt": "2022-03-30",
+      "viewCount": 728806,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "ra8NYbzPMnk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ra8NYbzPMnk",
+      "title": "Kölsch WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 737365,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "s37RNbAZ-rs",
+      "youtubeUrl": "https://www.youtube.com/watch?v=s37RNbAZ-rs",
+      "title": "Ferry Corsten live at A State of Trance 2026 (Friday | Area 2)",
+      "eventLabel": "A State of Trance 2026",
+      "channel": "A State Of Trance",
+      "uploadedAt": "2026-03-17",
+      "viewCount": 208522,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "sFPyP_qgLGU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=sFPyP_qgLGU",
+      "title": "Novah WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Novah",
+      "uploadedAt": null,
+      "viewCount": 2722353,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Tomorrowland solo set with millions of verified views.",
+      "representative": false
+    },
+    {
+      "id": "u2JVr6ljTa8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=u2JVr6ljTa8",
+      "title": "ASHIBAH - BOMA BRASÍLIA 2025",
+      "eventLabel": "BOMA Brasília 2025",
+      "channel": "BOMA",
+      "uploadedAt": "2025-08-14",
+      "viewCount": 116365,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "ubFrkYGGqo8",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ubFrkYGGqo8",
+      "title": "Enrico Sangiuliano WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 163468,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "ubblk4txmbQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ubblk4txmbQ",
+      "title": "999999999 - LIVE @ ULTRA MIAMI 2026",
+      "eventLabel": "Ultra Miami 2026",
+      "channel": "NineTimesNine",
+      "uploadedAt": "2026-04-07",
+      "viewCount": 167485,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full-length festival or broadcaster recording; selected as a relevant alternative to older or unavailable Tomorrowland results.",
+      "representative": false
+    },
+    {
+      "id": "vgxoa2hQFdg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=vgxoa2hQFdg",
+      "title": "Antdot | Tomorrowland Winter 2026",
+      "eventLabel": "Tomorrowland Winter 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-03-30",
+      "viewCount": 220173,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "vh2VeY4tM24",
+      "youtubeUrl": "https://www.youtube.com/watch?v=vh2VeY4tM24",
+      "title": "Blazy @ Tomorrowland Brasil (Full Set Movie)",
+      "eventLabel": "Tomorrowland Brasil (published 2025)",
+      "channel": "Blazy",
+      "uploadedAt": "2025-11-13",
+      "viewCount": 127175,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "wGrSkH3C20Q",
+      "youtubeUrl": "https://www.youtube.com/watch?v=wGrSkH3C20Q",
+      "title": "Ratier @ Ágora Club | D-EDGE Tour | 2025 Season | [Full Set]",
+      "eventLabel": "Ágora Club · D-EDGE Tour 2025",
+      "channel": "Ágora Club",
+      "uploadedAt": null,
+      "viewCount": 2034,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Venue-published recent solo set; older official Tomorrowland recording is a joint act.",
+      "representative": false
+    },
+    {
+      "id": "wuwPiyvPqLA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=wuwPiyvPqLA",
+      "title": "Alan Walker live @tomorrowland 2025 (Full Show)",
+      "eventLabel": "Tomorrowland Belgium 2025",
+      "channel": "Alan Walker",
+      "uploadedAt": "2025-07-30",
+      "viewCount": 1305036,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Artist-published full set; selected for its relevant performance context, recency, and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "x3WsTI094t0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=x3WsTI094t0",
+      "title": "Resonation Radio #176 - Ferry Corsten & Marsh (Recorded live from Miami Music Week)",
+      "eventLabel": "Resonation Radio #176 (published 2024)",
+      "channel": "Ferry Corsten",
+      "uploadedAt": "2024-04-10",
+      "viewCount": 15427,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Exact billed artist pairing: the official episode description explicitly identifies a unique live back-to-back set at Miami Music Week. The label uses publication year because the recording date was not explicitly verified.",
+      "representative": false
+    },
+    {
+      "id": "xIxTT8fIA1c",
+      "youtubeUrl": "https://www.youtube.com/watch?v=xIxTT8fIA1c",
+      "title": "Brina Knauss WE1 | Tomorrowland 2024",
+      "eventLabel": "Tomorrowland Belgium 2024",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2024-07-29",
+      "viewCount": 139664,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "xURi3wERiBE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=xURi3wERiBE",
+      "title": "SIMO NOT SIMON LIVE AT EXTERNA CLUB (BRASÍLIA, BRASIL)",
+      "eventLabel": "Externa Club Brasília",
+      "channel": "XTN and simo not simon",
+      "uploadedAt": null,
+      "viewCount": 1996,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent artist and venue-published full live set.",
+      "representative": false
+    },
+    {
+      "id": "ypYSzU3fj88",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ypYSzU3fj88",
+      "title": "Bassjackers WE1 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland and Bassjackers",
+      "uploadedAt": null,
+      "viewCount": 95083,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Recent official Bassjackers full set, representative of the billed Smash The House takeover.",
+      "representative": true
+    },
+    {
+      "id": "zHAUZ02aCwo",
+      "youtubeUrl": "https://www.youtube.com/watch?v=zHAUZ02aCwo",
+      "title": "Alok WE2 | Tomorrowland 2026",
+      "eventLabel": "Tomorrowland Belgium 2026",
+      "channel": "Tomorrowland",
+      "uploadedAt": "2026-07-28",
+      "viewCount": 3297480,
+      "verifiedAt": "2026-11-11",
+      "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    }
+  ],
+  "sourceArtistCount": 122,
+  "billedActCount": 113,
+  "sourceNotes": [
+    "The official source has no timetable. All stage names are day placeholders, so stages remain unknown and one-minute start/end times are not presented as set times.",
+    "Genre labels are LLM-assisted subjective estimates. Source recording links are evidence to assess the interpretation, not authoritative genre declarations.",
+    "YouTube search verified recording titles, channels, durations, and view counts. Watch pages verified upload dates where available; HTTP 429 rate limiting leaves remaining dates null.",
+    "MC STRETCH is a host and Special Surprise Act is unidentified. No suitable artist-specific full recording was verified for either entry.",
+    "Performance 3236098959 (Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer): date=2027-05-01, rendered day=2027-04-30. The catalog follows the official component's rendered day.",
+    "Performance 3236152497 (Krewella): date=2027-05-02, rendered day=2027-05-01. The catalog follows the official component's rendered day."
+  ]
+}
