@@ -1,0 +1,55 @@
+{
+  "name": "set-prio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A personal planner for Tomorrowland Brasil 2027. Discover artists, prioritize performances by day, rate recommended YouTube sets, and export your plan as an image, CSV, or Notion table. Preferences are saved locally in your browser; no account or backend required.",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24 <25",
+    "pnpm": ">=11 <12"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "icons": "node scripts/generate-icons.mjs",
+    "catalog:refresh": "node scripts/update-catalog.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@radix-ui/react-dialog": "1.3.1",
+    "@radix-ui/react-hover-card": "1.2.1",
+    "@radix-ui/react-dropdown-menu": "2.2.1",
+    "@dnd-kit/core": "6.3.1",
+    "@dnd-kit/utilities": "3.2.2",
+    "motion": "14.12.0",
+    "zustand": "5.1.0",
+    "lucide-react": "1.72.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.8",
+    "typescript": "7.0.2",
+    "@vitejs/plugin-react": "6.3.0",
+    "tailwindcss": "4.3.5",
+    "@tailwindcss/vite": "4.3.5",
+    "@biomejs/biome": "2.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/node": "26.6.6",
+    "vitest": "5.1.0",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.9",
+    "@testing-library/jest-dom": "7.0.1",
+    "jsdom": "31.0.0",
+    "@playwright/test": "1.65.0",
+    "sharp": "0.35.5"
+  }
+}

@@ -1,0 +1,17 @@
+<!-- set.prio Status Dot Squircle Logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <!-- macOS Dark App Icon Base -->
+    <rect width="512" height="512" rx="116" fill="#1C1C1E" />
+    <defs>
+        <!-- Subtle drop shadow for the fader knob to give it a tactile iOS feel -->
+        <filter id="knob-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+        </filter>
+    </defs>
+    <!-- Fader Track -->
+    <rect x="184" y="128" width="32" height="256" rx="16" fill="#3A3A3C" />
+    <!-- Fader Knob -->
+    <rect x="152" y="240" width="96" height="32" rx="16" fill="#FFFFFF" filter="url(#knob-shadow)" />
+    <!-- P0 Priority Status Dot (Apple System Red) -->
+    <circle cx="344" cy="256" r="48" fill="#FF453A" />
+</svg>
