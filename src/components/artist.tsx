@@ -58,34 +58,24 @@ export function SetLink({
   language,
   compact = false,
   representative,
-  artistName,
 }: {
   recording: Recording | undefined;
   language: Language;
   compact?: boolean;
   representative?: boolean;
-  artistName?: string;
 }) {
   const t = messages(language);
   if (!recording)
     return (
       <div className="set-unavailable">
         <Disc3 size={17} />
-        <span>
-          {artistName && <strong>{artistName} · </strong>}
-          {t.unavailable}
-        </span>
+        <span>{t.unavailable}</span>
       </div>
     );
   return (
     <a
       className={`set-link ${compact ? 'compact-set' : ''}`}
       href={recording.youtubeUrl}
-      aria-label={
-        artistName
-          ? `${artistName} · ${recording.eventLabel} · YouTube${(representative ?? recording.representative) ? ` · ${t.representative}` : ''}`
-          : undefined
-      }
       target="_blank"
       rel="noreferrer"
     >
@@ -93,7 +83,6 @@ export function SetLink({
         <Play size={compact ? 14 : 18} fill="currentColor" />
       </span>
       <span className="set-link-text">
-        {artistName && <span className="set-artist-name">{artistName}</span>}
         <strong>{recording.eventLabel}</strong>{' '}
         <span>
           {(representative ?? recording.representative) ? t.representative : recording.channel}
@@ -101,26 +90,6 @@ export function SetLink({
       </span>
       <ArrowUpRight size={17} />
     </a>
-  );
-}
-export function MemberSetLinks({ members, language }: { members: Artist[]; language: Language }) {
-  const t = messages(language);
-  return (
-    <section className="member-set-links" aria-label={t.youtubeSets}>
-      <h3>{t.youtubeSets}</h3>
-      {members.map((member) => (
-        <SetLink
-          key={member.id}
-          artistName={member.name}
-          recording={
-            member.recommendedSetId ? recordingById.get(member.recommendedSetId) : undefined
-          }
-          language={language}
-          representative={member.recommendedSetRepresentative}
-          compact
-        />
-      ))}
-    </section>
   );
 }
 function Preview({ artist, language }: { artist: Artist; language: Language }) {
@@ -132,7 +101,6 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
     return (
       <div className="preview-body">
         <strong className="preview-name">{artist.name}</strong>
-        <MemberSetLinks members={members} language={language} />
         {members.map((member) => (
           <section className="preview-member" aria-label={member.name} key={member.id}>
             <div className="preview-member-heading">
@@ -142,6 +110,14 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
                 <Genres artist={member} language={language} />
               </div>
             </div>
+            <SetLink
+              recording={
+                member.recommendedSetId ? recordingById.get(member.recommendedSetId) : undefined
+              }
+              language={language}
+              representative={member.recommendedSetRepresentative}
+              compact
+            />
           </section>
         ))}
         {recording && !(artist.recommendedSetRepresentative ?? recording.representative) && (
