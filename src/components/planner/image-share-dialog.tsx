@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Share2, Download } from 'lucide-react';
+import { Share, Download } from 'lucide-react';
 import { Modal } from '../ui/modal';
 import { downloadBlob } from '../../utils/exports';
 import type { Language } from '../../types';
@@ -72,7 +72,7 @@ export function ImageShareDialog({
             }}
             className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-blue-600 px-4 text-sm text-white"
           >
-            <Share2 size={18} />
+            <Share size="1.125rem" aria-hidden="true" />
             {en ? 'Share image' : 'Compartilhar imagem'}
           </button>
           <button

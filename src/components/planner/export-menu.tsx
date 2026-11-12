@@ -1,12 +1,12 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import {
-  ArrowDownToLine,
   ArrowUpRight,
   ChevronDown,
   Clipboard,
   Download,
   Grid2X2,
   LoaderCircle,
+  Share,
 } from 'lucide-react';
 import { messages } from '../../i18n';
 import type { Language } from '../../types';
@@ -36,7 +36,7 @@ export function ExportMenu({
           {busy ? (
             <LoaderCircle size="1.0625rem" className="spin [animation:spin_1s_linear_infinite]" />
           ) : (
-            <ArrowDownToLine size="1.0625rem" />
+            <Share size="1.0625rem" aria-hidden="true" />
           )}
           {busy ? t.copying : t.export}
           <ChevronDown size="0.875rem" />
