@@ -179,6 +179,10 @@ export function ArtistDetails({
               );
             })}
           </section>
+          <ResearchDetails
+            artists={members.length ? [artist, ...members] : [artist]}
+            language={language}
+          />
           <p className="saved-note flex items-center justify-center gap-1.25 text-muted [font-size:0.5625rem] pt-4.25">
             <Check size="0.8125rem" />
             {state.storageError ? t.privacy : t.saved}
@@ -210,131 +214,140 @@ function RecordingDetails({
   const ratingId = `set-rating-${artist.id}`;
   const helpId = `rating-help-${artist.id}`;
   return (
-    <>
-      <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
-        <h3>{heading ?? t.recommended}</h3>
-        <SetLink
-          recording={recording}
-          language={language}
-          representative={artist.recommendedSetRepresentative}
-        />
-        {recording && (
-          <>
-            <div className="recording-meta flex flex-wrap [gap:0.3125rem_0.75rem] text-muted [font-size:0.5625rem] [line-height:1.6] [margin:0.625rem_0.0625rem_0]">
-              <span>{recording.channel}</span>
-              {recording.uploadedAt && (
-                <span>
-                  {t.posted} {longDate(recording.uploadedAt.slice(0, 10), language)}
-                </span>
-              )}
-              {recording.viewCount !== null && (
-                <span>
-                  {new Intl.NumberFormat(language).format(recording.viewCount)} {t.views}
-                </span>
-              )}
-            </div>
-            <div className="rating-row flex justify-between items-start gap-4 mt-5.25 max-[47.5rem]:gap-2.5 [&_label]:flex [&_label]:items-center [&_label]:gap-1.5 [&_label]:text-xs [&_label]:font-semibold [&_label]:min-h-11 [&_label_svg]:[color:var(--orange)] [&_.small]:[font-size:0.625rem] [&_.small]:[max-width:16.25rem] max-[47.5rem]:[&_.small]:[font-size:0.5625rem]">
-              <div>
-                <label htmlFor={ratingId}>
-                  <Star size="1rem" />
-                  {t.rating}
-                </label>
-                <p className="muted text-muted small text-xs [line-height:1.55]" id={helpId}>
-                  {t.ratingHint}
-                </p>
-              </div>
-              <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26 [&_input]:w-13.75 [&_input]:min-h-11 [&_input]:p-2 [&_input]:[border:0.0625rem_solid_var(--line)] [&_input]:rounded-lg [&_input]:bg-raised [&_input]:[text-align:center] [&_input]:text-base [&_>_span]:text-muted [&_>_span]:[font-size:0.6875rem] [&_>_button]:[font-size:0.5625rem] max-[47.5rem]:[&_>_button]:min-h-11">
-                <input
-                  id={ratingId}
-                  inputMode="decimal"
-                  type="text"
-                  role="spinbutton"
-                  aria-valuemin={0}
-                  aria-valuemax={10}
-                  aria-valuenow={rating ?? undefined}
-                  placeholder="—"
-                  aria-describedby={helpId}
-                  aria-invalid={ratingError}
-                  value={draft}
-                  onKeyDown={(event) => {
-                    if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
-                    event.preventDefault();
-                    const next = Math.min(
-                      10,
-                      Math.max(0, (rating ?? 0) + (event.key === 'ArrowUp' ? 1 : -1))
-                    );
-                    setDraft(String(next));
-                    setRatingError(false);
-                    state.setRating(recording.id, next);
-                  }}
-                  onChange={(event) => {
-                    const value = event.target.value;
-                    setDraft(value);
-                    const normalized = value.replace(',', '.');
-                    const number = Number(normalized);
-                    if (
-                      value !== '' &&
-                      (!/^\d*(?:[.,]\d*)?$/.test(value) ||
-                        !Number.isFinite(number) ||
-                        number < 0 ||
-                        number > 10)
-                    ) {
-                      setRatingError(true);
-                      return;
-                    }
-                    setRatingError(false);
-                    state.setRating(recording.id, value === '' ? null : number);
-                  }}
-                />
-                <span>/ 10</span>
-                <button
-                  type="button"
-                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
-                  disabled={state.ratings[recording.id] == null}
-                  onClick={() => {
-                    state.setRating(recording.id, null);
-                    setRatingError(false);
-                  }}
-                >
-                  {t.clearRating}
-                </button>
-              </div>
-            </div>
-            {ratingError && (
-              <p
-                role="alert"
-                className="field-error [font-size:0.6875rem] [color:var(--red)] mt-2.5"
-              >
-                {t.invalidRating}
-              </p>
+    <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
+      <h3>{heading ?? t.recommended}</h3>
+      <SetLink
+        recording={recording}
+        language={language}
+        representative={artist.recommendedSetRepresentative}
+      />
+      {recording && (
+        <>
+          <div className="recording-meta flex flex-wrap [gap:0.3125rem_0.75rem] text-muted [font-size:0.5625rem] [line-height:1.6] [margin:0.625rem_0.0625rem_0]">
+            <span>{recording.channel}</span>
+            {recording.uploadedAt && (
+              <span>
+                {t.posted} {longDate(recording.uploadedAt.slice(0, 10), language)}
+              </span>
             )}
-          </>
-        )}
-      </section>
-      <details className="research-details group border-t border-separator text-xs text-muted [&_a]:inline-flex [&_a]:items-start [&_a]:gap-1.5 [&_a]:text-accent [&_a]:[overflow-wrap:anywhere] [&_a_svg]:mt-1 [&_a_svg]:shrink-0">
-        <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 py-3 leading-relaxed [&::-webkit-details-marker]:hidden">
-          <ChevronDown
-            size="0.875rem"
-            aria-hidden="true"
-            className="shrink-0 -rotate-90 transition-transform duration-150 group-open:rotate-0 motion-reduce:transition-none"
-          />
-          <span>
-            {t.setDetails} &amp; {t.genreSources}
-          </span>
-        </summary>
-        <div className="grid min-w-0 gap-3 pb-4 pl-5.5 leading-relaxed">
-          <p>
-            {t.researched}: {longDate(recording?.verifiedAt ?? catalog.verifiedAt, language)}
-          </p>
-          {recording && <p>{recording.title}</p>}
-          {artist.genreSources.map((url) => (
-            <a key={url} href={url} target="_blank" rel="noreferrer">
-              {new URL(url).hostname}
-              <ExternalLink size="0.75rem" />
-            </a>
-          ))}
-        </div>
-      </details>
-    </>
+            {recording.viewCount !== null && (
+              <span>
+                {new Intl.NumberFormat(language).format(recording.viewCount)} {t.views}
+              </span>
+            )}
+          </div>
+          <div className="rating-row flex justify-between items-start gap-4 mt-5.25 max-[47.5rem]:gap-2.5 [&_label]:flex [&_label]:items-center [&_label]:gap-1.5 [&_label]:text-xs [&_label]:font-semibold [&_label]:min-h-11 [&_label_svg]:[color:var(--orange)] [&_.small]:[font-size:0.625rem] [&_.small]:[max-width:16.25rem] max-[47.5rem]:[&_.small]:[font-size:0.5625rem]">
+            <div>
+              <label htmlFor={ratingId}>
+                <Star size="1rem" />
+                {t.rating}
+              </label>
+              <p className="muted text-muted small text-xs [line-height:1.55]" id={helpId}>
+                {t.ratingHint}
+              </p>
+            </div>
+            <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26 [&_input]:w-13.75 [&_input]:min-h-11 [&_input]:p-2 [&_input]:[border:0.0625rem_solid_var(--line)] [&_input]:rounded-lg [&_input]:bg-raised [&_input]:[text-align:center] [&_input]:text-base [&_>_span]:text-muted [&_>_span]:[font-size:0.6875rem] [&_>_button]:[font-size:0.5625rem] max-[47.5rem]:[&_>_button]:min-h-11">
+              <input
+                id={ratingId}
+                inputMode="decimal"
+                type="text"
+                role="spinbutton"
+                aria-valuemin={0}
+                aria-valuemax={10}
+                aria-valuenow={rating ?? undefined}
+                placeholder="—"
+                aria-describedby={helpId}
+                aria-invalid={ratingError}
+                value={draft}
+                onKeyDown={(event) => {
+                  if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+                  event.preventDefault();
+                  const next = Math.min(
+                    10,
+                    Math.max(0, (rating ?? 0) + (event.key === 'ArrowUp' ? 1 : -1))
+                  );
+                  setDraft(String(next));
+                  setRatingError(false);
+                  state.setRating(recording.id, next);
+                }}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setDraft(value);
+                  const normalized = value.replace(',', '.');
+                  const number = Number(normalized);
+                  if (
+                    value !== '' &&
+                    (!/^\d*(?:[.,]\d*)?$/.test(value) ||
+                      !Number.isFinite(number) ||
+                      number < 0 ||
+                      number > 10)
+                  ) {
+                    setRatingError(true);
+                    return;
+                  }
+                  setRatingError(false);
+                  state.setRating(recording.id, value === '' ? null : number);
+                }}
+              />
+              <span>/ 10</span>
+              <button
+                type="button"
+                className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
+                disabled={state.ratings[recording.id] == null}
+                onClick={() => {
+                  state.setRating(recording.id, null);
+                  setRatingError(false);
+                }}
+              >
+                {t.clearRating}
+              </button>
+            </div>
+          </div>
+          {ratingError && (
+            <p role="alert" className="field-error [font-size:0.6875rem] [color:var(--red)] mt-2.5">
+              {t.invalidRating}
+            </p>
+          )}
+        </>
+      )}
+    </section>
+  );
+}
+
+function ResearchDetails({ artists, language }: { artists: Artist[]; language: Language }) {
+  const t = messages(language);
+  return (
+    <details className="research-details group border-t border-separator text-xs text-muted [&_a]:inline-flex [&_a]:items-start [&_a]:gap-1.5 [&_a]:text-accent [&_a]:[overflow-wrap:anywhere] [&_a_svg]:mt-1 [&_a_svg]:shrink-0">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 py-3 leading-relaxed [&::-webkit-details-marker]:hidden">
+        <ChevronDown
+          size="0.875rem"
+          aria-hidden="true"
+          className="shrink-0 -rotate-90 transition-transform duration-150 group-open:rotate-0 motion-reduce:transition-none"
+        />
+        <span>
+          {t.setDetails} &amp; {t.genreSources}
+        </span>
+      </summary>
+      {artists.map((artist) => {
+        const recording = artist.recommendedSetId
+          ? recordingById.get(artist.recommendedSetId)
+          : undefined;
+        return (
+          <div key={artist.id} className="grid min-w-0 gap-3 pb-4 pl-5.5 leading-relaxed">
+            {artists.length > 1 && <h3 className="font-semibold text-content">{artist.name}</h3>}
+            <p>
+              {t.researched}: {longDate(recording?.verifiedAt ?? catalog.verifiedAt, language)}
+            </p>
+            {recording && <p>{recording.title}</p>}
+            {artist.genreSources.map((url) => (
+              <a key={url} href={url} target="_blank" rel="noreferrer">
+                {new URL(url).hostname}
+                <ExternalLink size="0.75rem" />
+              </a>
+            ))}
+          </div>
+        );
+      })}
+    </details>
   );
 }
