@@ -11,11 +11,27 @@ export function DragHint({ onSpacingChange }: { onSpacingChange: (offset: number
       const bounds = button.getBoundingClientRect();
       const edge = column?.getBoundingClientRect();
       const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-      const right = Math.min(
-        rem,
-        Math.max(0, (edge?.right ?? innerWidth) - rem / 8 - bounds.right)
+      let leftEdge = edge?.left ?? 0;
+      let rightEdge = edge?.right ?? innerWidth;
+      const neighbors =
+        button.closest('.artist-chips')?.querySelectorAll('button[data-appearance-id]') ?? [];
+      for (const neighbor of neighbors) {
+        if (neighbor === button || neighbor.closest('[inert]')) continue;
+        const other = neighbor.getBoundingClientRect();
+        if (other.top >= bounds.bottom || other.bottom <= bounds.top) continue;
+        if (other.right <= bounds.left) leftEdge = Math.max(leftEdge, other.right);
+        if (other.left >= bounds.right) rightEdge = Math.min(rightEdge, other.left);
+      }
+      const right = Math.min(rem, Math.max(0, rightEdge - rem / 8 - bounds.right));
+      const hint = ref.current;
+      const gripWidth = hint?.firstElementChild?.getBoundingClientRect().width ?? 0;
+      const hintPadding = hint ? parseFloat(getComputedStyle(hint).paddingRight) : 0;
+      const labelPadding = parseFloat(getComputedStyle(button).paddingRight);
+      const needed = gripWidth + hintPadding + rem / 4 - labelPadding;
+      const left = Math.min(
+        Math.max(0, needed - right),
+        Math.max(0, bounds.left - leftEdge - rem / 8)
       );
-      const left = Math.min(rem - right, Math.max(0, bounds.left - (edge?.left ?? 0) - rem / 8));
       button.style.setProperty('--drag-right', `${right / rem}rem`);
       button.style.setProperty('--drag-left', `${left / rem}rem`);
       // Leave a gap between the expanded hit area and the artist preview.
