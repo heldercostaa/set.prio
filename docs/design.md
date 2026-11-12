@@ -49,6 +49,8 @@ Artist details use a Radix modal with a fixed heading and scrollable content. Mo
 
 Motion emphasizes card relocation, modal entry, and export feedback. Reduced-motion preferences disable transition animation. Hover previews supplement the clickable modal; touch users get all information through the modal.
 
+Landscape artist images show the complete source photo over a subdued, blurred copy of the same image. This preserves faces and group members across portrait and wide source photos; square catalog thumbnails keep their compact crop.
+
 CSS selectors are scoped to components. Biome's descending-specificity rule is disabled for CSS because it compares selectors from unrelated component scopes. Application accessibility rules remain enabled.
 
 ## Export layout

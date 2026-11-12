@@ -31,28 +31,58 @@ import { artistById, recordingById, membersFor } from '../data';
 import { dayName, messages } from '../i18n';
 import type { Appearance, Artist, Language, Priority, Recording } from '../types';
 
-export function Portrait({ artist, className = '' }: { artist: Artist; className?: string }) {
+export function Portrait({
+  artist,
+  className = '',
+  landscape = false,
+}: {
+  artist: Artist;
+  className?: string;
+  landscape?: boolean;
+}) {
   const [failed, setFailed] = useState(false);
-  return artist.photoUrl && !failed ? (
+  if (!artist.photoUrl || failed)
+    return (
+      <div
+        className={`portrait portrait-fallback grid place-items-center [background:var(--chip)] [color:var(--tertiary)] text-xl font-semibold ${className}`}
+        aria-hidden="true"
+      >
+        <span>
+          {artist.name
+            .split(/\s+/)
+            .slice(0, 2)
+            .map((part) => part[0])
+            .join('')}
+        </span>
+      </div>
+    );
+  const src = publicAsset(artist.photoUrl);
+  const photo = (
     <img
-      className={`portrait object-cover [object-position:center] block [background:var(--chip)] ${className}`}
-      src={publicAsset(artist.photoUrl)}
+      className={
+        landscape
+          ? 'relative block h-full w-full object-contain'
+          : `portrait block object-cover object-center [background:var(--chip)] ${className}`
+      }
+      src={src}
       alt={artist.name}
       loading="lazy"
+      decoding="async"
       onError={() => setFailed(true)}
     />
-  ) : (
-    <div
-      className={`portrait object-cover [object-position:center] block [background:var(--chip)] portrait-fallback grid [place-items:center] bg-raised [color:var(--tertiary)] [font-size:1.25rem] font-semibold ${className}`}
-      aria-hidden="true"
-    >
-      <span>
-        {artist.name
-          .split(/\s+/)
-          .slice(0, 2)
-          .map((part) => part[0])
-          .join('')}
-      </span>
+  );
+  if (!landscape) return photo;
+  return (
+    <div className={`portrait relative isolate overflow-hidden bg-raised ${className}`}>
+      <img
+        className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-25 blur-xl"
+        src={src}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+      {photo}
     </div>
   );
 }
@@ -167,7 +197,7 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
     );
   return (
     <>
-      <Portrait artist={artist} className="preview-photo w-full h-38 [object-position:50%_35%]" />
+      <Portrait artist={artist} landscape className="preview-photo w-full h-38" />
       <div className="preview-body p-4 flex flex-col gap-3">
         <strong className="preview-name [font-size:1.0625rem] [letter-spacing:-0.02em]">
           {artist.name}
