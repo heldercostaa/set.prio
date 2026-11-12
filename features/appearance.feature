@@ -1,4 +1,11 @@
-Feature: Choose an appearance
-  Scenario: Dark is default and light is a persistent explicit choice
+Feature: Dark appearance
+  Scenario Outline: Dark appearance ignores device and retired light preferences
     Given an English planner with no saved priorities
-    Then I can switch between light and dark appearances and keep my choice
+    When I mark Fisher as a must-see, rate the set zero, and add a comment
+    And the device uses "<appearance>" appearance with a saved light preference
+    Then the planner stays dark without appearance controls and preserves my plan
+
+    Examples:
+      | appearance |
+      | light      |
+      | dark       |

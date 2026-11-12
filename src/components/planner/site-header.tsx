@@ -1,4 +1,3 @@
-import { AppearanceToggle } from './appearance-toggle';
 import { publicAsset } from '../../utils/assets';
 import { Code, Globe2 } from 'lucide-react';
 import { messages } from '../../i18n';
@@ -49,7 +48,6 @@ export function SiteHeader({ language }: { language: Language }) {
               PT
             </button>
           </fieldset>
-          <AppearanceToggle language={language} />
           <a
             className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted rounded-xl shrink-0 github-link hover:[background:var(--hover)] hover:text-content max-[47.5rem]:hidden"
             href="https://github.com/heldercostaa/set.prio"
