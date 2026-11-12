@@ -296,8 +296,8 @@ test('b2b details show both artists with independent recording ratings and one p
   const dialog = page.getByRole('dialog', { name, exact: true });
   const massano = dialog.getByRole('region', { name: 'Massano', exact: true });
   const volkoder = dialog.getByRole('region', { name: 'Volkoder', exact: true });
-  await expect(massano.getByText('Progressive house', { exact: true })).toBeVisible();
-  await expect(volkoder.getByText('House', { exact: true })).toBeVisible();
+  await expect(massano.locator('.genre-tag')).toHaveText('Melodic techno');
+  await expect(volkoder.locator('.genre-tag')).toHaveText('Tech house');
   await massano.getByRole('spinbutton', { name: 'Rate this set', exact: true }).fill('0');
   await volkoder.getByRole('spinbutton', { name: 'Rate this set', exact: true }).fill('8');
   await expect(massano.getByRole('spinbutton')).toHaveValue('0');
