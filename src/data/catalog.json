@@ -898,8 +898,10 @@
       "photoUrl": "/artists/1264275505.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16693150-Screenshot 2023-09-11 at 18.09.46.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264275505",
-      "genre": "Tech house",
-      "subgenres": [],
+      "genre": "House",
+      "subgenres": [
+        "Tech house"
+      ],
       "genreSources": [
         "https://www.youtube.com/watch?v=DuXXMZLfAkQ"
       ],
