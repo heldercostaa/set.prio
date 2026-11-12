@@ -111,7 +111,7 @@ const en = {
   comments: 'Comment',
 };
 const pt: typeof en = {
-  title: 'Prioridade dos sets',
+  title: en.title,
   subtitle: 'Encontre seus artistas. Planeje seu festival.',
   search: 'Buscar artistas',
   board: 'Quadro',
