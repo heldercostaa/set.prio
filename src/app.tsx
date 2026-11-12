@@ -149,6 +149,7 @@ export function App() {
                   </span>
                 </div>
                 <h1>{t.title}</h1>
+                <p>Tomorrowland Brasil 2027</p>
               </div>
               <ExportMenu
                 language={language}
