@@ -31,6 +31,7 @@ Feature: Festival planning workflows
 
     Examples:
       | width | artist |
+      | 1280 | Fisher |
       | 1024 | Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer |
       | 1024 | Matisse & Sadko present Melodicca |
       | 1024 | Bella Claxton b2b Paige Tomlinson |

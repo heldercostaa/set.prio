@@ -1,29 +1,53 @@
 import { GripVertical } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-export function DragHint() {
+import { useEffect, useRef } from 'react';
+
+export function DragHint({ onSpacingChange }: { onSpacingChange: (offset: number) => void }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [extend, setExtend] = useState(false);
   useEffect(() => {
     const button = ref.current?.parentElement;
     if (!button) return;
+    const column = button.closest('.day-column');
     const position = () => {
       const bounds = button.getBoundingClientRect();
-      const edge = button.closest('.day-groups')?.getBoundingClientRect().right ?? innerWidth;
-      const space = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.25;
-      setExtend(edge - bounds.right >= space);
+      const edge = column?.getBoundingClientRect();
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const right = Math.min(
+        rem,
+        Math.max(0, (edge?.right ?? innerWidth) - rem / 8 - bounds.right)
+      );
+      const left = Math.min(rem - right, Math.max(0, bounds.left - (edge?.left ?? 0) - rem / 8));
+      button.style.setProperty('--drag-right', `${right / rem}rem`);
+      button.style.setProperty('--drag-left', `${left / rem}rem`);
+      // Leave a gap between the expanded hit area and the artist preview.
+      onSpacingChange(Math.max(left, right) + rem / 2);
     };
-    button.addEventListener('pointerenter', position);
-    button.addEventListener('focus', position);
+    let observer: ResizeObserver | undefined;
+    const activate = () => {
+      position();
+      observer ??= new ResizeObserver(position);
+      observer.observe(button);
+      if (column) observer.observe(column);
+    };
+    const deactivate = () => {
+      if (!button.matches(':hover, :focus-visible')) observer?.disconnect();
+    };
+    button.addEventListener('pointerenter', activate);
+    button.addEventListener('focus', activate);
+    button.addEventListener('pointerleave', deactivate);
+    button.addEventListener('blur', deactivate);
     return () => {
-      button.removeEventListener('pointerenter', position);
-      button.removeEventListener('focus', position);
+      observer?.disconnect();
+      button.removeEventListener('pointerenter', activate);
+      button.removeEventListener('focus', activate);
+      button.removeEventListener('pointerleave', deactivate);
+      button.removeEventListener('blur', deactivate);
     };
-  }, []);
+  }, [onSpacingChange]);
   return (
     <span
       ref={ref}
       aria-hidden="true"
-      className={`pointer-events-none absolute inline-flex items-center justify-center border border-separator bg-raised text-muted opacity-0 transition-opacity group-hover/card:opacity-100 group-focus-visible/card:opacity-100 group-active/card:opacity-100 ${extend ? 'left-full top-0 h-full w-4 rounded-r-lg border-l-0' : '-top-2 right-1 size-4 rounded-md'}`}
+      className="drag-hint pointer-events-none absolute -inset-y-px -mx-px -z-10 flex items-center justify-end rounded-lg border border-separator [background:var(--hover)] pr-0.5 text-muted opacity-0 transition-opacity [left:calc(-1_*_var(--drag-left,_0rem))] [right:calc(-1_*_var(--drag-right,_1rem))] group-hover/card:pointer-events-auto group-hover/card:opacity-100 group-focus-visible/card:pointer-events-auto group-focus-visible/card:opacity-100 group-active/card:pointer-events-auto group-active/card:opacity-100 motion-reduce:transition-none"
     >
       <GripVertical size="0.75rem" />
     </span>
