@@ -2,7 +2,7 @@ import { WatchedStatus } from './watched-status';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import { ArrowUpRight, Disc3, ChevronsUpDown, Music2, Play, Star } from 'lucide-react';
+import { ArrowUpRight, Disc3, Music2, Play, Star } from 'lucide-react';
 import { motion, useIsPresent } from 'motion/react';
 import {
   createContext,
@@ -231,6 +231,8 @@ export function ArtistChip({
       initial={{ opacity: 0, y: 3 }}
       animate={{ opacity: isDragging ? 0.35 : 1, y: 0 }}
       className="chip-wrapper flex [flex:0_0_auto] [width:max-content] min-w-0 [max-width:100%]"
+      onPointerEnter={() => onQuick?.(appearance.id)}
+      onFocusCapture={() => onQuick?.(appearance.id)}
       inert={!isPresent}
       aria-hidden={!isPresent}
       style={{ zIndex: isDragging ? 3 : undefined }}
@@ -282,16 +284,6 @@ export function ArtistChip({
           </HoverCard.Content>
         </HoverCard.Portal>
       </HoverCard.Root>
-      {onQuick && (
-        <button
-          type="button"
-          aria-label={`${language === 'en' ? 'Quick priority' : 'Prioridade rápida'} · ${artist.name} · ${dayName(appearance.day, language)}`}
-          onClick={() => onQuick(appearance.id)}
-          className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-accent md:hidden"
-        >
-          <ChevronsUpDown size={16} />
-        </button>
-      )}
     </motion.div>
   );
 }
