@@ -26,26 +26,27 @@ export function Modal({
   const closing = useRef(false);
   const start = useRef<{ x: number; y: number; id: number } | null>(null);
   const requestClose = async (nextOpen: boolean) => {
-    if (
-      nextOpen ||
-      !window.matchMedia('(width < 47.5rem)').matches ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
+    if (nextOpen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       onOpenChange(nextOpen);
       return;
     }
     if (closing.current) return;
     closing.current = true;
     try {
+      const mobile = window.matchMedia('(width < 47.5rem)').matches;
       overlay.current?.animate([{ opacity: 1 }, { opacity: 0 }], {
-        duration: 180,
+        duration: mobile ? 180 : 140,
         fill: 'forwards',
       });
-      await content.current?.animate([{ translate: '0 0' }, { translate: '0 100%' }], {
-        duration: 180,
-        easing: 'ease-in',
-        fill: 'forwards',
-      }).finished;
+      await content.current?.animate(
+        mobile
+          ? [{ translate: '0 0' }, { translate: '0 100%' }]
+          : [
+              { opacity: 1, scale: 1 },
+              { opacity: 0, scale: 0.98 },
+            ],
+        { duration: mobile ? 180 : 140, easing: 'ease-in', fill: 'forwards' }
+      ).finished;
       onOpenChange(false);
     } catch {
       // Unmounting cancels the animation; its owner has already closed the sheet.

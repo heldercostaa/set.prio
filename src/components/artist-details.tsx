@@ -322,7 +322,7 @@ function RecordingDetails({
           <ChevronDown
             size="0.875rem"
             aria-hidden="true"
-            className="shrink-0 -rotate-90 group-open:rotate-0"
+            className="shrink-0 -rotate-90 transition-transform duration-150 group-open:rotate-0 motion-reduce:transition-none"
           />
           <span>
             {t.setDetails} &amp; {t.genreSources}
