@@ -18,8 +18,6 @@ try {
   for (const toggle of await page.getByRole('button', { name: 'Unprioritized', exact: true }).all())
     await toggle.click();
   await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
-  const hideZones = page.getByRole('button', { name: 'Hide drop zones', exact: true });
-  if (await hideZones.isVisible()) await hideZones.click();
   await page.mouse.move(0, 0);
   await page.screenshot({
     path: 'docs/screenshots/readme-desktop.png',
@@ -34,19 +32,24 @@ try {
   const phone = await mobile.newPage();
   await phone.goto(baseURL);
   await expect(phone.locator('.plan-count')).toContainText('64');
-  const frameBoard = () =>
-    phone.evaluate(() => {
+  const frameBoard = async () => {
+    await phone.evaluate(() => {
       const board = document.querySelector('.board-grid');
       if (!board) throw new Error('Missing priority board');
       scrollTo(0, board.getBoundingClientRect().top + scrollY);
     });
+    await phone.mouse.move(0, 0);
+    await expect(
+      phone.getByRole('complementary', { name: 'Floating priority drop zones', exact: true })
+    ).toBeHidden();
+  };
   await frameBoard();
 
   await phone.screenshot({
     path: 'docs/screenshots/readme-mobile-board.png',
     animations: 'disabled',
   });
-  await phone.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();
+  await phone.getByRole('button', { name: 'Fisher · Friday', exact: true }).tap();
   await expect(phone.getByRole('dialog', { name: 'Fisher', exact: true })).toBeVisible();
   await phone
     .getByRole('spinbutton', { name: 'Rate this set', exact: true })
@@ -55,10 +58,8 @@ try {
     path: 'docs/screenshots/readme-mobile-details.png',
     animations: 'disabled',
   });
-  await phone.getByRole('button', { name: 'Close', exact: true }).click();
-  await phone.getByRole('button', { name: 'Saturday', exact: true }).click();
-  const dismiss = phone.getByRole('button', { name: 'Hide drop zones', exact: true });
-  if (await dismiss.isVisible()) await dismiss.click();
+  await phone.getByRole('button', { name: 'Close', exact: true }).tap();
+  await phone.getByRole('button', { name: 'Saturday', exact: true }).tap();
   await frameBoard();
   await phone.screenshot({
     path: 'docs/screenshots/readme-mobile-saturday.png',

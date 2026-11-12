@@ -50,6 +50,7 @@ export function PriorityBoard({
   const endDrag = ({ active, over }: DragEndEvent) => {
     setDragName(null);
     setDragAppearance(null);
+    onQuick?.(null);
     const appearance = active.data.current?.appearance as Appearance | undefined;
     if (appearance && over && over.data.current?.day === appearance.day) {
       state.setPriority(appearance.id, over.data.current.priority as Priority | null);
@@ -80,6 +81,7 @@ export function PriorityBoard({
           onDragCancel={() => {
             setDragName(null);
             setDragAppearance(null);
+            onQuick?.(null);
           }}
           accessibility={{
             restoreFocus: keyboardDrag,
@@ -134,10 +136,13 @@ export function PriorityBoard({
           )}
           <FloatingPriorityTargets
             appearance={
-              dragAppearance ?? catalog.appearances.find((a) => a.id === hoveredAppearance) ?? null
+              previewsAllowed
+                ? (dragAppearance ??
+                  catalog.appearances.find((a) => a.id === hoveredAppearance) ??
+                  null)
+                : null
             }
             language={language}
-            onClose={() => onQuick?.(null)}
           />
           <DragOverlay>
             {dragName && (

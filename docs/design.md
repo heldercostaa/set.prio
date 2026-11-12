@@ -41,6 +41,8 @@ The canonical SVG retains its original #1C1C1E base, #3A3A3C track, white knob, 
 
 Desktop shows three day columns. Mobile shows a day selector, keeping every action available at 320px. The explicit priority selector is the keyboard and touch alternative to dragging.
 
+Floating targets use each priority’s color and dashed outline in an aligned grid above the back-to-top button. Mouse or pen hover reveals them; leaving the artist hides them. During a drag, they stay visible until drop or cancellation. Focusing a card or restoring focus after closing details does not open them.
+
 Artist details use a Radix modal with a fixed heading and scrollable content. Mobile displays a bottom sheet. Focus returns to the originating artist or its moved replacement card.
 
 Motion emphasizes card relocation, modal entry, and export feedback. Reduced-motion preferences disable transition animation. Hover previews supplement the clickable modal; touch users get all information through the modal.
