@@ -362,16 +362,14 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     await image.decode();
     return image;
   };
-  const [icon, dayIcon] = await Promise.all(['/logo.svg', '/icons/audio-lines.svg'].map(loadImage));
+  const [icon, wordmark, dayIcon] = await Promise.all(
+    ['/logo.svg', '/wordmark.svg', '/icons/audio-lines.svg'].map(loadImage)
+  );
   context.fillStyle = tokenColor('--bg');
   context.fillRect(0, 0, width, height);
   context.drawImage(icon, padding, 40, 56, 56);
   box(padding, 40, 56, 56, 13, '#00000000', '#ffffff40');
-  label('set', padding + 72, 36, 34, 700);
-  const setWidth = context.measureText('set').width;
-  label('.', padding + 72 + setWidth, 36, 34, 700, '#ff453a');
-  const dotWidth = context.measureText('.').width;
-  label('priority', padding + 72 + setWidth + dotWidth, 36, 34, 700);
+  context.drawImage(wordmark, padding + 72, 38, 167 * 1.2, 35 * 1.2);
   label('Tomorrowland Brasil 2027', padding + 72, 80, 16, 500, secondary);
   context.textAlign = 'right';
   label(t.dateRange, width - padding, 42, 17, 500, secondary);

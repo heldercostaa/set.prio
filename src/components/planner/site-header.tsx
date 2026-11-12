@@ -16,10 +16,13 @@ function Brand({ language }: { language: Language }) {
         alt=""
         className="size-9 shrink-0 rounded-[23%] ring-1 ring-white/20"
       />
-      <div className="wordmark whitespace-nowrap text-2xl font-medium leading-none tracking-[-0.06em] max-[22.5rem]:text-xl">
-        set<span className="text-[#ff453a]">.</span>
-        <strong className="font-bold">priority</strong>
-      </div>
+      <img
+        src={publicAsset('/wordmark.svg')}
+        alt="set.priority"
+        width="167"
+        height="35"
+        className="wordmark h-7 w-auto shrink-0 max-[22.5rem]:h-6"
+      />
     </a>
   );
 }
