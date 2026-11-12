@@ -6,14 +6,13 @@ import type { Language } from '../../types';
 
 function Brand() {
   return (
-    <div className="brand flex items-center gap-3.25 shrink-0 max-[47.5rem]:gap-2.5 max-[22.5rem]:gap-2 [&_img]:block [&_img]:[border-radius:23%] [&_img]:[box-shadow:0_0_0_0.0625rem_#ffffff40,_0_0.1875rem_0.625rem_#0008] [&_p]:[font-size:0.6875rem] [&_p]:text-muted [&_p]:mt-1.25 [&_p]:[letter-spacing:0.005em] max-[47.5rem]:[&_img]:w-10 max-[47.5rem]:[&_img]:h-10 max-[47.5rem]:[&_p]:[font-size:0.5625rem] max-[22.5rem]:[&_p]:[font-size:0.5rem] max-[22.5rem]:[&_img]:w-9 max-[22.5rem]:[&_img]:h-9">
+    <div className="brand flex items-center gap-3.25 shrink-0 max-[47.5rem]:gap-2.5 max-[22.5rem]:gap-2 [&_img]:block [&_img]:[border-radius:23%] [&_img]:[box-shadow:0_0_0_0.0625rem_#ffffff40,_0_0.1875rem_0.625rem_#0008] max-[47.5rem]:[&_img]:w-10 max-[47.5rem]:[&_img]:h-10 max-[22.5rem]:[&_img]:w-9 max-[22.5rem]:[&_img]:h-9">
       <img src={publicAsset('/logo.svg')} width={46} height={46} alt="" />
       <div>
         <div className="wordmark [font-size:1.6875rem] font-medium [letter-spacing:-0.075rem] [line-height:1.06] max-[47.5rem]:[font-size:1.5rem] max-[22.5rem]:[font-size:1.4375rem] [&_>_span]:[color:#ff453a] [&_strong]:font-bold">
           set<span>.</span>
           <strong>prio</strong>
         </div>
-        <p>Tomorrowland Brasil 2027</p>
       </div>
     </div>
   );
