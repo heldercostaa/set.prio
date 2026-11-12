@@ -41,8 +41,10 @@ function PriorityGroup({
         {priority ? (
           <h3 className="priority-badge inline-flex items-center gap-1.25 [color:var(--priority)] text-xs font-semibold [line-height:1.2] [padding:0.375rem_0.5rem] rounded-md bg-transparent max-[68.75rem]:text-xs max-[68.75rem]:p-1.5 max-[47.5rem]:text-xs max-[47.5rem]:[padding:0.375rem_0.5rem]">
             <span className="priority-dot w-1 h-1 [border-radius:100%] [background:currentColor]" />
-            {priority}
-            <span className="priority-name font-semibold ml-0.5 pl-1.5 [border-left:0.0625rem_solid_color-mix(in_srgb,_var(--priority)_27%,_transparent)] max-[68.75rem]:[margin-left:0] max-[68.75rem]:pl-1 max-[47.5rem]:pl-1.5">
+            {priority !== 'P4' && priority}
+            <span
+              className={`${priority === 'P4' ? 'border-l-0! ml-0! pl-0!' : ''} priority-name font-semibold ml-0.5 pl-1.5 [border-left:0.0625rem_solid_color-mix(in_srgb,_var(--priority)_27%,_transparent)] max-[68.75rem]:[margin-left:0] max-[68.75rem]:pl-1 max-[47.5rem]:pl-1.5`}
+            >
               {label}
             </span>
           </h3>
