@@ -182,3 +182,7 @@
 .priority-group:has(.empty-priority) {
   min-height: 88px;
 }
+
+.priority-p4 {
+  --priority: #b7a1ff;
+}

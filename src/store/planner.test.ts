@@ -10,6 +10,7 @@ describe('browser preference lifecycle', () => {
   it('rehydrates edits and retains IDs absent from a later catalog', async () => {
     const first = (await import('./planner')).usePlanner;
     first.getState().setPriority('retired-appearance', 'P1');
+    first.getState().setPriority('avoid-appearance', 'P4');
     first.getState().setComment('retired-appearance', 'Keep this after a lineup change');
     first.getState().setRating('shared-video', 0);
     first.getState().setLanguage('pt-BR');
@@ -19,7 +20,7 @@ describe('browser preference lifecycle', () => {
     const second = (await import('./planner')).usePlanner;
     expect(second.getState()).toMatchObject({
       language: 'pt-BR',
-      priorities: { 'retired-appearance': 'P1' },
+      priorities: { 'retired-appearance': 'P1', 'avoid-appearance': 'P4' },
       comments: { 'retired-appearance': 'Keep this after a lineup change' },
       ratings: { 'shared-video': 0 },
     });
