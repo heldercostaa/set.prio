@@ -51,9 +51,7 @@ try {
   });
   await phone.getByRole('button', { name: 'Fisher · Friday', exact: true }).tap();
   await expect(phone.getByRole('dialog', { name: 'Fisher', exact: true })).toBeVisible();
-  await phone
-    .getByRole('spinbutton', { name: 'Rate this set', exact: true })
-    .scrollIntoViewIfNeeded();
+  await phone.getByRole('slider', { name: 'Rate this set', exact: true }).scrollIntoViewIfNeeded();
   await phone.screenshot({
     path: 'docs/screenshots/readme-mobile-details.png',
     animations: 'disabled',

@@ -1,3 +1,4 @@
+import { isRating } from '../utils/ratings';
 import { create } from 'zustand';
 import { DAYS, type Day, type Language, type Preferences, type Priority } from '../types';
 
@@ -38,9 +39,7 @@ function load(): { preferences: Preferences; error: StorageError; writable: bool
         (typeof value === 'string' && ['P0', 'P1', 'P2', 'P3', 'P4'].includes(value))
     );
     const validRatings = Object.values(data.ratings).every(
-      (value) =>
-        value === null ||
-        (typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 10)
+      (value) => value === null || isRating(value)
     );
     const validComments = Object.values(data.comments).every((value) => typeof value === 'string');
     if (!validPriorities || !validRatings || !validComments)
@@ -85,7 +84,7 @@ export const usePlanner = create<Planner>((set) => ({
     set((state) => ({ priorities: { ...state.priorities, [id]: priority } })),
   setComment: (id, comment) => set((state) => ({ comments: { ...state.comments, [id]: comment } })),
   setRating: (id, rating) => {
-    if (rating !== null && (!Number.isFinite(rating) || rating < 0 || rating > 10)) return;
+    if (rating !== null && !isRating(rating)) return;
     set((state) => ({ ratings: { ...state.ratings, [id]: rating } }));
   },
   setLanguage: (language) => set({ language }),

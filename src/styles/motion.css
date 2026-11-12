@@ -63,3 +63,27 @@
     scroll-behavior: auto;
   }
 }
+
+@keyframes rating-flow {
+  to {
+    background-position: 200% 0;
+  }
+}
+@keyframes rating-board-shimmer {
+  0%,
+  15% {
+    transform: translateX(-65%);
+  }
+  65%,
+  100% {
+    transform: translateX(65%);
+  }
+}
+@keyframes rating-sheen {
+  from {
+    transform: translateX(-65%);
+  }
+  to {
+    transform: translateX(65%);
+  }
+}

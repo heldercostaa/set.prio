@@ -1,4 +1,5 @@
-import { WatchedStatus } from './watched-status';
+import { ArtistRating } from './artist-rating';
+import { usePlanner } from '../store/planner';
 import { DragHint } from './drag-hint';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
@@ -236,6 +237,12 @@ export function ArtistChip({
     data: { appearance },
     disabled: !appearance.day || !isPresent,
   });
+  const ratings = usePlanner((s) => s.ratings);
+  const bonus =
+    artist &&
+    [artist, ...membersFor(artist)].some(
+      (act) => act.recommendedSetId && ratings[act.recommendedSetId] === 11
+    );
   if (!artist) return null;
   return (
     <motion.div
@@ -256,9 +263,10 @@ export function ArtistChip({
         <HoverCard.Trigger asChild>
           <button
             type="button"
+            data-exceptional={bonus || undefined}
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip group/card relative isolate flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip group/card relative isolate flex data-[exceptional=true]:border-[#ffd58066] data-[exceptional=true]:bg-linear-125 data-[exceptional=true]:from-[#ffd5800e] data-[exceptional=true]:via-[#ff8fc80d] data-[exceptional=true]:to-[#b8a4ff12] data-[exceptional=true]:overflow-hidden data-[exceptional=true]:after:pointer-events-none data-[exceptional=true]:after:absolute data-[exceptional=true]:after:inset-[-100%] data-[exceptional=true]:after:bg-linear-110 data-[exceptional=true]:after:from-transparent data-[exceptional=true]:after:via-[#ffe4a326] data-[exceptional=true]:after:to-transparent motion-safe:data-[exceptional=true]:after:animate-[rating-board-shimmer_4s_ease-in-out_infinite] w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}
@@ -273,9 +281,8 @@ export function ArtistChip({
             }}
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
-            <span className="inline-flex min-w-0 items-center gap-0.75 transition-transform group-hover/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-focus-visible/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-active/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] motion-reduce:transition-none">
-              <span className="min-w-0 [overflow-wrap:anywhere]">{artist.name}</span>
-              <WatchedStatus artist={artist} language={language} />
+            <span className="inline-flex w-full min-w-0 flex-col items-start gap-1 transition-transform group-hover/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-focus-visible/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-active/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] motion-reduce:transition-none">
+              <ArtistRating artist={artist} language={language} name={artist.name} />
             </span>
             <DragHint onSpacingChange={setPreviewOffset} />
           </button>
@@ -327,7 +334,7 @@ export function ArtistCard({
       />
       <span className="catalog-card-body flex flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
         <strong>{artist.name}</strong>
-        <WatchedStatus artist={artist} language={language} />
+        <ArtistRating artist={artist} language={language} />
         <span>{artist.genre ?? messages(language).unknownGenre}</span>
       </span>
       {prioritized ? (
