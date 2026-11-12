@@ -6,13 +6,13 @@ Coverage audited November 12, 2026. Tests use Gherkin with playwright-bdd.
 
 `pnpm test` runs 14 contracts once: eight data/component cases and six browser-storage cases. Pure data cases do not launch browser pages. Keep these checks because browser smoke tests cannot independently prove CSV safety, HTML escaping, catalog integrity, or recovery of damaged saves.
 
-`pnpm test:e2e` schedules 41 browser checks for 20 distinct scenarios:
+`pnpm test:e2e` schedules 42 browser checks for 20 distinct scenarios:
 
 | Profile          | Scope                                                                       | Checks |
 | ---------------- | --------------------------------------------------------------------------- | ------ |
 | Desktop Chromium | Complete browser suite                                                      | 20     |
 | Desktop WebKit   | `@desktop`: hover and mouse interactions                                    | 5      |
-| Pixel 7 Chromium | `@touch`: touch drop, scroll-to-top, and day swipes                         | 2      |
+| Pixel 7 Chromium | `@touch`: touch drop, scrolling, swipes, and image sharing                  | 3      |
 | iPhone 13 WebKit | Universal flows, excluding desktop-only and native Chromium clipboard cases | 14     |
 
 Unsupported cases are excluded by tags rather than launched and skipped. New untagged scenarios run in desktop Chromium and mobile WebKit. This keeps common user flows in both engines without repeating the entire suite across every device.
@@ -36,6 +36,6 @@ CI runs checks for pull requests and pushes to main. Feature-branch pushes do no
 
 - Device profiles are emulation; physical iOS and Android devices were not tested.
 - Local Chromium checks run on macOS. Linux CI supplies the complete WebKit verification because local WebKit pointer injection is unreliable in this environment.
-- Native image sharing verifies the PNG passed to the browser API, not the operating system share sheet or saving to Photos.
+- Mobile image sharing verifies the complete PNG passed directly to the browser API. Desktop export verifies an actual downloaded file. The operating system share sheet and saving to Photos remain untested.
 - Actual paste into an authenticated Notion page remains untested. Clipboard HTML, named links, plain text, and manual-copy fallback are covered.
 - Catalog integrity checks validate structure and references; they cannot verify that official lineup research is correct. See [research notes](./catalog-research.md).

@@ -1,3 +1,5 @@
+import { useMediaQuery } from './components/ui/use-media-query';
+import { useImageShare } from './components/planner/use-image-share';
 import { ImageShareDialog } from './components/planner/image-share-dialog';
 import { MobileActions } from './components/planner/mobile-actions';
 import { PriorityBoard } from './components/planner/priority-board';
@@ -40,6 +42,8 @@ export function App() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const trigger = useRef<HTMLElement | null>(null);
   const entries = useMemo(() => collectEntries(catalog, state), [state]);
+  const mobile = useMediaQuery('(width < 47.5rem), (hover: none) and (pointer: coarse)');
+  const imageShare = useImageShare(entries, language);
   const artist = selected ? artistById.get(selected) : undefined;
   useEffect(() => {
     document.documentElement.lang = language;
@@ -74,6 +78,22 @@ export function App() {
         );
         setToast(t.downloaded);
       } else if (format === 'image') {
+        if (mobile) {
+          if (!imageShare.file) {
+            setToast(t.imagePreparing);
+            return;
+          }
+          try {
+            await navigator.share({
+              files: [imageShare.file],
+              title: 'set.prio | Tomorrowland Brasil 2027',
+            });
+          } catch (error) {
+            if (!(error instanceof DOMException && error.name === 'AbortError'))
+              setToast(t.imageShareFailed);
+          }
+          return;
+        }
         const blob = await boardImage(entries, language);
         const file = new File([blob], 'set-prio-brasil-2027.png', { type: 'image/png' });
         if (navigator.canShare?.({ files: [file] })) {
@@ -95,6 +115,11 @@ export function App() {
       setToast(t.exportError);
     } finally {
       setBusy(false);
+      if (mobile && format === 'image') {
+        requestAnimationFrame(() =>
+          document.querySelector<HTMLButtonElement>('.export-trigger')?.focus()
+        );
+      }
     }
   };
   return (
@@ -128,6 +153,9 @@ export function App() {
                 count={entries.length}
                 busy={busy}
                 onExport={handleExport}
+                mobile={mobile}
+                imageShareStatus={imageShare.status}
+                onPrepareImage={imageShare.prepare}
               />
             </div>
             {state.storageError && (
@@ -207,6 +235,7 @@ export function App() {
             />
           )}
           <ImageShareDialog
+            mobile={mobile}
             file={imageFile}
             language={language}
             onClose={() => setImageFile(null)}
