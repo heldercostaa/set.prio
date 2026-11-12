@@ -206,12 +206,19 @@ export function messages(language: Language) {
   return language === 'pt-BR' ? pt : en;
 }
 const priorityLabels = {
-  en: { P0: 'Must-see', P1: 'High priority', P2: 'Medium priority', P3: 'If time allows' },
+  en: {
+    P0: 'Must-see',
+    P1: 'High priority',
+    P2: 'Medium priority',
+    P3: 'If time allows',
+    P4: 'Avoid',
+  },
   'pt-BR': {
     P0: 'Imperdíveis',
     P1: 'Alta prioridade',
     P2: 'Prioridade média',
     P3: 'Se sobrar tempo',
+    P4: 'Evitar',
   },
 };
 export function priorityLabel(priority: Priority, language: Language) {

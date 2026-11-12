@@ -34,7 +34,8 @@ function load(): { preferences: Preferences; error: StorageError; writable: bool
       throw new Error('Unsupported save');
     const validPriorities = Object.values(data.priorities).every(
       (value) =>
-        value === null || (typeof value === 'string' && ['P0', 'P1', 'P2', 'P3'].includes(value))
+        value === null ||
+        (typeof value === 'string' && ['P0', 'P1', 'P2', 'P3', 'P4'].includes(value))
     );
     const validRatings = Object.values(data.ratings).every(
       (value) =>

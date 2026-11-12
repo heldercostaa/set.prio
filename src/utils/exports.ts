@@ -189,7 +189,7 @@ export function downloadBlob(blob: Blob, filename: string) {
   anchor.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-const palette = { P0: '#ff6961', P1: '#ffb266', P2: '#ffe066', P3: '#70d7c7' };
+const palette = { P0: '#ff6961', P1: '#ffb266', P2: '#ffe066', P3: '#70d7c7', P4: '#b7a1ff' };
 export async function boardImage(entries: ExportEntry[], language: Language): Promise<Blob> {
   await document.fonts.ready;
   const t = messages(language);
@@ -381,7 +381,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
       }
       if (!group.names.length) label('—', x + 20, y + 65, 16, 400, secondary);
       y += group.height;
-      if (group.priority !== 'P3') {
+      if (group.priority !== PRIORITIES.at(-1)) {
         context.strokeStyle = line;
         context.beginPath();
         context.moveTo(x + 20, y);
