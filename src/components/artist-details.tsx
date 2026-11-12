@@ -115,6 +115,7 @@ export function ArtistDetails({
             {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
             {appearances.map((appearance) => {
               const billed = artistById.get(appearance.artistId);
+              const selectedPriority = state.priorities[appearance.id];
               return (
                 <div
                   className="appearance-editor [padding:1rem_0] [&_+_.appearance-editor]:[border-top:0.0625rem_solid_var(--line)] [&_textarea]:w-full [&_textarea]:[resize:vertical] [&_textarea]:min-h-18.5 [&_textarea]:[max-height:21.875rem] [&_textarea]:bg-raised [&_textarea]:[border:0.0625rem_solid_var(--line)] [&_textarea]:rounded-lg [&_textarea]:p-2.75 [&_textarea]:text-xs [&_textarea]:[line-height:1.65] [&_>_.small:last-child]:[font-size:0.5625rem] [&_>_.small:last-child]:[display:inline-block] [&_>_.small:last-child]:mt-1.25 max-[47.5rem]:[&_textarea]:text-base"
@@ -125,13 +126,31 @@ export function ArtistDetails({
                       <strong>{dayName(appearance.day, language)}</strong>
                       {appearance.day && <span>{longDate(appearance.day, language)}</span>}
                     </div>
-                    <label className="priority-select relative max-w-51.25 [min-width:9.375rem] max-[47.5rem]:min-w-0 max-[47.5rem]:[max-width:none] max-[47.5rem]:w-full max-[22.5rem]:[min-width:7.8125rem] [&_select]:appearance-none [&_select]:w-full [&_select]:[border:0.0625rem_solid_var(--line)] [&_select]:rounded-lg [&_select]:bg-raised [&_select]:min-h-11 [&_select]:[padding:0.5rem_1.75rem_0.5rem_0.625rem] [&_select]:[font-size:0.6875rem] [&_select]:[cursor:pointer] [&_>_svg]:absolute [&_>_svg]:[right:0.5625rem] [&_>_svg]:[top:0.9375rem] [&_>_svg]:pointer-events-none [&_>_svg]:text-muted max-[47.5rem]:[&_select]:text-base max-[22.5rem]:[&_select]:pl-2">
+                    <label
+                      className={`priority-select relative inline-flex min-h-11 max-w-full items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold [--priority:var(--secondary)] [color:var(--priority)] [border-color:color-mix(in_srgb,_var(--priority)_20%,_transparent)] [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] focus-within:ring-2 focus-within:ring-accent max-[47.5rem]:w-full ${selectedPriority ? `priority-${selectedPriority.toLowerCase()}` : ''}`}
+                    >
+                      <span aria-hidden="true" className="flex min-w-0 flex-1 items-center gap-1.5">
+                        <span className="h-1 w-1 shrink-0 rounded-full bg-current" />
+                        {selectedPriority ? (
+                          <>
+                            {selectedPriority !== 'P4' && (
+                              <span className="border-r pr-1.5 [border-color:color-mix(in_srgb,_var(--priority)_27%,_transparent)]">
+                                {selectedPriority}
+                              </span>
+                            )}
+                            {priorityLabel(selectedPriority, language)}
+                          </>
+                        ) : (
+                          t.noPriority
+                        )}
+                      </span>
                       <span className="sr-only absolute w-0.25 h-0.25 overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
                         {t.priority} · {dayName(appearance.day, language)} · {billed?.name}
                       </span>
                       <select
+                        className="absolute inset-0 h-full w-full cursor-pointer opacity-0 text-base"
                         aria-label={`${t.priority} · ${dayName(appearance.day, language)} · ${billed?.name}`}
-                        value={state.priorities[appearance.id] ?? ''}
+                        value={selectedPriority ?? ''}
                         onChange={(event) =>
                           state.setPriority(
                             appearance.id,
@@ -148,7 +167,11 @@ export function ArtistDetails({
                           </option>
                         ))}
                       </select>
-                      <ChevronDown size="0.875rem" />
+                      <ChevronDown
+                        size="0.875rem"
+                        aria-hidden="true"
+                        className="pointer-events-none shrink-0"
+                      />
                     </label>
                   </div>
                   {appearance.artistId !== artist.id && (
