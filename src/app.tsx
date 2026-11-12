@@ -28,6 +28,7 @@ export function App() {
   const language = state.language,
     t = messages(language);
   const [search, setSearch] = useState('');
+  const [genres, setGenres] = useState<string[]>([]);
   const [view, setView] = useState<'board' | 'artists'>('board');
   const [selected, setSelected] = useState<string | null>(null);
   const [about, setAbout] = useState(false);
@@ -142,6 +143,8 @@ export function App() {
               onView={setView}
               search={search}
               onSearch={setSearch}
+              genres={genres}
+              onGenres={setGenres}
               count={entries.length}
             />
             <div className="genre-notice flex items-center gap-2.75 bg-transparent border-y border-separator [color:var(--secondary)] rounded-xl [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5">
@@ -159,9 +162,15 @@ export function App() {
               </button>
             </div>
             {view === 'board' ? (
-              <PriorityBoard language={language} search={search} onOpen={openArtist} />
+              <PriorityBoard
+                language={language}
+                search={search}
+                genres={genres}
+                onOpen={openArtist}
+              />
             ) : (
               <ArtistCatalog
+                genres={genres}
                 language={language}
                 search={search}
                 onSearch={setSearch}

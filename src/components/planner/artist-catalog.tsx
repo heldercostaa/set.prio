@@ -9,11 +9,13 @@ import type { Language } from '../../types';
 export function ArtistCatalog({
   language,
   search,
+  genres = [],
   onSearch,
   onOpen,
 }: {
   language: Language;
   search: string;
+  genres?: string[];
   onSearch: (value: string) => void;
   onOpen: (id: string) => void;
 }) {
@@ -24,9 +26,9 @@ export function ArtistCatalog({
   const visibleArtists = useMemo(
     () =>
       catalog.artists
-        .filter((a) => matchesSearch(a, search))
+        .filter((a) => matchesSearch(a, search, genres))
         .sort((a, b) => a.name.localeCompare(b.name, language)),
-    [search, language]
+    [search, language, genres]
   );
   return (
     <section

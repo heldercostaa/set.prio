@@ -12,7 +12,13 @@ export function appearancesFor(artist: Artist) {
       artistById.get(appearance.artistId)?.memberIds?.includes(artist.id)
   );
 }
-export function matchesSearch(artist: Artist, search: string) {
+export function matchesSearch(artist: Artist, search: string, genres: readonly string[] = []) {
+  if (
+    genres.length &&
+    !genres.includes(artist.genre ?? '') &&
+    !membersFor(artist).some((member) => genres.includes(member.genre ?? ''))
+  )
+    return false;
   const normalize = (text: string) =>
     text
       .normalize('NFD')

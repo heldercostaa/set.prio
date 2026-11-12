@@ -1,3 +1,4 @@
+import { GenreFilter } from './genre-filter';
 import { CheckCheck, Grid2X2, ListMusic, Search, X } from 'lucide-react';
 import { catalog } from '../../data';
 import { messages } from '../../i18n';
@@ -10,6 +11,8 @@ export function PlannerToolbar({
   search,
   onSearch,
   count,
+  genres,
+  onGenres,
 }: {
   language: Language;
   view: 'board' | 'artists';
@@ -17,12 +20,14 @@ export function PlannerToolbar({
   search: string;
   onSearch: (search: string) => void;
   count: number;
+  genres: string[];
+  onGenres: (genres: string[]) => void;
 }) {
   const t = messages(language);
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
-    <div className="toolbar flex items-center gap-4.5 mb-4.5 max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:1fr_auto] max-[47.5rem]:gap-3.5 max-[47.5rem]:mb-4">
+    <div className="toolbar flex flex-wrap items-center gap-4.5 mb-4.5 max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:1fr_auto] max-[47.5rem]:gap-3.5 max-[47.5rem]:mb-4">
       <fieldset
         className="view-switch flex shrink-0 p-0.75 border border-separator [background:color-mix(in_srgb,_var(--line)_45%,_transparent)] rounded-xl max-[47.5rem]:[width:max-content]"
         aria-label={language === 'en' ? 'View' : 'Visualização'}
@@ -62,6 +67,7 @@ export function PlannerToolbar({
           </button>
         )}
       </div>
+      <GenreFilter language={language} selected={genres} onChange={onGenres} />
       <span className="plan-count [margin-left:auto] whitespace-nowrap flex items-center gap-1.5 text-muted [font-size:0.6875rem] max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:gap-1.25 max-[22.5rem]:[font-size:0.5625rem] max-[22.5rem]:gap-0.75">
         <CheckCheck size="1rem" />
         <strong>{count}</strong>
