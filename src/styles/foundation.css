@@ -197,3 +197,7 @@ h1 {
 }
 
 /* Joint acts keep each member's identity and recording separate. */
+
+.priority-p4 {
+  --priority: #b7a1ff;
+}
