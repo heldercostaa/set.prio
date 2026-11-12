@@ -17,7 +17,7 @@ pnpm preview
 
 All scenarios are Gherkin features, using playwright-bdd. Contract scenarios run once; browser workflows run in desktop/mobile Chromium and WebKit. Emulation does not replace physical-device checks.
 
-## Screenshots
+## README media
 
 The sample plan in `docs/fixtures/readme-plan.json` reproduces the user-supplied image: 26 Friday, 14 Saturday, and 24 Sunday priorities. It is loaded only into isolated screenshot browser contexts; new visitors start empty.
 
@@ -25,9 +25,12 @@ With the development server running:
 
 ```sh
 node scripts/capture-readme.mjs
+node scripts/capture-readme-gifs.mjs
 ```
 
-Use `SCREENSHOT_BASE_URL` for another local server. The script validates every artist/day and the 64-appearance total. Mobile captures use the visible viewport, keeping README images short and side by side.
+Use `SCREENSHOT_BASE_URL` for another local server. Both scripts validate every artist/day and the 64-appearance total. Mobile captures use the visible viewport, keeping README images short and side by side.
+
+The GIF script records desktop dragging, genre filters, export options, and mobile rating and priority changes through Playwright. Sharp encodes the frames using the existing dependencies; no separate video tools are needed. A recording-only pointer marks clicks and taps. Each GIF must stay below 5 MiB. The README supplies still images for reduced-motion preferences.
 
 ## References
 

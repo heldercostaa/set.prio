@@ -46,14 +46,20 @@
 ## About The Project
 
 <div align="center">
-  <img src="./docs/screenshots/readme-desktop.png" alt="A populated set.prio priority board" width="95%" />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./docs/screenshots/readme-desktop.png" />
+    <img src="./docs/demos/priority-board.gif" alt="Dragging an artist to a new priority, filtering genres, and opening export options" width="95%" />
+  </picture>
 </div>
 <br />
 
 set.prio is a personal planner for deciding which artists to see. Organize performances by priority, explore recommended recordings, and keep ratings and notes. The bundled artist catalog covers Tomorrowland Brasil.
 
 <p align="center">
-  <img src="./docs/screenshots/readme-mobile-board.png" alt="Mobile priority board" width="200" />
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="./docs/screenshots/readme-mobile-board.png" />
+    <img src="./docs/demos/mobile-planner.gif" alt="Choosing a day, rating a recommended set, and changing a priority on mobile" width="200" />
+  </picture>
   <img src="./docs/screenshots/readme-mobile-details.png" alt="Artist details and rating controls" width="200" />
   <img src="./docs/screenshots/readme-mobile-saturday.png" alt="Saturday priority board on mobile" width="200" />
 </p>
