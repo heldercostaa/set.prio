@@ -1,5 +1,5 @@
 import { useDroppable } from '@dnd-kit/core';
-import { CalendarDays, ChevronDown } from 'lucide-react';
+import { AudioLines, ChevronDown } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { ArtistChip } from '../../components/artist';
@@ -105,7 +105,6 @@ export function DayColumn({
   onQuick?: (id: string | null) => void;
 }) {
   const priorities = usePlanner((state) => state.priorities);
-  const Icon = CalendarDays;
   const appearances = catalog.appearances
     .filter((appearance) => {
       const artist = artistById.get(appearance.artistId);
@@ -136,7 +135,7 @@ export function DayColumn({
         </div>
         <div className="day-title flex items-center gap-2.5 max-[68.75rem]:gap-1.75 max-[47.5rem]:gap-2.5 [&_h2]:[font-size:1.375rem] [&_h2]:[font-weight:650] [&_h2]:[letter-spacing:-0.035em] max-[68.75rem]:[&_h2]:text-xl max-[47.5rem]:[&_h2]:text-2xl">
           <span className="day-icon inline-flex items-center text-muted">
-            <Icon size="1.25rem" strokeWidth={1.8} />
+            <AudioLines size="1.25rem" strokeWidth={1.8} aria-hidden="true" />
           </span>
           <h2>{dayName(day, language)}</h2>
           <span

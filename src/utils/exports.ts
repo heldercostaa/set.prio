@@ -305,9 +305,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     await image.decode();
     return image;
   };
-  const [icon, ...dayIcons] = await Promise.all(
-    ['/logo.svg', '/icons/day-0.svg', '/icons/day-1.svg', '/icons/day-2.svg'].map(loadImage)
-  );
+  const [icon, dayIcon] = await Promise.all(['/logo.svg', '/icons/audio-lines.svg'].map(loadImage));
   context.fillStyle = '#111113';
   context.fillRect(0, 0, width, height);
   context.drawImage(icon, padding, 40, 56, 56);
@@ -343,8 +341,8 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     context.textAlign = 'right';
     label(`${column.count} ${t.prioritized}`, x + columnWidth - 20, top + 22, 12, 400, secondary);
     context.textAlign = 'left';
-    if (dayIcons[index]) context.drawImage(dayIcons[index], x + 20, top + 59, 25, 25);
-    label(dayName(column.day, language), x + (dayIcons[index] ? 56 : 20), top + 56, 24, 600);
+    context.drawImage(dayIcon, x + 20, top + 59, 25, 25);
+    label(dayName(column.day, language), x + 56, top + 56, 24, 600);
     context.strokeStyle = line;
     context.beginPath();
     context.moveTo(x, top + 112);
