@@ -1,3 +1,4 @@
+import { WatchedStatus } from './watched-status';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
@@ -261,6 +262,7 @@ export function ArtistChip({
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
             <span>{artist.name}</span>
+            <WatchedStatus artist={artist} language={language} />
           </button>
         </HoverCard.Trigger>
         <HoverCard.Portal>
@@ -320,6 +322,7 @@ export function ArtistCard({
       />
       <span className="catalog-card-body flex flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
         <strong>{artist.name}</strong>
+        <WatchedStatus artist={artist} language={language} />
         <span>{artist.genre ?? messages(language).unknownGenre}</span>
       </span>
       {prioritized ? (
