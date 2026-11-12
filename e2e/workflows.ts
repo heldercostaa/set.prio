@@ -549,6 +549,7 @@ export const workflows: Record<
     testInfo
   ) => {
     const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8')) as {
+      recordings: { id: string }[];
       appearances: {
         id: string;
         day: string | null;
@@ -557,8 +558,11 @@ export const workflows: Record<
     const priorities = Object.fromEntries(
       catalog.appearances.map((a, index) => [a.id, `P${index % 4}`])
     );
+    const ratings = Object.fromEntries(
+      catalog.recordings.map((recording, index) => [recording.id, [11, 8.5, 0, null][index % 4]])
+    );
     await page.evaluate(
-      (priorities) =>
+      ({ priorities, ratings }) =>
         localStorage.setItem(
           'set.prio:brasil-2027:v1',
           JSON.stringify({
@@ -566,11 +570,11 @@ export const workflows: Record<
             language: 'en',
             activeDay: '2027-04-30',
             priorities,
-            ratings: {},
+            ratings,
             comments: {},
           })
         ),
-      priorities
+      { priorities, ratings }
     );
     await page.reload();
     if (isMobile) await captureImageShares(page);
@@ -610,6 +614,15 @@ export const workflows: Record<
       footer.channels.some((channel) => channel.max > 150),
       'Credits remain inside the complete image'
     ).toBe(true);
+    const pixels = await sharp(bytes).removeAlpha().raw().toBuffer();
+    let bonusPixels = 0;
+    for (let i = 0; i < pixels.length; i += 3) {
+      if (pixels[i] === 255 && pixels[i + 1] === 213 && pixels[i + 2] === 128) bonusPixels++;
+    }
+    expect(
+      bonusPixels,
+      'The exported image includes the gold 11/10 score treatment'
+    ).toBeGreaterThan(10);
     expect(metadata.format).toBe('png');
     expect(filename).toBe('set-prio-brasil-2027.png');
     const background = await sharp(bytes)

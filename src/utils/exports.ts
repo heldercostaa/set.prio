@@ -189,7 +189,6 @@ export function downloadBlob(blob: Blob, filename: string) {
   anchor.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-const palette = { P0: '#ff6961', P1: '#ffb266', P2: '#ffe066', P3: '#70d7c7', P4: '#b7a1ff' };
 export async function boardImage(entries: ExportEntry[], language: Language): Promise<Blob> {
   await document.fonts.ready;
   const t = messages(language);
@@ -205,7 +204,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   if (!context) throw new Error('Canvas unavailable');
   const family = getComputedStyle(document.body).fontFamily;
   const font = (weight: number, size: number) => `${weight} ${size}px ${family}`;
-  context.font = font(400, 14);
+  context.font = font(500, 14);
   const wrap = (value: string, maxWidth: number) => {
     const lines: string[] = [];
     let line = '';
@@ -235,29 +234,78 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
       const names = entries
         .filter((entry) => entry.appearance.day === day && entry.priority === priority)
         .map((entry) => {
-          const lines = wrap(entry.artist.name, innerWidth - 24);
+          const joint = Boolean(entry.members?.length);
+          const rated = (
+            joint ? (entry.members ?? []) : [{ artist: entry.artist, rating: entry.rating }]
+          ).flatMap((member) =>
+            member.rating === null ? [] : [{ name: member.artist.name, rating: member.rating }]
+          );
+          const formatScore = (rating: number) =>
+            `${new Intl.NumberFormat(language).format(rating)}${rating === 11 ? '/10' : ''}`;
+          context.font = font(600, 11);
+          const scoreWidth = rated.length
+            ? Math.max(
+                ...rated.map((member) => context.measureText(formatScore(member.rating)).width)
+              )
+            : 0;
+          const scoreGap = rated.length ? 8 + scoreWidth : 0;
+          context.font = font(500, 14);
+          const nameWidth = context.measureText(entry.artist.name).width;
+          context.font = font(400, 11);
+          const memberWidth =
+            joint && rated.length
+              ? Math.max(...rated.map((member) => context.measureText(member.name).width)) +
+                scoreGap
+              : 0;
           const chipWidth = Math.min(
             innerWidth,
-            Math.ceil(Math.max(...lines.map((line) => context.measureText(line).width))) + 24
+            Math.ceil(Math.max(nameWidth + (joint ? 0 : scoreGap), memberWidth)) + 22
           );
-          const chipHeight = lines.length * 22 + 20;
+          context.font = font(500, 14);
+          const lines = wrap(entry.artist.name, chipWidth - 22 - (joint ? 0 : scoreGap));
+          const ratings = rated.map((member) => {
+            context.font = font(400, 11);
+            return {
+              ...member,
+              text: formatScore(member.rating),
+              lines: joint ? wrap(member.name, chipWidth - 22 - scoreGap) : [],
+            };
+          });
+          const ratingHeight = joint
+            ? ratings.reduce((sum, member) => sum + member.lines.length * 16.5 + 11, 0)
+            : rated.length
+              ? 7
+              : 0;
+          const chipHeight = Math.max(
+            40,
+            lines.length * 21 + 18 + ratingHeight + (joint && rated.length ? 4 : 0)
+          );
           if (x && x + chipWidth > innerWidth) {
-            y += rowHeight + 8;
+            y += rowHeight + 6;
             x = 0;
             rowHeight = 0;
           }
-          const chip = { lines, x, y, width: chipWidth, height: chipHeight };
-          x += chipWidth + 8;
+          const chip = {
+            lines,
+            ratings,
+            joint,
+            bonus: rated.some((member) => member.rating === 11),
+            x,
+            y,
+            width: chipWidth,
+            height: chipHeight,
+          };
+          x += chipWidth + 6;
           rowHeight = Math.max(rowHeight, chipHeight);
           return chip;
         });
-      return { priority, names, height: Math.max(116, 64 + y + rowHeight + 20) };
+      return { priority, names, height: Math.max(88, 55 + y + rowHeight + 18) };
     });
     return {
       day,
       groups,
       count: groups.reduce((sum, group) => sum + group.names.length, 0),
-      height: 112 + groups.reduce((sum, group) => sum + group.height, 0),
+      height: 96 + groups.reduce((sum, group) => sum + group.height, 0),
     };
   });
   const height = top + Math.max(...columns.map((column) => column.height)) + 96;
@@ -265,16 +313,25 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   canvas.height = height * 2;
   context.scale(2, 2);
   context.textBaseline = 'middle';
-  const text = '#f5f5f7',
-    secondary = '#a1a1a6',
-    line = '#38383a';
+  const styles = getComputedStyle(document.documentElement);
+  const tokenColor = (token: string) => styles.getPropertyValue(token).trim();
+  const palette = {
+    P0: tokenColor('--red'),
+    P1: tokenColor('--orange'),
+    P2: tokenColor('--yellow'),
+    P3: tokenColor('--teal'),
+    P4: tokenColor('--avoid'),
+  };
+  const text = tokenColor('--text'),
+    secondary = tokenColor('--secondary'),
+    line = tokenColor('--line');
   const box = (
     x: number,
     y: number,
     w: number,
     h: number,
     radius: number,
-    fill: string,
+    fill: string | CanvasGradient,
     border?: string
   ) => {
     context.beginPath();
@@ -306,7 +363,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     return image;
   };
   const [icon, dayIcon] = await Promise.all(['/logo.svg', '/icons/audio-lines.svg'].map(loadImage));
-  context.fillStyle = '#111113';
+  context.fillStyle = tokenColor('--bg');
   context.fillRect(0, 0, width, height);
   context.drawImage(icon, padding, 40, 56, 56);
   box(padding, 40, 56, 56, 13, '#00000000', '#ffffff40');
@@ -322,13 +379,13 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   context.textAlign = 'left';
   columns.forEach((column, index) => {
     const x = padding + index * (columnWidth + gap);
-    box(x, top, columnWidth, column.height, 20, '#1c1c1e', line);
+    box(x, top, columnWidth, column.height, 12, tokenColor('--panel'), line);
     context.save();
     context.beginPath();
-    context.roundRect(x, top, columnWidth, column.height, 20);
+    context.roundRect(x, top, columnWidth, column.height, 12);
     context.clip();
-    context.fillStyle = '#1c1c1e';
-    context.fillRect(x, top, columnWidth, 112);
+    context.fillStyle = tokenColor('--panel');
+    context.fillRect(x, top, columnWidth, 96);
     context.restore();
     label(
       column.day ? shortDate(column.day, language).toLocaleUpperCase(language) : t.dayTba,
@@ -341,43 +398,86 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     context.textAlign = 'right';
     label(`${column.count} ${t.prioritized}`, x + columnWidth - 20, top + 22, 12, 400, secondary);
     context.textAlign = 'left';
-    context.drawImage(dayIcon, x + 20, top + 59, 25, 25);
-    label(dayName(column.day, language), x + 56, top + 56, 24, 600);
+    context.drawImage(dayIcon, x + 20, top + 51, 20, 20);
+    label(dayName(column.day, language), x + 50, top + 48, 22, 650);
     context.strokeStyle = line;
     context.beginPath();
-    context.moveTo(x, top + 112);
-    context.lineTo(x + columnWidth, top + 112);
+    context.moveTo(x, top + 96);
+    context.lineTo(x + columnWidth, top + 96);
     context.stroke();
-    let y = top + 112;
+    let y = top + 96;
     for (const group of column.groups) {
       const color = palette[group.priority];
       const title = priorityLabel(group.priority, language);
-      context.font = font(500, 12);
+      context.font = font(600, 12);
       const badgeWidth = context.measureText(title).width + (group.priority === 'P4' ? 29 : 61);
-      box(x + 20, y + 20, badgeWidth, 27, 6, `${color}17`);
+      box(x + 20, y + 17, badgeWidth, 27, 6, `${color}17`);
       context.beginPath();
-      context.arc(x + 30, y + 33.5, 2.5, 0, Math.PI * 2);
+      context.arc(x + 30, y + 30.5, 2.5, 0, Math.PI * 2);
       context.fillStyle = color;
       context.fill();
-      if (group.priority !== 'P4') label(group.priority, x + 38, y + 25, 12, 600, color);
+      if (group.priority !== 'P4') label(group.priority, x + 38, y + 22, 12, 600, color);
       if (group.priority !== 'P4') {
         context.strokeStyle = `${color}45`;
         context.beginPath();
-        context.moveTo(x + 62, y + 26);
-        context.lineTo(x + 62, y + 41);
+        context.moveTo(x + 62, y + 23);
+        context.lineTo(x + 62, y + 38);
         context.stroke();
       }
-      label(title, x + (group.priority === 'P4' ? 38 : 70), y + 25, 12, 500, color);
+      label(title, x + (group.priority === 'P4' ? 38 : 70), y + 22, 12, 600, color);
       context.textAlign = 'right';
-      label(String(group.names.length), x + columnWidth - 22, y + 26, 12, 400, secondary);
+      label(String(group.names.length), x + columnWidth - 22, y + 23, 10, 400, secondary);
       context.textAlign = 'left';
       for (const chip of group.names) {
         const cx = x + 20 + chip.x,
-          cy = y + 62 + chip.y;
-        box(cx, cy, chip.width, chip.height, 8, '#1c1c1e', line);
+          cy = y + 55 + chip.y;
+        let fill: string | CanvasGradient = tokenColor('--panel-soft');
+        if (chip.bonus) {
+          const gradient = context.createLinearGradient(cx, cy, cx + chip.width, cy + chip.height);
+          gradient.addColorStop(0, '#ffd5800e');
+          gradient.addColorStop(0.55, '#ff8fc80d');
+          gradient.addColorStop(1, '#b8a4ff12');
+          box(cx, cy, chip.width, chip.height, 8, fill);
+          fill = gradient;
+        }
+        box(cx, cy, chip.width, chip.height, 8, fill, chip.bonus ? '#ffd58066' : undefined);
         chip.lines.forEach((value, i) => {
-          label(value, cx + 12, cy + 12 + i * 22, 14, 400);
+          label(value, cx + 11, cy + 9 + i * 21, 14, 500);
         });
+        let ry = cy + 9 + chip.lines.length * 21 + (chip.joint ? 4 : 0);
+        for (const member of chip.ratings) {
+          const bonus = member.rating === 11;
+          if (chip.joint) {
+            member.lines.forEach((value, i) => {
+              label(value, cx + 11, ry + i * 16.5, 11, 400, secondary);
+            });
+          }
+          context.textAlign = 'right';
+          label(
+            member.text,
+            cx + chip.width - 11,
+            chip.joint ? ry : cy + 11,
+            11,
+            600,
+            bonus ? '#ffd580' : tokenColor('--orange')
+          );
+          context.textAlign = 'left';
+          if (chip.joint) ry += member.lines.length * 16.5 + 4;
+          box(cx + 11, ry, chip.width - 22, 3, 1.5, line);
+          const filledWidth = ((chip.width - 22) * Math.min(member.rating, 10)) / 10;
+          if (filledWidth > 0) {
+            let rail: string | CanvasGradient = tokenColor('--orange');
+            if (bonus) {
+              const gradient = context.createLinearGradient(cx + 11, ry, cx + chip.width - 11, ry);
+              gradient.addColorStop(0, '#ffd580');
+              gradient.addColorStop(0.5, '#ff8fc8');
+              gradient.addColorStop(1, '#b8a4ff');
+              rail = gradient;
+            }
+            box(cx + 11, ry, filledWidth, 3, 1.5, rail);
+          }
+          ry += 7;
+        }
       }
       if (!group.names.length) label('—', x + 20, y + 65, 16, 400, secondary);
       y += group.height;
