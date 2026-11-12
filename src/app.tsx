@@ -144,25 +144,20 @@ export function App() {
             id="main"
             className="app-main max-w-384 px-10 pt-7 [margin:auto] max-[68.75rem]:[padding:1.875rem_1.5rem_0] max-[47.5rem]:[padding:1.75rem_1.25rem_0] max-[22.5rem]:[padding:1.5rem_1rem_0]"
           >
-            <div className="page-heading flex justify-between items-center gap-5 mb-6 max-[47.5rem]:mb-6 max-[47.5rem]:items-start [&_>_div_>_p]:text-muted [&_>_div_>_p]:text-sm [&_>_div_>_p]:mt-2.25 max-[47.5rem]:[&_>_div_>_p]:text-xs max-[47.5rem]:[&_>_div_>_p]:[max-width:13.125rem] max-[47.5rem]:[&_>_div_>_p]:[line-height:1.5]">
-              <div>
-                <div className="event-kicker mb-3 text-xs font-medium tracking-wide text-muted max-[47.5rem]:text-[0.625rem]">
-                  Tomorrowland Brasil 2027
-                </div>
-                <h1
-                  aria-label={t.title}
-                  className="whitespace-nowrap text-3xl font-medium leading-none tracking-[-0.06em] sm:text-4xl lg:text-5xl"
-                >
-                  <span>set</span>
-                  <span className="text-[#FF453A]">.</span>
-                  <strong className="font-semibold">priority</strong>
+            <div className="page-heading mb-6 flex items-center justify-between gap-4 max-[47.5rem]:items-start">
+              <div className="min-w-0">
+                <h1 className="text-4xl font-semibold leading-tight tracking-tight max-[47.5rem]:text-3xl">
+                  {t.planHeading}
                 </h1>
-                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 tabular-nums">
-                  <span>{t.dateRange}</span>
-                  <span className="location border-l border-separator pl-2 text-[0.625rem] font-medium tracking-wide max-[68.75rem]:hidden">
-                    ITU, SÃO PAULO
+                <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm max-[47.5rem]:text-xs">
+                  <span className="text-content">Tomorrowland Brasil 2027</span>
+                  <span aria-hidden="true" className="text-muted max-[47.5rem]:hidden">
+                    ·
                   </span>
-                </p>
+                  <span className="text-muted tabular-nums max-[47.5rem]:basis-full">
+                    {t.dateRange}
+                  </span>
+                </div>
               </div>
               <ExportMenu
                 language={language}
