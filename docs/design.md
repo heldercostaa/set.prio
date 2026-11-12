@@ -41,7 +41,7 @@ The canonical SVG retains its original #1C1C1E base, #3A3A3C track, white knob, 
 
 Desktop shows three day columns. Mobile shows a day selector, keeping every action available at 320px. The explicit priority selector is the keyboard and touch alternative to dragging.
 
-The right-hand grip extends the card’s hover surface while its layout slot stays unchanged. At a column edge, the extension shifts inward instead of wrapping the card. The grip remains draggable, and previews keep a measured gap from the expanded surface.
+The right-hand grip extends the card’s hover surface while its layout slot stays unchanged. The extension respects neighboring cards and column edges. The hovered name shifts only enough to fit the grip, without covering other labels or wrapping the card. The grip remains draggable, and previews keep a measured gap from the expanded surface.
 
 Floating targets use each priority’s color and dashed outline in an aligned grid above the back-to-top button. They appear only after an artist drag moves, then remain visible until drop or cancellation. Hover, focus, and a stationary touch hold keep them hidden. Artist previews and the card’s drag grip still respond to hover.
 

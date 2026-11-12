@@ -290,17 +290,34 @@ export const workflows: Record<
       const button = element.closest('button');
       const rect = element.getBoundingClientRect();
       const y = rect.y + rect.height / 2;
+      const hint = element.parentElement?.getBoundingClientRect();
+      const neighbors =
+        button?.closest('.artist-chips')?.querySelectorAll('button[data-appearance-id]') ?? [];
+      const overlappingArtists = [...neighbors]
+        .filter((neighbor) => {
+          if (neighbor === button || !hint) return false;
+          const other = neighbor.getBoundingClientRect();
+          return (
+            hint.left < other.right &&
+            hint.right > other.left &&
+            hint.top < other.bottom &&
+            hint.bottom > other.top
+          );
+        })
+        .map((neighbor) => neighbor.getAttribute('aria-label'));
       let opacity = 1;
       for (let node = element.parentElement; node && node !== button; node = node.parentElement)
         opacity *= Number(getComputedStyle(node).opacity);
       return {
         opacity,
+        overlappingArtists,
         reachable: [rect.left + 1, rect.left + rect.width / 2, rect.right - 1].every((x) => {
           const hit = document.elementFromPoint(x, y);
           return hit !== null && button?.contains(hit);
         }),
       };
     });
+    expect(cue.overlappingArtists, 'The hover surface must not cover another artist').toEqual([]);
     expect(cue.opacity, 'The drag icon is painted').toBeGreaterThan(0.95);
     expect(cue.reachable, 'The entire drag icon belongs to the artist hit area').toBe(true);
     const columnRight = await label.evaluate(
