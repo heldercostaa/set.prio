@@ -1,3 +1,4 @@
+import { useSheetSwipe } from './use-sheet-swipe';
 import * as Dialog from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
 import { useRef, type ReactNode } from 'react';
@@ -24,7 +25,6 @@ export function Modal({
   const content = useRef<HTMLDivElement>(null);
   const overlay = useRef<HTMLDivElement>(null);
   const closing = useRef(false);
-  const start = useRef<{ x: number; y: number; id: number } | null>(null);
   const requestClose = async (nextOpen: boolean) => {
     if (nextOpen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       onOpenChange(nextOpen);
@@ -34,13 +34,22 @@ export function Modal({
     closing.current = true;
     try {
       const mobile = window.matchMedia('(width < 47.5rem)').matches;
-      overlay.current?.animate([{ opacity: 1 }, { opacity: 0 }], {
-        duration: mobile ? 180 : 140,
-        fill: 'forwards',
-      });
+      overlay.current?.animate(
+        [
+          { opacity: overlay.current ? getComputedStyle(overlay.current).opacity : 1 },
+          { opacity: 0 },
+        ],
+        {
+          duration: mobile ? 180 : 140,
+          fill: 'forwards',
+        }
+      );
       await content.current?.animate(
         mobile
-          ? [{ translate: '0 0' }, { translate: '0 100%' }]
+          ? [
+              { translate: content.current ? getComputedStyle(content.current).translate : '0 0' },
+              { translate: '0 100%' },
+            ]
           : [
               { opacity: 1, scale: 1 },
               { opacity: 0, scale: 0.98 },
@@ -54,6 +63,7 @@ export function Modal({
       closing.current = false;
     }
   };
+  const swipeHandlers = useSheetSwipe(content, overlay, () => void requestClose(false));
   return (
     <Dialog.Root open={open} onOpenChange={(value) => void requestClose(value)}>
       <Dialog.Portal>
@@ -74,36 +84,7 @@ export function Modal({
           }
         >
           <div
-            onTouchStart={(event) => {
-              start.current = null;
-              if (
-                event.touches.length !== 1 ||
-                !window.matchMedia('(width < 47.5rem)').matches ||
-                (event.target as Element).closest('button, a, input, select, textarea')
-              )
-                return;
-              const point = event.touches[0];
-              start.current = { x: point.clientX, y: point.clientY, id: point.identifier };
-            }}
-            onTouchMove={(event) => {
-              if (event.touches.length !== 1) start.current = null;
-            }}
-            onTouchCancel={() => {
-              start.current = null;
-            }}
-            onTouchEnd={(event) => {
-              const origin = start.current;
-              start.current = null;
-              if (!origin || event.touches.length) return;
-              const point = Array.from(event.changedTouches).find(
-                (touch) => touch.identifier === origin.id
-              );
-              if (!point) return;
-              const dy = point.clientY - origin.y;
-              const dx = Math.abs(point.clientX - origin.x);
-              const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-              if (dy >= rem * 4 && dy > dx * 1.5) void requestClose(false);
-            }}
+            {...swipeHandlers}
             className="modal-heading relative max-[47.5rem]:touch-pan-x flex items-start justify-between gap-2.5 [padding:1.375rem_1.5rem_1.1875rem] [border-bottom:0.0625rem_solid_var(--line)] shrink-0 max-[47.5rem]:[padding:1.3125rem_1.25rem_1.0625rem] [&_h2]:[font-size:1.375rem] [&_h2]:[line-height:1.2] [&_h2]:[letter-spacing:-0.025em] [&_h2]:[overflow-wrap:anywhere] [&_h2]:[font-weight:650] [&_p]:[font-size:0.6875rem] [&_p]:text-muted [&_p]:[line-height:1.6] [&_p]:mt-1.5 max-[47.5rem]:[&_h2]:[font-size:1.3125rem]"
           >
             <span

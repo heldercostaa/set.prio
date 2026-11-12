@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { motion } from 'motion/react';
 import { useMediaQuery } from '../ui/use-media-query';
 import type { WatchFilter } from '../../data';
 import { useDaySwipe } from './use-day-swipe';
@@ -16,7 +16,7 @@ import {
   useSensors,
   type DragEndEvent,
 } from '@dnd-kit/core';
-import { useContext, useState } from 'react';
+import { useContext, useState, type CSSProperties } from 'react';
 import { ArtistPreviewContext } from '../artist';
 import { artistById, catalog } from '../../data';
 import { dayName, messages } from '../../i18n';
@@ -41,26 +41,19 @@ export function PriorityBoard({
   const t = messages(language);
   const state = usePlanner();
   const mobile = useMediaQuery('(width < 47.5rem)');
-  const reducedMotion = useReducedMotion();
-  const [transition, setTransition] = useState({ day: state.activeDay, direction: 1 });
-  if (transition.day !== state.activeDay) {
-    setTransition({
-      day: state.activeDay,
-      direction: DAYS.indexOf(state.activeDay) > DAYS.indexOf(transition.day) ? 1 : -1,
-    });
-  }
   const [dragName, setDragName] = useState<string | null>(null);
   const [keyboardDrag, setKeyboardDrag] = useState(false);
   const [hasDragMoved, setHasDragMoved] = useState(false);
   const [dragAppearance, setDragAppearance] = useState<Appearance | null>(null);
   const [announcement, setAnnouncement] = useState('');
-  const { cancelSwipe, ...daySwipeHandlers } = useDaySwipe(
+  const { track, x, selectDay, cancelSwipe, ...daySwipeHandlers } = useDaySwipe(
     state.activeDay,
     (day) => {
       state.setDay(day);
       setAnnouncement(dayName(day, language));
     },
-    previewsAllowed
+    previewsAllowed,
+    mobile
   );
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 7 } }),
@@ -91,7 +84,7 @@ export function PriorityBoard({
               : hits;
           }}
           onDragStart={({ active, activatorEvent }) => {
-            cancelSwipe();
+            cancelSwipe(true);
             setKeyboardDrag(activatorEvent.type === 'keydown');
             // Mouse activation already requires movement; a touch hold alone does not.
             setHasDragMoved(activatorEvent.type === 'mousedown');
@@ -123,54 +116,26 @@ export function PriorityBoard({
                 type="button"
                 key={day}
                 aria-pressed={state.activeDay === day}
-                onClick={() => state.setDay(day)}
+                onClick={() => selectDay(day)}
               >
                 {dayName(day, language)}
               </button>
             ))}
           </fieldset>
-          <div
-            {...daySwipeHandlers}
-            className="board-grid overflow-x-clip grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block max-[47.5rem]:touch-pan-y"
-          >
-            {mobile ? (
-              <AnimatePresence mode="wait" initial={false} custom={transition.direction}>
-                <motion.div
-                  key={state.activeDay}
-                  className="day-slot min-w-0"
-                  custom={transition.direction}
-                  variants={{
-                    enter: (direction: number) => ({
-                      x: reducedMotion ? 0 : `${direction * 100}%`,
-                      opacity: reducedMotion ? 1 : 0.6,
-                    }),
-                    center: { x: 0, opacity: 1 },
-                    exit: (direction: number) => ({
-                      x: reducedMotion ? 0 : `${direction * -100}%`,
-                      opacity: reducedMotion ? 1 : 0.6,
-                    }),
-                  }}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: reducedMotion ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <DayColumn
-                    day={state.activeDay}
-                    index={DAYS.indexOf(state.activeDay)}
-                    search={search}
-                    genres={genres}
-                    watched={watched}
-                    language={language}
-                    onOpen={onOpen}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            ) : (
-              DAYS.map((day, index) => (
+          <div className="overflow-x-clip max-[47.5rem]:overflow-hidden">
+            <motion.div
+              ref={track}
+              {...daySwipeHandlers}
+              style={{ x: mobile ? x : 0 }}
+              className="board-grid relative grid grid-cols-3 items-start gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block max-[47.5rem]:touch-pan-y"
+            >
+              {DAYS.map((day, index) => (
                 <div
-                  className={`day-slot min-w-0 max-[47.5rem]:hidden max-[47.5rem]:[&.active-day]:block ${state.activeDay === day ? 'active-day' : ''}`}
+                  className={`day-slot min-w-0 max-[47.5rem]:w-full max-[47.5rem]:[transform:translateX(var(--day-offset))] ${state.activeDay === day ? 'active-day max-[47.5rem]:relative' : 'max-[47.5rem]:absolute max-[47.5rem]:top-0 max-[47.5rem]:left-0'}`}
                   key={day}
+                  style={{ '--day-offset': `${index * 100}%` } as CSSProperties}
+                  inert={mobile && state.activeDay !== day}
+                  aria-hidden={(mobile && state.activeDay !== day) || undefined}
                 >
                   <DayColumn
                     day={day}
@@ -182,8 +147,8 @@ export function PriorityBoard({
                     onOpen={onOpen}
                   />
                 </div>
-              ))
-            )}
+              ))}
+            </motion.div>
           </div>
           {catalog.appearances.some((appearance) => appearance.day === null) && (
             <div className="tba-board mt-5">

@@ -2,6 +2,8 @@
 Feature: Swipe between festival days
   Scenario: Change days without changing artists or treating scrolling as navigation
     Given a narrow English planner
+    When I preview and cancel a partial day swipe
+    Then Friday is selected
     When I swipe through the festival days and back
     Then Friday is selected
     When I make vertical, short, and cancelled gestures
