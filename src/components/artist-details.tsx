@@ -38,13 +38,25 @@ export function ArtistDetails({
       onRestoreFocus={restoreFocus}
     >
       <div className="artist-modal-scroll">
-        {!members.length && <Portrait artist={artist} className="artist-hero" />}
-        <div className="artist-detail-body">
+        {!members.length && (
+          <Portrait
+            artist={artist}
+            className="artist-hero w-full [height:230px] [object-position:50%_35%] [font-size:60px] max-[760px]:h-50"
+          />
+        )}
+        <div className="artist-detail-body [padding:22px_24px_20px]">
           {!members.length && (
             <>
-              <div className="detail-topline">
-                <span className="eyebrow">{t.genreShort}</span>
-                <a href={artist.officialUrl} target="_blank" rel="noreferrer" className="text-link">
+              <div className="detail-topline flex items-center justify-between [gap:10px] mb-3 max-[760px]:items-start max-[360px]:flex-col max-[360px]:[gap:6px]">
+                <span className="eyebrow [font-size:11px] font-semibold [letter-spacing:0.045em]">
+                  {t.genreShort}
+                </span>
+                <a
+                  href={artist.officialUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
+                >
                   {t.officialProfile}
                   <ArrowUpRight size={13} />
                 </a>
@@ -52,24 +64,28 @@ export function ArtistDetails({
               <Genres artist={artist} language={language} />
             </>
           )}
-          <div className="detail-warning">
+          <div className="detail-warning flex gap-2 [font-size:10px] [line-height:1.65] [color:var(--secondary)] [margin:15px_0_20px]">
             <Info size={15} />
             <p>{t.genreWarning}</p>
           </div>
           {members.length ? (
-            <section className="joint-artists" aria-label={t.jointArtists}>
+            <section className="joint-artists grid gap-5 mt-6" aria-label={t.jointArtists}>
               <h3>{t.jointArtists}</h3>
               {members.map((member) => (
-                <section className="member-details" aria-label={member.name} key={member.id}>
-                  <Portrait artist={member} className="member-portrait" />
-                  <div className="member-details-body">
-                    <div className="detail-topline">
+                <section
+                  className="member-details [border:1px_solid_var(--line)] rounded-3 overflow-hidden"
+                  aria-label={member.name}
+                  key={member.id}
+                >
+                  <Portrait artist={member} className="member-portrait w-full h-45" />
+                  <div className="member-details-body [padding:18px]">
+                    <div className="detail-topline flex items-center justify-between [gap:10px] mb-3 max-[760px]:items-start max-[360px]:flex-col max-[360px]:[gap:6px]">
                       <h3>{member.name}</h3>
                       <a
                         href={member.officialUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-link"
+                        className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
                       >
                         {t.officialProfile}
                         <ArrowUpRight size={13} />
@@ -90,20 +106,22 @@ export function ArtistDetails({
               heading={members.length ? t.jointRecording : undefined}
             />
           )}
-          <section className="detail-section performances-editor">
+          <section className="detail-section [padding:20px_0] [border-top:1px_solid_var(--line)] performances-editor">
             <h3>{t.related}</h3>
-            {appearances.length === 0 && <p className="muted">{t.noSolo}</p>}
+            {appearances.length === 0 && (
+              <p className="muted [color:var(--secondary)]">{t.noSolo}</p>
+            )}
             {appearances.map((appearance) => {
               const billed = artistById.get(appearance.artistId);
               return (
-                <div className="appearance-editor" key={appearance.id}>
-                  <div className="appearance-heading">
+                <div className="appearance-editor [padding:16px_0]" key={appearance.id}>
+                  <div className="appearance-heading flex justify-between items-center [gap:14px] [margin-bottom:6px] max-[360px]:gap-2 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-3">
                     <div>
                       <strong>{dayName(appearance.day, language)}</strong>
                       {appearance.day && <span>{longDate(appearance.day, language)}</span>}
                     </div>
-                    <label className="priority-select">
-                      <span className="sr-only">
+                    <label className="priority-select relative [max-width:205px] [min-width:150px] max-[760px]:min-w-0 max-[760px]:[max-width:none] max-[760px]:w-full max-[360px]:[min-width:125px]">
+                      <span className="sr-only absolute [width:1px] [height:1px] overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
                         {t.priority} · {dayName(appearance.day, language)} · {billed?.name}
                       </span>
                       <select
@@ -127,10 +145,17 @@ export function ArtistDetails({
                     </label>
                   </div>
                   {appearance.artistId !== artist.id && (
-                    <p className="billed-name">{billed?.name}</p>
+                    <p className="billed-name [font-size:11px] [line-height:1.6] [margin:8px_0_4px] font-medium">
+                      {billed?.name}
+                    </p>
                   )}
-                  <p className="small muted">{appearance.stage ?? t.stageUnknown}</p>
-                  <label className="notes-label" htmlFor={`comment-${appearance.id}`}>
+                  <p className="small text-xs [line-height:1.55] muted [color:var(--secondary)]">
+                    {appearance.stage ?? t.stageUnknown}
+                  </p>
+                  <label
+                    className="notes-label block [margin:16px_0_7px] [font-size:11px] font-semibold"
+                    htmlFor={`comment-${appearance.id}`}
+                  >
                     {t.notes}
                   </label>
                   <textarea
@@ -141,12 +166,14 @@ export function ArtistDetails({
                     placeholder={t.notesPlaceholder}
                     onChange={(event) => state.setComment(appearance.id, event.target.value)}
                   />
-                  <span className="small muted">{t.notesHint}</span>
+                  <span className="small text-xs [line-height:1.55] muted [color:var(--secondary)]">
+                    {t.notesHint}
+                  </span>
                 </div>
               );
             })}
           </section>
-          <p className="saved-note">
+          <p className="saved-note flex items-center justify-center [gap:5px] [color:var(--secondary)] [font-size:9px] [padding-top:17px]">
             <Check size={13} />
             {state.storageError ? t.privacy : t.saved}
           </p>
@@ -175,7 +202,7 @@ function RecordingDetails({
   const helpId = `rating-help-${artist.id}`;
   return (
     <>
-      <section className="detail-section">
+      <section className="detail-section [padding:20px_0] [border-top:1px_solid_var(--line)]">
         <h3>{heading ?? t.recommended}</h3>
         <SetLink
           recording={recording}
@@ -184,7 +211,7 @@ function RecordingDetails({
         />
         {recording && (
           <>
-            <div className="recording-meta">
+            <div className="recording-meta flex flex-wrap [gap:5px_12px] [color:var(--secondary)] [font-size:9px] [line-height:1.6] [margin:10px_1px_0]">
               <span>{recording.channel}</span>
               {recording.uploadedAt && (
                 <span>
@@ -197,17 +224,20 @@ function RecordingDetails({
                 </span>
               )}
             </div>
-            <div className="rating-row">
+            <div className="rating-row flex justify-between items-center gap-4 [margin-top:21px] max-[760px]:[gap:10px]">
               <div>
                 <label htmlFor={ratingId}>
                   <Star size={16} />
                   {t.rating}
                 </label>
-                <p className="muted small" id={helpId}>
+                <p
+                  className="muted [color:var(--secondary)] small text-xs [line-height:1.55]"
+                  id={helpId}
+                >
                   {t.ratingHint}
                 </p>
               </div>
-              <div className="rating-controls">
+              <div className="rating-controls flex items-center [gap:6px] flex-wrap [max-width:115px] shrink-0 [justify-content:flex-end] max-[760px]:max-w-26">
                 <input
                   id={ratingId}
                   inputMode="numeric"
@@ -233,7 +263,7 @@ function RecordingDetails({
                 <span>/ 10</span>
                 <button
                   type="button"
-                  className="text-link"
+                  className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
                   disabled={state.ratings[recording.id] == null}
                   onClick={() => {
                     state.setRating(recording.id, null);
@@ -245,14 +275,17 @@ function RecordingDetails({
               </div>
             </div>
             {ratingError && (
-              <p role="alert" className="field-error">
+              <p
+                role="alert"
+                className="field-error [font-size:11px] [color:var(--red)] [margin-top:10px]"
+              >
                 {t.invalidRating}
               </p>
             )}
           </>
         )}
       </section>
-      <details className="research-details">
+      <details className="research-details [border-top:1px_solid_var(--line)] [padding-top:15px] [font-size:10px] [color:var(--secondary)]">
         <summary>
           {t.setDetails} &amp; {t.genreSources}
         </summary>

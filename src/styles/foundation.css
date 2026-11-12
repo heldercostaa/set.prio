@@ -1,0 +1,192 @@
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    color-scheme: dark;
+    --bg: #111113;
+    --panel: #1c1c1e;
+    --panel-soft: #202023;
+    --text: #f5f5f7;
+    --secondary: #a1a1a6;
+    --tertiary: #98989e;
+    --line: #38383a;
+    --hover: #303033;
+    --chip: #29292d;
+    --blue: #78b8ff;
+    --blue-soft: #192637;
+    --blue-line: #2a405d;
+    --red: #ff6961;
+    --orange: #ffb266;
+    --yellow: #ffe066;
+    --teal: #70d7c7;
+    --shadow: 0 16px 50px #0007, 0 0 0 1px #ffffff0d;
+    color: var(--text);
+    background: var(--bg);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: default;
+    opacity: 0.45;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    color: inherit;
+  }
+
+  button {
+    border: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+  }
+
+  p,
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  button,
+  a {
+    touch-action: manipulation;
+  }
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+.icon-button:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(25px, 2.4vw, 32px);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.button.primary {
+  color: #fff;
+  background: #0071e3;
+  border-color: transparent;
+  box-shadow: 0 1px 2px #0001;
+}
+
+.button.primary:hover:not(:disabled) {
+  background: #0077ed;
+}
+
+.button.primary:disabled {
+  background: var(--panel);
+  border-color: var(--line);
+  color: var(--tertiary);
+  opacity: 1;
+  box-shadow: none;
+}
+
+.compact-set {
+  padding: 9px;
+  min-height: 53px;
+  gap: 8px;
+}
+
+.text-link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.storage-warning svg {
+  flex-shrink: 0;
+  color: var(--orange);
+  margin-top: 2px;
+}
+
+.toast > svg {
+  flex-shrink: 0;
+  color: var(--teal);
+}
+
+@media (max-width: 760px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+
+/* Native control groups and minimum mobile hit areas. */
+
+@layer base {
+  fieldset {
+    margin: 0;
+    min-width: 0;
+  }
+}
+
+@layer base {
+  fieldset {
+    border: 0;
+    padding: 0;
+  }
+}
+
+/* Joint acts keep each member's identity and recording separate. */
