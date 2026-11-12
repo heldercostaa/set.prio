@@ -92,7 +92,7 @@
 }
 
 .unranked-group .artist-chip {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 400;
   background: var(--panel-soft);
 }
@@ -137,10 +137,10 @@
 
 @media (max-width: 760px) {
   .mobile-days button {
-    min-height: 42px;
+    min-height: 44px;
     background: none;
     border-radius: 8px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--secondary);
   }
@@ -162,7 +162,7 @@
   .artist-chip,
   .unranked-group .artist-chip {
     min-height: 44px;
-    font-size: 11px;
+    font-size: 14px;
     padding: 8px 10px;
   }
   .priority-select select {
@@ -172,7 +172,7 @@
 
 @media (max-width: 360px) {
   .mobile-days button {
-    font-size: 10px;
+    font-size: 12px;
   }
   .priority-select select {
     padding-left: 8px;

@@ -62,7 +62,7 @@ export function PriorityBoard({
           accessibility={{ screenReaderInstructions: { draggable: t.move } }}
         >
           <fieldset
-            className="mobile-days hidden max-[760px]:grid max-[760px]:[grid-template-columns:repeat(3,_minmax(0,_1fr))] max-[760px]:gap-1 max-[760px]:[background:color-mix(in_srgb,_var(--line)_50%,_transparent)] max-[760px]:[border:1px_solid_var(--line)] max-[760px]:[border-radius:11px] max-[760px]:[padding:3px] max-[760px]:mb-4"
+            className="mobile-days hidden max-[760px]:grid max-[760px]:[grid-template-columns:repeat(3,_minmax(0,_1fr))] max-[760px]:gap-1 max-[760px]:[background:color-mix(in_srgb,_var(--line)_50%,_transparent)] max-[760px]:border border-separator max-[760px]:[border-radius:11px] max-[760px]:[padding:3px] max-[760px]:mb-4"
             aria-label={t.officialDay}
           >
             {DAYS.map((day) => (
@@ -99,7 +99,7 @@ export function PriorityBoard({
           )}
           <DragOverlay>
             {dragName && (
-              <div className="drag-overlay [background:var(--panel)] [border:1px_solid_var(--blue)] rounded-2 [padding:10px_14px] text-xs [box-shadow:var(--shadow)] max-w-70">
+              <div className="drag-overlay bg-surface [border:1px_solid_var(--blue)] rounded-2 [padding:10px_14px] text-xs [box-shadow:var(--shadow)] max-w-70">
                 {dragName}
               </div>
             )}

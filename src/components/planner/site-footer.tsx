@@ -5,7 +5,7 @@ import type { Language } from '../../types';
 export function SiteFooter({ language, onAbout }: { language: Language; onAbout: () => void }) {
   const t = messages(language);
   return (
-    <footer className="site-footer [margin:0_auto] max-w-364 [padding:22px_0_30px] [border-top:1px_solid_var(--line)] flex justify-between gap-4 [color:var(--secondary)] [font-size:10px] min-[1537px]:max-w-364 max-[1536px]:ml-10 max-[1536px]:mr-10 max-[1100px]:ml-6 max-[1100px]:mr-6 max-[760px]:[margin:0_20px] max-[760px]:[padding:20px_0] max-[760px]:flex-col max-[760px]:[gap:10px] max-[760px]:[font-size:10px]">
+    <footer className="site-footer [margin:0_auto] max-w-364 [padding:22px_0_30px] [border-top:1px_solid_var(--line)] flex justify-between gap-4 text-muted [font-size:10px] min-[1537px]:max-w-364 max-[1536px]:ml-10 max-[1536px]:mr-10 max-[1100px]:ml-6 max-[1100px]:mr-6 max-[760px]:[margin:0_20px] max-[760px]:[padding:20px_0] max-[760px]:flex-col max-[760px]:[gap:10px] max-[760px]:[font-size:10px]">
       <div>
         <span>
           {t.createdBy}{' '}
