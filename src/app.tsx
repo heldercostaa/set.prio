@@ -144,14 +144,16 @@ export function App() {
           >
             <div className="page-heading flex justify-between items-center gap-5 mb-6 max-[47.5rem]:mb-6 max-[47.5rem]:items-start [&_>_div_>_p]:text-muted [&_>_div_>_p]:text-sm [&_>_div_>_p]:mt-2.25 max-[47.5rem]:[&_>_div_>_p]:text-xs max-[47.5rem]:[&_>_div_>_p]:[max-width:13.125rem] max-[47.5rem]:[&_>_div_>_p]:[line-height:1.5]">
               <div>
-                <div className="event-kicker mb-2 text-xs font-medium tracking-wide text-muted max-[47.5rem]:text-[0.625rem]">
+                <div className="event-kicker mb-3 text-xs font-medium tracking-wide text-muted max-[47.5rem]:text-[0.625rem]">
                   Tomorrowland Brasil 2027
                 </div>
-                <h1>
-                  {t.title}
-                  <span aria-hidden="true" className="text-[#FF453A]">
-                    .
-                  </span>
+                <h1
+                  aria-label={t.title}
+                  className="whitespace-nowrap text-4xl font-medium leading-none tracking-[-0.06em] sm:text-5xl lg:text-6xl"
+                >
+                  <span>Set</span>
+                  <span className="text-[#FF453A]">.</span>
+                  <strong className="font-semibold">Priority</strong>
                 </h1>
                 <p className="flex flex-wrap items-center gap-x-2 gap-y-1 tabular-nums">
                   <span>{t.dateRange}</span>
