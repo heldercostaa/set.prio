@@ -203,8 +203,9 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   if (!context) throw new Error('Canvas unavailable');
-  const font = (weight: number, size: number) => `${weight} ${size}px system-ui, sans-serif`;
-  context.font = font(500, 16);
+  const family = getComputedStyle(document.body).fontFamily;
+  const font = (weight: number, size: number) => `${weight} ${size}px ${family}`;
+  context.font = font(400, 14);
   const wrap = (value: string, maxWidth: number) => {
     const lines: string[] = [];
     let line = '';
@@ -239,7 +240,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
             innerWidth,
             Math.ceil(Math.max(...lines.map((line) => context.measureText(line).width))) + 24
           );
-          const chipHeight = lines.length * 23 + 16;
+          const chipHeight = lines.length * 22 + 20;
           if (x && x + chipWidth > innerWidth) {
             y += rowHeight + 8;
             x = 0;
@@ -263,7 +264,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   canvas.width = width * 2;
   canvas.height = height * 2;
   context.scale(2, 2);
-  context.textBaseline = 'top';
+  context.textBaseline = 'middle';
   const text = '#f5f5f7',
     secondary = '#a1a1a6',
     line = '#38383a';
@@ -296,7 +297,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   ) => {
     context.font = font(weight, size);
     context.fillStyle = color;
-    context.fillText(value, x, y);
+    context.fillText(value, x, y + size * 0.65);
   };
   const loadImage = async (path: string) => {
     const image = new Image();
@@ -328,10 +329,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     context.beginPath();
     context.roundRect(x, top, columnWidth, column.height, 20);
     context.clip();
-    const gradient = context.createLinearGradient(0, top, 0, top + 112);
-    gradient.addColorStop(0, '#242426');
-    gradient.addColorStop(1, '#1c1c1e');
-    context.fillStyle = gradient;
+    context.fillStyle = '#1c1c1e';
     context.fillRect(x, top, columnWidth, 112);
     context.restore();
     label(
@@ -346,7 +344,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     label(`${column.count} ${t.prioritized}`, x + columnWidth - 20, top + 22, 12, 400, secondary);
     context.textAlign = 'left';
     if (dayIcons[index]) context.drawImage(dayIcons[index], x + 20, top + 59, 25, 25);
-    label(dayName(column.day, language), x + (dayIcons[index] ? 56 : 20), top + 56, 27, 650);
+    label(dayName(column.day, language), x + (dayIcons[index] ? 56 : 20), top + 56, 24, 600);
     context.strokeStyle = line;
     context.beginPath();
     context.moveTo(x, top + 112);
@@ -356,20 +354,20 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     for (const group of column.groups) {
       const color = palette[group.priority];
       const title = priorityLabel(group.priority, language);
-      context.font = font(600, 13);
+      context.font = font(500, 12);
       const badgeWidth = context.measureText(title).width + 61;
       box(x + 20, y + 20, badgeWidth, 27, 6, `${color}17`);
       context.beginPath();
       context.arc(x + 30, y + 33.5, 2.5, 0, Math.PI * 2);
       context.fillStyle = color;
       context.fill();
-      label(group.priority, x + 38, y + 25, 13, 700, color);
+      label(group.priority, x + 38, y + 25, 12, 600, color);
       context.strokeStyle = `${color}45`;
       context.beginPath();
       context.moveTo(x + 62, y + 26);
       context.lineTo(x + 62, y + 41);
       context.stroke();
-      label(title, x + 70, y + 25, 13, 600, color);
+      label(title, x + 70, y + 25, 12, 500, color);
       context.textAlign = 'right';
       label(String(group.names.length), x + columnWidth - 22, y + 26, 12, 400, secondary);
       context.textAlign = 'left';
@@ -378,7 +376,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
           cy = y + 62 + chip.y;
         box(cx, cy, chip.width, chip.height, 8, '#1c1c1e', line);
         chip.lines.forEach((value, i) => {
-          label(value, cx + 12, cy + 8 + i * 23, 16, 500);
+          label(value, cx + 12, cy + 12 + i * 22, 14, 400);
         });
       }
       if (!group.names.length) label('—', x + 20, y + 65, 16, 400, secondary);
