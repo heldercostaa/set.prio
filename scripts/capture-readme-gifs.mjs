@@ -158,7 +158,7 @@ try {
   const { context, page } = await prepare(browser, { viewport: { width: 1200, height: 800 } });
   for (const toggle of await page.getByRole('button', { name: 'Unprioritized', exact: true }).all())
     await toggle.click();
-  await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
+  await page.getByRole('heading', { level: 1 }).click();
   await page.mouse.move(0, 0);
   console.log('Recording desktop board and drag');
   const desktop = recorder(page);
