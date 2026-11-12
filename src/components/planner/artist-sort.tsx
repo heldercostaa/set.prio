@@ -1,4 +1,4 @@
-import { ArrowDownWideNarrow } from 'lucide-react';
+import { ArrowDown, ArrowUp } from 'lucide-react';
 import { messages } from '../../i18n';
 import type { Language } from '../../types';
 import { ARTIST_SORTS, type ArtistSort as Sort } from '../../utils/artist-sort';
@@ -15,15 +15,19 @@ export function ArtistSort({
   const t = messages(language);
   return (
     <label
-      className={`${controlClassName} flex min-w-0 shrink-0 items-center gap-2 px-3 max-[47.5rem]:basis-full`}
+      className={`${controlClassName} relative grid size-11 shrink-0 place-items-center`}
       title={t.sortHint}
     >
-      <ArrowDownWideNarrow size="1rem" className="shrink-0 text-muted" aria-hidden="true" />
-      <span className="sr-only">{t.sortBy}</span>
+      {value.endsWith('desc') ? (
+        <ArrowDown size="1rem" className="text-muted" aria-hidden="true" />
+      ) : (
+        <ArrowUp size="1rem" className="text-muted" aria-hidden="true" />
+      )}
       <select
+        aria-label={t.sortBy}
         value={value}
         onChange={(event) => onChange(event.target.value as Sort)}
-        className="min-h-11 min-w-0 w-full cursor-pointer bg-transparent text-control text-content outline-none max-[47.5rem]:text-base"
+        className="absolute inset-0 size-full cursor-pointer opacity-0"
       >
         {ARTIST_SORTS.map((sort) => (
           <option key={sort} value={sort}>

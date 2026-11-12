@@ -59,8 +59,8 @@ const en = {
   sortLabels: {
     'name-asc': 'Name A–Z',
     'name-desc': 'Name Z–A',
-    'rating-desc': 'Rating: highest first',
-    'rating-asc': 'Rating: lowest first',
+    'rating-desc': 'Rating ↓',
+    'rating-asc': 'Rating ↑',
     genre: 'Genre A–Z',
   },
   rating: 'Rate this set',
@@ -185,8 +185,8 @@ const pt: typeof en = {
   sortLabels: {
     'name-asc': 'Nome A–Z',
     'name-desc': 'Nome Z–A',
-    'rating-desc': 'Avaliação: maior primeiro',
-    'rating-asc': 'Avaliação: menor primeiro',
+    'rating-desc': 'Avaliação ↓',
+    'rating-asc': 'Avaliação ↑',
     genre: 'Gênero A–Z',
   },
   rating: 'Avalie este set',
