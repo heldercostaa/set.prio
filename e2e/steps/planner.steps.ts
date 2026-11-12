@@ -11,7 +11,7 @@ After({ tags: 'not @data' }, async ({ page }) => {
 });
 Given('an English planner with no saved priorities', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Set Priority', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Set.Priority', exact: true })).toBeVisible();
 });
 When('I mark Fisher as a must-see, rate the set zero, and add a comment', async ({ page }) => {
   await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();
@@ -39,7 +39,7 @@ When('I switch to Brazilian Portuguese and reload', async ({ page }) => {
 Then(
   'my language, priority, zero rating, watched status, and multiline comment are restored',
   async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Set Priority', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Set.Priority', exact: true })).toBeVisible();
     const fisher = page.getByRole('button', { name: 'Fisher · Sexta-feira', exact: true });
     await expect(fisher.getByRole('img', { name: 'Set assistido', exact: true })).toBeVisible();
     await fisher.click();
