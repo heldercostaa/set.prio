@@ -144,14 +144,21 @@ export function App() {
           >
             <div className="page-heading flex justify-between items-center gap-5 mb-6 max-[47.5rem]:mb-6 max-[47.5rem]:items-start [&_>_div_>_p]:text-muted [&_>_div_>_p]:text-sm [&_>_div_>_p]:mt-2.25 max-[47.5rem]:[&_>_div_>_p]:text-xs max-[47.5rem]:[&_>_div_>_p]:[max-width:13.125rem] max-[47.5rem]:[&_>_div_>_p]:[line-height:1.5]">
               <div>
-                <div className="event-kicker flex gap-2 items-center [color:var(--secondary)] text-xs mb-3 font-medium max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:mb-2.5">
-                  {t.dateRange}
-                  <span className="location [font-size:0.5625rem] font-semibold [letter-spacing:0.085em] pl-2 ml-0.5 [border-left:0.0625rem_solid_var(--line)] max-[68.75rem]:hidden">
+                <div className="event-kicker mb-2 text-xs font-medium tracking-wide text-muted max-[47.5rem]:text-[0.625rem]">
+                  Tomorrowland Brasil 2027
+                </div>
+                <h1>
+                  {t.title}
+                  <span aria-hidden="true" className="text-[#FF453A]">
+                    .
+                  </span>
+                </h1>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 tabular-nums">
+                  <span>{t.dateRange}</span>
+                  <span className="location border-l border-separator pl-2 text-[0.625rem] font-medium tracking-wide max-[68.75rem]:hidden">
                     ITU, SÃO PAULO
                   </span>
-                </div>
-                <h1>{t.title}</h1>
-                <p>Tomorrowland Brasil 2027</p>
+                </p>
               </div>
               <ExportMenu
                 language={language}
