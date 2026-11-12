@@ -17,8 +17,8 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:e2e": "bddgen && playwright test",
+    "test": "bddgen && playwright test --project=contracts",
+    "test:e2e": "bddgen && playwright test --project=chromium --project=webkit --project=mobile-chromium --project=mobile-webkit",
     "icons": "node scripts/generate-icons.mjs",
     "catalog:refresh": "node scripts/update-catalog.mjs"
   },
@@ -39,9 +39,8 @@
     "@biomejs/biome": "2.6.6",
     "@playwright/test": "1.65.0",
     "@tailwindcss/vite": "4.3.5",
-    "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
-    "@testing-library/user-event": "14.6.9",
+    "@types/jsdom": "30.0.0",
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -51,7 +50,6 @@
     "sharp": "0.35.5",
     "tailwindcss": "4.3.5",
     "typescript": "7.0.2",
-    "vite": "8.3.8",
-    "vitest": "5.1.0"
+    "vite": "8.3.8"
   }
 }

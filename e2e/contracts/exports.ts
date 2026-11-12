@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import type { Catalog, Preferences } from '../types';
-import { collectEntries, notionPayload, toCsv } from './exports';
+import { expect } from '@playwright/test';
+import type { Catalog, Preferences } from '../../src/types';
+import { collectEntries, notionPayload, toCsv } from '../../src/utils/exports';
 
 const catalog: Catalog = {
   version: 'fixture',
@@ -47,35 +47,44 @@ const preferences: Preferences = {
   comments: { friday: 'Olá,\n"até amanhã"', saturday: '=1+1' },
 };
 
-describe('export contract', () => {
-  it('exports only prioritized appearances in festival order and shares a zero recording score', () => {
-    const entries = collectEntries(catalog, preferences);
-    expect(entries.map((entry) => [entry.appearance.id, entry.priority, entry.rating])).toEqual([
-      ['friday', 'P0', 0],
-      ['saturday', 'P2', 0],
-    ]);
-    expect(collectEntries(catalog, { ...preferences, ratings: {} })[0].rating).toBeNull();
-  });
-  it('produces the specified eight-column CSV, preserves Unicode and multiline text, and neutralizes formulas', () => {
-    const csv = toCsv(collectEntries(catalog, preferences), 'en');
-    expect(
-      csv.startsWith(
-        '\uFEFF"Name","At","Day","Priority","Genre","Sub-genres","Rating","Comment"\r\n'
-      )
-    ).toBe(true);
-    expect(csv).toContain('"Música ""Ao vivo"", & friends"');
-    expect(csv).toContain(
-      '"Tomorrowland Belgium 2026 (https://www.youtube.com/watch?v=DuXXMZLfAkQ)"'
-    );
-    expect(csv).toContain(
-      '"Friday","P0","House","Tech house, Deep house","0","Olá,\n""até amanhã"""'
-    );
-    expect(csv).toContain('"' + "'=1+1" + '"');
-  });
-  it('copies named links and escapes HTML content while providing a localized text fallback', () => {
+export const contracts = {
+  'exports only prioritized appearances in festival order and shares a zero recording score':
+    () => {
+      const entries = collectEntries(catalog, preferences);
+      expect(entries.map((entry) => [entry.appearance.id, entry.priority, entry.rating])).toEqual([
+        ['friday', 'P0', 0],
+        ['saturday', 'P2', 0],
+      ]);
+      expect(
+        collectEntries(catalog, {
+          ...preferences,
+          ratings: {},
+        })[0].rating
+      ).toBeNull();
+    },
+  'produces the specified eight-column CSV, preserves Unicode and multiline text, and neutralizes formulas':
+    () => {
+      const csv = toCsv(collectEntries(catalog, preferences), 'en');
+      expect(
+        csv.startsWith(
+          '\uFEFF"Name","At","Day","Priority","Genre","Sub-genres","Rating","Comment"\r\n'
+        )
+      ).toBe(true);
+      expect(csv).toContain('"Música ""Ao vivo"", & friends"');
+      expect(csv).toContain(
+        '"Tomorrowland Belgium 2026 (https://www.youtube.com/watch?v=DuXXMZLfAkQ)"'
+      );
+      expect(csv).toContain(
+        '"Friday","P0","House","Tech house, Deep house","0","Olá,\n""até amanhã"""'
+      );
+      expect(csv).toContain('"' + "'=1+1" + '"');
+    },
+  'copies named links and escapes HTML content while providing a localized text fallback': () => {
     const entries = collectEntries(catalog, {
       ...preferences,
-      comments: { friday: '<script>alert("x")</script>\nnext' },
+      comments: {
+        friday: '<script>alert("x")</script>\nnext',
+      },
     });
     const payload = notionPayload(entries, 'pt-BR');
     expect(payload.html).toContain(
@@ -85,19 +94,22 @@ describe('export contract', () => {
     expect(payload.html).not.toContain('<script>');
     expect(payload.text).toContain('\tSexta-feira\tP0\t');
     expect(payload.text).toContain('\t0\t');
-  });
-  it('labels representative member recordings without changing their named festival link', () => {
+  },
+  'labels representative member recordings without changing their named festival link': () => {
     const representativeCatalog = {
       ...catalog,
-      artists: catalog.artists.map((artist) => ({ ...artist, recommendedSetRepresentative: true })),
+      artists: catalog.artists.map((artist) => ({
+        ...artist,
+        recommendedSetRepresentative: true,
+      })),
     };
     const entries = collectEntries(representativeCatalog, preferences);
     expect(toCsv(entries, 'en')).toContain(' · Representative recording');
     expect(notionPayload(entries, 'pt-BR').html).toContain(
       '>Tomorrowland Belgium 2026</a> · Gravação representativa'
     );
-  });
-  it('expands a b2b into attributed artist rows with their own sets, genres and ratings', () => {
+  },
+  'expands a b2b into attributed artist rows with their own sets, genres and ratings': () => {
     const first = catalog.artists[0];
     const second = {
       ...first,
@@ -117,7 +129,12 @@ describe('export contract', () => {
     const jointCatalog = {
       ...catalog,
       artists: [first, second, joint],
-      appearances: [{ ...catalog.appearances[1], artistId: joint.id }],
+      appearances: [
+        {
+          ...catalog.appearances[1],
+          artistId: joint.id,
+        },
+      ],
       recordings: [
         ...catalog.recordings,
         {
@@ -130,8 +147,13 @@ describe('export contract', () => {
     };
     const entries = collectEntries(jointCatalog, {
       ...preferences,
-      ratings: { video: 0, 'other-video': 8 },
-      comments: { friday: 'Meet together' },
+      ratings: {
+        video: 0,
+        'other-video': 8,
+      },
+      comments: {
+        friday: 'Meet together',
+      },
     });
     expect(entries).toHaveLength(1);
     const table = new DOMParser().parseFromString(notionPayload(entries, 'en').html, 'text/html');
@@ -155,5 +177,5 @@ describe('export contract', () => {
     expect(csv).toContain('(do b2b:');
     expect(csv).toContain('"Trance","Progressive trance","8"');
     expect(csv).toContain('Second event 2026 (https://www.youtube.com/watch?v=nSYt0B-EGwA)');
-  });
-});
+  },
+};
