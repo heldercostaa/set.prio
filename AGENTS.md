@@ -7,3 +7,5 @@
 - Use short Conventional Commit messages.
 - Use the directory-scoped personal Git identity and isolated authentication. Verify author, committer, signing, and remote before publishing. Preserve Git configuration outside this project directory.
 - Use `/caveman lite` communication unless the user explicitly asks otherwise.
+
+- Use GitHub Rebase and merge after all required checks pass.
