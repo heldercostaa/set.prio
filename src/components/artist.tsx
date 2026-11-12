@@ -209,7 +209,7 @@ export function ArtistChip({
         <HoverCard.Portal>
           <HoverCard.Content
             className="artist-preview"
-            side="top"
+            side="right"
             sideOffset={10}
             collisionPadding={12}
             onFocusCapture={() => setPreview(true)}

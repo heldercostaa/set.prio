@@ -1942,7 +1942,7 @@ fieldset {
 
 /* Joint acts keep each member's identity and recording separate. */
 .artist-preview {
-  max-height: min(720px, var(--radix-hover-card-content-available-height, calc(100dvh - 32px)));
+  max-height: min(720px, calc(100dvh - 32px));
   overflow-y: auto;
 }
 .preview-member {
