@@ -92,3 +92,7 @@ Verified November 11, 2026. 20 missing images were supplemented from artist webs
 Representative member photos also cover Bauhouse b2b simo not simon and the Dimitri Vegas b2b Lilly Palmer billing.
 
 No verified usable artist-owned portrait was found for: 999999999, Adalamoon, Astrix, Bebe Rexha, Bella Claxton, Delcu, Ekanta & Swarup, Ekanta & Swarup + Special Surprise Act, Gareth Emery, M4RI Carrilho, Mad Maxx, Malu, Marian, Renato Cohen, SHEE, Smash The House Take Over: Bassjackers, Special Surprise Act, Vermont, Viot, Volkoder. These entries retain the neutral fallback.
+
+## Primary genre vocabulary
+
+Primary labels are restricted to Progressive house, House, Tech house, Psytrance, Trance, Melodic techno, Techno, Hardstyle, Drum & Bass, Big room, Melodic house, and Afro house. Existing researched subgenre evidence refines broad House/Techno/EDM labels. Unsupported classifications remain unknown rather than being forced into a category. Original sources and subgenre notes are retained.

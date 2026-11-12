@@ -64,7 +64,7 @@
       "photoUrl": "/artists/1302186739.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171544499-Agents Of Time.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1302186739",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Progressive house"
@@ -87,7 +87,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1889131930",
-      "genre": "EDM",
+      "genre": null,
       "subgenres": [
         "Electro house",
         "Dance pop"
@@ -194,7 +194,7 @@
       "photoUrl": "/artists/1262718587.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/54850952-antdotmaio0346 (1).jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262718587",
-      "genre": "House",
+      "genre": "Afro house",
       "subgenres": [
         "Afro house",
         "Melodic house"
@@ -211,7 +211,7 @@
       "photoUrl": "/artists/1262706247.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16684174-Ashibah_edit_pb--9.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706247",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Deep house",
         "Tech house"
@@ -253,7 +253,7 @@
       "photoUrl": "/artists/1593866644.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/96830896-Axwell-img-2025.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593866644",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Electro house"
@@ -299,7 +299,7 @@
         "representativeArtist": "Bauhouse"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236184901",
-      "genre": "House",
+      "genre": "Afro house",
       "subgenres": [
         "Afro house",
         "Deep house"
@@ -321,7 +321,7 @@
       "photoUrl": "/artists/2997898508-supplement.jpg",
       "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/05/06224255/e1c4e644-499c-11f1-9712-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2997898508",
-      "genre": "Electronic pop",
+      "genre": null,
       "subgenres": [
         "Dance pop",
         "EDM"
@@ -346,7 +346,7 @@
       "photoUrl": "/artists/2651263482-supplement.jpg",
       "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/06/08212027/25501cca-637f-11f1-a937-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651263482",
-      "genre": "House",
+      "genre": "Trance",
       "subgenres": [
         "Hard house",
         "Trance"
@@ -371,7 +371,7 @@
       "photoUrl": "/artists/2651272268.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/235413950-Paige Tomlinson Photo 20-08-2024, 1 34 02 PM.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651263482",
-      "genre": "House",
+      "genre": "Trance",
       "subgenres": [
         "Hard house",
         "Trance"
@@ -442,7 +442,7 @@
       "photoUrl": "/artists/1262717903.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16612582-large-Kopie von Brina Knauss (2).jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262717903",
-      "genre": "House",
+      "genre": "Melodic house",
       "subgenres": [
         "Melodic house",
         "Melodic techno"
@@ -465,7 +465,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236144302",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house"
       ],
@@ -481,7 +481,7 @@
       "photoUrl": "/artists/1893969378.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157488284-CJ5.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1893969378",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Minimal house"
@@ -498,7 +498,7 @@
       "photoUrl": "/artists/1262707036.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607455-large-220729-160807-TML2022-R3A_8874-RUD-2048px.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262707036",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Bass house",
         "Tech house"
@@ -560,7 +560,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236151687",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house"
       ],
@@ -599,7 +599,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593885205",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Tech house"
@@ -622,7 +622,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236147570",
-      "genre": "House",
+      "genre": "Melodic house",
       "subgenres": [
         "Melodic house",
         "Organic house"
@@ -664,7 +664,7 @@
       "photoUrl": "/artists/1292612863.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/122923241-Dimitri Vegas 02.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1292612863",
-      "genre": "EDM",
+      "genre": "Big room",
       "subgenres": [
         "Big room",
         "Electro house"
@@ -681,7 +681,7 @@
       "photoUrl": "/artists/1262716164.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16612536-large-dino-27.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262716164",
-      "genre": "House",
+      "genre": "Melodic house",
       "subgenres": [
         "Deep house",
         "Melodic house"
@@ -698,7 +698,7 @@
       "photoUrl": "/artists/1790466129.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112538288-R1-04331-028A DJ Gigola_by_iga_drobisz.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790466129",
-      "genre": "Electronic",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Breakbeat"
@@ -715,7 +715,7 @@
       "photoUrl": "/artists/1790466129.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112538288-R1-04331-028A DJ Gigola_by_iga_drobisz.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790466129",
-      "genre": "Electronic",
+      "genre": "Techno",
       "subgenres": [
         "Techno",
         "Breakbeat"
@@ -737,7 +737,7 @@
       "photoUrl": "/artists/1262713587.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129551786-DUB_DOGS_NOV_2023_2676.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262713587",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Brazilian bass",
         "Tech house"
@@ -754,7 +754,7 @@
       "photoUrl": "/artists/1790220673.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129551086-3.JPG",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790220673",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Electro house"
@@ -784,7 +784,7 @@
       "photoUrl": "/artists/1790219463.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/112560243-x beatport.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1790219463",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Progressive house"
@@ -865,7 +865,7 @@
       "photoUrl": "/artists/1262722323.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16687794-ELIIWASA2517.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262722323",
-      "genre": "Techno",
+      "genre": "House",
       "subgenres": [
         "House",
         "Minimal techno"
@@ -882,7 +882,7 @@
       "photoUrl": "/artists/1536149852.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171547351-6934542E-C0CD-4BCE-8864-E5AD9615A5AC_1_201_a.jpeg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536149852",
-      "genre": "Techno",
+      "genre": "Trance",
       "subgenres": [
         "Hardgroove",
         "Trance"
@@ -941,7 +941,7 @@
       "photoUrl": "/artists/1262709791.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16685269-005.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262709791",
-      "genre": "Techno",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Psytechno"
@@ -975,7 +975,7 @@
       "photoUrl": "/artists/2959431891.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/240490916-_PBF3858.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2959431891",
-      "genre": "Electronic",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive trance",
         "Progressive house"
@@ -1014,7 +1014,7 @@
       "photoUrl": "/artists/1264275505.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16693150-Screenshot 2023-09-11 at 18.09.46.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264275505",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house"
       ],
@@ -1072,7 +1072,7 @@
       "photoUrl": "/artists/1264276719.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/21112352-HAAi LEAD IMAGE PLS CREDIT IMOGENE BARRON.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264276719",
-      "genre": "Electronic",
+      "genre": "Techno",
       "subgenres": [
         "Techno",
         "Breakbeat"
@@ -1105,7 +1105,7 @@
       "photoUrl": "/artists/2655381348.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/247689053-ILLENIUM PRESS PIC 1.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2655381348",
-      "genre": "Bass",
+      "genre": null,
       "subgenres": [
         "Melodic dubstep",
         "Future bass"
@@ -1139,7 +1139,7 @@
       "photoUrl": "/artists/1262719608.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16687494-image00017.jpeg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262719608",
-      "genre": "House",
+      "genre": "Afro house",
       "subgenres": [
         "Afro house",
         "Melodic house"
@@ -1196,7 +1196,7 @@
       "photoUrl": "/artists/1264276664.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/194849635-Kevin-de-Vries_Nina-Raasch_09_sRGB_4000px.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264276664",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Progressive house"
@@ -1213,7 +1213,7 @@
       "photoUrl": "/artists/1262705600.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/32580036-Kolsch-LS.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262705600",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Melodic house"
@@ -1230,7 +1230,7 @@
       "photoUrl": "/artists/1262723682.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129533695-IMG_2409.JPG",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262723682",
-      "genre": "House",
+      "genre": "Melodic house",
       "subgenres": [
         "Melodic house",
         "Progressive house"
@@ -1253,7 +1253,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593892326",
-      "genre": "Bass",
+      "genre": null,
       "subgenres": [
         "Dubstep",
         "Dance pop"
@@ -1361,7 +1361,7 @@
       "photoUrl": "/artists/3236102591-supplement.jpg",
       "photoSourceUrl": "https://i.ytimg.com/vi/bTTQSt3Iq5o/hqdefault.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236102591",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Electro house"
@@ -1450,7 +1450,7 @@
       "photoUrl": "/artists/1894046042.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157472621-Malive_Presskit_03.JPEG",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1894046042",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Melodic house"
@@ -1573,7 +1573,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1955298950",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Deep house"
@@ -1590,7 +1590,7 @@
       "photoUrl": "/artists/1536165375.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53907333-230730-160624-TML23-1599-JB.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536165375",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Progressive house"
@@ -1607,7 +1607,7 @@
       "photoUrl": "/artists/1536165375.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53907333-230730-160624-TML23-1599-JB.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536165375",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Tech house"
@@ -1629,7 +1629,7 @@
       "photoUrl": "/artists/1532641775.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53520563-Mathame.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641775",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Progressive house"
@@ -1652,7 +1652,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236094946",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Electro house"
@@ -1670,7 +1670,7 @@
       "photoUrl": "/artists/1262718751.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16687376-DSC_1320 (1).jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262718751",
-      "genre": "House",
+      "genre": "Afro house",
       "subgenres": [
         "Afro house",
         "Melodic house"
@@ -1715,7 +1715,7 @@
       "photoUrl": "/artists/1532641764.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53867332-230721-185343-TML23-R51_4326-KV.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641764",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Deep house",
         "Tech house"
@@ -1732,7 +1732,7 @@
       "photoUrl": "/artists/1532634875.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53857713-230729-144520-TML23-A7406983-RS.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532634875",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Bass house",
         "Tech house"
@@ -1749,7 +1749,7 @@
       "photoUrl": "/artists/1262716857.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16687125-3I2A7227.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262716857",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Indie dance"
@@ -1766,7 +1766,7 @@
       "photoUrl": "/artists/1262711176.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/177356045-5000x5000.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262711176",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Melodic techno"
@@ -1783,7 +1783,7 @@
       "photoUrl": "/artists/1319002665.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/209760884-250506_Morten_AURA56901 copy.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1319002665",
-      "genre": "EDM",
+      "genre": "Big room",
       "subgenres": [
         "Future rave",
         "Big room"
@@ -1800,7 +1800,7 @@
       "photoUrl": "/artists/1262706956.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607441-large-220731-182539-TML2022-761A4930-JD.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706956",
-      "genre": "EDM",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Electro house"
@@ -1817,7 +1817,7 @@
       "photoUrl": "/artists/1262708144.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16691258-Screenshot 2023-09-11 at 17.49.09.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262708144",
-      "genre": "Bass",
+      "genre": null,
       "subgenres": [
         "Trap",
         "Dubstep"
@@ -1885,7 +1885,7 @@
       "photoUrl": "/artists/1789030685.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171553284-image.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1789030685",
-      "genre": "Electronic pop",
+      "genre": null,
       "subgenres": [
         "Indie pop",
         "Dream pop"
@@ -1908,7 +1908,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236106261",
-      "genre": "Techno",
+      "genre": "Melodic techno",
       "subgenres": [
         "Melodic techno",
         "Progressive house"
@@ -1982,7 +1982,7 @@
       "photoUrl": "/artists/1361073186.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53521174-R3hab-2024.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1361073186",
-      "genre": "EDM",
+      "genre": null,
       "subgenres": [
         "Electro house",
         "Dance pop"
@@ -2005,7 +2005,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236175811",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Deep house"
@@ -2028,7 +2028,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536151090",
-      "genre": "Bass",
+      "genre": null,
       "subgenres": [
         "Dubstep",
         "Bass house"
@@ -2045,7 +2045,7 @@
       "photoUrl": "/artists/3236104786-supplement.jpg",
       "photoSourceUrl": "https://smartbiz.com.br/site/wp-content/uploads/2023/05/SmartBizArtist-Renato_Cohen-ph.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236104786",
-      "genre": "Techno",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Indie dance"
@@ -2076,7 +2076,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593884399",
-      "genre": "House",
+      "genre": "Melodic house",
       "subgenres": [
         "Melodic house",
         "Afro house"
@@ -2110,7 +2110,7 @@
       "photoUrl": "/artists/1262708928.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16684962-Scorsi_w_05.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262708928",
-      "genre": "EDM",
+      "genre": null,
       "subgenres": [
         "Future bass",
         "Bass house"
@@ -2152,7 +2152,7 @@
       "photoUrl": "/artists/1262723063.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16688085-DSC01184 pb.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262723063",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Melodic house"
@@ -2175,7 +2175,7 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236187181",
-      "genre": "House",
+      "genre": "Afro house",
       "subgenres": [
         "Afro house",
         "Organic house"
@@ -2192,7 +2192,7 @@
       "photoUrl": "/artists/3236102328-supplement.jpg",
       "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/artists/46/LsID6kWDmbBJfBgwG2QxO1qe3ZmJvpxlNYaoxekm.jpeg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236102328",
-      "genre": "EDM",
+      "genre": "Big room",
       "subgenres": [
         "Big room",
         "Electro house"
@@ -2275,7 +2275,7 @@
       "photoUrl": "/artists/1532641809.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/209079503-MAIN PRESS PIC 2.jpeg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532641809",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Electro house",
         "Tech house"
@@ -2292,7 +2292,7 @@
       "photoUrl": "/artists/1262706637.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16607368-large-220723-002559-TML2022-DN102555-DN(3).jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262706637",
-      "genre": "EDM",
+      "genre": "Big room",
       "subgenres": [
         "Electro house",
         "Big room"
@@ -2343,7 +2343,7 @@
       "photoUrl": "/artists/1532622883.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/53568073-Symphony-of-Unity-2024.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1532622883",
-      "genre": "Orchestral electronic",
+      "genre": "Progressive house",
       "subgenres": [
         "Orchestral",
         "Progressive house"
@@ -2360,7 +2360,7 @@
       "photoUrl": "/artists/2655168539.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/247252890-Press Photo.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2655168539",
-      "genre": "EDM",
+      "genre": null,
       "subgenres": [
         "Future bass",
         "Dance pop"
@@ -2377,7 +2377,7 @@
       "photoUrl": "/artists/1536131096.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/98153698-写真 6-28-24 午前3 53 31 (8).jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536131096",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Electro house"
@@ -2394,7 +2394,7 @@
       "photoUrl": "/artists/1264276572.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/16693512-Screenshot 2023-09-11 at 18.11.57.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1264276572",
-      "genre": "EDM",
+      "genre": "Big room",
       "subgenres": [
         "Big room",
         "Hardstyle"
@@ -2411,7 +2411,7 @@
       "photoUrl": "/artists/1894134243.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/157474131-2025-03-27 Klee.Media _ Unfazed _ Presskit _ 15.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1894134243",
-      "genre": "House",
+      "genre": "Afro house",
       "subgenres": [
         "Afro house",
         "Melodic house"
@@ -2469,7 +2469,7 @@
       "photoUrl": "/artists/1594454421-supplement.jpg",
       "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/04/16001610/5090536c-3929-11f1-8df0-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594454421",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Minimal house"
@@ -2494,7 +2494,7 @@
       "photoUrl": "/artists/3092469864-supplement.jpg",
       "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/10/23214049/vCmJWZ6sSQ3RhShJ8ueFxxXfgV9B27nvQJ9CLS91-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3092469864",
-      "genre": "House",
+      "genre": "Tech house",
       "subgenres": [
         "Tech house",
         "Techno"
@@ -2519,7 +2519,7 @@
       "photoUrl": "/artists/1262703149.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/171553900-image.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262703149",
-      "genre": "EDM",
+      "genre": "Progressive house",
       "subgenres": [
         "Electro house",
         "Progressive house"
@@ -2536,7 +2536,7 @@
       "photoUrl": "/artists/1262712011.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/124076424-ZAC_Press-Pics_Y4A4981-02.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262712011",
-      "genre": "House",
+      "genre": "Progressive house",
       "subgenres": [
         "Progressive house",
         "Melodic house"
