@@ -11,7 +11,7 @@ Checked November 11, 2026 on macOS arm64, Node 24.16.0, and pnpm 11.25.0.
 | `pnpm format:check`                     | Passed                                    |
 | `pnpm typecheck`                        | Passed                                    |
 | `pnpm test`                             | 14 tests passed across four files         |
-| `pnpm test:e2e`                         | 46 passed; ten capability-specific skips  |
+| `pnpm test:e2e`                         | 58 passed; 22 capability-specific skips   |
 | `pnpm build`                            | Passed                                    |
 | `pnpm dev`                              | Served the browser workflows              |
 | `pnpm preview --port 4173 --strictPort` | Served the production bundle              |
@@ -19,7 +19,7 @@ Checked November 11, 2026 on macOS arm64, Node 24.16.0, and pnpm 11.25.0.
 
 Browser coverage includes desktop Chromium and WebKit, Pixel 7 Chromium emulation, iPhone 13 WebKit emulation, and a 320px viewport. The production smoke checks verify narrow-screen actions, focus restoration, reduced motion, PNG downloads, and the manual clipboard fallback against built assets.
 
-Mouse drag and the three hover viewport cases are skipped on touch profiles (eight cases). Two native clipboard-read cases are skipped on WebKit. Image, CSV, and manual-copy workflows run in every profile. No uncaught browser errors were filtered or suppressed.
+Mouse drag and the nine artist/viewport hover cases are skipped on touch profiles (20 cases). Two native clipboard-read cases are skipped on WebKit. Image, CSV, and manual-copy workflows run in every profile. No uncaught browser errors were filtered or suppressed.
 
 ## Behavior and BDD coverage
 
