@@ -50,11 +50,11 @@ Then(
     await page.getByRole('button', { name: /^Artists/ }).click();
     const cards = page.locator('.catalog-card');
     await sort.selectOption('rating-desc');
-    await expect(cards.nth(0).locator('strong')).toHaveText('Fisher');
-    await expect(cards.nth(1).locator('strong')).toHaveText('Axwell');
+    await expect(cards.nth(0)).toHaveAttribute('data-artist-id', fisher.id);
+    await expect(cards.nth(1)).toHaveAttribute('data-artist-id', axwell.id);
     await sort.selectOption('rating-asc');
-    await expect(cards.nth(0).locator('strong')).toHaveText('Axwell');
-    await expect(cards.nth(1).locator('strong')).toHaveText('Fisher');
+    await expect(cards.nth(0)).toHaveAttribute('data-artist-id', axwell.id);
+    await expect(cards.nth(1)).toHaveAttribute('data-artist-id', fisher.id);
     await sort.selectOption('genre');
     const firstGenre = await cards.nth(0).textContent();
     expect(firstGenre).toContain('Afro house');

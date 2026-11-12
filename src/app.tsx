@@ -39,6 +39,7 @@ export function App() {
   const [search, setSearch] = useState('');
   const [watched, setWatched] = useState<WatchFilter>('all');
   const [genres, setGenres] = useState<string[]>([]);
+  const [countries, setCountries] = useState<string[]>([]);
   const [view, setView] = useState<'board' | 'artists'>('board');
   const [selected, setSelected] = useState<string | null>(null);
   const [about, setAbout] = useState(false);
@@ -199,7 +200,9 @@ export function App() {
               onView={setView}
               search={search}
               onSearch={setSearch}
+              countries={countries}
               genres={genres}
+              onCountries={setCountries}
               onGenres={setGenres}
               watched={watched}
               onWatched={setWatched}
@@ -226,6 +229,7 @@ export function App() {
                     watched={watched}
                     language={language}
                     search={search}
+                    countries={countries}
                     genres={genres}
                     onOpen={openArtist}
                   />
@@ -233,6 +237,7 @@ export function App() {
                   <ArtistCatalog
                     sort={sort}
                     watched={watched}
+                    countries={countries}
                     genres={genres}
                     language={language}
                     search={search}

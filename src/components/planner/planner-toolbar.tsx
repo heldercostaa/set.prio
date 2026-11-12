@@ -1,3 +1,4 @@
+import { CountryFilter } from './country-filter';
 import { ArtistSort } from './artist-sort';
 import type { ArtistSort as Sort } from '../../utils/artist-sort';
 import type { WatchFilter } from '../../data';
@@ -16,6 +17,8 @@ export function PlannerToolbar({
   onView,
   search,
   onSearch,
+  countries,
+  onCountries,
   genres,
   onGenres,
   watched,
@@ -30,6 +33,8 @@ export function PlannerToolbar({
   onSearch: (search: string) => void;
   watched: WatchFilter;
   onWatched: (value: WatchFilter) => void;
+  countries: string[];
+  onCountries: (countries: string[]) => void;
   genres: string[];
   onGenres: (genres: string[]) => void;
 }) {
@@ -65,6 +70,7 @@ export function PlannerToolbar({
       </fieldset>
       <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 ">
         <GenreFilter language={language} selected={genres} onChange={onGenres} />
+        <CountryFilter language={language} selected={countries} onChange={onCountries} />
         <label
           className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:flex-1`}
         >

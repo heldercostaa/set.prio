@@ -1,4 +1,5 @@
 import { messages } from '../i18n';
+import { ArtistName } from './artist-nationality';
 import { membersFor } from '../data';
 import { usePlanner } from '../store/planner';
 import type { Artist, Language } from '../types';
@@ -20,10 +21,10 @@ export function ArtistRating({
   const members = membersFor(artist);
   const acts = members.length ? members : [artist];
   const rated = acts.filter((act) => act.recommendedSetId && ratings[act.recommendedSetId] != null);
-  if (!rated.length) return name ? <span>{name}</span> : null;
+  if (!rated.length) return name ? <ArtistName artist={artist} language={language} /> : null;
   return (
     <span className="flex w-full min-w-0 flex-col gap-1">
-      {name && members.length > 0 && <span>{name}</span>}
+      {name && members.length > 0 && <ArtistName artist={artist} language={language} />}
       <span className="sr-only">
         <WatchedStatus artist={artist} language={language} />
       </span>
@@ -40,7 +41,13 @@ export function ArtistRating({
                     members.length || catalog ? 'text-muted' : 'text-sm font-medium text-content'
                   }
                 >
-                  {members.length ? act.name : catalog ? t.ratingLabel : name}
+                  {members.length ? (
+                    act.name
+                  ) : catalog ? (
+                    t.ratingLabel
+                  ) : (
+                    <ArtistName artist={artist} language={language} />
+                  )}
                 </span>
               )}
               <span

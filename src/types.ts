@@ -8,6 +8,10 @@ export interface Artist {
   name: string;
   photoUrl: string | null;
   officialUrl: string;
+  countryCodes?: string[];
+  countryAttributions?: { name: string; countryCodes: string[] }[];
+  countrySources?: string[];
+  countryVerifiedAt?: string;
   genre: string | null;
   subgenres: string[];
   genreSources: string[];

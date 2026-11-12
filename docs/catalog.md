@@ -20,3 +20,7 @@ Review the diff and source notes before publishing. Follow the rendered official
 - Bundle optimized photos in `public/artists`; preserve their provenance and use the neutral fallback when no suitable photo exists.
 
 After refreshing, run typecheck, catalog contracts, browser tests, and the production build as described in [development notes](./development.md).
+
+Country metadata uses ISO country codes from public artist, label, agency, festival, and promoter biographies. It describes publicly identified nationality or country of origin, rather than a DJ's current residence. Each curated entry retains its sources and verification date; unresolved entries have no flag and remain available through Unknown country. The refresh script preserves this curation.
+
+For b2b performances, flags and country filters use the constituent artists. Collectives such as HALŌ keep one billed act and recording; `countryAttributions` identifies each constituent act and its countries in the modal without changing priorities or ratings. Multiple selected countries match any represented country and combine with the other filters. Country filters do not restrict plan exports.

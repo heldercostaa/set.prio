@@ -17,6 +17,19 @@ export const contracts = {
     }
     for (const artist of catalog.artists) {
       expect(artist.subgenres.length, artist.name).toBeLessThanOrEqual(2);
+      if (artist.countryCodes?.length) {
+        expect(artist.countrySources?.length, artist.name).toBeGreaterThan(0);
+        expect(artist.countryVerifiedAt, artist.name).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        const regions = new Intl.DisplayNames(['en'], { type: 'region' });
+        for (const code of artist.countryCodes) {
+          expect(code, artist.name).toMatch(/^[A-Z]{2}$/);
+          expect(regions.of(code), artist.name).not.toBe(code);
+        }
+        for (const member of artist.countryAttributions ?? []) {
+          expect(member.name.trim()).not.toBe('');
+          for (const code of member.countryCodes) expect(artist.countryCodes).toContain(code);
+        }
+      }
       if (artist.genre) expect([...GENRES], artist.name).toContain(artist.genre);
       for (const genre of artist.subgenres) expect([...GENRES], artist.name).toContain(genre);
       if (artist.recommendedSetId)
