@@ -39,7 +39,7 @@ The canonical SVG retains its original #1C1C1E base, #3A3A3C track, white knob, 
 
 ## Interaction
 
-Desktop shows three day columns. Mobile shows a day selector, keeping every action available at 320px. The explicit priority selector is the keyboard and touch alternative to dragging.
+Desktop shows three day columns. Mobile shows a day selector and supports horizontal swipes across the board: left advances a day, right goes back, stopping at Friday and Sunday. Vertical scrolling, short gestures, and active artist drags keep the selected day. Every action remains available at 320px. The explicit priority selector is the keyboard and touch alternative to dragging.
 
 The right-hand grip extends the card’s hover surface while its layout slot stays unchanged. The extension respects neighboring cards and column edges. The hovered name shifts only enough to fit the grip, without covering other labels or wrapping the card. The grip remains draggable, and previews keep a measured gap from the expanded surface.
 
