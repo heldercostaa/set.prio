@@ -1,4 +1,4 @@
-import { controlClassName } from '../ui/control';
+import { controlClassName, controlCountClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown, Check } from 'lucide-react';
 import { GENRES } from '../../data/genres';
@@ -22,7 +22,7 @@ export function GenreFilter({
           aria-label={label}
         >
           {label}
-          {selected.length > 0 && <span>{selected.length}</span>}
+          {selected.length > 0 && <span className={controlCountClassName}>{selected.length}</span>}
           <ChevronDown size="1rem" />
         </button>
       </DropdownMenu.Trigger>
