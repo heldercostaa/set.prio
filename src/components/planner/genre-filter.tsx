@@ -1,6 +1,6 @@
 import { controlClassName, controlCountClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { ChevronDown, Check } from 'lucide-react';
+import { ChevronDown, Check, RotateCcw } from 'lucide-react';
 import { GENRES } from '../../data/genres';
 import type { Language } from '../../types';
 export function GenreFilter({
@@ -28,37 +28,55 @@ export function GenreFilter({
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="z-50 max-h-[min(70dvh,var(--radix-dropdown-menu-content-available-height))] min-w-56 overflow-y-auto rounded-xl border border-separator bg-surface p-2 shadow-xl"
+          className="z-50 flex max-h-[min(70dvh,var(--radix-dropdown-menu-content-available-height))] w-64 max-w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl bg-surface text-control text-content shadow-[var(--shadow)] inset-ring inset-ring-separator"
+          align="start"
           sideOffset={8}
           collisionPadding={12}
         >
-          <DropdownMenu.Separator className="my-2 h-px bg-separator" />
-          <DropdownMenu.Item
-            onSelect={() => onChange([])}
-            className="flex min-h-11 cursor-pointer items-center rounded-lg px-3 text-sm text-accent"
-          >
-            {language === 'en' ? 'Clear genres' : 'Limpar gêneros'}
-          </DropdownMenu.Item>
-          {GENRES.map((genre) => (
-            <DropdownMenu.CheckboxItem
-              key={genre}
-              checked={selected.includes(genre)}
-              onSelect={(event) => event.preventDefault()}
-              onCheckedChange={(checked) =>
-                onChange(
-                  checked ? [...selected, genre] : selected.filter((value) => value !== genre)
-                )
-              }
-              className="flex min-h-11 cursor-pointer items-center gap-2 rounded-lg px-3 text-sm outline-none data-[highlighted]:bg-raised"
+          <div className="flex shrink-0 items-center justify-between gap-3 px-4 py-3">
+            <DropdownMenu.Label className="font-semibold">{label}</DropdownMenu.Label>
+            <span className="text-xs font-normal tabular-nums text-muted">
+              {selected.length > 0
+                ? `${selected.length} ${language === 'en' ? 'selected' : selected.length === 1 ? 'selecionado' : 'selecionados'}`
+                : language === 'en'
+                  ? 'All genres'
+                  : 'Todos os gêneros'}
+            </span>
+          </div>
+          <DropdownMenu.Separator className="mx-3 h-px shrink-0 bg-separator" />
+          <DropdownMenu.Group className="min-h-0 overflow-y-auto overscroll-contain p-1.5">
+            {GENRES.map((genre) => (
+              <DropdownMenu.CheckboxItem
+                key={genre}
+                checked={selected.includes(genre)}
+                onSelect={(event) => event.preventDefault()}
+                onCheckedChange={(checked) =>
+                  onChange(
+                    checked ? [...selected, genre] : selected.filter((value) => value !== genre)
+                  )
+                }
+                className="flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-lg px-2.5 outline-none transition-colors data-[highlighted]:bg-raised data-[state=checked]:bg-accent/10"
+              >
+                {genre}
+                <span className="flex size-4 shrink-0 items-center justify-center text-accent">
+                  <DropdownMenu.ItemIndicator>
+                    <Check className="size-4" strokeWidth={2.5} />
+                  </DropdownMenu.ItemIndicator>
+                </span>
+              </DropdownMenu.CheckboxItem>
+            ))}
+          </DropdownMenu.Group>
+          <DropdownMenu.Separator className="mx-3 h-px shrink-0 bg-separator" />
+          <div className="shrink-0 p-1.5">
+            <DropdownMenu.Item
+              disabled={selected.length === 0}
+              onSelect={() => onChange([])}
+              className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-lg px-2.5 text-accent outline-none transition-colors data-[highlighted]:bg-raised data-[disabled]:cursor-default data-[disabled]:text-muted data-[disabled]:opacity-60"
             >
-              <span className="size-4">
-                <DropdownMenu.ItemIndicator>
-                  <Check size="1rem" />
-                </DropdownMenu.ItemIndicator>
-              </span>
-              {genre}
-            </DropdownMenu.CheckboxItem>
-          ))}
+              <RotateCcw className="size-4 shrink-0" />
+              {language === 'en' ? 'Clear genres' : 'Limpar gêneros'}
+            </DropdownMenu.Item>
+          </div>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
