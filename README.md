@@ -216,4 +216,6 @@ Vercel Web Analytics is mounted in production builds through `@vercel/analytics/
 
 Enable Web Analytics in the project's Vercel Analytics dashboard, then deploy this change. Verify production page views in that dashboard. See [Vercel's setup guide](https://vercel.com/docs/analytics/quickstart).
 
+On browsers supporting file sharing, PNG export opens a preview with **Share image** and **Download image**. The share sheet supplies available destinations; Safari users can choose **Save Image** to Photos when offered. A website cannot silently select the Photos library as a download folder. Unsupported browsers keep the normal PNG download.
+
 All tests are specified in `features/*.feature` and executed through Gherkin/Cucumber steps with playwright-bdd. `pnpm test` runs storage, catalog, recording, and export contracts once; `pnpm test:e2e` runs user workflows in desktop/mobile Chromium and WebKit. Install browsers first with `pnpm exec playwright install chromium webkit`. Step definitions are in `e2e/steps`; shared workflow assertions remain in `e2e/workflows.ts`.

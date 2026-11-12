@@ -15,6 +15,26 @@ async function prioritizeFisher(page: Page) {
   await page.getByRole('button', { name: 'Close', exact: true }).click();
 }
 
+async function downloadBoardImage(page: Page) {
+  const preview = page.getByRole('dialog', { name: 'Save or share your image', exact: true });
+  let downloaded = false;
+  const event = page.waitForEvent('download').then((download) => {
+    downloaded = true;
+    return download;
+  });
+  await page.getByRole('menuitem', { name: /Download image/ }).click();
+  await expect
+    .poll(async () => downloaded || (await preview.isVisible()), { timeout: 20000 })
+    .toBe(true);
+  if (!downloaded) {
+    await preview.getByRole('button', { name: 'Download image', exact: true }).click();
+    const download = await event;
+    await preview.getByRole('button', { name: 'Close', exact: true }).click();
+    return download;
+  }
+  return event;
+}
+
 type Fixtures = {
   page: Page;
   context: BrowserContext;
@@ -124,13 +144,7 @@ export const workflows: Record<
         exact: true,
       })
       .click();
-    const event = page.waitForEvent('download');
-    await page
-      .getByRole('menuitem', {
-        name: /Download image/,
-      })
-      .click();
-    const image = await event;
+    const image = await downloadBoardImage(page);
     const imageBytes = await readFile(await image.path());
     const metadata = await sharp(imageBytes).metadata();
     const background = await sharp(imageBytes)
@@ -594,13 +608,7 @@ export const workflows: Record<
       })
       .click();
     await expect(page.getByRole('menu')).toContainText(`${catalog.appearances.length}`);
-    const downloadEvent = page.waitForEvent('download');
-    await page
-      .getByRole('menuitem', {
-        name: /Download image/,
-      })
-      .click();
-    const download = await downloadEvent;
+    const download = await downloadBoardImage(page);
     const bytes = await readFile(await download.path());
     const metadata = await sharp(bytes).metadata();
     expect(metadata.width).toBe(2880);
