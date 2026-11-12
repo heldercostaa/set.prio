@@ -48,16 +48,16 @@ export function PlannerToolbar({
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
-    <div className="toolbar mb-4.5 max-[47.5rem]:mb-4">
+    <div className="toolbar relative mb-1.5">
       {hasFilters && (
-        <div className="mb-1 flex justify-end">
+        <div className="absolute right-0 bottom-full z-10 flex justify-end">
           <button
             type="button"
             onClick={() => {
               onResetFilters();
               searchInput.current?.focus();
             }}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised"
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-surface px-2 text-xs font-medium text-accent shadow-sm hover:bg-raised"
           >
             <RotateCcw size="0.875rem" aria-hidden="true" />
             {t.resetFilters}
