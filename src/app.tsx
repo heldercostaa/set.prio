@@ -1,3 +1,4 @@
+import { useUrlFilters } from './hooks/use-url-filters';
 import type { ArtistSort } from './utils/artist-sort';
 import { FadeView } from './components/ui/fade-view';
 import type { WatchFilter } from './data';
@@ -35,12 +36,18 @@ export function App() {
   const state = usePlanner();
   const language = state.language,
     t = messages(language);
-  const [sort, setSort] = useState<ArtistSort>('name-asc');
-  const [search, setSearch] = useState('');
-  const [watched, setWatched] = useState<WatchFilter>('all');
-  const [genres, setGenres] = useState<string[]>([]);
-  const [countries, setCountries] = useState<string[]>([]);
-  const [view, setView] = useState<'board' | 'artists'>('board');
+  const {
+    filters: { sort, search, watched, genres, countries, view },
+    setFilter,
+    resetFilters,
+    hasFilters,
+  } = useUrlFilters();
+  const setSort = (value: ArtistSort) => setFilter('sort', value);
+  const setSearch = (value: string) => setFilter('search', value);
+  const setWatched = (value: WatchFilter) => setFilter('watched', value);
+  const setGenres = (value: string[]) => setFilter('genres', value);
+  const setCountries = (value: string[]) => setFilter('countries', value);
+  const setView = (value: 'board' | 'artists') => setFilter('view', value);
   const [selected, setSelected] = useState<string | null>(null);
   const [about, setAbout] = useState(false);
   const [manual, setManual] = useState<ReturnType<typeof notionPayload> | null>(null);
@@ -193,6 +200,8 @@ export function App() {
               </div>
             )}
             <PlannerToolbar
+              onResetFilters={resetFilters}
+              hasFilters={hasFilters}
               sort={sort}
               onSort={setSort}
               language={language}
