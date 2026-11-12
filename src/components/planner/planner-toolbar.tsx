@@ -48,22 +48,7 @@ export function PlannerToolbar({
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
-    <div className="toolbar relative mb-1.5">
-      {hasFilters && (
-        <div className="fixed bottom-4 left-4 z-40">
-          <button
-            type="button"
-            onClick={() => {
-              onResetFilters();
-              searchInput.current?.focus();
-            }}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-surface px-3 text-xs font-medium text-accent shadow-[var(--shadow)] inset-ring inset-ring-separator hover:bg-raised"
-          >
-            <RotateCcw size="0.875rem" aria-hidden="true" />
-            {t.resetFilters}
-          </button>
-        </div>
-      )}
+    <div className="toolbar relative mb-6 max-[47.5rem]:mb-5">
       <div className="flex flex-wrap items-center gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3.5">
         <fieldset
           className={`view-switch ${controlClassName} flex shrink-0 max-[47.5rem]:w-max`}
@@ -123,6 +108,19 @@ export function PlannerToolbar({
               value={search}
               onChange={(event) => onSearch(event.target.value)}
             />
+            <button
+              type="button"
+              aria-label={t.resetFilters}
+              title={t.resetFilters}
+              disabled={!hasFilters}
+              onClick={() => {
+                onResetFilters();
+                searchInput.current?.focus();
+              }}
+              className={`grid size-11 shrink-0 place-items-center rounded-lg bg-transparent text-accent hover:bg-raised ${hasFilters ? '' : 'invisible'}`}
+            >
+              <RotateCcw size="1rem" aria-hidden="true" />
+            </button>
             {search && (
               <button
                 type="button"

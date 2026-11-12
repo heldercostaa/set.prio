@@ -54,10 +54,17 @@ export function MultiSelectFilter({
           </div>
           <DropdownMenu.Separator className="mx-3 h-px shrink-0 bg-separator" />
           {notice && (
-            <div className="mx-3 mt-3 flex shrink-0 gap-2 rounded-xl bg-raised p-3 text-xs leading-relaxed text-muted">
-              <Info className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-              <p>{notice}</p>
-            </div>
+            <details className="group/notice mx-3 mt-3 shrink-0 rounded-xl bg-raised text-xs leading-relaxed text-muted">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-3 font-medium text-content [&::-webkit-details-marker]:hidden">
+                <Info className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                {language === 'en'
+                  ? 'Genres are AI-assisted estimates.'
+                  : 'Gêneros são estimativas auxiliadas por IA.'}
+              </summary>
+              <p className="hidden px-3 pb-3 group-hover/notice:block group-focus-within/notice:block group-open/notice:block">
+                {notice.replace(/^.*?[.!?]\s*/, '')}
+              </p>
+            </details>
           )}
           <DropdownMenu.Group className="min-h-0 overflow-y-auto overscroll-contain p-1.5">
             {options.map((option) => (
