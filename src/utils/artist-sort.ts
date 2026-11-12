@@ -1,4 +1,4 @@
-import { membersFor } from '../data';
+import { ratingArtistsFor } from '../data';
 import type { Artist, Language, Preferences } from '../types';
 export const ARTIST_SORTS = [
   'name-asc',
@@ -9,10 +9,9 @@ export const ARTIST_SORTS = [
 ] as const;
 export type ArtistSort = (typeof ARTIST_SORTS)[number];
 
-/** Joint acts sort by their highest-rated member recording, never an invented average. */
+/** Prefer a rated joint recording, then the highest-rated member recording. */
 function grade(artist: Artist, ratings: Preferences['ratings']) {
-  const members = membersFor(artist);
-  const scores = (members.length ? members : [artist]).flatMap((act) => {
+  const scores = ratingArtistsFor(artist, ratings).flatMap((act) => {
     const score = act.recommendedSetId ? ratings[act.recommendedSetId] : null;
     return score == null ? [] : [score];
   });

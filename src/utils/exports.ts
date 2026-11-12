@@ -234,7 +234,11 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
       const names = entries
         .filter((entry) => entry.appearance.day === day && entry.priority === priority)
         .map((entry) => {
-          const joint = Boolean(entry.members?.length);
+          const ratedJoint =
+            entry.rating !== null &&
+            entry.recording &&
+            !(entry.artist.recommendedSetRepresentative ?? entry.recording.representative);
+          const joint = Boolean(entry.members?.length) && !ratedJoint;
           const rated = (
             joint ? (entry.members ?? []) : [{ artist: entry.artist, rating: entry.rating }]
           ).flatMap((member) =>

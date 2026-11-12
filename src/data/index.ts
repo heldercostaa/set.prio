@@ -35,6 +35,24 @@ export function membersFor(artist: Artist): Artist[] {
   });
 }
 
+export function jointRecordingFor(artist: Artist) {
+  const recording = artist.recommendedSetId
+    ? recordingById.get(artist.recommendedSetId)
+    : undefined;
+  return membersFor(artist).length &&
+    recording &&
+    !(artist.recommendedSetRepresentative ?? recording.representative)
+    ? recording
+    : undefined;
+}
+
+export function ratingArtistsFor(artist: Artist, ratings: Record<string, number | null>): Artist[] {
+  const recording = jointRecordingFor(artist);
+  if (recording && ratings[recording.id] != null) return [artist];
+  const members = membersFor(artist);
+  return members.length ? members : [artist];
+}
+
 export type WatchFilter = 'all' | 'watched' | 'unwatched';
 export function matchesWatchFilter(
   artist: Artist,
@@ -42,8 +60,7 @@ export function matchesWatchFilter(
   ratings: Record<string, number | null>
 ) {
   if (filter === 'all') return true;
-  const members = membersFor(artist);
-  const acts = members.length ? members : [artist];
+  const acts = ratingArtistsFor(artist, ratings);
   const complete = acts.every(
     (act) => act.recommendedSetId && ratings[act.recommendedSetId] != null
   );
