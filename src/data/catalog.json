@@ -977,7 +977,9 @@
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/247689053-ILLENIUM PRESS PIC 1.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2655381348",
       "genre": "Dubstep",
-      "subgenres": [],
+      "subgenres": [
+        "Progressive house"
+      ],
       "genreSources": [
         "https://www.youtube.com/watch?v=E1WH0nvaxAw",
         "https://www.insomniac.com/music/illenium-explores-the-bold-and-beautiful-shades-of-bass-with-his-nocturnal-wonderland-2018-mix/",
@@ -1089,10 +1091,8 @@
       "photoUrl": "/artists/1262723682.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/129533695-IMG_2409.JPG",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262723682",
-      "genre": "Melodic house",
-      "subgenres": [
-        "Progressive house"
-      ],
+      "genre": "Melodic techno",
+      "subgenres": [],
       "genreSources": [
         "https://www.youtube.com/watch?v=RLOghpXjuJI"
       ],
@@ -1111,10 +1111,10 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593892326",
-      "genre": "Dubstep",
+      "genre": "Hardstyle",
       "subgenres": [
         "Drum & Bass",
-        "Progressive house"
+        "Dubstep"
       ],
       "genreSources": [
         "https://www.youtube.com/watch?v=rPV3BWCpRNM",
@@ -1584,8 +1584,11 @@
       "photoUrl": "/artists/1319002665.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/209760884-250506_Morten_AURA56901 copy.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1319002665",
-      "genre": "Big room",
-      "subgenres": [],
+      "genre": "Tech house",
+      "subgenres": [
+        "Progressive house",
+        "Melodic techno"
+      ],
       "genreSources": [
         "https://www.youtube.com/watch?v=G5NbSng40X4"
       ],
