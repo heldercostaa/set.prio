@@ -17,7 +17,7 @@ try {
   await expect(page.locator('.plan-count')).toContainText('64');
   for (const toggle of await page.getByRole('button', { name: 'Unprioritized', exact: true }).all())
     await toggle.click();
-  await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
+  await page.getByRole('heading', { level: 1 }).click();
   await page.mouse.move(0, 0);
   await page.screenshot({
     path: 'docs/screenshots/readme-desktop.png',
