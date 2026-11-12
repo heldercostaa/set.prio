@@ -1,4 +1,4 @@
-@contract
+@contract @data
 Feature: Catalog, recording, and export contracts
 
   Scenario: exports only prioritized appearances in festival order and shares a zero recording score
@@ -16,8 +16,8 @@ Feature: Catalog, recording, and export contracts
   Scenario: expands a b2b into attributed artist rows with their own sets, genres and ratings
     Then the data contract "expands a b2b into attributed artist rows with their own sets, genres and ratings" holds
 
-  Scenario: keeps every appearance and recording reference resolvable without inventing performance dates
-    Then the data contract "keeps every appearance and recording reference resolvable without inventing performance dates" holds
+  Scenario: keeps catalog identifiers, references, genres, and recording metadata valid
+    Then the data contract "keeps catalog identifiers, references, genres, and recording metadata valid" holds
 
   Scenario: recording links expose their event and representative status
     Then the data contract "recording links expose their event and representative status" holds

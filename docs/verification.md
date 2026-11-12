@@ -1,46 +1,41 @@
 # Verification
 
-Checked November 11, 2026 on macOS arm64, Node 24.16.0, and pnpm 11.25.0.
+Coverage audited November 12, 2026. Tests use Gherkin with playwright-bdd.
 
-## Current checks
+## Test ownership
 
-| Command or check                        | Result                                    |
-| --------------------------------------- | ----------------------------------------- |
-| `pnpm install --frozen-lockfile`        | Passed                                    |
-| `pnpm lint`                             | Passed                                    |
-| `pnpm format:check`                     | Passed                                    |
-| `pnpm typecheck`                        | Passed                                    |
-| `pnpm test`                             | 14 tests passed across four files         |
-| `pnpm test:e2e`                         | 58 passed; 22 capability-specific skips   |
-| `pnpm build`                            | Passed                                    |
-| `pnpm dev`                              | Served the browser workflows              |
-| `pnpm preview --port 4173 --strictPort` | Served the production bundle              |
-| Production preview smoke checks         | Eight passed across four browser profiles |
+`pnpm test` runs 14 contracts once: eight data/component cases and six browser-storage cases. Pure data cases do not launch browser pages. Keep these checks because browser smoke tests cannot independently prove CSV safety, HTML escaping, catalog integrity, or recovery of damaged saves.
 
-Browser coverage includes desktop Chromium and WebKit, Pixel 7 Chromium emulation, iPhone 13 WebKit emulation, and a 320px viewport. The production smoke checks verify narrow-screen actions, focus restoration, reduced motion, PNG downloads, and the manual clipboard fallback against built assets.
+`pnpm test:e2e` schedules 38 browser checks for 19 distinct scenarios:
 
-Mouse drag and the nine artist/viewport hover cases are skipped on touch profiles (20 cases). Two native clipboard-read cases are skipped on WebKit. Image, CSV, and manual-copy workflows run in every profile. No uncaught browser errors were filtered or suppressed.
+| Profile          | Scope                                                                       | Checks |
+| ---------------- | --------------------------------------------------------------------------- | ------ |
+| Desktop Chromium | Complete browser suite                                                      | 19     |
+| Desktop WebKit   | `@desktop`: hover and mouse interactions                                    | 5      |
+| Pixel 7 Chromium | `@touch`: floating touch drop and scroll-to-top                             | 1      |
+| iPhone 13 WebKit | Universal flows, excluding desktop-only and native Chromium clipboard cases | 13     |
 
-## Behavior and BDD coverage
+Unsupported cases are excluded by tags rather than launched and skipped. New untagged scenarios run in desktop Chromium and mobile WebKit. This keeps common user flows in both engines without repeating the entire suite across every device.
 
-Executable scenarios in [personal-plan.feature](../features/personal-plan.feature) cover persistent bilingual preferences, priority selection and clearing, zero ratings, and multiline comments. `pnpm test:e2e` generates their Playwright tests before execution; generated files are ignored.
+## Cleanup decisions
 
-Other regressions cover official-day drag restrictions, independent repeated appearances, shared recording ratings, joint-act member details, source links, keyboard focus, reduced motion, search, CSV escaping, and HTML/plain-text clipboard payloads.
+| Previous coverage                                 | Remaining owner                                                                                                 |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Separate zero-rating and watched-state flows      | Bilingual plan restoration checks zero, watched status, and notes before/after reload                           |
+| Separate Avoid and priority-clearing flows        | One lifecycle selects Avoid, reloads, and clears it on the official day                                         |
+| Device/theme/language appearance matrix           | The 320px accessibility flow checks a light device and retired light preference against the dark-only interface |
+| Small and full-board PNG downloads                | Full-board export retains PNG format, dimensions, dark background, and footer checks                            |
+| Ten hover/viewport combinations                   | Three representative short, long joint-act, and long project labels across 1024px, 1280px, and 1440px           |
+| Screenshot writes into documentation during tests | Explicit README capture scripts; generated export evidence attaches to test results                             |
 
-Storage tests preserve invalid JSON, unsupported versions, and malformed individual values before accepting a fresh plan. If backup fails, the original remains untouched. Catalog changes retain saved IDs, notes, and scores.
+The unsupported-version storage fixture now has valid priority/rating maps. Removing only the version guard makes that scenario fail at the recovery assertion; restoring it passes. The old fixture was also invalid for unrelated reasons.
 
-## Visual evidence
-
-The supplied SVG stays unchanged. Derived icons, its contrasting header frame, and its use in exported images were inspected. Components use system typography and semantic Tailwind tokens, with flat grouped surfaces and readable artist labels.
-
-Desktop and mobile images are in [screenshots](./screenshots/). The [complete PNG](./screenshots/export-full.png) contains all 118 appearances across every day and priority group, including long joint names. It is 2880px wide, measures its content independently of the viewport, and retains visible footer credits.
-
-Hover checks sample label geometry at 1024px, 1280px, and 1440px and enter recording links before opening details. A shared coordinator prevents overlapping previews. Viewport-bounded sizing avoids the previous feedback between popover size and placement; previews are disabled during dragging.
+CI runs checks for pull requests and pushes to main. Feature-branch pushes do not trigger a second identical PR run. Lint, formatting, type checking, contracts, production build, and the browser suite remain required.
 
 ## Limits
 
-- Mobile profiles are emulation; physical iOS and Android devices were not tested.
-- Actual paste into an authenticated Notion page was not tested. Clipboard HTML, named links, plain text, and failure fallback were verified.
-- Local results above do not assert that every open PR's Linux CI run has completed. Check each PR's current GitHub checks before merging.
-- The production JavaScript bundle is approximately 202 kB gzip. Vite reports its advisory for a minified chunk above 500 kB.
-- Catalog research gaps and source conflicts remain documented in [research notes](./catalog-research.md).
+- Device profiles are emulation; physical iOS and Android devices were not tested.
+- Local Chromium checks run on macOS. Linux CI supplies the complete WebKit verification because local WebKit pointer injection is unreliable in this environment.
+- Native image sharing verifies the PNG passed to the browser API, not the operating system share sheet or saving to Photos.
+- Actual paste into an authenticated Notion page remains untested. Clipboard HTML, named links, plain text, and manual-copy fallback are covered.
+- Catalog integrity checks validate structure and references; they cannot verify that official lineup research is correct. See [research notes](./catalog-research.md).

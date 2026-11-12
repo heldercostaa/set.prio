@@ -1,3 +1,4 @@
+@desktop
 Feature: Contextual floating priority targets
   Scenario: Targets follow artist hover and stay closed after opening details
     Given an English planner with no saved priorities
