@@ -29,6 +29,7 @@
     --orange: #ffb266;
     --yellow: #ffe066;
     --teal: #70d7c7;
+    --avoid: #b7a1ff;
     --shadow: 0 1rem 3.125rem #0007, 0 0 0 0.0625rem #ffffff0d;
     color: var(--text);
     background: var(--bg);
@@ -144,7 +145,7 @@ h1 {
 }
 
 .priority-p4 {
-  --priority: #b7a1ff;
+  --priority: var(--avoid);
 }
 
 @layer base {
@@ -166,9 +167,7 @@ h1 {
     --orange: #9c4d00;
     --yellow: #786100;
     --teal: #006b5c;
+    --avoid: #6950b0;
     --shadow: 0 1rem 3.125rem #0002, 0 0 0 0.0625rem #0001;
-  }
-  :root[data-theme="light"] .priority-p4 {
-    --priority: #6950b0;
   }
 }
