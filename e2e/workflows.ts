@@ -1,3 +1,4 @@
+import { captureImageShares, readSharedImage } from './image-sharing';
 import { expect, type Page, type BrowserContext, type TestInfo } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
@@ -539,7 +540,7 @@ export const workflows: Record<
       .click();
   },
   'a fully prioritized catalog exports all groups beyond the viewport': async (
-    { page },
+    { page, isMobile },
     testInfo
   ) => {
     const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8')) as {
@@ -567,6 +568,7 @@ export const workflows: Record<
       priorities
     );
     await page.reload();
+    if (isMobile) await captureImageShares(page);
     await page.getByRole('searchbox').fill('no matching artist');
     await page
       .getByRole('button', {
@@ -575,8 +577,18 @@ export const workflows: Record<
       })
       .click();
     await expect(page.getByRole('menu')).toContainText(`${catalog.appearances.length}`);
-    const download = await downloadBoardImage(page);
-    const bytes = await readFile(await download.path());
+    let bytes: Buffer;
+    let filename: string;
+    if (isMobile) {
+      await page.getByRole('menuitem', { name: /Share image/ }).click();
+      const shared = await readSharedImage(page);
+      bytes = Buffer.from(shared.bytes);
+      filename = shared.name;
+    } else {
+      const download = await downloadBoardImage(page);
+      bytes = await readFile(await download.path());
+      filename = download.suggestedFilename();
+    }
     const metadata = await sharp(bytes).metadata();
     expect(metadata.width).toBe(2880);
     expect(metadata.height).toBeGreaterThan(2000);
@@ -594,7 +606,7 @@ export const workflows: Record<
       'Credits remain inside the complete image'
     ).toBe(true);
     expect(metadata.format).toBe('png');
-    expect(download.suggestedFilename()).toBe('set-prio-brasil-2027.png');
+    expect(filename).toBe('set-prio-brasil-2027.png');
     const background = await sharp(bytes)
       .extract({ left: 0, top: 0, width: 1, height: 1 })
       .removeAlpha()

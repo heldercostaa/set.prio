@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import type { ImageShareStatus } from './use-image-share';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import {
   ArrowUpRight,
@@ -17,15 +19,31 @@ export function ExportMenu({
   count,
   busy,
   onExport,
+  mobile,
+  imageShareStatus,
+  onPrepareImage,
 }: {
   language: Language;
   count: number;
   busy: boolean;
   onExport: (format: ExportFormat) => Promise<void>;
+  mobile: boolean;
+  imageShareStatus: ImageShareStatus;
+  onPrepareImage: () => Promise<void>;
 }) {
   const t = messages(language);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (open && mobile && imageShareStatus === 'idle') void onPrepareImage();
+  }, [open, mobile, imageShareStatus, onPrepareImage]);
   return (
-    <DropdownMenu.Root>
+    <DropdownMenu.Root
+      open={open}
+      onOpenChange={(open) => {
+        setOpen(open);
+        if (open && mobile) void onPrepareImage();
+      }}
+    >
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
@@ -57,14 +75,28 @@ export function ExportMenu({
           </p>
           {(
             [
-              { key: 'image', Icon: Download, label: t.image, hint: t.imageHint },
+              {
+                key: 'image',
+                Icon: mobile ? Share : Download,
+                label: mobile ? t.shareImage : t.image,
+                hint: !mobile
+                  ? t.imageHint
+                  : imageShareStatus === 'unsupported'
+                    ? t.imageShareUnsupported
+                    : imageShareStatus === 'error'
+                      ? t.imagePrepareFailed
+                      : imageShareStatus === 'ready'
+                        ? t.imageHint
+                        : t.imagePreparing,
+              },
               { key: 'csv', Icon: Grid2X2, label: t.csv, hint: t.csvHint },
               { key: 'notion', Icon: Clipboard, label: t.notion, hint: t.notionHint },
             ] as const
           ).map(({ key, Icon, label, hint }) => (
             <DropdownMenu.Item
               key={key}
-              className="menu-item relative min-h-11 flex items-center gap-2.5 rounded-lg p-2.5 text-xs cursor-pointer export-item [&_>_span]:flex [&_>_span]:flex-col [&_>_span]:gap-1.25 [&_>_span_strong]:text-xs [&_>_span_strong]:font-semibold [&_>_span_small]:text-muted [&_>_span_small]:[font-size:0.625rem] [&_>_svg:last-child]:[margin-left:auto] [&_>_svg:last-child]:[color:var(--tertiary)] [&_>_svg:first-child]:text-muted [&_>_svg:first-child]:shrink-0"
+              disabled={key === 'image' && mobile && imageShareStatus !== 'ready'}
+              className="menu-item relative min-h-11 flex items-center gap-2.5 rounded-lg p-2.5 text-xs cursor-pointer export-item [&_>_span]:flex [&_>_span]:flex-col [&_>_span]:gap-1.25 [&_>_span_strong]:text-xs [&_>_span_strong]:font-semibold [&_>_span_small]:text-muted [&_>_span_small]:[font-size:0.625rem] [&_>_svg:last-child]:[margin-left:auto] [&_>_svg:last-child]:[color:var(--tertiary)] [&_>_svg:first-child]:text-muted [&_>_svg:first-child]:shrink-0 data-[disabled]:cursor-default data-[disabled]:opacity-60"
               onSelect={() => {
                 void onExport(key);
               }}

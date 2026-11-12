@@ -16,6 +16,11 @@ const en = {
   exportScope:
     'All prioritized performances, across every day. B2b acts use one table row per artist. Search filters do not affect exports.',
   image: 'Download image',
+  shareImage: 'Share image',
+  imagePreparing: 'Preparing your image…',
+  imageShareUnsupported: 'Image sharing is unavailable in this browser.',
+  imagePrepareFailed: 'Could not prepare the image. Reopen this menu to retry.',
+  imageShareFailed: 'Could not share the image. Please try again.',
   csv: 'Export CSV',
   notion: 'Copy to Notion',
   imageHint: 'A complete board, ready to share',
@@ -122,6 +127,11 @@ const pt: typeof en = {
   exportScope:
     'Todas as apresentações priorizadas, de todos os dias. B2bs usam uma linha por artista nas tabelas. Os filtros de busca não afetam as exportações.',
   image: 'Baixar imagem',
+  shareImage: 'Compartilhar imagem',
+  imagePreparing: 'Preparando sua imagem…',
+  imageShareUnsupported: 'Este navegador não permite compartilhar imagens.',
+  imagePrepareFailed: 'Não foi possível preparar a imagem. Reabra este menu para tentar novamente.',
+  imageShareFailed: 'Não foi possível compartilhar a imagem. Tente novamente.',
   csv: 'Exportar CSV',
   notion: 'Copiar para o Notion',
   imageHint: 'O quadro completo, pronto para compartilhar',

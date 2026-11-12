@@ -1,3 +1,4 @@
+import { messages } from '../../i18n';
 import { useEffect, useState } from 'react';
 import { Share, Download } from 'lucide-react';
 import { Modal } from '../ui/modal';
@@ -5,16 +6,19 @@ import { downloadBlob } from '../../utils/exports';
 import type { Language } from '../../types';
 export function ImageShareDialog({
   file,
+  mobile,
   language,
   onClose,
 }: {
   file: File | null;
+  mobile: boolean;
   language: Language;
   onClose: () => void;
 }) {
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
   const en = language === 'en';
+  const t = messages(language);
   useEffect(() => {
     if (!file) return;
     const value = URL.createObjectURL(file);
@@ -29,11 +33,7 @@ export function ImageShareDialog({
       onClose();
     } catch (error) {
       if (!(error instanceof DOMException && error.name === 'AbortError'))
-        setError(
-          en
-            ? 'Sharing failed. You can download the image instead.'
-            : 'Não foi possível compartilhar. Você pode baixar a imagem.'
-        );
+        setError(t.imageShareFailed);
     }
   };
   return (
@@ -42,7 +42,9 @@ export function ImageShareDialog({
       onOpenChange={(open) => {
         if (!open) onClose();
       }}
-      title={en ? 'Save or share your image' : 'Salve ou compartilhe sua imagem'}
+      title={
+        mobile ? t.shareImage : en ? 'Save or share your image' : 'Salve ou compartilhe sua imagem'
+      }
       description={
         en
           ? 'Choose Save Image in the share sheet to save to Photos, when available.'
@@ -73,18 +75,20 @@ export function ImageShareDialog({
             className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-blue-600 px-4 text-sm text-white"
           >
             <Share size="1.125rem" aria-hidden="true" />
-            {en ? 'Share image' : 'Compartilhar imagem'}
+            {t.shareImage}
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              if (file) downloadBlob(file, file.name);
-            }}
-            className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator px-4 text-sm"
-          >
-            <Download size={18} />
-            {en ? 'Download image' : 'Baixar imagem'}
-          </button>
+          {!mobile && (
+            <button
+              type="button"
+              onClick={() => {
+                if (file) downloadBlob(file, file.name);
+              }}
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator px-4 text-sm"
+            >
+              <Download size={18} />
+              {t.image}
+            </button>
+          )}
         </div>
       </div>
     </Modal>

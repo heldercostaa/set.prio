@@ -1,3 +1,4 @@
+@touch
 Feature: Share a complete PNG through the device share sheet
   Scenario: Deliver an image file from an explicit share action
     Given an English planner with no saved priorities
