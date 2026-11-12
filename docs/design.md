@@ -50,3 +50,9 @@ CSS selectors are scoped to components. Biome's descending-specificity rule is d
 ## Export layout
 
 The PNG uses the same dark grouped surfaces, rounded column outlines, day icons, separators, priority badges, counts, and bordered artist labels as the board. Labels flow into rows and wrap long names; each column height is measured from its contents. The export stays 1440 CSS pixels wide and renders at 2× resolution, independently of the current viewport. Day SVGs in public/icons are serialized from the pinned Lucide icons; their license is included alongside them.
+
+## Utility refinements
+
+Typography uses readable artist labels and quieter metadata. Grouped surfaces stay flat; separators establish hierarchy without decorative gradients. The genre estimate notice remains visible as a plain information row. Segmented controls and modal dismissal targets retain 44px hit areas.
+
+Semantic Tailwind tokens map canvas, surface, raised surface, content, muted text, separators, and accents to the shared palette. Component utilities own layout; feature styles retain compound interaction states. These are web adaptations, not Apple-provided components.

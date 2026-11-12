@@ -33,13 +33,13 @@ export function AboutDialog({
           <ShieldCheck size={22} />
           <h3>{t.dataTitle}</h3>
           <p>{t.dataBody}</p>
-          <p className="small text-xs [line-height:1.55] muted [color:var(--secondary)]">
+          <p className="small text-xs [line-height:1.55] muted text-muted">
             {t.checked}: {longDate(catalog.verifiedAt, language)} · {catalog.appearances.length}{' '}
             {t.performances}
           </p>
           {catalog.sources.map((url) => (
             <a
-              className="source-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:10px] [margin:4px_12px_0_0] [overflow-wrap:anywhere] [max-width:100%]"
+              className="source-link inline-flex items-center gap-1 text-accent [font-size:10px] [margin:4px_12px_0_0] [overflow-wrap:anywhere] [max-width:100%]"
               href={url}
               target="_blank"
               rel="noreferrer"

@@ -29,7 +29,7 @@ export function ExportMenu({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] [background:var(--panel)] [border:1px_solid_var(--line)] [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[760px]:[font-size:0] max-[760px]:p-0 max-[760px]:w-11 max-[760px]:h-11 max-[760px]:[min-width:44px] max-[760px]:[margin-top:26px] max-[760px]:[gap:0]"
+          className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] bg-surface border border-separator [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[760px]:[font-size:0] max-[760px]:p-0 max-[760px]:w-11 max-[760px]:h-11 max-[760px]:[min-width:44px] max-[760px]:[margin-top:26px] max-[760px]:[gap:0]"
           disabled={!count || busy}
           title={!count ? t.noPlan : undefined}
         >
@@ -44,7 +44,7 @@ export function ExportMenu({
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="menu [background:var(--panel)] [border:1px_solid_var(--line)] [box-shadow:var(--shadow)] [border-radius:13px] [padding:6px] [z-index:80] [color:var(--text)] [animation:reveal_0.14s_ease-out] export-menu [width:322px] [max-width:calc(100vw_-_24px)]"
+          className="menu bg-surface border border-separator [box-shadow:var(--shadow)] [border-radius:13px] [padding:6px] [z-index:80] text-content [animation:reveal_0.14s_ease-out] export-menu [width:322px] [max-width:calc(100vw_-_24px)]"
           align="end"
           sideOffset={10}
           collisionPadding={12}
@@ -52,7 +52,7 @@ export function ExportMenu({
           <DropdownMenu.Label>
             {count} {t.rowCount}
           </DropdownMenu.Label>
-          <p className="export-scope [color:var(--secondary)] [font-size:10px] [line-height:1.6] [padding:0_10px_10px]">
+          <p className="export-scope text-muted [font-size:10px] [line-height:1.6] [padding:0_10px_10px]">
             {t.exportScope}
           </p>
           {(

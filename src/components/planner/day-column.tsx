@@ -37,7 +37,7 @@ function PriorityGroup({
     >
       <div className="group-heading flex items-center justify-between mb-3">
         {priority ? (
-          <h3 className="priority-badge inline-flex items-center [gap:5px] [color:var(--priority)] [font-size:10px] font-bold [line-height:1] [padding:6px_8px] [border-radius:6px] [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] max-[1100px]:[font-size:9px] max-[1100px]:[padding:6px] max-[760px]:[font-size:10px] max-[760px]:[padding:6px_8px]">
+          <h3 className="priority-badge inline-flex items-center [gap:5px] [color:var(--priority)] text-xs font-semibold [line-height:1.2] [padding:6px_8px] [border-radius:6px] [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] max-[1100px]:text-xs max-[1100px]:[padding:6px] max-[760px]:text-xs max-[760px]:[padding:6px_8px]">
             <span className="priority-dot w-1 h-1 [border-radius:100%] [background:currentColor]" />
             {priority}
             <span className="priority-name font-semibold [margin-left:2px] [padding-left:6px] [border-left:1px_solid_color-mix(in_srgb,_var(--priority)_27%,_transparent)] max-[1100px]:[margin-left:0] max-[1100px]:pl-1 max-[760px]:[padding-left:6px]">
@@ -47,7 +47,7 @@ function PriorityGroup({
         ) : (
           <button
             type="button"
-            className="unranked-toggle min-h-8 bg-transparent flex items-center [gap:6px] p-0 [color:var(--secondary)] [font-size:11px] font-semibold max-[760px]:min-h-11"
+            className="unranked-toggle min-h-8 bg-transparent flex items-center [gap:6px] p-0 text-muted [font-size:11px] font-semibold max-[760px]:min-h-11"
             aria-expanded={expanded}
             onClick={() => setExpanded(!expanded)}
           >
@@ -113,11 +113,11 @@ export function DayColumn({
   const t = messages(language);
   return (
     <article
-      className={`day-column [border:1px_solid_var(--line)] [border-radius:17px] [background:var(--panel)] [overflow:clip] [box-shadow:0_2px_5px_#00000002] day-${index}`}
+      className={`day-column border border-separator [border-radius:17px] bg-surface [overflow:clip] [box-shadow:0_2px_5px_#00000002] day-${index}`}
       aria-label={dayName(day, language)}
     >
-      <header className="day-heading [padding:20px_20px_18px] [background:linear-gradient(180deg,_var(--panel-soft),_var(--panel))] [border-bottom:1px_solid_var(--line)] max-[1100px]:[padding:18px_14px] max-[760px]:[padding:19px_19px_18px]">
-        <div className="day-date flex justify-between items-center [color:var(--secondary)] [font-size:10px] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] [margin-bottom:11px] max-[760px]:[font-size:10px] max-[760px]:mb-3">
+      <header className="day-heading [padding:20px_20px_18px] bg-surface [border-bottom:1px_solid_var(--line)] max-[1100px]:[padding:18px_14px] max-[760px]:[padding:19px_19px_18px]">
+        <div className="day-date flex justify-between items-center text-muted [font-size:10px] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] [margin-bottom:11px] max-[760px]:text-xs max-[760px]:mb-3">
           {day ? shortDate(day, language) : '—'}
           <span>
             {total.length} {t.performances}

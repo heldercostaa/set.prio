@@ -3,9 +3,28 @@ import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { ArrowUpRight, Disc3, GripVertical, Music2, Play, Star } from 'lucide-react';
 import { motion, useIsPresent } from 'motion/react';
-import { createContext, useContext, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+  type Dispatch,
+  type SetStateAction,
+} from 'react';
 import { publicAsset } from '../utils/assets';
 export const ArtistPreviewContext = createContext(true);
+const PreviewOwnerContext = createContext<{
+  active: string | null;
+  setActive: Dispatch<SetStateAction<string | null>>;
+} | null>(null);
+export function ArtistPreviewCoordinator({ children }: { children: ReactNode }) {
+  const [active, setActive] = useState<string | null>(null);
+  return (
+    <PreviewOwnerContext.Provider value={{ active, setActive }}>
+      {children}
+    </PreviewOwnerContext.Provider>
+  );
+}
 import { artistById, recordingById, membersFor } from '../data';
 import { dayName, messages } from '../i18n';
 import type { Appearance, Artist, Language, Priority, Recording } from '../types';
@@ -40,18 +59,18 @@ export function Genres({ artist, language }: { artist: Artist; language: Languag
     <div className="genre-tags flex [gap:5px] flex-wrap">
       {artist.genre ? (
         <>
-          <span className="genre-tag [color:var(--text)] font-semibold">
+          <span className="genre-tag text-content font-semibold">
             <Music2 size={12} />
             {artist.genre}
           </span>
           {artist.subgenres.map((genre) => (
-            <span className="subgenre-tag [color:var(--secondary)]" key={genre}>
+            <span className="subgenre-tag text-muted" key={genre}>
               {genre}
             </span>
           ))}
         </>
       ) : (
-        <span className="muted [color:var(--secondary)] small text-xs [line-height:1.55]">
+        <span className="muted text-muted small text-xs [line-height:1.55]">
           {messages(language).unknownGenre}
         </span>
       )}
@@ -72,14 +91,14 @@ export function SetLink({
   const t = messages(language);
   if (!recording)
     return (
-      <div className="set-unavailable flex items-center gap-2 [color:var(--secondary)] [font-size:11px] [padding:12px_0] [line-height:1.6]">
+      <div className="set-unavailable flex items-center gap-2 text-muted [font-size:11px] [padding:12px_0] [line-height:1.6]">
         <Disc3 size={17} />
         <span>{t.unavailable}</span>
       </div>
     );
   return (
     <a
-      className={`set-link flex items-center gap-3 [border:1px_solid_var(--line)] [background:var(--panel-soft)] [border-radius:11px] [padding:13px] [min-height:66px] [transition:border-color_0.15s,_background_0.15s] ${compact ? 'compact-set' : ''}`}
+      className={`set-link flex items-center gap-3 border border-separator bg-raised [border-radius:11px] [padding:13px] [min-height:66px] [transition:border-color_0.15s,_background_0.15s] ${compact ? 'compact-set' : ''}`}
       href={recording.youtubeUrl}
       target="_blank"
       rel="noreferrer"
@@ -133,7 +152,7 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
         ))}
         {recording && !(artist.recommendedSetRepresentative ?? recording.representative) && (
           <>
-            <span className="eyebrow [font-size:11px] font-semibold [letter-spacing:0.045em] muted [color:var(--secondary)]">
+            <span className="eyebrow [font-size:11px] font-semibold [letter-spacing:0.045em] muted text-muted">
               {messages(language).jointRecording}
             </span>
             <SetLink recording={recording} language={language} compact />
@@ -148,7 +167,7 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
         <strong className="preview-name [font-size:17px] [letter-spacing:-0.02em]">
           {artist.name}
         </strong>
-        <span className="eyebrow [font-size:11px] font-semibold [letter-spacing:0.045em] muted [color:var(--secondary)]">
+        <span className="eyebrow [font-size:11px] font-semibold [letter-spacing:0.045em] muted text-muted">
           {messages(language).genreShort}
         </span>
         <Genres artist={artist} language={language} />
@@ -175,7 +194,24 @@ export function ArtistChip({
 }) {
   const artist = artistById.get(appearance.artistId);
   const isPresent = useIsPresent();
-  const [preview, setPreview] = useState(false);
+  const owner = useContext(PreviewOwnerContext);
+  const [localPreview, setLocalPreview] = useState(false);
+  const preview = owner ? owner.active === appearance.id : localPreview;
+  const setPreview = (open: boolean, transfer = false) => {
+    if (!owner) {
+      setLocalPreview(open);
+      return;
+    }
+    owner.setActive((current) =>
+      open
+        ? transfer || !current || current === appearance.id
+          ? appearance.id
+          : current
+        : current === appearance.id
+          ? null
+          : current
+    );
+  };
   const previewsAllowed = useContext(ArtistPreviewContext);
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: appearance.id,
@@ -204,12 +240,12 @@ export function ArtistChip({
             type="button"
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip flex w-full min-w-0 items-center min-h-8 [max-width:100%] [gap:3px] [padding:6px_9px] [font-size:11px] font-medium [line-height:1.5] text-left [border-radius:7px] [border:1px_solid_var(--line)] [background:var(--chip)] [color:var(--text)] [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[1100px]:[font-size:10px] max-[1100px]:[padding:5px_7px] ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] [gap:3px] [padding:8px_10px] text-sm font-medium [line-height:1.5] text-left [border-radius:7px] border border-separator [background:var(--chip)] text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[1100px]:[font-size:13px] max-[1100px]:[padding:8px_10px] ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}
             {...listeners}
-            onFocus={() => setPreview(true)}
+            onFocus={() => setPreview(true, true)}
             onBlur={() => setPreview(false)}
             onClick={() => {
               if (!isDragging) {
@@ -229,7 +265,7 @@ export function ArtistChip({
         </HoverCard.Trigger>
         <HoverCard.Portal>
           <HoverCard.Content
-            className="artist-preview w-72 [max-width:calc(100vw_-_24px)] [background:var(--panel)] [color:var(--text)] [border-radius:15px] overflow-hidden [box-shadow:var(--shadow)] [z-index:40] [animation:reveal_0.16s_ease-out] [max-height:min(520px,_calc(100dvh_-_32px))] overflow-y-auto max-[760px]:hidden"
+            className="artist-preview w-72 [max-width:calc(100vw_-_24px)] bg-surface text-content [border-radius:15px] overflow-hidden [box-shadow:var(--shadow)] [z-index:40] [animation:reveal_0.16s_ease-out] [max-height:min(520px,_calc(100dvh_-_32px))] overflow-y-auto max-[760px]:hidden"
             side="right"
             align="start"
             sticky="always"

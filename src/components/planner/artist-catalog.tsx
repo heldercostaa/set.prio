@@ -30,7 +30,7 @@ export function ArtistCatalog({
   );
   return (
     <section
-      className="catalog-section [background:var(--panel)] [border:1px_solid_var(--line)] [border-radius:17px] p-6 max-[760px]:[padding:18px_10px]"
+      className="catalog-section bg-surface border border-separator [border-radius:17px] p-6 max-[760px]:[padding:18px_10px]"
       aria-label={t.allArtists}
     >
       <div className="catalog-heading flex justify-between [align-items:baseline] gap-3 mb-6 max-[760px]:[margin:0_8px_16px] max-[760px]:flex-col max-[760px]:gap-2">
@@ -52,13 +52,13 @@ export function ArtistCatalog({
           ))}
         </div>
       ) : (
-        <div className="no-results [padding:70px_12px] text-center grid [justify-items:center] gap-3 [color:var(--secondary)]">
+        <div className="no-results [padding:70px_12px] text-center grid [justify-items:center] gap-3 text-muted">
           <Search size={28} />
           <h3>{t.noResults}</h3>
           <p>{t.noResultsHint}</p>
           <button
             type="button"
-            className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
+            className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
             onClick={() => onSearch('')}
           >
             {t.clearSearch}
