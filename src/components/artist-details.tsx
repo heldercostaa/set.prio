@@ -317,11 +317,18 @@ function RecordingDetails({
           </>
         )}
       </section>
-      <details className="research-details [border-top:0.0625rem_solid_var(--line)] pt-3.75 [font-size:0.625rem] text-muted [&_summary]:[cursor:pointer] [&_summary]:min-h-8 [&_>_div]:flex [&_>_div]:flex-col [&_>_div]:gap-2 [&_>_div]:[line-height:1.6] [&_>_div]:mt-2.5 [&_a]:inline-flex [&_a]:gap-1.25 [&_a]:items-center [&_a]:text-accent [&_a]:[overflow-wrap:anywhere] max-[47.5rem]:[&_summary]:min-h-11 max-[47.5rem]:[&_summary]:items-center">
-        <summary>
-          {t.setDetails} &amp; {t.genreSources}
+      <details className="research-details group border-t border-separator text-xs text-muted [&_a]:inline-flex [&_a]:items-start [&_a]:gap-1.5 [&_a]:text-accent [&_a]:[overflow-wrap:anywhere] [&_a_svg]:mt-1 [&_a_svg]:shrink-0">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 py-3 leading-relaxed [&::-webkit-details-marker]:hidden">
+          <ChevronDown
+            size="0.875rem"
+            aria-hidden="true"
+            className="shrink-0 -rotate-90 group-open:rotate-0"
+          />
+          <span>
+            {t.setDetails} &amp; {t.genreSources}
+          </span>
         </summary>
-        <div>
+        <div className="grid min-w-0 gap-3 pb-4 pl-5.5 leading-relaxed">
           <p>
             {t.researched}: {longDate(recording?.verifiedAt ?? catalog.verifiedAt, language)}
           </p>
