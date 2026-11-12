@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, ChevronDown, ExternalLink, Info, Star } from 'lucide-react';
+import { Check, ChevronDown, ExternalLink, Info, Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { appearancesFor, artistById, catalog, recordingById, membersFor } from '../data';
 import { dayName, longDate, messages, priorityLabel } from '../i18n';
@@ -52,15 +52,6 @@ export function ArtistDetails({
                 <span className="eyebrow [font-size:0.6875rem] font-semibold [letter-spacing:0.045em]">
                   {t.genreShort}
                 </span>
-                <a
-                  href={artist.officialUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
-                >
-                  {t.officialProfile}
-                  <ArrowUpRight size="0.8125rem" />
-                </a>
               </div>
               <Genres artist={artist} language={language} />
             </>
@@ -85,15 +76,6 @@ export function ArtistDetails({
                   <div className="member-details-body p-4.5 [&_.detail-topline]:mb-3.5 [&_.detail-topline_h3]:text-xl">
                     <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
                       <h3>{member.name}</h3>
-                      <a
-                        href={member.officialUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
-                      >
-                        {t.officialProfile}
-                        <ArrowUpRight size="0.8125rem" />
-                      </a>
                     </div>
                     <Genres artist={member} language={language} />
                     <RecordingDetails artist={member} language={language} />
