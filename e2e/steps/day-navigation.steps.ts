@@ -17,6 +17,14 @@ When('I preview and cancel a partial day swipe', async ({ page }) => {
     'aria-pressed',
     'true'
   );
+  const gap = await board.evaluate((e) => parseFloat(getComputedStyle(e).columnGap));
+  const separation = await board
+    .locator('.day-slot')
+    .evaluateAll(
+      (panels) => panels[1].getBoundingClientRect().left - panels[0].getBoundingClientRect().right
+    );
+  expect(gap).toBeGreaterThan(0);
+  expect(separation).toBeCloseTo(gap, 0);
   await touch(board, 'touchend', 135, 450);
   await expect
     .poll(async () => await board.evaluate((e) => e.getBoundingClientRect().x))
