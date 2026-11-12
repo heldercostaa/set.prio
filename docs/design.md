@@ -39,13 +39,13 @@ The canonical SVG retains its original #1C1C1E base, #3A3A3C track, white knob, 
 
 ## Interaction
 
-Desktop shows three day columns. Mobile shows a day selector and supports horizontal swipes across the board: left advances a day, right goes back, stopping at Friday and Sunday. Vertical scrolling, short gestures, and active artist drags keep the selected day. Every action remains available at 320px. The explicit priority selector is the keyboard and touch alternative to dragging.
+Desktop shows three day columns. Mobile shows a day selector and supports horizontal swipes across the board: left advances a day, right goes back, stopping at Friday and Sunday. Panels follow horizontal finger movement and reveal the neighboring day. Releasing beyond 18% of the panel width (at least 3rem) completes the move; shorter or cancelled gestures return to the current day. The first and last day resist overscroll. Vertical scrolling and active artist drags keep the selected day. Every action remains available at 320px. The explicit priority selector is the keyboard and touch alternative to dragging.
 
 The right-hand grip extends the card’s hover surface while its layout slot stays unchanged. The extension respects neighboring cards and column edges. The hovered name shifts only enough to fit the grip, without covering other labels or wrapping the card. The grip remains draggable, and previews keep a measured gap from the expanded surface.
 
 Floating targets use each priority’s color and dashed outline in an aligned grid above the back-to-top button. They appear only after an artist drag moves, then remain visible until drop or cancellation. Hover, focus, and a stationary touch hold keep them hidden. Artist previews and the card’s drag grip still respond to hover.
 
-Artist details use a Radix modal with a fixed heading and scrollable content. Mobile displays a bottom sheet with a grab handle. Swipe down from its heading to dismiss it; content scrolling remains independent. Closing slides the sheet down and fades the overlay before restoring focus. Reduced-motion mode closes immediately. Focus returns to the originating artist or its moved replacement card.
+Artist details use a Radix modal with a fixed heading and scrollable content. Mobile displays a bottom sheet with a grab handle. Dragging down from its heading moves the sheet and progressively fades the backdrop. Releasing beyond 4rem dismisses it; short or cancelled gestures return it to its starting position. Content scrolling remains independent. Closing slides the sheet down and fades the overlay before restoring focus. Reduced-motion mode closes immediately. Focus returns to the originating artist or its moved replacement card.
 
 Motion emphasizes card relocation, modal entry, and export feedback. Reduced-motion preferences disable transition animation. Hover previews supplement the clickable modal; touch users get all information through the modal.
 

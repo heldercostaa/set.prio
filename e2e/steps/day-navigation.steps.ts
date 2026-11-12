@@ -3,6 +3,34 @@ import { expect } from '@playwright/test';
 import { touch } from '../touch';
 const { When, Then } = createBdd(test);
 
+When('I preview and cancel a partial day swipe', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  const board = page.locator('.board-grid');
+  const origin = await board.evaluate((e) => e.getBoundingClientRect().x);
+  await touch(board, 'touchstart', 160, 450);
+  await touch(board, 'touchmove', 135, 450);
+  await expect
+    .poll(async () => await board.evaluate((e) => e.getBoundingClientRect().x))
+    .toBeCloseTo(origin - 25, 0);
+  await expect(page.getByRole('button', { name: 'Friday', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  );
+  await touch(board, 'touchend', 135, 450);
+  await expect
+    .poll(async () => await board.evaluate((e) => e.getBoundingClientRect().x))
+    .toBeCloseTo(origin, 0);
+  await touch(board, 'touchstart', 160, 450);
+  await touch(board, 'touchmove', 70, 450);
+  await expect
+    .poll(async () => await board.evaluate((e) => e.getBoundingClientRect().x))
+    .toBeCloseTo(origin - 90, 0);
+  await touch(board, 'touchcancel', 70, 450);
+  await expect
+    .poll(async () => await board.evaluate((e) => e.getBoundingClientRect().x))
+    .toBeCloseTo(origin, 0);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+});
 When('I swipe through the festival days and back', async ({ page }) => {
   const board = page.locator('.board-grid');
   for (const [direction, day] of [
