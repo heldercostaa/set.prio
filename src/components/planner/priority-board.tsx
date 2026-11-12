@@ -1,3 +1,5 @@
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { useMediaQuery } from '../ui/use-media-query';
 import type { WatchFilter } from '../../data';
 import { useDaySwipe } from './use-day-swipe';
 import { FloatingPriorityTargets } from './floating-priority-targets';
@@ -38,6 +40,15 @@ export function PriorityBoard({
   const previewsAllowed = useContext(ArtistPreviewContext);
   const t = messages(language);
   const state = usePlanner();
+  const mobile = useMediaQuery('(width < 47.5rem)');
+  const reducedMotion = useReducedMotion();
+  const [transition, setTransition] = useState({ day: state.activeDay, direction: 1 });
+  if (transition.day !== state.activeDay) {
+    setTransition({
+      day: state.activeDay,
+      direction: DAYS.indexOf(state.activeDay) > DAYS.indexOf(transition.day) ? 1 : -1,
+    });
+  }
   const [dragName, setDragName] = useState<string | null>(null);
   const [keyboardDrag, setKeyboardDrag] = useState(false);
   const [hasDragMoved, setHasDragMoved] = useState(false);
@@ -120,24 +131,59 @@ export function PriorityBoard({
           </fieldset>
           <div
             {...daySwipeHandlers}
-            className="board-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block max-[47.5rem]:touch-pan-y"
+            className="board-grid overflow-x-clip grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block max-[47.5rem]:touch-pan-y"
           >
-            {DAYS.map((day, index) => (
-              <div
-                className={`day-slot min-w-0 max-[47.5rem]:hidden max-[47.5rem]:[&.active-day]:block ${state.activeDay === day ? 'active-day' : ''}`}
-                key={day}
-              >
-                <DayColumn
-                  day={day}
-                  index={index}
-                  search={search}
-                  genres={genres}
-                  watched={watched}
-                  language={language}
-                  onOpen={onOpen}
-                />
-              </div>
-            ))}
+            {mobile ? (
+              <AnimatePresence mode="wait" initial={false} custom={transition.direction}>
+                <motion.div
+                  key={state.activeDay}
+                  className="day-slot min-w-0"
+                  custom={transition.direction}
+                  variants={{
+                    enter: (direction: number) => ({
+                      x: reducedMotion ? 0 : `${direction * 100}%`,
+                      opacity: reducedMotion ? 1 : 0.6,
+                    }),
+                    center: { x: 0, opacity: 1 },
+                    exit: (direction: number) => ({
+                      x: reducedMotion ? 0 : `${direction * -100}%`,
+                      opacity: reducedMotion ? 1 : 0.6,
+                    }),
+                  }}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: reducedMotion ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <DayColumn
+                    day={state.activeDay}
+                    index={DAYS.indexOf(state.activeDay)}
+                    search={search}
+                    genres={genres}
+                    watched={watched}
+                    language={language}
+                    onOpen={onOpen}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            ) : (
+              DAYS.map((day, index) => (
+                <div
+                  className={`day-slot min-w-0 max-[47.5rem]:hidden max-[47.5rem]:[&.active-day]:block ${state.activeDay === day ? 'active-day' : ''}`}
+                  key={day}
+                >
+                  <DayColumn
+                    day={day}
+                    index={index}
+                    search={search}
+                    genres={genres}
+                    watched={watched}
+                    language={language}
+                    onOpen={onOpen}
+                  />
+                </div>
+              ))
+            )}
           </div>
           {catalog.appearances.some((appearance) => appearance.day === null) && (
             <div className="tba-board mt-5">
