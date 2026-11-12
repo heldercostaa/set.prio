@@ -1,3 +1,4 @@
+import type { Catalog, Preferences, Priority } from '../src/types';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, mkdir, copyFile } from 'node:fs/promises';
 import sharp from 'sharp';
@@ -51,24 +52,36 @@ test('multiple appearances have independent priorities and export despite search
 });
 
 test('image export includes the whole board', async ({ page }, testInfo) => {
-  await prioritizeFisher(page);
-  await page.getByRole('button', { name: 'Symphony of Unity · Friday', exact: true }).click();
-  for (const [day, priority] of [
-    ['Friday', 'P1'],
-    ['Saturday', 'P2'],
-    ['Sunday', 'P3'],
-  ]) {
-    await page
-      .getByRole('combobox', { name: `Priority · ${day} · Symphony of Unity`, exact: true })
-      .selectOption(priority);
+  const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8')) as Catalog;
+  const saved: Preferences = {
+    version: 1,
+    language: 'en',
+    activeDay: '2027-04-30',
+    priorities: {},
+    ratings: {},
+    comments: {},
+  };
+  const choices: [string, string, Priority][] = [
+    ['Fisher', '2027-04-30', 'P0'],
+    ['Symphony of Unity', '2027-04-30', 'P1'],
+    ['Symphony of Unity', '2027-05-01', 'P2'],
+    ['Symphony of Unity', '2027-05-02', 'P3'],
+    ['Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer', '2027-04-30', 'P3'],
+  ];
+  for (const [name, day, priority] of choices) {
+    const artist = catalog.artists.find((artist) => artist.name === name);
+    const appearance = catalog.appearances.find(
+      (appearance) => appearance.artistId === artist?.id && appearance.day === day
+    );
+    if (!appearance) throw new Error(`Missing export fixture: ${name} on ${day}`);
+    saved.priorities[appearance.id] = priority;
   }
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
-  const jointAct = 'Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer';
-  await page.getByRole('button', { name: `${jointAct} · Friday`, exact: true }).click();
-  await page
-    .getByRole('combobox', { name: `Priority · Friday · ${jointAct}`, exact: true })
-    .selectOption('P3');
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.evaluate(
+    (saved) => localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved)),
+    saved
+  );
+  await page.reload();
+  await expect(page.locator('.plan-count')).toContainText('5');
   await page.getByRole('button', { name: 'Export plan', exact: true }).click();
   const event = page.waitForEvent('download');
   await page.getByRole('menuitem', { name: /Download image/ }).click();
@@ -208,8 +221,10 @@ for (const width of [1024, 1280, 1440]) {
         'Bella Claxton b2b Paige Tomlinson',
       ]) {
         const label = page.getByRole('button', { name: `${name} · Friday`, exact: true });
-        await label.scrollIntoViewIfNeeded();
+        // A focusable control releases the prior keyboard preview on every platform.
+        await page.getByRole('searchbox').click();
         await page.mouse.move(0, 0);
+        await label.scrollIntoViewIfNeeded();
         await expect(page.locator('.artist-preview')).toHaveCount(0);
         await label.hover();
         await expect(page.locator('.artist-preview')).toBeVisible();
