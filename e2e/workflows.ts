@@ -363,6 +363,16 @@ export const workflows: Record<
       name: `${name} · Friday`,
       exact: true,
     });
+    await label.hover({ trial: true });
+    const group = page.getByTestId('2027-04-30-unprioritized');
+    const before = await group.getByRole('button').evaluateAll((elements) =>
+      elements
+        .filter((element) => element.hasAttribute('data-appearance-id'))
+        .map((element) => {
+          const { x, y, width, height } = element.getBoundingClientRect();
+          return { id: element.getAttribute('data-appearance-id'), x, y, width, height };
+        })
+    );
     await label.hover();
     const preview = page.locator('.artist-preview');
     await expect(
@@ -370,6 +380,57 @@ export const workflows: Record<
         exact: true,
       })
     ).toBeVisible();
+    const grip = label.locator('.lucide-grip-vertical');
+    await expect(grip).toBeVisible();
+    const bounds = await label.boundingBox();
+    const icon = await grip.boundingBox();
+    if (!bounds || !icon) throw new Error('Missing artist card or drag cue');
+    expect(Math.abs(icon.y + icon.height / 2 - bounds.y - bounds.height / 2)).toBeLessThan(1);
+    const cue = await grip.evaluate((element) => {
+      const button = element.closest('button');
+      const rect = element.getBoundingClientRect();
+      const y = rect.y + rect.height / 2;
+      let opacity = 1;
+      for (let node = element.parentElement; node && node !== button; node = node.parentElement)
+        opacity *= Number(getComputedStyle(node).opacity);
+      return {
+        opacity,
+        reachable: [rect.left + 1, rect.left + rect.width / 2, rect.right - 1].every((x) => {
+          const hit = document.elementFromPoint(x, y);
+          return hit !== null && button?.contains(hit);
+        }),
+      };
+    });
+    expect(cue.opacity, 'The drag icon is painted').toBeGreaterThan(0.95);
+    expect(cue.reachable, 'The entire drag icon belongs to the artist hit area').toBe(true);
+    const columnRight = await label.evaluate(
+      (element) => element.closest('article')?.getBoundingClientRect().right ?? 0
+    );
+    expect(icon.x + icon.width).toBeLessThanOrEqual(columnRight);
+    const after = await group.getByRole('button').evaluateAll((elements) =>
+      elements
+        .filter((element) => element.hasAttribute('data-appearance-id'))
+        .map((element) => {
+          const { x, y, width, height } = element.getBoundingClientRect();
+          return { id: element.getAttribute('data-appearance-id'), x, y, width, height };
+        })
+    );
+    const activeId = await label.getAttribute('data-appearance-id');
+    for (const original of before) {
+      const current = after.find((element) => element.id === original.id);
+      if (!current) throw new Error('Hover removed an artist card');
+      expect(
+        Math.abs(current.y - original.y),
+        'Hover must not move cards to another row'
+      ).toBeLessThan(1);
+      if (original.id !== activeId) {
+        for (const key of ['x', 'width', 'height'] as const)
+          expect(
+            Math.abs(current[key] - original[key]),
+            `Neighbor ${key} stays unchanged`
+          ).toBeLessThan(1);
+      }
+    }
     const samples = await label.evaluate(async (element) => {
       const values = [];
       for (let i = 0; i < 10; i++) {

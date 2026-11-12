@@ -203,6 +203,7 @@ export function ArtistChip({
   const isPresent = useIsPresent();
   const owner = useContext(PreviewOwnerContext);
   const [localPreview, setLocalPreview] = useState(false);
+  const [previewOffset, setPreviewOffset] = useState(24);
   const preview = owner ? owner.active === appearance.id : localPreview;
   const setPreview = (open: boolean, transfer = false) => {
     if (!owner) {
@@ -251,7 +252,7 @@ export function ArtistChip({
             type="button"
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip group/card relative flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip group/card relative isolate flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}
@@ -266,9 +267,11 @@ export function ArtistChip({
             }}
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
-            <span>{artist.name}</span>
-            <DragHint />
-            <WatchedStatus artist={artist} language={language} />
+            <span className="inline-flex min-w-0 items-center gap-0.75 transition-transform group-hover/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-focus-visible/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-active/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] motion-reduce:transition-none">
+              <span className="min-w-0 [overflow-wrap:anywhere]">{artist.name}</span>
+              <WatchedStatus artist={artist} language={language} />
+            </span>
+            <DragHint onSpacingChange={setPreviewOffset} />
           </button>
         </HoverCard.Trigger>
         <HoverCard.Portal>
@@ -277,7 +280,7 @@ export function ArtistChip({
             side="right"
             align="start"
             sticky="always"
-            sideOffset={10}
+            sideOffset={previewOffset}
             collisionPadding={12}
             onFocusCapture={() => setPreview(true)}
             onBlurCapture={(event) => {
