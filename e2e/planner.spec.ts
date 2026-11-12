@@ -338,3 +338,50 @@ test('clipboard failure offers a usable manual copy', async ({ page }) => {
   await expect(text).toBeFocused();
   await page.getByRole('button', { name: 'Close', exact: true }).click();
 });
+
+test('a fully prioritized catalog exports all groups beyond the viewport', async ({
+  page,
+}, testInfo) => {
+  const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8')) as {
+    appearances: { id: string; day: string | null }[];
+  };
+  const priorities = Object.fromEntries(
+    catalog.appearances.map((a, index) => [a.id, `P${index % 4}`])
+  );
+  await page.evaluate(
+    (priorities) =>
+      localStorage.setItem(
+        'set.prio:brasil-2027:v1',
+        JSON.stringify({
+          version: 1,
+          language: 'en',
+          activeDay: '2027-04-30',
+          priorities,
+          ratings: {},
+          comments: {},
+        })
+      ),
+    priorities
+  );
+  await page.reload();
+  await page.getByRole('searchbox').fill('no matching artist');
+  await page.getByRole('button', { name: 'Export plan', exact: true }).click();
+  await expect(page.getByRole('menu')).toContainText(`${catalog.appearances.length}`);
+  const downloadEvent = page.waitForEvent('download');
+  await page.getByRole('menuitem', { name: /Download image/ }).click();
+  const download = await downloadEvent;
+  const bytes = await readFile(await download.path());
+  const metadata = await sharp(bytes).metadata();
+  expect(metadata.width).toBe(2880);
+  expect(metadata.height).toBeGreaterThan(2000);
+  const footer = await sharp(bytes)
+    .extract({ left: 80, top: (metadata.height ?? 0) - 100, width: 1300, height: 50 })
+    .removeAlpha()
+    .stats();
+  expect(
+    footer.channels.some((channel) => channel.max > 150),
+    'Credits remain inside the complete image'
+  ).toBe(true);
+  if (testInfo.project.name === 'chromium')
+    await copyFile(await download.path(), 'docs/screenshots/export-full.png');
+});
