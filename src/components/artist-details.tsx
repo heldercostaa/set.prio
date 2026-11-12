@@ -1,5 +1,5 @@
 import { ArrowUpRight, Check, ChevronDown, ExternalLink, Info, Star } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { appearancesFor, artistById, catalog, recordingById, membersFor } from '../data';
 import { dayName, longDate, messages, priorityLabel } from '../i18n';
 import { usePlanner } from '../store/planner';
@@ -202,6 +202,9 @@ function RecordingDetails({
     ? recordingById.get(artist.recommendedSetId)
     : undefined;
   const [ratingError, setRatingError] = useState(false);
+  const rating = recording ? state.ratings[recording.id] : null;
+  const [draft, setDraft] = useState(String(rating ?? ''));
+  useEffect(() => setDraft(String(rating ?? '')), [rating]);
   const ratingId = `set-rating-${artist.id}`;
   const helpId = `rating-help-${artist.id}`;
   return (
@@ -242,18 +245,27 @@ function RecordingDetails({
                 <input
                   id={ratingId}
                   inputMode="decimal"
-                  type="number"
-                  min={0}
-                  max={10}
-                  step="any"
+                  type="text"
+                  role="spinbutton"
+                  aria-valuemin={0}
+                  aria-valuemax={10}
+                  aria-valuenow={rating ?? undefined}
                   placeholder="—"
                   aria-describedby={helpId}
                   aria-invalid={ratingError}
-                  value={state.ratings[recording.id] ?? ''}
+                  value={draft}
                   onChange={(event) => {
                     const value = event.target.value;
-                    const number = Number(value);
-                    if (value !== '' && (!Number.isFinite(number) || number < 0 || number > 10)) {
+                    setDraft(value);
+                    const normalized = value.replace(',', '.');
+                    const number = Number(normalized);
+                    if (
+                      value !== '' &&
+                      (!/^\d*(?:[.,]\d*)?$/.test(value) ||
+                        !Number.isFinite(number) ||
+                        number < 0 ||
+                        number > 10)
+                    ) {
                       setRatingError(true);
                       return;
                     }
