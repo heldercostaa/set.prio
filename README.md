@@ -209,3 +209,9 @@ Publish `dist/` to a static host using Node 24 and pnpm 11.25.0. For GitHub Page
 Created by [Helder Costa](https://github.com/heldercostaa). Lineup, portrait, and recording sources are documented in the catalog research notes.
 
 P4 **Avoid / Evitar** marks performances you do not want to attend. It is distinct from an unprioritized appearance and remains visible in the board and exports.
+
+## Web Analytics
+
+Vercel Web Analytics is mounted in production builds through `@vercel/analytics/react`. Development does not send page views. Planner comments, priorities, and recording scores are not sent as custom events.
+
+Enable Web Analytics in the project's Vercel Analytics dashboard, then deploy this change. Verify production page views in that dashboard. See [Vercel's setup guide](https://vercel.com/docs/analytics/quickstart).

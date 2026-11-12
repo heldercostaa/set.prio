@@ -1,7 +1,7 @@
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import { ArrowUpRight, Disc3, GripVertical, Music2, Play, Star } from 'lucide-react';
+import { ArrowUpRight, Disc3, Music2, Play, Star } from 'lucide-react';
 import { motion, useIsPresent } from 'motion/react';
 import {
   createContext,
@@ -256,11 +256,6 @@ export function ArtistChip({
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
             <span>{artist.name}</span>
-            <GripVertical
-              size={12}
-              className="chip-grip shrink-0 [color:var(--tertiary)] w-3 [opacity:0] [transition:opacity_0.12s]"
-              aria-hidden="true"
-            />
           </button>
         </HoverCard.Trigger>
         <HoverCard.Portal>
