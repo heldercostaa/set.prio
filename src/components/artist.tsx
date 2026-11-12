@@ -1,7 +1,7 @@
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import { ArrowUpRight, Disc3, Music2, Play, Star } from 'lucide-react';
+import { ArrowUpRight, Disc3, ChevronsUpDown, Music2, Play, Star } from 'lucide-react';
 import { motion, useIsPresent } from 'motion/react';
 import {
   createContext,
@@ -186,11 +186,13 @@ export function ArtistChip({
   language,
   priority,
   onOpen,
+  onQuick,
 }: {
   appearance: Appearance;
   language: Language;
   priority: Priority | null;
   onOpen: (id: string) => void;
+  onQuick?: (id: string) => void;
 }) {
   const artist = artistById.get(appearance.artistId);
   const isPresent = useIsPresent();
@@ -275,6 +277,16 @@ export function ArtistChip({
           </HoverCard.Content>
         </HoverCard.Portal>
       </HoverCard.Root>
+      {onQuick && (
+        <button
+          type="button"
+          aria-label={`${language === 'en' ? 'Quick priority' : 'Prioridade rápida'} · ${artist.name} · ${dayName(appearance.day, language)}`}
+          onClick={() => onQuick(appearance.id)}
+          className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-accent md:hidden"
+        >
+          <ChevronsUpDown size={16} />
+        </button>
+      )}
     </motion.div>
   );
 }
