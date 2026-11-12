@@ -28,21 +28,20 @@ export function useSheetSwipe(
   };
   const settle = () => {
     start.current = null;
-    for (const animation of rebound.current) animation.cancel();
     const node = content.current;
+    const translate = node ? getComputedStyle(node).translate : '0 0';
+    const opacity = overlay.current ? getComputedStyle(overlay.current).opacity : '1';
+    for (const animation of rebound.current) animation.cancel();
     if (!node || reduced()) {
       reset();
       return;
     }
-    const animation = node.animate(
-      [{ translate: getComputedStyle(node).translate }, { translate: '0 0' }],
-      { duration: 180, easing: 'ease-out' }
-    );
+    const animation = node.animate([{ translate }, { translate: '0 0' }], {
+      duration: 180,
+      easing: 'ease-out',
+    });
     rebound.current = [animation];
-    const backdrop = overlay.current?.animate(
-      [{ opacity: getComputedStyle(overlay.current).opacity }, { opacity: 1 }],
-      { duration: 180 }
-    );
+    const backdrop = overlay.current?.animate([{ opacity }, { opacity: 1 }], { duration: 180 });
     if (backdrop) rebound.current.push(backdrop);
     // Underlying styles hold the destination after the return animation ends.
     reset();
