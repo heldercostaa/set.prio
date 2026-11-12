@@ -49,13 +49,13 @@ This is an independent fan project. It has no runtime scraping, LLM calls, API k
 
 ## Built with
 
-| Area                    | Technology                                         |
-| ----------------------- | -------------------------------------------------- |
-| Application             | React, TypeScript, Vite                            |
-| Styling and interaction | Tailwind CSS, Radix UI, Motion, Lucide             |
-| Browser state           | Zustand and versioned localStorage                 |
-| Tooling                 | pnpm and Biome                                     |
-| Verification            | Vitest, React Testing Library, Playwright, Gherkin |
+| Area                    | Technology                                                           |
+| ----------------------- | -------------------------------------------------------------------- |
+| Application             | React, TypeScript, Vite                                              |
+| Styling and interaction | Tailwind CSS, Radix UI, Motion, Lucide                               |
+| Browser state           | Zustand and versioned localStorage                                   |
+| Tooling                 | pnpm and Biome                                                       |
+| Verification            | Playwright BDD contracts, React Testing Library, Playwright, Gherkin |
 
 Dependency versions and the package manager are pinned. The supplied SVG is the canonical icon; derived PNGs retain its original dark background, geometry, colors, and shadow.
 
@@ -215,3 +215,5 @@ P4 **Avoid / Evitar** marks performances you do not want to attend. It is distin
 Vercel Web Analytics is mounted in production builds through `@vercel/analytics/react`. Development does not send page views. Planner comments, priorities, and recording scores are not sent as custom events.
 
 Enable Web Analytics in the project's Vercel Analytics dashboard, then deploy this change. Verify production page views in that dashboard. See [Vercel's setup guide](https://vercel.com/docs/analytics/quickstart).
+
+All tests are specified in `features/*.feature` and executed through Gherkin/Cucumber steps with playwright-bdd. `pnpm test` runs storage, catalog, recording, and export contracts once; `pnpm test:e2e` runs user workflows in desktop/mobile Chromium and WebKit. Install browsers first with `pnpm exec playwright install chromium webkit`. Step definitions are in `e2e/steps`; shared workflow assertions remain in `e2e/workflows.ts`.

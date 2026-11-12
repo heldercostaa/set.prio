@@ -20,9 +20,9 @@ jobs:
       - run: pnpm lint
       - run: pnpm format:check
       - run: pnpm typecheck
+      - run: pnpm exec playwright install --with-deps chromium webkit
       - run: pnpm test
       - run: pnpm build
-      - run: pnpm exec playwright install --with-deps chromium webkit
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v6
         if: failure()

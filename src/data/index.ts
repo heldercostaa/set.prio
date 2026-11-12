@@ -1,4 +1,4 @@
-import data from './catalog.json';
+import data from './catalog.json' with { type: 'json' };
 import type { Artist, Catalog } from '../types';
 export const catalog = data as unknown as Catalog;
 export const artistById = new Map(catalog.artists.map((artist) => [artist.id, artist]));
