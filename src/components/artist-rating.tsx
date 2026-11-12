@@ -1,3 +1,4 @@
+import { messages } from '../i18n';
 import { membersFor } from '../data';
 import { usePlanner } from '../store/planner';
 import type { Artist, Language } from '../types';
@@ -7,11 +8,14 @@ export function ArtistRating({
   artist,
   language,
   name,
+  catalog = false,
 }: {
   artist: Artist;
   language: Language;
   name?: string;
+  catalog?: boolean;
 }) {
+  const t = messages(language);
   const ratings = usePlanner((s) => s.ratings);
   const members = membersFor(artist);
   const acts = members.length ? members : [artist];
@@ -30,18 +34,20 @@ export function ArtistRating({
         return (
           <span key={act.id} className="block min-w-0">
             <span className="flex items-center justify-between gap-2 text-[0.6875rem] leading-relaxed">
-              {(members.length > 0 || name) && (
+              {(members.length > 0 || name || catalog) && (
                 <span
-                  className={members.length ? 'text-muted' : 'text-sm font-medium text-content'}
+                  className={
+                    members.length || catalog ? 'text-muted' : 'text-sm font-medium text-content'
+                  }
                 >
-                  {members.length ? act.name : name}
+                  {members.length ? act.name : catalog ? t.ratingLabel : name}
                 </span>
               )}
               <span
-                className={`ml-auto font-semibold tabular-nums ${bonus ? 'text-[#ffd580]' : 'text-[var(--orange)]'}`}
+                className={`ml-auto font-semibold tabular-nums ${bonus ? `text-[#ffd580] ${catalog ? 'rounded bg-linear-to-r from-[#ffd58012] via-[#ff8fc812] to-[#b8a4ff18] px-1.5' : ''}` : 'text-[var(--orange)]'}`}
               >
                 {new Intl.NumberFormat(language).format(score)}
-                {bonus ? '/10' : ''}
+                {bonus || catalog ? '/10' : ''}
               </span>
             </span>
             <span className="block h-0.75 overflow-hidden rounded-full bg-separator">
