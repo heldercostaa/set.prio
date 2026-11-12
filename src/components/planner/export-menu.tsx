@@ -1,3 +1,4 @@
+import { menuMotionClassName } from '../ui/control';
 import { useEffect, useState } from 'react';
 import type { ImageShareStatus } from './use-image-share';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
@@ -62,7 +63,7 @@ export function ExportMenu({
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="menu bg-surface border border-separator [box-shadow:var(--shadow)] rounded-xl p-1.5 [z-index:80] text-content [animation:reveal_0.14s_ease-out] export-menu w-80.5 [max-width:calc(100vw_-_1.5rem)] [&_[data-radix-menu-collection-item]]:[outline:none] [&_[data-highlighted]]:[background:var(--hover)] [&_[data-radix-menu-collection-item]:focus-visible]:[outline:0.125rem_solid_var(--blue)] [&_[data-radix-menu-collection-item]:focus-visible]:[outline-offset:-0.125rem] [&_[data-radix-dropdown-menu-label]]:[padding:0.4375rem_0.625rem] [&_[data-radix-dropdown-menu-label]]:text-muted [&_[data-radix-dropdown-menu-label]]:[font-size:0.625rem] [&_[data-radix-dropdown-menu-label]]:font-semibold [&_>_div:first-child:not(.menu-item)]:[padding:0.4375rem_0.625rem] [&_>_div:first-child:not(.menu-item)]:text-muted [&_>_div:first-child:not(.menu-item)]:[font-size:0.625rem] [&_>_div:first-child:not(.menu-item)]:font-semibold"
+          className={`${menuMotionClassName} menu bg-surface border border-separator [box-shadow:var(--shadow)] rounded-xl p-1.5 [z-index:80] text-content export-menu w-80.5 [max-width:calc(100vw_-_1.5rem)] [&_[data-radix-menu-collection-item]]:[outline:none] [&_[data-highlighted]]:[background:var(--hover)] [&_[data-radix-menu-collection-item]:focus-visible]:[outline:0.125rem_solid_var(--blue)] [&_[data-radix-menu-collection-item]:focus-visible]:[outline-offset:-0.125rem] [&_[data-radix-dropdown-menu-label]]:[padding:0.4375rem_0.625rem] [&_[data-radix-dropdown-menu-label]]:text-muted [&_[data-radix-dropdown-menu-label]]:[font-size:0.625rem] [&_[data-radix-dropdown-menu-label]]:font-semibold [&_>_div:first-child:not(.menu-item)]:[padding:0.4375rem_0.625rem] [&_>_div:first-child:not(.menu-item)]:text-muted [&_>_div:first-child:not(.menu-item)]:[font-size:0.625rem] [&_>_div:first-child:not(.menu-item)]:font-semibold`}
           align="end"
           sideOffset={10}
           collisionPadding={12}

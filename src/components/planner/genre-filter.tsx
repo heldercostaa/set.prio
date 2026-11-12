@@ -1,4 +1,4 @@
-import { controlClassName, controlCountClassName } from '../ui/control';
+import { controlClassName, controlCountClassName, menuMotionClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown, Check, RotateCcw } from 'lucide-react';
 import { GENRES } from '../../data/genres';
@@ -18,17 +18,20 @@ export function GenreFilter({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className={`${controlClassName} inline-flex shrink-0 items-center gap-2 px-3 font-medium text-content hover:bg-raised`}
+          className={`${controlClassName} group inline-flex shrink-0 items-center gap-2 px-3 font-medium text-content hover:bg-raised`}
           aria-label={label}
         >
           {label}
           {selected.length > 0 && <span className={controlCountClassName}>{selected.length}</span>}
-          <ChevronDown size="1rem" />
+          <ChevronDown
+            size="1rem"
+            className="transition-transform duration-150 group-data-[state=open]:rotate-180 motion-reduce:transition-none"
+          />
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="z-50 flex max-h-[min(70dvh,var(--radix-dropdown-menu-content-available-height))] w-64 max-w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl bg-surface text-control text-content shadow-[var(--shadow)] inset-ring inset-ring-separator"
+          className={`${menuMotionClassName} z-50 flex max-h-[min(70dvh,var(--radix-dropdown-menu-content-available-height))] w-64 max-w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl bg-surface text-control text-content shadow-[var(--shadow)] inset-ring inset-ring-separator`}
           align="start"
           sideOffset={8}
           collisionPadding={12}
