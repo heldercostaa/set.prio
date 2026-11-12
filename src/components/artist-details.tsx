@@ -41,7 +41,8 @@ export function ArtistDetails({
         {!members.length && (
           <Portrait
             artist={artist}
-            className="artist-hero w-full h-57.5 [object-position:50%_35%] [font-size:3.75rem] max-[47.5rem]:h-50"
+            landscape
+            className="artist-hero w-full h-57.5 [font-size:3.75rem] max-[47.5rem]:h-50"
           />
         )}
         <div className="artist-detail-body [padding:1.375rem_1.5rem_1.25rem] max-[47.5rem]:p-5 max-[47.5rem]:[&_.genre-tag]:[font-size:0.6875rem] max-[47.5rem]:[&_.subgenre-tag]:[font-size:0.6875rem]">
@@ -80,7 +81,7 @@ export function ArtistDetails({
                   aria-label={member.name}
                   key={member.id}
                 >
-                  <Portrait artist={member} className="member-portrait w-full h-45" />
+                  <Portrait artist={member} landscape className="member-portrait w-full h-45" />
                   <div className="member-details-body p-4.5 [&_.detail-topline]:mb-3.5 [&_.detail-topline_h3]:text-xl">
                     <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
                       <h3>{member.name}</h3>
