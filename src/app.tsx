@@ -154,8 +154,19 @@ export function App() {
           >
             <div className="page-heading mb-6 flex items-center justify-between gap-4 max-[47.5rem]:items-start">
               <div className="min-w-0">
-                <h1 className="text-4xl font-semibold leading-tight tracking-tight max-[47.5rem]:text-3xl">
-                  {t.planHeading}
+                <h1
+                  aria-label={t.planHeading}
+                  className="text-4xl font-semibold leading-tight tracking-tight max-[47.5rem]:text-3xl"
+                >
+                  {t.planHeading.slice(0, -'Sets.'.length)}
+                  <span className="whitespace-nowrap">
+                    <span className="rounded-md bg-[#ff453a]/12 px-1 text-[#ff453a]">Sets</span>
+                    <span
+                      aria-hidden="true"
+                      className="ml-0.5 inline-block size-[0.38086rem] rounded-full bg-[#ff453a] align-baseline max-[22.5rem]:size-[0.32645rem]"
+                    />
+                    <span className="sr-only">.</span>
+                  </span>
                 </h1>
                 <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm max-[47.5rem]:text-xs">
                   <span className="text-content">Tomorrowland Brasil 2027</span>
