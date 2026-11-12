@@ -4,13 +4,13 @@
 [![React](https://img.shields.io/badge/react-222?logo=react)](https://react.dev)
 [![TailwindCSS](https://img.shields.io/badge/tailwindcss-222?logo=tailwindcss&logoColor=06B6D4)](https://tailwindcss.com)
 [![Vite](https://img.shields.io/badge/vite-222?logo=vite&logoColor=646CFF)](https://vite.dev)
-[![Vercel](https://img.shields.io/badge/vercel-222?logo=vercel&logoColor=white)](https://setprio.vercel.app)
+[![Vercel](https://img.shields.io/badge/vercel-222?logo=vercel&logoColor=white)](https://set-priority.vercel.app)
 [![Maintainer](https://img.shields.io/badge/maintainer-%40heldercostaa-teal?logo=superuser&logoColor=white)](https://github.com/heldercostaa)
 [![LinkedIn](https://img.shields.io/badge/linkedin-blue.svg?logo=linkedin)](https://linkedin.com/in/heldercostaa/)
-[![Support](https://img.shields.io/badge/support-give_a_star-ffd33d?logo=github)](https://github.com/heldercostaa/set.prio/stargazers)
+[![Support](https://img.shields.io/badge/support-give_a_star-ffd33d?logo=github)](https://github.com/heldercostaa/set.priority/stargazers)
 
 <br />
-<a href="https://setprio.vercel.app">
+<a href="https://set-priority.vercel.app">
   <img src="./public/brand.svg" alt="set.priority logo" width="336" height="83">
 </a>
 <p align="center">
@@ -19,9 +19,9 @@
   <a href="#local-setup-instructions"><strong>Run the project locally »</strong></a>
   <br />
   <br />
-  <a href="https://setprio.vercel.app">Live Application</a>
+  <a href="https://set-priority.vercel.app">Live Application</a>
   ·
-  <a href="https://github.com/heldercostaa/set.prio/issues">Report a Bug</a>
+  <a href="https://github.com/heldercostaa/set.priority/issues">Report a Bug</a>
 </p>
 </div>
 
@@ -87,8 +87,8 @@ set.priority is a personal planner for deciding which artists to see. Organize p
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/heldercostaa/set.prio.git set-prio
-   cd set-prio
+   git clone https://github.com/heldercostaa/set.priority.git set.priority
+   cd set.priority
    ```
 
 2. **Install Dependencies**: Use the Node version in `.nvmrc` and pnpm version in `package.json`.
@@ -106,3 +106,6 @@ set.priority is a personal planner for deciding which artists to see. Organize p
 
 > [!TIP]
 > Use `pnpm build` and `pnpm preview` to check the production build. Testing, catalog sources, and screenshot refresh commands are in the [development notes](./docs/development.md).
+
+> [!NOTE]
+> Moving from the previous site? Open your old bookmark once in the same browser to transfer your saved plan. If this browser already has a plan at the new address, the transferred plan is kept as a local backup.

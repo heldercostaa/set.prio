@@ -88,7 +88,7 @@ export function App() {
       if (format === 'csv') {
         downloadBlob(
           new Blob([toCsv(entries, language)], { type: 'text/csv;charset=utf-8' }),
-          'set-prio-brasil-2027.csv'
+          'set.priority-brasil-2027.csv'
         );
         setToast(t.downloaded);
       } else if (format === 'image') {
@@ -109,7 +109,7 @@ export function App() {
           return;
         }
         const blob = await boardImage(entries, language);
-        const file = new File([blob], 'set-prio-brasil-2027.png', { type: 'image/png' });
+        const file = new File([blob], 'set.priority-brasil-2027.png', { type: 'image/png' });
         if (navigator.canShare?.({ files: [file] })) {
           setImageFile(file);
           return;
@@ -206,7 +206,9 @@ export function App() {
                     ? t.storageRecovered
                     : state.storageError === 'protected'
                       ? t.storageProtected
-                      : t.storageUnavailable}
+                      : state.storageError === 'migrationConflict'
+                        ? t.storageMigrationConflict
+                        : t.storageUnavailable}
                 </p>
               </div>
             )}

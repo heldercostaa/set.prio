@@ -24,3 +24,12 @@ Feature: Safe browser-local preference lifecycle
     Given a plan containing appearances missing from the current catalog
     When I prioritize Fisher through artist details
     Then catalog updates retain absent appearances and recording ratings
+
+  Scenario Outline: Preserve an existing plan through the project rename
+    Given my previous plan is available as "<source>"
+    Then the renamed planner preserves it without replacing newer edits
+    Examples:
+      | source |
+      | previous storage key |
+      | domain transfer |
+      | conflicting domain transfer |

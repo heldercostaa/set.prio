@@ -2,8 +2,9 @@ import { isRating } from '../utils/ratings';
 import { create } from 'zustand';
 import { DAYS, type Day, type Language, type Preferences, type Priority } from '../types';
 
-export const STORAGE_KEY = 'set.prio:brasil-2027:v1';
-type StorageError = 'unavailable' | 'recovered' | 'protected' | null;
+export const STORAGE_KEY = 'set.priority:brasil-2027:v1';
+const LEGACY_STORAGE_KEY = 'set.prio:brasil-2027:v1';
+type StorageError = 'unavailable' | 'recovered' | 'protected' | 'migrationConflict' | null;
 const defaults: Preferences = {
   version: 1,
   language: 'en',
@@ -17,8 +18,28 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 function load(): { preferences: Preferences; error: StorageError; writable: boolean } {
   let raw: string | null;
+  let migrationConflict = false;
   try {
-    raw = localStorage.getItem(STORAGE_KEY);
+    raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY);
+    if (window.location.hostname === 'setprio.vercel.app') {
+      const destination = new URL('https://set-priority.vercel.app');
+      destination.search = window.location.search;
+      if (raw) destination.hash = new URLSearchParams({ 'transfer-plan': raw }).toString();
+      window.location.replace(destination);
+    }
+    const transfer = new URLSearchParams(window.location.hash.slice(1)).get('transfer-plan');
+    if (transfer !== null) {
+      if (raw !== null && raw !== transfer) {
+        localStorage.setItem(`${STORAGE_KEY}:backup:transfer:${Date.now()}`, transfer);
+        migrationConflict = true;
+      } else {
+        raw = transfer;
+        localStorage.setItem(STORAGE_KEY, raw);
+      }
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    if (raw !== null && localStorage.getItem(STORAGE_KEY) === null)
+      localStorage.setItem(STORAGE_KEY, raw);
   } catch {
     return { preferences: defaults, error: 'unavailable', writable: false };
   }
@@ -56,7 +77,7 @@ function load(): { preferences: Preferences; error: StorageError; writable: bool
         ratings,
         comments,
       },
-      error: null,
+      error: migrationConflict ? 'migrationConflict' : null,
       writable: true,
     };
   } catch {
@@ -115,6 +136,9 @@ export function resetPlanner(): boolean {
       (key) =>
         key === STORAGE_KEY ||
         key.startsWith(`${STORAGE_KEY}:backup:`) ||
+        key === 'set.priority:appearance' ||
+        key === LEGACY_STORAGE_KEY ||
+        key.startsWith(`${LEGACY_STORAGE_KEY}:backup:`) ||
         key === 'set.prio:appearance'
     );
     for (const key of keys) localStorage.removeItem(key);

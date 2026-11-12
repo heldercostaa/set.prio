@@ -10,7 +10,7 @@ try {
     reducedMotion: 'reduce',
   });
   await desktop.addInitScript((saved) => {
-    localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved));
+    localStorage.setItem('set.priority:brasil-2027:v1', JSON.stringify(saved));
   }, saved);
   const page = await desktop.newPage();
   await page.goto(baseURL);
@@ -27,7 +27,7 @@ try {
   await desktop.close();
   const mobile = await browser.newContext({ ...devices['iPhone 13'], reducedMotion: 'reduce' });
   await mobile.addInitScript((saved) => {
-    localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved));
+    localStorage.setItem('set.priority:brasil-2027:v1', JSON.stringify(saved));
   }, saved);
   const phone = await mobile.newPage();
   await phone.goto(baseURL);

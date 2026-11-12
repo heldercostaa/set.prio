@@ -21,7 +21,7 @@ export function SiteFooter({ language, onAbout }: { language: Language; onAbout:
       </div>
       <div>
         <ResetPlan language={language} />
-        <a href="https://github.com/heldercostaa/set.prio" target="_blank" rel="noreferrer">
+        <a href="https://github.com/heldercostaa/set.priority" target="_blank" rel="noreferrer">
           GitHub <ArrowUpRight size="0.75rem" />
         </a>
         <a
