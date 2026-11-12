@@ -1,4 +1,3 @@
-import { useMediaQuery } from '../ui/use-media-query';
 import { animate, useMotionValue, type AnimationPlaybackControls } from 'motion/react';
 import { useCallback, useLayoutEffect, useRef, type TouchEvent } from 'react';
 import { DAYS, type Day } from '../../types';
@@ -12,7 +11,7 @@ export function useDaySwipe(
   const track = useRef<HTMLDivElement>(null);
   const width = useRef(0);
   const x = useMotionValue(0);
-  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const animation = useRef<AnimationPlaybackControls | null>(null);
   const generation = useRef(0);
   const start = useRef<{
@@ -31,7 +30,7 @@ export function useDaySwipe(
     stop();
     const id = generation.current;
     animation.current = animate(x, target, {
-      duration: reducedMotion ? 0 : 0.22,
+      duration: reducedMotion() ? 0 : 0.22,
       ease: [0.22, 1, 0.36, 1],
       onComplete: () => {
         if (id === generation.current && nextDay) onDayChange(nextDay);
@@ -109,7 +108,7 @@ export function useDaySwipe(
       }
       const offset = origin.offset + dx;
       const next = DAYS[DAYS.indexOf(day) + (offset < 0 ? 1 : -1)];
-      if (!reducedMotion) x.set(base() + offset * (next ? 1 : 0.22));
+      if (!reducedMotion()) x.set(base() + offset * (next ? 1 : 0.22));
     },
     onTouchEnd(event: TouchEvent<HTMLDivElement>) {
       const origin = start.current;
