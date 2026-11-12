@@ -77,6 +77,7 @@ async function refresh() {
       genre: prior?.genre ?? null,
       subgenres: prior?.subgenres ?? [],
       genreSources: prior?.genreSources ?? [],
+      ...(prior?.genreVerifiedAt ? { genreVerifiedAt: prior.genreVerifiedAt } : {}),
       recommendedSetId: prior?.recommendedSetId ?? null,
       ...(savedMemberIds ? { memberIds: savedMemberIds } : {}),
       ...(prior?.recommendedSetRepresentative !== undefined

@@ -8,6 +8,7 @@ export const GENRES = [
   'Techno',
   'Hardstyle',
   'Drum & Bass',
+  'Dubstep',
   'Big room',
   'Melodic house',
   'Afro house',
