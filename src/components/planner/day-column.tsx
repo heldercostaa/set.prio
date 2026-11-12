@@ -86,12 +86,14 @@ export function DayColumn({
   day,
   index,
   search,
+  genres = [],
   language,
   onOpen,
 }: {
   day: Day | null;
   index: number;
   search: string;
+  genres?: string[];
   language: Language;
   onOpen: (id: string) => void;
 }) {
@@ -100,7 +102,9 @@ export function DayColumn({
   const appearances = catalog.appearances
     .filter((appearance) => {
       const artist = artistById.get(appearance.artistId);
-      return appearance.day === day && artist !== undefined && matchesSearch(artist, search);
+      return (
+        appearance.day === day && artist !== undefined && matchesSearch(artist, search, genres)
+      );
     })
     .sort((a, b) =>
       (artistById.get(a.artistId)?.name ?? '').localeCompare(

@@ -21,10 +21,12 @@ import type { Language } from '../../types';
 export function PriorityBoard({
   language,
   search,
+  genres = [],
   onOpen,
 }: {
   language: Language;
   search: string;
+  genres?: string[];
   onOpen: (id: string) => void;
 }) {
   const previewsAllowed = useContext(ArtistPreviewContext);
@@ -86,6 +88,7 @@ export function PriorityBoard({
                   day={day}
                   index={index}
                   search={search}
+                  genres={genres}
                   language={language}
                   onOpen={onOpen}
                 />
@@ -94,7 +97,14 @@ export function PriorityBoard({
           </div>
           {catalog.appearances.some((appearance) => appearance.day === null) && (
             <div className="tba-board mt-5">
-              <DayColumn day={null} index={3} search={search} language={language} onOpen={onOpen} />
+              <DayColumn
+                day={null}
+                index={3}
+                search={search}
+                genres={genres}
+                language={language}
+                onOpen={onOpen}
+              />
             </div>
           )}
           <DragOverlay>
