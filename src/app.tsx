@@ -254,7 +254,7 @@ export function App() {
             {toast && (
               <motion.div
                 role="status"
-                className="toast fixed [z-index:110] [bottom:1.75rem] [left:50%] [transform:translateX(-50%)] [width:max-content] [max-width:calc(100vw_-_2rem)] flex items-center gap-2.5 [color:var(--text)] [background:var(--panel)] [box-shadow:var(--shadow)] [border:0.0625rem_solid_var(--line)] rounded-xl [padding:0.9375rem_1.1875rem] text-xs max-[47.5rem]:[bottom:1.25rem] max-[47.5rem]:[font-size:0.6875rem] max-[47.5rem]:[line-height:1.6] [&_>_svg]:shrink-0 [&_>_svg]:[color:var(--teal)]"
+                className="toast fixed [z-index:110] [bottom:1.75rem] [left:50%] -translate-x-1/2 [width:max-content] [max-width:calc(100vw_-_2rem)] flex items-center gap-2.5 [color:var(--text)] [background:var(--panel)] [box-shadow:var(--shadow)] [border:0.0625rem_solid_var(--line)] rounded-xl [padding:0.9375rem_1.1875rem] text-xs max-[47.5rem]:[bottom:1.25rem] max-[47.5rem]:[font-size:0.6875rem] max-[47.5rem]:[line-height:1.6] [&_>_svg]:shrink-0 [&_>_svg]:[color:var(--teal)]"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 14 }}
