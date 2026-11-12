@@ -2,6 +2,7 @@ import { DAYS, type Day, type Language, type Priority } from './types';
 
 const en = {
   title: 'set.priority',
+  planHeading: 'Set your priorities.',
   subtitle: 'Find your artists. Make your weekend.',
   search: 'Search artists',
   board: 'Board',
@@ -113,6 +114,7 @@ const en = {
 };
 const pt: typeof en = {
   title: en.title,
+  planHeading: 'Defina suas prioridades.',
   subtitle: 'Encontre seus artistas. Planeje seu festival.',
   search: 'Buscar artistas',
   board: 'Quadro',

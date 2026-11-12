@@ -48,17 +48,17 @@ export function ExportMenu({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[47.5rem]:[font-size:0] max-[47.5rem]:p-0 max-[47.5rem]:w-11 max-[47.5rem]:h-11 max-[47.5rem]:[min-width:2.75rem] max-[47.5rem]:mt-6.5 max-[47.5rem]:[gap:0] [&:active:not(:disabled)]:[transform:scale(0.98)] [&:hover:not(:disabled)]:[background:var(--hover)] [&.primary]:[color:#fff] [&.primary]:[background:#0071e3] [&.primary]:[border-color:transparent] [&.primary]:[box-shadow:0_0.0625rem_0.125rem_#0001] [&.primary:hover:not(:disabled)]:[background:#0077ed] [&.primary:disabled]:bg-surface [&.primary:disabled]:[border-color:var(--line)] [&.primary:disabled]:[color:var(--tertiary)] [&.primary:disabled]:opacity-100 [&.primary:disabled]:[box-shadow:none] max-[47.5rem]:[&_>_svg:last-child]:hidden max-[47.5rem]:[&_>_svg:first-child]:w-4.75 max-[47.5rem]:[&_>_svg:first-child]:h-4.75"
+          className="button export-trigger inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl border border-separator bg-raised px-3.5 py-2.5 text-xs font-semibold text-content transition-colors hover:bg-[var(--hover)] active:scale-[0.98] disabled:opacity-50 max-[47.5rem]:size-11 max-[47.5rem]:gap-0 max-[47.5rem]:p-0"
           disabled={!count || busy}
           title={!count ? t.noPlan : undefined}
         >
           {busy ? (
             <LoaderCircle size="1.0625rem" className="spin [animation:spin_1s_linear_infinite]" />
           ) : (
-            <Share size="1.0625rem" aria-hidden="true" />
+            <Share size="1.0625rem" className="shrink-0" aria-hidden="true" />
           )}
-          {busy ? t.copying : t.export}
-          <ChevronDown size="0.875rem" />
+          <span className="max-[47.5rem]:sr-only">{busy ? t.copying : t.export}</span>
+          <ChevronDown size="0.875rem" className="max-[47.5rem]:hidden" />
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
