@@ -49,6 +49,21 @@ export function PlannerToolbar({
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
     <div className="toolbar mb-4.5 max-[47.5rem]:mb-4">
+      {hasFilters && (
+        <div className="mb-1 flex justify-end">
+          <button
+            type="button"
+            onClick={() => {
+              onResetFilters();
+              searchInput.current?.focus();
+            }}
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised"
+          >
+            <RotateCcw size="0.875rem" aria-hidden="true" />
+            {t.resetFilters}
+          </button>
+        </div>
+      )}
       <div className="flex flex-wrap items-center gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3.5">
         <fieldset
           className={`view-switch ${controlClassName} flex shrink-0 max-[47.5rem]:w-max`}
@@ -122,21 +137,6 @@ export function PlannerToolbar({
           <ArtistSort value={sort} onChange={onSort} language={language} />
         </div>
       </div>
-      {hasFilters && (
-        <div className="mt-1 flex justify-end">
-          <button
-            type="button"
-            onClick={() => {
-              onResetFilters();
-              searchInput.current?.focus();
-            }}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised"
-          >
-            <RotateCcw size="0.875rem" aria-hidden="true" />
-            {t.resetFilters}
-          </button>
-        </div>
-      )}
     </div>
   );
 }
