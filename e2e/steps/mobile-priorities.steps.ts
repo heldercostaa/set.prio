@@ -7,6 +7,9 @@ Given('a narrow English planner', async ({ page }) => {
   await page.goto('/');
 });
 When('I drag Fisher into the floating must-see zone', async ({ page, isMobile }) => {
+  await expect(
+    page.getByRole('complementary', { name: 'Floating priority drop zones', exact: true })
+  ).toBeHidden();
   const card = page.getByRole('button', { name: 'Fisher · Friday', exact: true });
   await card.scrollIntoViewIfNeeded();
   const source = await card.boundingBox();
@@ -45,7 +48,7 @@ When('I drag Fisher into the floating must-see zone', async ({ page, isMobile })
       });
       node.dispatchEvent(event);
     }, end);
-    await expect(target).toHaveClass(/border-accent/);
+    await expect(target).toHaveAccessibleName('Release here · P0 · Must-see');
     await card.evaluate((node) => {
       const event = new TouchEvent('touchend', { bubbles: true, cancelable: true });
       Object.defineProperties(event, {
@@ -56,7 +59,7 @@ When('I drag Fisher into the floating must-see zone', async ({ page, isMobile })
     });
   } else {
     await page.mouse.move(end.x, end.y, { steps: 12 });
-    await expect(target).toHaveClass(/border-accent/);
+    await expect(target).toHaveAccessibleName('Release here · P0 · Must-see');
     await page.mouse.up();
   }
 });
@@ -64,6 +67,9 @@ Then('Fisher stays prioritized on the official day after the drop', async ({ pag
   await expect(
     page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
   ).toBeAttached();
+  await expect(
+    page.getByRole('complementary', { name: 'Floating priority drop zones', exact: true })
+  ).toBeHidden();
 });
 When('I use the floating back-to-top button', async ({ page }) => {
   await page.getByRole('button', { name: 'Back to top', exact: true }).click();

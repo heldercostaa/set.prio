@@ -133,8 +133,6 @@ try {
   for (const toggle of await page.getByRole('button', { name: 'Unprioritized', exact: true }).all())
     await toggle.click();
   await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
-  const dismissZones = page.getByRole('button', { name: 'Hide drop zones', exact: true });
-  if (await dismissZones.isVisible()) await dismissZones.click();
   await page.mouse.move(0, 0);
   console.log('Recording desktop board and drag');
   const desktop = recorder(page);
@@ -147,7 +145,6 @@ try {
     page.getByTestId('2027-04-30-P1').getByRole('button', { name: 'Fisher · Friday', exact: true })
   ).toBeVisible();
   await desktop.hold(700);
-  if (await dismissZones.isVisible()) await desktop.click(dismissZones);
   await desktop.hold(500);
   console.log('Recording genre selection');
   await desktop.click(page.getByRole('button', { name: 'Genres', exact: true }));
@@ -205,8 +202,6 @@ try {
     .getByRole('button', { name: 'Miss Monique · Saturday', exact: true });
   await watched.scrollIntoViewIfNeeded();
   await expect(watched.getByRole('img', { name: 'Watched set', exact: true })).toBeVisible();
-  const hideZones = phone.getByRole('button', { name: 'Hide drop zones', exact: true });
-  if (await hideZones.isVisible()) await recording.click(hideZones);
   await recording.hold(1600);
   await mobile.close();
   await recording.save('mobile-planner.gif');
