@@ -150,27 +150,3 @@ h1 {
 .priority-p4 {
   --priority: var(--avoid);
 }
-
-@layer base {
-  :root[data-theme="light"] {
-    color-scheme: light;
-    --bg: #f2f2f7;
-    --panel: #ffffff;
-    --panel-soft: #f2f2f7;
-    --text: #1c1c1e;
-    --secondary: #626267;
-    --tertiary: #6e6e73;
-    --line: #d1d1d6;
-    --hover: #e5e5ea;
-    --chip: #ececf0;
-    --blue: #0066cc;
-    --blue-soft: #e5f0ff;
-    --blue-line: #a9c8ed;
-    --red: #c62828;
-    --orange: #9c4d00;
-    --yellow: #786100;
-    --teal: #006b5c;
-    --avoid: #6950b0;
-    --shadow: 0 1rem 3.125rem #0002, 0 0 0 0.0625rem #0001;
-  }
-}

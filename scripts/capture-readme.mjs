@@ -43,7 +43,6 @@ try {
   });
   await desktop.addInitScript((saved) => {
     localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved));
-    localStorage.setItem('set.prio:appearance', 'dark');
   }, saved);
   const page = await desktop.newPage();
   await page.goto(baseURL);
@@ -61,7 +60,6 @@ try {
   const mobile = await browser.newContext({ ...devices['iPhone 13'], reducedMotion: 'reduce' });
   await mobile.addInitScript((saved) => {
     localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved));
-    localStorage.setItem('set.prio:appearance', 'dark');
   }, saved);
   const phone = await mobile.newPage();
   await phone.goto(baseURL);
@@ -88,13 +86,12 @@ try {
     animations: 'disabled',
   });
   await phone.getByRole('button', { name: 'Close', exact: true }).click();
-  await phone.getByRole('button', { name: 'Light mode', exact: true }).click();
-  await expect(phone.locator('html')).toHaveAttribute('data-theme', 'light');
+  await phone.getByRole('button', { name: 'Saturday', exact: true }).click();
   const dismiss = phone.getByRole('button', { name: 'Hide drop zones', exact: true });
   if (await dismiss.isVisible()) await dismiss.click();
   await frameBoard();
   await phone.screenshot({
-    path: 'docs/screenshots/readme-mobile-light.png',
+    path: 'docs/screenshots/readme-mobile-saturday.png',
     animations: 'disabled',
   });
   await mobile.close();

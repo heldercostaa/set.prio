@@ -55,7 +55,7 @@ set.prio is a personal planner for deciding which artists to see. Organize perfo
 <p align="center">
   <img src="./docs/screenshots/readme-mobile-board.png" alt="Mobile priority board" width="200" />
   <img src="./docs/screenshots/readme-mobile-details.png" alt="Artist details and rating controls" width="200" />
-  <img src="./docs/screenshots/readme-mobile-light.png" alt="Light appearance on mobile" width="200" />
+  <img src="./docs/screenshots/readme-mobile-saturday.png" alt="Saturday priority board on mobile" width="200" />
 </p>
 
 ### Built With
@@ -74,7 +74,7 @@ set.prio is a personal planner for deciding which artists to see. Organize perfo
 - Search artists and filter by multiple genres
 - Preview sets, mark watched recordings with ratings, and keep comments
 - Share the plan as a PNG, CSV, or Notion table
-- English and Brazilian Portuguese, with dark and light appearances
+- English and Brazilian Portuguese, with a dark interface
 - Browser-local saving and a confirmed reset action
 
 ## Local Setup Instructions
