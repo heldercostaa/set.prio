@@ -1,3 +1,4 @@
+import type { Catalog, Preferences, Priority } from '../src/types';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, mkdir, copyFile } from 'node:fs/promises';
 import sharp from 'sharp';
@@ -50,31 +51,37 @@ test('multiple appearances have independent priorities and export despite search
   expect(csv.match(/"7"/g)).toHaveLength(2);
 });
 
-test('image export includes the whole board and clipboard failure offers a usable manual copy', async ({
-  page,
-}, testInfo) => {
-  await page.addInitScript(() =>
-    Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true })
+test('image export includes the whole board', async ({ page }, testInfo) => {
+  const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8')) as Catalog;
+  const saved: Preferences = {
+    version: 1,
+    language: 'en',
+    activeDay: '2027-04-30',
+    priorities: {},
+    ratings: {},
+    comments: {},
+  };
+  const choices: [string, string, Priority][] = [
+    ['Fisher', '2027-04-30', 'P0'],
+    ['Symphony of Unity', '2027-04-30', 'P1'],
+    ['Symphony of Unity', '2027-05-01', 'P2'],
+    ['Symphony of Unity', '2027-05-02', 'P3'],
+    ['Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer', '2027-04-30', 'P3'],
+  ];
+  for (const [name, day, priority] of choices) {
+    const artist = catalog.artists.find((artist) => artist.name === name);
+    const appearance = catalog.appearances.find(
+      (appearance) => appearance.artistId === artist?.id && appearance.day === day
+    );
+    if (!appearance) throw new Error(`Missing export fixture: ${name} on ${day}`);
+    saved.priorities[appearance.id] = priority;
+  }
+  await page.evaluate(
+    (saved) => localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved)),
+    saved
   );
   await page.reload();
-  await prioritizeFisher(page);
-  await page.getByRole('button', { name: 'Symphony of Unity · Friday', exact: true }).click();
-  for (const [day, priority] of [
-    ['Friday', 'P1'],
-    ['Saturday', 'P2'],
-    ['Sunday', 'P3'],
-  ]) {
-    await page
-      .getByRole('combobox', { name: `Priority · ${day} · Symphony of Unity`, exact: true })
-      .selectOption(priority);
-  }
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
-  const jointAct = 'Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer';
-  await page.getByRole('button', { name: `${jointAct} · Friday`, exact: true }).click();
-  await page
-    .getByRole('combobox', { name: `Priority · Friday · ${jointAct}`, exact: true })
-    .selectOption('P3');
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await expect(page.locator('.plan-count')).toContainText('5');
   await page.getByRole('button', { name: 'Export plan', exact: true }).click();
   const event = page.waitForEvent('download');
   await page.getByRole('menuitem', { name: /Download image/ }).click();
@@ -90,18 +97,6 @@ test('image export includes the whole board and clipboard failure offers a usabl
   expect(metadata.width).toBe(2880);
   expect(metadata.height).toBeGreaterThan(1000);
   expect(metadata.format).toBe('png');
-  await page.getByRole('button', { name: 'Export plan', exact: true }).click();
-  await page.getByRole('menuitem', { name: /Copy to Notion/ }).click();
-  await expect(
-    page.getByRole('dialog', { name: 'Copy your table manually', exact: true })
-  ).toBeVisible();
-  const text = page.getByRole('textbox', { name: 'Copy your table manually', exact: true });
-  await expect(text).toHaveValue(
-    /Name\tAt\tDay\tPriority\tGenre\tSub-genres\tRating\tComment\nFisher\tTomorrowland/
-  );
-  await page.getByRole('button', { name: 'Select table text', exact: true }).click();
-  await expect(text).toBeFocused();
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
   if (testInfo.project.name === 'chromium' || testInfo.project.name === 'mobile-webkit') {
     await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
     await expect(page.locator('.artist-preview')).toHaveCount(0);
@@ -228,48 +223,55 @@ test('Chromium clipboard receives an HTML table with named set links', async ({
   expect(html).toContain('https://www.youtube.com/watch?v=');
 });
 
-test('hover previews keep wrapped labels stationary and clickable', async ({ page, isMobile }) => {
-  test.skip(isMobile, 'Touch opens artist details directly.');
-  test.setTimeout(60000);
-  for (const width of [1024, 1280, 1440]) {
-    await page.setViewportSize({ width, height: 1000 });
-    await page.reload();
-    for (const name of [
-      'Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer',
-      'Matisse & Sadko present Melodicca',
-      'Bella Claxton b2b Paige Tomlinson',
-    ]) {
-      const label = page.getByRole('button', { name: `${name} · Friday`, exact: true });
-      await label.scrollIntoViewIfNeeded();
-      await page.mouse.move(0, 0);
-      await label.hover();
-      await expect(page.locator('.artist-preview')).toBeVisible();
-      const samples = await label.evaluate(async (element) => {
-        const values = [];
-        for (let i = 0; i < 40; i++) {
-          await new Promise(requestAnimationFrame);
-          const { x, y, width, height } = element.getBoundingClientRect();
-          values.push({ x, y, width, height });
+for (const width of [1024, 1280, 1440]) {
+  test.describe(`Hover previews at ${width}px`, () => {
+    test.use({ viewport: { width, height: 1000 } });
+    test('wrapped labels stay stationary and their recording links remain reachable', async ({
+      page,
+      isMobile,
+    }) => {
+      test.skip(isMobile, 'Touch opens artist details directly.');
+      test.setTimeout(60000);
+      for (const name of [
+        'Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer',
+        'Matisse & Sadko present Melodicca',
+        'Bella Claxton b2b Paige Tomlinson',
+      ]) {
+        const label = page.getByRole('button', { name: `${name} · Friday`, exact: true });
+        // A focusable control releases the prior keyboard preview on every platform.
+        await page.getByRole('searchbox').click();
+        await page.mouse.move(0, 0);
+        await label.scrollIntoViewIfNeeded();
+        await expect(page.locator('.artist-preview')).toHaveCount(0);
+        await label.hover();
+        await expect(page.locator('.artist-preview')).toBeVisible();
+        const samples = await label.evaluate(async (element) => {
+          const values = [];
+          for (let i = 0; i < 10; i++) {
+            await new Promise((resolve) => setTimeout(resolve, 40));
+            const { x, y, width, height } = element.getBoundingClientRect();
+            values.push({ x, y, width, height });
+          }
+          return values;
+        });
+        for (const key of ['x', 'y', 'width', 'height'] as const) {
+          expect(
+            Math.max(...samples.map((s) => s[key])) - Math.min(...samples.map((s) => s[key])),
+            `${name} ${key} at ${width}px`
+          ).toBeLessThan(1);
         }
-        return values;
-      });
-      for (const key of ['x', 'y', 'width', 'height'] as const) {
-        expect(
-          Math.max(...samples.map((s) => s[key])) - Math.min(...samples.map((s) => s[key])),
-          `${name} ${key} at ${width}px`
-        ).toBeLessThan(1);
+        for (const link of await page.locator('.artist-preview .set-link').all()) {
+          await link.hover();
+          await expect(link).toBeVisible();
+        }
+        await label.click();
+        await expect(page.getByRole('dialog', { name, exact: true })).toBeVisible();
+        await page.getByRole('button', { name: 'Close', exact: true }).click();
+        await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
       }
-      for (const link of await page.locator('.artist-preview .set-link').all()) {
-        await link.hover();
-        await expect(link).toBeVisible();
-      }
-      await label.click();
-      await expect(page.getByRole('dialog', { name, exact: true })).toBeVisible();
-      await page.getByRole('button', { name: 'Close', exact: true }).click();
-      await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
-    }
-  }
-});
+    });
+  });
+}
 
 test('b2b details show both artists with independent recording ratings and one performance editor', async ({
   page,
@@ -319,4 +321,24 @@ test('b2b details show both artists with independent recording ratings and one p
   await expect(dialog.getByLabel('Seu comentário', { exact: true })).toHaveValue(
     'Together on Friday'
   );
+});
+
+test('clipboard failure offers a usable manual copy', async ({ page }) => {
+  await page.addInitScript(() =>
+    Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true })
+  );
+  await page.reload();
+  await prioritizeFisher(page);
+  await page.getByRole('button', { name: 'Export plan', exact: true }).click();
+  await page.getByRole('menuitem', { name: /Copy to Notion/ }).click();
+  await expect(
+    page.getByRole('dialog', { name: 'Copy your table manually', exact: true })
+  ).toBeVisible();
+  const text = page.getByRole('textbox', { name: 'Copy your table manually', exact: true });
+  await expect(text).toHaveValue(
+    /Name\tAt\tDay\tPriority\tGenre\tSub-genres\tRating\tComment\nFisher\tTomorrowland/
+  );
+  await page.getByRole('button', { name: 'Select table text', exact: true }).click();
+  await expect(text).toBeFocused();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
 });
