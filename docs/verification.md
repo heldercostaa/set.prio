@@ -1,6 +1,6 @@
 # Verification
 
-Coverage audited November 12, 2026. Tests use Gherkin with playwright-bdd.
+Tests use Gherkin with playwright-bdd.
 
 ## Test ownership
 
@@ -38,4 +38,4 @@ CI runs checks for pull requests and pushes to main. Feature-branch pushes do no
 - Local Chromium checks run on macOS. Linux CI supplies the complete WebKit verification because local WebKit pointer injection is unreliable in this environment.
 - Mobile image sharing verifies the complete PNG passed directly to the browser API. Desktop export verifies an actual downloaded file. The operating system share sheet and saving to Photos remain untested.
 - Actual paste into an authenticated Notion page remains untested. Clipboard HTML, named links, plain text, and manual-copy fallback are covered.
-- Catalog integrity checks validate structure and references; they cannot verify that official lineup research is correct. See [research notes](./catalog-research.md).
+- Catalog integrity checks validate structure and references; they cannot verify that official lineup research is correct. See [catalog maintenance](./catalog.md).
