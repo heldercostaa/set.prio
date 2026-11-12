@@ -23,48 +23,6 @@ test.afterEach(async ({ page }) => {
   expect(runtimeErrors.get(page), 'No uncaught browser errors').toEqual([]);
 });
 
-test('priorities, comments, zero ratings, and language survive a reload', async ({ page }) => {
-  await openFisher(page);
-  await page
-    .getByRole('combobox', { name: 'Priority · Friday · Fisher', exact: true })
-    .selectOption('P0');
-  await page
-    .getByLabel('Your comment', { exact: true })
-    .fill('Olá, friends\nSee you at the front.');
-  await page.getByRole('spinbutton', { name: 'Rate this set', exact: true }).fill('0');
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
-  await expect(
-    page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
-  ).toBeVisible();
-  await page.getByRole('button', { name: 'Português (Brasil)', exact: true }).click();
-  await page.reload();
-  await expect(
-    page.getByRole('heading', { name: 'Seu quadro de prioridades', exact: true })
-  ).toBeVisible();
-  await page.getByRole('button', { name: 'Fisher · Sexta-feira', exact: true }).click();
-  await expect(
-    page.getByRole('combobox', { name: 'Prioridade · Sexta-feira · Fisher', exact: true })
-  ).toHaveValue('P0');
-  await expect(page.getByRole('spinbutton', { name: 'Avalie este set', exact: true })).toHaveValue(
-    '0'
-  );
-  await expect(page.getByLabel('Seu comentário', { exact: true })).toHaveValue(
-    'Olá, friends\nSee you at the front.'
-  );
-  await page.getByRole('button', { name: 'Fechar', exact: true }).click();
-  await page.getByRole('button', { name: 'English', exact: true }).click();
-  await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();
-  await page
-    .getByRole('combobox', { name: 'Priority · Friday · Fisher', exact: true })
-    .selectOption('');
-  await page.getByRole('button', { name: 'Close', exact: true }).click();
-  await expect(
-    page
-      .getByTestId('2027-04-30-unprioritized')
-      .getByRole('button', { name: 'Fisher · Friday', exact: true })
-  ).toBeVisible();
-});
-
 test('multiple appearances have independent priorities and export despite search and mobile day filters', async ({
   page,
 }) => {

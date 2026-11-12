@@ -1,4 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+const testDir = defineBddConfig({
+  features: 'features/**/*.feature',
+  steps: 'e2e/steps/**/*.ts',
+  outputDir: '.features-gen',
+});
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -11,7 +17,10 @@ export default defineConfig({
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
     { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } },
     { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },
-  ],
+  ].flatMap((project) => [
+    { ...project, testMatch: '**/*.spec.ts' },
+    { ...project, name: `${project.name}-bdd`, testDir, testMatch: '**/*.spec.js' },
+  ]),
   webServer: {
     command: 'pnpm dev --port 4173 --strictPort',
     url: 'http://127.0.0.1:4173',
