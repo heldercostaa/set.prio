@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-11.1",
+  "version": "2026-11-12.1",
   "verifiedAt": "2026-11-11",
   "sources": [
     "https://brasil.tomorrowland.com/pt/line-up/?page=artists",
@@ -976,13 +976,16 @@
       "photoUrl": "/artists/2655381348.jpg",
       "photoSourceUrl": "https://artist-lineup-cdn.tomorrowland.com/247689053-ILLENIUM PRESS PIC 1.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2655381348",
-      "genre": null,
+      "genre": "Dubstep",
       "subgenres": [],
       "genreSources": [
-        "https://www.youtube.com/watch?v=E1WH0nvaxAw"
+        "https://www.youtube.com/watch?v=E1WH0nvaxAw",
+        "https://www.insomniac.com/music/illenium-explores-the-bold-and-beautiful-shades-of-bass-with-his-nocturnal-wonderland-2018-mix/",
+        "https://music.apple.com/us/artist/illenium/645420096"
       ],
       "recommendedSetId": "E1WH0nvaxAw",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "genreVerifiedAt": "2026-11-12"
     },
     {
       "id": "1593860343",
@@ -1108,13 +1111,19 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1593892326",
-      "genre": null,
-      "subgenres": [],
+      "genre": "Dubstep",
+      "subgenres": [
+        "Drum & Bass",
+        "Progressive house"
+      ],
       "genreSources": [
-        "https://www.youtube.com/watch?v=rPV3BWCpRNM"
+        "https://www.youtube.com/watch?v=rPV3BWCpRNM",
+        "https://music.apple.com/us/album/new-world-pt-1/1244820239",
+        "https://www.insomniac.com/music/artists/krewella/"
       ],
       "recommendedSetId": "yU7_OAXxEKc",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "genreVerifiedAt": "2026-11-12"
     },
     {
       "id": "1532622596",
@@ -1603,13 +1612,16 @@
       "photoUrl": "/artists/1262708144.jpg",
       "photoSourceUrl": "https://artist-lineup-assets.b-cdn.net/16691258-Screenshot 2023-09-11 at 17.49.09.png",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1262708144",
-      "genre": null,
+      "genre": "Dubstep",
       "subgenres": [],
       "genreSources": [
-        "https://www.youtube.com/watch?v=JsckNFtpHYI"
+        "https://www.youtube.com/watch?v=JsckNFtpHYI",
+        "https://dearmedia.com/nghtmre-interview/",
+        "https://www.insomniac.com/music/artists/nghtmre/"
       ],
       "recommendedSetId": "JsckNFtpHYI",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "genreVerifiedAt": "2026-11-12"
     },
     {
       "id": "1536145873",
@@ -1783,13 +1795,15 @@
         "verifiedAt": "2026-11-11"
       },
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536151090",
-      "genre": null,
+      "genre": "Dubstep",
       "subgenres": [],
       "genreSources": [
-        "https://www.youtube.com/watch?v=QpVM_g6PPs8"
+        "https://www.youtube.com/watch?v=QpVM_g6PPs8",
+        "https://www.insomniac.com/music/artists/ray-volpe/"
       ],
       "recommendedSetId": "QpVM_g6PPs8",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "genreVerifiedAt": "2026-11-12"
     },
     {
       "id": "3236104786",

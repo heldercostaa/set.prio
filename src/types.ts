@@ -11,6 +11,7 @@ export interface Artist {
   genre: string | null;
   subgenres: string[];
   genreSources: string[];
+  genreVerifiedAt?: string;
   recommendedSetId: string | null;
   memberIds?: string[];
   recommendedSetRepresentative?: boolean;
