@@ -38,7 +38,10 @@ The GIF script records desktop dragging, genre filters, export options, and mobi
 
 - [Architecture](./architecture.md)
 - [Design and appearance](./design.md)
-- [Genre research](./genre-research.md)
-- [Portrait sources](./portrait-sources.md)
+- [Catalog maintenance](./catalog.md)
 
 Refresh the official catalog with `pnpm catalog:refresh`; review the diff and curated references before committing. User preferences remain edition-specific browser-local data. Image binaries stay outside localStorage. Exports cover prioritized appearances across all days, regardless of current filters.
+
+## Dependency updates
+
+Use `pnpm up --latest --save-exact` to refresh libraries. Keep `.nvmrc`, package engines, the package-manager pin, and lockfile consistent. Run the checks above before publishing updates. Dependabot checks packages and GitHub Actions weekly.
