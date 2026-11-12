@@ -1,7 +1,7 @@
 import { DAYS, type Day, type Language, type Priority } from './types';
 
 const en = {
-  title: 'Set.Priority',
+  title: 'set.priority',
   subtitle: 'Find your artists. Make your weekend.',
   search: 'Search artists',
   board: 'Board',

@@ -90,7 +90,7 @@ export function App() {
           try {
             await navigator.share({
               files: [imageShare.file],
-              title: 'set.prio | Tomorrowland Brasil 2027',
+              title: 'set.priority | Tomorrowland Brasil 2027',
             });
           } catch (error) {
             if (!(error instanceof DOMException && error.name === 'AbortError'))
@@ -149,11 +149,11 @@ export function App() {
                 </div>
                 <h1
                   aria-label={t.title}
-                  className="whitespace-nowrap text-4xl font-medium leading-none tracking-[-0.06em] sm:text-5xl lg:text-6xl"
+                  className="whitespace-nowrap text-3xl font-medium leading-none tracking-[-0.06em] sm:text-4xl lg:text-5xl"
                 >
-                  <span>Set</span>
+                  <span>set</span>
                   <span className="text-[#FF453A]">.</span>
-                  <strong className="font-semibold">Priority</strong>
+                  <strong className="font-semibold">priority</strong>
                 </h1>
                 <p className="flex flex-wrap items-center gap-x-2 gap-y-1 tabular-nums">
                   <span>{t.dateRange}</span>

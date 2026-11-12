@@ -29,7 +29,7 @@ export function ImageShareDialog({
   const share = async () => {
     if (!file) return;
     try {
-      await navigator.share({ files: [file], title: 'set.prio | Tomorrowland Brasil 2027' });
+      await navigator.share({ files: [file], title: 'set.priority | Tomorrowland Brasil 2027' });
       onClose();
     } catch (error) {
       if (!(error instanceof DOMException && error.name === 'AbortError'))

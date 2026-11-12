@@ -314,7 +314,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
   const setWidth = context.measureText('set').width;
   label('.', padding + 72 + setWidth, 36, 34, 700, '#ff453a');
   const dotWidth = context.measureText('.').width;
-  label('prio', padding + 72 + setWidth + dotWidth, 36, 34, 700);
+  label('priority', padding + 72 + setWidth + dotWidth, 36, 34, 700);
   label('Tomorrowland Brasil 2027', padding + 72, 80, 16, 500, secondary);
   context.textAlign = 'right';
   label(t.dateRange, width - padding, 42, 17, 500, secondary);
@@ -399,7 +399,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     secondary
   );
   context.textAlign = 'right';
-  label('set.prio', width - padding, height - 44, 13, 500, secondary);
+  label('set.priority', width - padding, height - 44, 13, 500, secondary);
   return new Promise((resolve, reject) =>
     canvas.toBlob(
       (blob) => (blob ? resolve(blob) : reject(new Error('Image encoding failed'))),

@@ -18,7 +18,7 @@ export function AboutDialog({
     <Modal
       open={open}
       onOpenChange={onOpenChange}
-      title="set.prio"
+      title="set.priority"
       description="Tomorrowland Brasil 2027"
       closeLabel={t.close}
       className="about-modal"
