@@ -10,8 +10,21 @@ When('I focus Fisher without hovering', async ({ page }) => {
 When('I hover Fisher', async ({ page }) => {
   await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).hover();
 });
-When('I leave Fisher', async ({ page }) => {
-  await page.mouse.move(0, 0);
+When('I hold Fisher without moving', async ({ page }) => {
+  await page.mouse.down();
+});
+When('I move the held Fisher label', async ({ page }) => {
+  const card = page.getByRole('button', { name: 'Fisher · Friday', exact: true });
+  const bounds = await card.boundingBox();
+  if (!bounds) throw new Error('Missing drag source');
+  await page.mouse.move(bounds.x + bounds.width / 2 + 12, bounds.y + bounds.height / 2, {
+    steps: 3,
+  });
+  await expect(page.locator('.drag-overlay')).toBeVisible();
+});
+When('I cancel the drag', async ({ page }) => {
+  await page.keyboard.press('Escape');
+  await page.mouse.up();
 });
 When("I open and close Fisher's details", async ({ page }) => {
   await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();

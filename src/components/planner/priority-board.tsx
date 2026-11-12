@@ -25,21 +25,18 @@ export function PriorityBoard({
   search,
   genres = [],
   onOpen,
-  onQuick,
-  hoveredAppearance,
 }: {
   language: Language;
   search: string;
   genres?: string[];
   onOpen: (id: string) => void;
-  onQuick?: (id: string | null) => void;
-  hoveredAppearance?: string | null;
 }) {
   const previewsAllowed = useContext(ArtistPreviewContext);
   const t = messages(language);
   const state = usePlanner();
   const [dragName, setDragName] = useState<string | null>(null);
   const [keyboardDrag, setKeyboardDrag] = useState(false);
+  const [hasDragMoved, setHasDragMoved] = useState(false);
   const [dragAppearance, setDragAppearance] = useState<Appearance | null>(null);
   const [announcement, setAnnouncement] = useState('');
   const sensors = useSensors(
@@ -50,7 +47,7 @@ export function PriorityBoard({
   const endDrag = ({ active, over }: DragEndEvent) => {
     setDragName(null);
     setDragAppearance(null);
-    onQuick?.(null);
+    setHasDragMoved(false);
     const appearance = active.data.current?.appearance as Appearance | undefined;
     if (appearance && over && over.data.current?.day === appearance.day) {
       state.setPriority(appearance.id, over.data.current.priority as Priority | null);
@@ -72,16 +69,21 @@ export function PriorityBoard({
           }}
           onDragStart={({ active, activatorEvent }) => {
             setKeyboardDrag(activatorEvent.type === 'keydown');
+            // Mouse activation already requires movement; a touch hold alone does not.
+            setHasDragMoved(activatorEvent.type === 'mousedown');
             const a = active.data.current?.appearance as Appearance;
             setDragAppearance(a);
             setDragName(artistById.get(a.artistId)?.name ?? null);
             setAnnouncement(t.dragStarted);
           }}
+          onDragMove={({ delta }) => {
+            if (delta.x !== 0 || delta.y !== 0) setHasDragMoved(true);
+          }}
           onDragEnd={endDrag}
           onDragCancel={() => {
             setDragName(null);
             setDragAppearance(null);
-            onQuick?.(null);
+            setHasDragMoved(false);
           }}
           accessibility={{
             restoreFocus: keyboardDrag,
@@ -116,7 +118,6 @@ export function PriorityBoard({
                   genres={genres}
                   language={language}
                   onOpen={onOpen}
-                  onQuick={onQuick}
                 />
               </div>
             ))}
@@ -130,18 +131,11 @@ export function PriorityBoard({
                 genres={genres}
                 language={language}
                 onOpen={onOpen}
-                onQuick={onQuick}
               />
             </div>
           )}
           <FloatingPriorityTargets
-            appearance={
-              previewsAllowed
-                ? (dragAppearance ??
-                  catalog.appearances.find((a) => a.id === hoveredAppearance) ??
-                  null)
-                : null
-            }
+            appearance={previewsAllowed && hasDragMoved ? dragAppearance : null}
             language={language}
           />
           <DragOverlay>

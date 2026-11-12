@@ -31,7 +31,6 @@ export function App() {
     t = messages(language);
   const [search, setSearch] = useState('');
   const [genres, setGenres] = useState<string[]>([]);
-  const [quickAppearance, setQuickAppearance] = useState<string | null>(null);
   const [view, setView] = useState<'board' | 'artists'>('board');
   const [selected, setSelected] = useState<string | null>(null);
   const [about, setAbout] = useState(false);
@@ -51,7 +50,6 @@ export function App() {
     return () => clearTimeout(timeout);
   }, [toast]);
   const openArtist = (id: string) => {
-    setQuickAppearance(null);
     trigger.current = document.activeElement as HTMLElement;
     setSelected(id);
   };
@@ -177,8 +175,6 @@ export function App() {
                 search={search}
                 genres={genres}
                 onOpen={openArtist}
-                hoveredAppearance={quickAppearance}
-                onQuick={setQuickAppearance}
               />
             ) : (
               <ArtistCatalog

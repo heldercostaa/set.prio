@@ -14,14 +14,12 @@ function PriorityGroup({
   appearances,
   language,
   onOpen,
-  onQuick,
 }: {
   day: Day | null;
   priority: Priority | null;
   appearances: Appearance[];
   language: Language;
   onOpen: (id: string) => void;
-  onQuick?: (id: string | null) => void;
 }) {
   const t = messages(language);
   const { setNodeRef, isOver } = useDroppable({
@@ -73,7 +71,6 @@ function PriorityGroup({
                 language={language}
                 priority={priority}
                 onOpen={onOpen}
-                onQuick={onQuick}
               />
             ))}
           </AnimatePresence>
@@ -94,7 +91,6 @@ export function DayColumn({
   genres = [],
   language,
   onOpen,
-  onQuick,
 }: {
   day: Day | null;
   index: number;
@@ -102,7 +98,6 @@ export function DayColumn({
   genres?: string[];
   language: Language;
   onOpen: (id: string) => void;
-  onQuick?: (id: string | null) => void;
 }) {
   const priorities = usePlanner((state) => state.priorities);
   const appearances = catalog.appearances
@@ -158,7 +153,6 @@ export function DayColumn({
             )}
             language={language}
             onOpen={onOpen}
-            onQuick={onQuick}
           />
         ))}
       </div>
