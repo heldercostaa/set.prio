@@ -39,7 +39,7 @@ export function ManualCopyDialog({
         <div className="manual-actions flex [gap:10px] [justify-content:flex-end] mt-4">
           <button
             type="button"
-            className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] [background:var(--panel)] [border:1px_solid_var(--line)] [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s]"
+            className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] bg-surface border border-separator [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s]"
             onClick={() => {
               manualText.current?.focus();
               manualText.current?.select();
@@ -49,7 +49,7 @@ export function ManualCopyDialog({
           </button>
           <button
             type="button"
-            className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] [background:var(--panel)] [border:1px_solid_var(--line)] [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary"
+            className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] bg-surface border border-separator [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary"
             onClick={() => {
               onExport();
             }}

@@ -24,9 +24,9 @@ export function Modal({
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="modal-overlay fixed [inset:0] [background:#0007] [backdrop-filter:blur(5px)] [z-index:90] [animation:overlay-in_0.18s_ease-out]" />
+        <Dialog.Overlay className="modal-overlay fixed [inset:0] [background:#0007]  [z-index:90] [animation:overlay-in_0.18s_ease-out]" />
         <Dialog.Content
-          className={`modal fixed [top:50%] [left:50%] [transform:translate(-50%,_-50%)] [z-index:91] [width:min(600px,_calc(100vw_-_40px))] [max-height:min(90dvh,_940px)] [border:1px_solid_var(--line)] rounded-5 [background:var(--panel)] [box-shadow:0_28px_100px_#0005] flex flex-col overflow-hidden [color:var(--text)] [animation:modal-in_0.18s_ease-out] max-[760px]:[top:auto] max-[760px]:[bottom:0] max-[760px]:[left:0] max-[760px]:[transform:none] max-[760px]:w-full max-[760px]:[max-height:94dvh] max-[760px]:[border-radius:20px_20px_0_0] max-[760px]:[border-bottom:0] max-[760px]:[animation:sheet-in_0.2s_ease-out] max-[760px]:[padding-bottom:env(safe-area-inset-bottom)] ${className}`}
+          className={`modal fixed [top:50%] [left:50%] [transform:translate(-50%,_-50%)] [z-index:91] [width:min(600px,_calc(100vw_-_40px))] [max-height:min(90dvh,_940px)] border border-separator rounded-5 bg-surface [box-shadow:0_28px_100px_#0005] flex flex-col overflow-hidden text-content [animation:modal-in_0.18s_ease-out] max-[760px]:[top:auto] max-[760px]:[bottom:0] max-[760px]:[left:0] max-[760px]:[transform:none] max-[760px]:w-full max-[760px]:[max-height:94dvh] max-[760px]:[border-radius:20px_20px_0_0] max-[760px]:[border-bottom:0] max-[760px]:[animation:sheet-in_0.2s_ease-out] max-[760px]:[padding-bottom:env(safe-area-inset-bottom)] ${className}`}
           onCloseAutoFocus={
             onRestoreFocus
               ? (event) => {
@@ -44,7 +44,7 @@ export function Modal({
             <Dialog.Close asChild>
               <button
                 type="button"
-                className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent [color:var(--secondary)] [border-radius:10px] shrink-0 close-button w-9 h-9 [background:var(--chip)] [margin-top:-4px] [margin-right:-4px] max-[760px]:w-11 max-[760px]:h-11"
+                className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted rounded-full shrink-0 close-button w-11 h-11 [background:var(--chip)] [margin-top:-4px] [margin-right:-4px] max-[760px]:w-11 max-[760px]:h-11"
                 aria-label={closeLabel}
               >
                 <X size={20} />

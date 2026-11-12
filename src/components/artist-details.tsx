@@ -55,7 +55,7 @@ export function ArtistDetails({
                   href={artist.officialUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
+                  className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
                 >
                   {t.officialProfile}
                   <ArrowUpRight size={13} />
@@ -64,7 +64,7 @@ export function ArtistDetails({
               <Genres artist={artist} language={language} />
             </>
           )}
-          <div className="detail-warning flex gap-2 [font-size:10px] [line-height:1.65] [color:var(--secondary)] [margin:15px_0_20px]">
+          <div className="detail-warning flex gap-2 [font-size:10px] [line-height:1.65] text-muted [margin:15px_0_20px]">
             <Info size={15} />
             <p>{t.genreWarning}</p>
           </div>
@@ -73,7 +73,7 @@ export function ArtistDetails({
               <h3>{t.jointArtists}</h3>
               {members.map((member) => (
                 <section
-                  className="member-details [border:1px_solid_var(--line)] rounded-3 overflow-hidden"
+                  className="member-details border border-separator rounded-3 overflow-hidden"
                   aria-label={member.name}
                   key={member.id}
                 >
@@ -85,7 +85,7 @@ export function ArtistDetails({
                         href={member.officialUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
+                        className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
                       >
                         {t.officialProfile}
                         <ArrowUpRight size={13} />
@@ -108,9 +108,7 @@ export function ArtistDetails({
           )}
           <section className="detail-section [padding:20px_0] [border-top:1px_solid_var(--line)] performances-editor">
             <h3>{t.related}</h3>
-            {appearances.length === 0 && (
-              <p className="muted [color:var(--secondary)]">{t.noSolo}</p>
-            )}
+            {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
             {appearances.map((appearance) => {
               const billed = artistById.get(appearance.artistId);
               return (
@@ -149,7 +147,7 @@ export function ArtistDetails({
                       {billed?.name}
                     </p>
                   )}
-                  <p className="small text-xs [line-height:1.55] muted [color:var(--secondary)]">
+                  <p className="small text-xs [line-height:1.55] muted text-muted">
                     {appearance.stage ?? t.stageUnknown}
                   </p>
                   <label
@@ -166,14 +164,14 @@ export function ArtistDetails({
                     placeholder={t.notesPlaceholder}
                     onChange={(event) => state.setComment(appearance.id, event.target.value)}
                   />
-                  <span className="small text-xs [line-height:1.55] muted [color:var(--secondary)]">
+                  <span className="small text-xs [line-height:1.55] muted text-muted">
                     {t.notesHint}
                   </span>
                 </div>
               );
             })}
           </section>
-          <p className="saved-note flex items-center justify-center [gap:5px] [color:var(--secondary)] [font-size:9px] [padding-top:17px]">
+          <p className="saved-note flex items-center justify-center [gap:5px] text-muted [font-size:9px] [padding-top:17px]">
             <Check size={13} />
             {state.storageError ? t.privacy : t.saved}
           </p>
@@ -211,7 +209,7 @@ function RecordingDetails({
         />
         {recording && (
           <>
-            <div className="recording-meta flex flex-wrap [gap:5px_12px] [color:var(--secondary)] [font-size:9px] [line-height:1.6] [margin:10px_1px_0]">
+            <div className="recording-meta flex flex-wrap [gap:5px_12px] text-muted [font-size:9px] [line-height:1.6] [margin:10px_1px_0]">
               <span>{recording.channel}</span>
               {recording.uploadedAt && (
                 <span>
@@ -230,10 +228,7 @@ function RecordingDetails({
                   <Star size={16} />
                   {t.rating}
                 </label>
-                <p
-                  className="muted [color:var(--secondary)] small text-xs [line-height:1.55]"
-                  id={helpId}
-                >
+                <p className="muted text-muted small text-xs [line-height:1.55]" id={helpId}>
                   {t.ratingHint}
                 </p>
               </div>
@@ -263,7 +258,7 @@ function RecordingDetails({
                 <span>/ 10</span>
                 <button
                   type="button"
-                  className="text-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:11px] bg-transparent p-0"
+                  className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
                   disabled={state.ratings[recording.id] == null}
                   onClick={() => {
                     state.setRating(recording.id, null);
@@ -285,7 +280,7 @@ function RecordingDetails({
           </>
         )}
       </section>
-      <details className="research-details [border-top:1px_solid_var(--line)] [padding-top:15px] [font-size:10px] [color:var(--secondary)]">
+      <details className="research-details [border-top:1px_solid_var(--line)] [padding-top:15px] [font-size:10px] text-muted">
         <summary>
           {t.setDetails} &amp; {t.genreSources}
         </summary>
