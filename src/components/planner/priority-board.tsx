@@ -1,3 +1,4 @@
+import type { ArtistSort } from '../../utils/artist-sort';
 import { motion } from 'motion/react';
 import { useMediaQuery } from '../ui/use-media-query';
 import type { WatchFilter } from '../../data';
@@ -25,12 +26,14 @@ import { DAYS, type Appearance, type Priority } from '../../types';
 
 import type { Language } from '../../types';
 export function PriorityBoard({
+  sort,
   language,
   search,
   genres = [],
   watched = 'all',
   onOpen,
 }: {
+  sort: ArtistSort;
   language: Language;
   search: string;
   genres?: string[];
@@ -142,6 +145,7 @@ export function PriorityBoard({
                   aria-hidden={(mobile && state.activeDay !== day) || undefined}
                 >
                   <DayColumn
+                    sort={sort}
                     day={day}
                     index={index}
                     search={search}
@@ -157,6 +161,7 @@ export function PriorityBoard({
           {catalog.appearances.some((appearance) => appearance.day === null) && (
             <div className="tba-board mt-5">
               <DayColumn
+                sort={sort}
                 day={null}
                 index={3}
                 search={search}

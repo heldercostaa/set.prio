@@ -1,3 +1,4 @@
+import { compareArtists, type ArtistSort } from '../../utils/artist-sort';
 import { matchesWatchFilter, type WatchFilter } from '../../data';
 import { Search } from 'lucide-react';
 import { useMemo } from 'react';
@@ -8,6 +9,7 @@ import { usePlanner } from '../../store/planner';
 import type { Language } from '../../types';
 
 export function ArtistCatalog({
+  sort,
   language,
   search,
   genres = [],
@@ -15,6 +17,7 @@ export function ArtistCatalog({
   onSearch,
   onOpen,
 }: {
+  sort: ArtistSort;
   language: Language;
   search: string;
   genres?: string[];
@@ -31,8 +34,8 @@ export function ArtistCatalog({
     () =>
       catalog.artists
         .filter((a) => matchesSearch(a, search, genres) && matchesWatchFilter(a, watched, ratings))
-        .sort((a, b) => a.name.localeCompare(b.name, language)),
-    [search, language, genres, watched, ratings]
+        .sort(compareArtists(sort, language, ratings)),
+    [search, language, genres, watched, ratings, sort]
   );
   return (
     <section

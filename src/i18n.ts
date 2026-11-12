@@ -50,6 +50,16 @@ const en = {
   jointRecording: 'Joint performance recording',
   notes: 'Your comment',
   notesPlaceholder: 'What do you want to remember?',
+  sortBy: 'Sort artists',
+  sortHint:
+    'Rating sorts keep unrated artists last. For b2b acts, the highest-rated member set is used.',
+  sortLabels: {
+    'name-asc': 'Name A–Z',
+    'name-desc': 'Name Z–A',
+    'rating-desc': 'Rating: highest first',
+    'rating-asc': 'Rating: lowest first',
+    genre: 'Genre A–Z',
+  },
   rating: 'Rate this set',
   ratingHint: '0 to 10',
   unrated: 'Unrated',
@@ -158,6 +168,16 @@ const pt: typeof en = {
   jointRecording: 'Gravação da apresentação conjunta',
   notes: 'Seu comentário',
   notesPlaceholder: 'O que você quer lembrar?',
+  sortBy: 'Ordenar artistas',
+  sortHint:
+    'Artistas sem avaliação ficam por último. Para b2b, vale a maior avaliação entre os sets dos integrantes.',
+  sortLabels: {
+    'name-asc': 'Nome A–Z',
+    'name-desc': 'Nome Z–A',
+    'rating-desc': 'Avaliação: maior primeiro',
+    'rating-asc': 'Avaliação: menor primeiro',
+    genre: 'Gênero A–Z',
+  },
   rating: 'Avalie este set',
   ratingHint: 'De 0 a 10',
   unrated: 'Sem avaliação',

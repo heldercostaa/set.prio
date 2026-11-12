@@ -1,3 +1,5 @@
+import { ArtistSort } from './artist-sort';
+import type { ArtistSort as Sort } from '../../utils/artist-sort';
 import type { WatchFilter } from '../../data';
 import { controlClassName, controlCountClassName, controlOptionClassName } from '../ui/control';
 import { GenreFilter } from './genre-filter';
@@ -7,6 +9,8 @@ import { messages } from '../../i18n';
 import type { Language } from '../../types';
 
 export function PlannerToolbar({
+  sort,
+  onSort,
   language,
   view,
   onView,
@@ -18,6 +22,8 @@ export function PlannerToolbar({
   watched,
   onWatched,
 }: {
+  sort: Sort;
+  onSort: (value: Sort) => void;
   language: Language;
   view: 'board' | 'artists';
   onView: (view: 'board' | 'artists') => void;
@@ -79,6 +85,7 @@ export function PlannerToolbar({
             </option>
           </select>
         </label>
+        <ArtistSort value={sort} onChange={onSort} language={language} />
         <div
           className={`search ${controlClassName} flex items-center gap-2 [flex:1] min-w-0 max-w-none px-3 max-[47.5rem]:basis-full [color:var(--tertiary)] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-control [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base`}
         >
