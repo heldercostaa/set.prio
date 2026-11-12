@@ -57,33 +57,15 @@ export function Portrait({
       </div>
     );
   const src = publicAsset(artist.photoUrl);
-  const photo = (
+  return (
     <img
-      className={
-        landscape
-          ? 'relative block h-full w-full object-contain'
-          : `portrait block object-cover object-center [background:var(--chip)] ${className}`
-      }
+      className={`portrait block object-cover ${landscape ? 'object-top' : 'object-center'} [background:var(--chip)] ${className}`}
       src={src}
       alt={artist.name}
       loading="lazy"
       decoding="async"
       onError={() => setFailed(true)}
     />
-  );
-  if (!landscape) return photo;
-  return (
-    <div className={`portrait relative isolate overflow-hidden bg-raised ${className}`}>
-      <img
-        className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-25 blur-xl"
-        src={src}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-      />
-      {photo}
-    </div>
   );
 }
 export function Genres({ artist, language }: { artist: Artist; language: Language }) {
