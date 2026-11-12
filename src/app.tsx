@@ -13,7 +13,7 @@ import { ExportMenu } from './components/planner/export-menu';
 import { PlannerToolbar } from './components/planner/planner-toolbar';
 import { SiteFooter } from './components/planner/site-footer';
 import { SiteHeader } from './components/planner/site-header';
-import { ArrowUpRight, Check, Info, LockKeyhole, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, Check, CheckCheck, Info, LockKeyhole, ShieldCheck } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArtistPreviewContext, ArtistPreviewCoordinator } from './components/artist';
@@ -157,6 +157,13 @@ export function App() {
                   <span className="text-muted tabular-nums max-[47.5rem]:basis-full">
                     {t.dateRange}
                   </span>
+                  <span className="plan-count inline-flex items-center gap-1.5 whitespace-nowrap text-xs text-muted">
+                    <CheckCheck size="0.875rem" className="text-[var(--teal)]" aria-hidden="true" />
+                    <strong className="font-semibold tabular-nums text-content">
+                      {entries.length}
+                    </strong>
+                    <span>{t.prioritized}</span>
+                  </span>
                 </div>
               </div>
               <ExportMenu
@@ -196,7 +203,6 @@ export function App() {
               onGenres={setGenres}
               watched={watched}
               onWatched={setWatched}
-              count={entries.length}
             />
             <div className="genre-notice flex items-center gap-2.75 bg-transparent border-b border-separator text-muted [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5 [&_>_svg]:text-accent [&_>_svg]:shrink-0 [&_p]:text-xs [&_p]:[line-height:1.65] [&_strong]:text-content [&_strong]:font-semibold [&_>_.icon-button]:[margin-left:auto] [&_>_.icon-button]:w-7 [&_>_.icon-button]:h-7 [&_>_.icon-button]:text-accent max-[47.5rem]:[&_>_svg]:w-3.75 max-[47.5rem]:[&_>_svg]:mt-0.5 max-[47.5rem]:[&_p]:text-xs max-[47.5rem]:[&_p]:[line-height:1.7] max-[47.5rem]:[&_>_.icon-button]:hidden">
               <Info size="1.0625rem" />

@@ -3,7 +3,7 @@ import type { ArtistSort as Sort } from '../../utils/artist-sort';
 import type { WatchFilter } from '../../data';
 import { controlClassName, controlCountClassName, controlOptionClassName } from '../ui/control';
 import { GenreFilter } from './genre-filter';
-import { CheckCheck, Grid2X2, ListMusic, Search, X } from 'lucide-react';
+import { Grid2X2, ListMusic, Search, X } from 'lucide-react';
 import { catalog } from '../../data';
 import { messages } from '../../i18n';
 import type { Language } from '../../types';
@@ -16,7 +16,6 @@ export function PlannerToolbar({
   onView,
   search,
   onSearch,
-  count,
   genres,
   onGenres,
   watched,
@@ -29,7 +28,6 @@ export function PlannerToolbar({
   onView: (view: 'board' | 'artists') => void;
   search: string;
   onSearch: (search: string) => void;
-  count: number;
   watched: WatchFilter;
   onWatched: (value: WatchFilter) => void;
   genres: string[];
@@ -39,7 +37,7 @@ export function PlannerToolbar({
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
-    <div className="toolbar flex flex-wrap items-center gap-2 mb-4.5 max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:1fr_auto] max-[47.5rem]:gap-3.5 max-[47.5rem]:mb-4">
+    <div className="toolbar flex flex-wrap items-center gap-2 mb-4.5 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3.5 max-[47.5rem]:mb-4">
       <fieldset
         className={`view-switch ${controlClassName} flex shrink-0 max-[47.5rem]:w-max`}
         aria-label={language === 'en' ? 'View' : 'Visualização'}
@@ -65,7 +63,7 @@ export function PlannerToolbar({
           <span className={controlCountClassName}>{individualCount}</span>
         </button>
       </fieldset>
-      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 max-[47.5rem]:col-span-2 max-[47.5rem]:row-start-2">
+      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 ">
         <GenreFilter language={language} selected={genres} onChange={onGenres} />
         <label
           className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:flex-1`}
@@ -85,7 +83,6 @@ export function PlannerToolbar({
             </option>
           </select>
         </label>
-        <ArtistSort value={sort} onChange={onSort} language={language} />
         <div
           className={`search ${controlClassName} flex items-center gap-2 [flex:1] min-w-0 max-w-none px-3 max-[47.5rem]:basis-full [color:var(--tertiary)] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-control [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base`}
         >
@@ -108,13 +105,8 @@ export function PlannerToolbar({
             </button>
           )}
         </div>
+        <ArtistSort value={sort} onChange={onSort} language={language} />
       </div>
-
-      <span className="plan-count max-[47.5rem]:col-start-2 max-[47.5rem]:row-start-1 [margin-left:auto] whitespace-nowrap flex items-center gap-1.5 text-muted [font-size:0.6875rem] max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:gap-1.25 max-[22.5rem]:[font-size:0.5625rem] max-[22.5rem]:gap-0.75 [&_svg]:[color:var(--teal)] [&_svg]:mr-0.75 [&_strong]:text-content [&_strong]:[font-variant-numeric:tabular-nums] max-[22.5rem]:[&_svg]:hidden">
-        <CheckCheck size="1rem" />
-        <strong>{count}</strong>
-        <span>{t.prioritized}</span>
-      </span>
     </div>
   );
 }
