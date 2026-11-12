@@ -154,6 +154,7 @@ export const workflows: Record<
   },
   '320px layout supports day selection, focus restoration, and reduced motion': async ({
     page,
+    isMobile,
   }) => {
     await page.setViewportSize({
       width: 320,
@@ -175,7 +176,8 @@ export const workflows: Record<
       name: 'Miss Monique · Saturday',
       exact: true,
     });
-    await card.click();
+    if (isMobile) await card.tap();
+    else await card.click();
     await expect(
       page.getByRole('dialog', {
         name: 'Miss Monique',
