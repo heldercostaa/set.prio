@@ -48,7 +48,7 @@ export function PlannerToolbar({
         </button>
       </fieldset>
       <GenreFilter language={language} selected={genres} onChange={onGenres} />
-      <div className="search flex items-center gap-2.25 [flex:1] [min-width:6.25rem] max-w-112.5 min-h-11 border border-separator bg-surface rounded-xl [padding:0_0.8125rem] [color:var(--tertiary)] max-[47.5rem]:[grid-column:2] max-[47.5rem]:[grid-row:2] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-xs [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base">
+      <div className="search flex items-center gap-2.25 [flex:1] [min-width:6.25rem] max-w-112.5 min-h-11 border border-separator bg-surface rounded-xl [padding:0_0.8125rem] [color:var(--tertiary)] max-[47.5rem]:[grid-column:1_/_-1] max-[47.5rem]:[grid-row:3] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-xs [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base">
         <Search size="1.0625rem" />
         <input
           type="search"
