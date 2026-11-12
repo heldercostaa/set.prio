@@ -11,8 +11,8 @@
     {
       "id": "1536134704",
       "name": "999999999",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/1536134704-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2022/07/12072005/24573e86-07e3-11f1-b306-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1536134704",
       "genre": "Techno",
       "subgenres": [
@@ -23,13 +23,21 @@
         "https://www.youtube.com/watch?v=ubblk4txmbQ"
       ],
       "recommendedSetId": "ubblk4txmbQ",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/999999999/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/1536134704-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2022/07/12072005/24573e86-07e3-11f1-b306-0a58a9feac02-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/999999999/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "3236178606",
       "name": "Adalamoon",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236178606-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2022/11/11191836/9454e23e-61f5-11ed-b991-0ee6b8365494-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236178606",
       "genre": "Psytrance",
       "subgenres": [
@@ -40,7 +48,15 @@
         "https://www.youtube.com/watch?v=Rsx_3U55Z2M"
       ],
       "recommendedSetId": "Rsx_3U55Z2M",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/adalamoon/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236178606-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2022/11/11191836/9454e23e-61f5-11ed-b991-0ee6b8365494-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/adalamoon/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1302186739",
@@ -209,8 +225,8 @@
     {
       "id": "3236171340",
       "name": "Astrix",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236171340-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2014/06/23193240/6e38e20c-3990-11ef-b991-0ee6b8365494-972x597.webp",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236171340",
       "genre": "Psytrance",
       "subgenres": [
@@ -221,7 +237,15 @@
         "https://www.youtube.com/watch?v=kdVElRhr4q4"
       ],
       "recommendedSetId": "kdVElRhr4q4",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/astrix/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236171340-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2014/06/23193240/6e38e20c-3990-11ef-b991-0ee6b8365494-972x597.webp",
+        "pageUrl": "https://www.insomniac.com/music/artists/astrix/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1593866644",
@@ -294,8 +318,8 @@
     {
       "id": "2997898508",
       "name": "Bebe Rexha",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/2997898508-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/05/06224255/e1c4e644-499c-11f1-9712-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2997898508",
       "genre": "Electronic pop",
       "subgenres": [
@@ -306,13 +330,21 @@
         "https://www.youtube.com/watch?v=KCeluZt3H9o"
       ],
       "recommendedSetId": "KCeluZt3H9o",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/bebe-rexha/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/2997898508-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/05/06224255/e1c4e644-499c-11f1-9712-0a58a9feac02-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/bebe-rexha/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "2651263482",
       "name": "Bella Claxton",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/2651263482-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/06/08212027/25501cca-637f-11f1-a937-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2651263482",
       "genre": "House",
       "subgenres": [
@@ -323,7 +355,15 @@
         "https://www.youtube.com/watch?v=pjUz_2c3o8w"
       ],
       "recommendedSetId": "pjUz_2c3o8w",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/bella-claxton/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/2651263482-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/06/08212027/25501cca-637f-11f1-a937-0a58a9feac02-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/bella-claxton/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "act:3236105813",
@@ -596,8 +636,8 @@
     {
       "id": "3320595906",
       "name": "Delcu",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3320595906-supplement.jpg",
+      "photoSourceUrl": "https://f4.bcbits.com/img/0023007755_21.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3320595906",
       "genre": "Techno",
       "subgenres": [
@@ -608,7 +648,15 @@
         "https://www.youtube.com/watch?v=01chIPfG9M0"
       ],
       "recommendedSetId": "01chIPfG9M0",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://delcu.bandcamp.com/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3320595906-supplement.jpg",
+        "sourceUrl": "https://f4.bcbits.com/img/0023007755_21.jpg",
+        "pageUrl": "https://delcu.bandcamp.com/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1292612863",
@@ -750,8 +798,8 @@
     {
       "id": "1594421366",
       "name": "Ekanta & Swarup",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/1594421366-supplement.jpg",
+      "photoSourceUrl": "https://rockinrio.com/_uploads/2026/04/bio-alokfamily-0604-cm-v1.webp",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594421366",
       "genre": "Psytrance",
       "subgenres": [
@@ -763,7 +811,15 @@
       ],
       "recommendedSetId": "9j8ByvqzJkE",
       "recommendedSetRepresentative": true,
-      "recommendationNote": "Representative recording of Ekanta only; no joint Ekanta & Swarup recording was verified. The title explicitly identifies Universo Paralello 2024/2025."
+      "recommendationNote": "Representative recording of Ekanta only; no joint Ekanta & Swarup recording was verified. The title explicitly identifies Universo Paralello 2024/2025.",
+      "photoSourcePage": "https://rockinrio.com/rio/pt-br/line-up/alok-family-ekanta-swarup/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/1594421366-supplement.jpg",
+        "sourceUrl": "https://rockinrio.com/_uploads/2026/04/bio-alokfamily-0604-cm-v1.webp",
+        "pageUrl": "https://rockinrio.com/rio/pt-br/line-up/alok-family-ekanta-swarup/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "act:3236165984",
@@ -988,8 +1044,8 @@
     {
       "id": "3320594685",
       "name": "Gareth Emery",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3320594685-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2014/05/18194221/d746e97a-2daa-11ef-954e-0ecc81f4ee58-1-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3320594685",
       "genre": "Trance",
       "subgenres": [
@@ -1000,7 +1056,15 @@
         "https://www.youtube.com/watch?v=kxC6B1pyRsw"
       ],
       "recommendedSetId": "kxC6B1pyRsw",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/gareth-emery/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3320594685-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2014/05/18194221/d746e97a-2daa-11ef-954e-0ecc81f4ee58-1-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/gareth-emery/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1264276719",
@@ -1294,8 +1358,8 @@
     {
       "id": "3236102591",
       "name": "M4RI Carrilho",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236102591-supplement.jpg",
+      "photoSourceUrl": "https://i.ytimg.com/vi/bTTQSt3Iq5o/hqdefault.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236102591",
       "genre": "House",
       "subgenres": [
@@ -1306,13 +1370,21 @@
         "https://www.youtube.com/watch?v=bTTQSt3Iq5o"
       ],
       "recommendedSetId": "bTTQSt3Iq5o",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.youtube.com/watch?v=bTTQSt3Iq5o",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236102591-supplement.jpg",
+        "sourceUrl": "https://i.ytimg.com/vi/bTTQSt3Iq5o/hqdefault.jpg",
+        "pageUrl": "https://www.youtube.com/watch?v=bTTQSt3Iq5o",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "2649994017",
       "name": "Mad Maxx",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/2649994017-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2025/07/16032221/03008d4a-61f4-11f0-954e-0ecc81f4ee58-972x597.webp",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2649994017",
       "genre": "Psytrance",
       "subgenres": [
@@ -1323,7 +1395,15 @@
         "https://www.youtube.com/watch?v=eA6RijLGcbs"
       ],
       "recommendedSetId": "eA6RijLGcbs",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/mad-maxx/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/2649994017-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2025/07/16032221/03008d4a-61f4-11f0-954e-0ecc81f4ee58-972x597.webp",
+        "pageUrl": "https://www.insomniac.com/music/artists/mad-maxx/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "act:3236171312",
@@ -1384,8 +1464,8 @@
     {
       "id": "3320611890",
       "name": "Malu",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3320611890-supplement.jpg",
+      "photoSourceUrl": "https://i.ytimg.com/vi/TmW7yXa1GY0/hqdefault.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3320611890",
       "genre": "House",
       "subgenres": [
@@ -1395,7 +1475,15 @@
         "https://www.youtube.com/watch?v=TmW7yXa1GY0"
       ],
       "recommendedSetId": "TmW7yXa1GY0",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.youtube.com/watch?v=TmW7yXa1GY0",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3320611890-supplement.jpg",
+        "sourceUrl": "https://i.ytimg.com/vi/TmW7yXa1GY0/hqdefault.jpg",
+        "pageUrl": "https://www.youtube.com/watch?v=TmW7yXa1GY0",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1262709306",
@@ -1417,14 +1505,22 @@
     {
       "id": "3236151944",
       "name": "Marian",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236151944-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/10/01223328/11e8f0d0-bde8-11f1-9a06-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236151944",
       "genre": null,
       "subgenres": [],
       "genreSources": [],
       "recommendedSetId": "9JHw0jNSdks",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/marian-br/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236151944-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/10/01223328/11e8f0d0-bde8-11f1-9a06-0a58a9feac02-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/marian-br/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "5084115434",
@@ -1946,8 +2042,8 @@
     {
       "id": "3236104786",
       "name": "Renato Cohen",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236104786-supplement.jpg",
+      "photoSourceUrl": "https://smartbiz.com.br/site/wp-content/uploads/2023/05/SmartBizArtist-Renato_Cohen-ph.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236104786",
       "genre": "Techno",
       "subgenres": [
@@ -1958,7 +2054,15 @@
         "https://www.youtube.com/watch?v=jARvDeCswjM"
       ],
       "recommendedSetId": "jARvDeCswjM",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://smartbiz.com.br/renato-cohen/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236104786-supplement.jpg",
+        "sourceUrl": "https://smartbiz.com.br/site/wp-content/uploads/2023/05/SmartBizArtist-Renato_Cohen-ph.jpg",
+        "pageUrl": "https://smartbiz.com.br/renato-cohen/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1593884399",
@@ -2020,8 +2124,8 @@
     {
       "id": "2828462860",
       "name": "SHEE",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/2828462860-supplement.jpg",
+      "photoSourceUrl": "https://f4.bcbits.com/img/0035528552_21.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=2828462860",
       "genre": "House",
       "subgenres": [
@@ -2032,7 +2136,15 @@
         "https://www.youtube.com/watch?v=-dwGn8UjogY"
       ],
       "recommendedSetId": "-dwGn8UjogY",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://sheee.bandcamp.com/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/2828462860-supplement.jpg",
+        "sourceUrl": "https://f4.bcbits.com/img/0035528552_21.jpg",
+        "pageUrl": "https://sheee.bandcamp.com/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1262723063",
@@ -2077,8 +2189,8 @@
     {
       "id": "3236102328",
       "name": "Smash The House Take Over: Bassjackers",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236102328-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/artists/46/LsID6kWDmbBJfBgwG2QxO1qe3ZmJvpxlNYaoxekm.jpeg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236102328",
       "genre": "EDM",
       "subgenres": [
@@ -2090,7 +2202,15 @@
       ],
       "recommendedSetId": "ypYSzU3fj88",
       "recommendedSetRepresentative": true,
-      "recommendationNote": "Recent official Bassjackers full set, representative of the billed Smash The House takeover."
+      "recommendationNote": "Recent official Bassjackers full set, representative of the billed Smash The House takeover.",
+      "photoSourcePage": "https://www.insomniac.com/music/artists/bassjackers/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236102328-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/artists/46/LsID6kWDmbBJfBgwG2QxO1qe3ZmJvpxlNYaoxekm.jpeg",
+        "pageUrl": "https://www.insomniac.com/music/artists/bassjackers/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "3236100424",
@@ -2321,8 +2441,8 @@
     {
       "id": "3236175239",
       "name": "Vermont",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3236175239-supplement.jpg",
+      "photoSourceUrl": "https://www.vermontlive.art/assets/foto-03.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236175239",
       "genre": "Psytrance",
       "subgenres": [
@@ -2333,13 +2453,21 @@
         "https://www.youtube.com/watch?v=UsNhZ-Czhgc"
       ],
       "recommendedSetId": "UsNhZ-Czhgc",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.vermontlive.art/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3236175239-supplement.jpg",
+        "sourceUrl": "https://www.vermontlive.art/assets/foto-03.jpg",
+        "pageUrl": "https://www.vermontlive.art/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1594454421",
       "name": "Viot",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/1594454421-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/04/16001610/5090536c-3929-11f1-8df0-0a58a9feac02-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594454421",
       "genre": "House",
       "subgenres": [
@@ -2350,13 +2478,21 @@
         "https://www.youtube.com/watch?v=_9msZamUiMw"
       ],
       "recommendedSetId": "_9msZamUiMw",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/viot/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/1594454421-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/04/16001610/5090536c-3929-11f1-8df0-0a58a9feac02-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/viot/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "3092469864",
       "name": "Volkoder",
-      "photoUrl": null,
-      "photoSourceUrl": null,
+      "photoUrl": "/artists/3092469864-supplement.jpg",
+      "photoSourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/10/23214049/vCmJWZ6sSQ3RhShJ8ueFxxXfgV9B27nvQJ9CLS91-972x597.jpg",
       "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3092469864",
       "genre": "House",
       "subgenres": [
@@ -2367,7 +2503,15 @@
         "https://www.youtube.com/watch?v=nSYt0B-EGwA"
       ],
       "recommendedSetId": "nSYt0B-EGwA",
-      "recommendedSetRepresentative": false
+      "recommendedSetRepresentative": false,
+      "photoSourcePage": "https://www.insomniac.com/music/artists/volkoder/",
+      "photoVerifiedAt": "2026-11-11",
+      "photoFallback": {
+        "url": "/artists/3092469864-supplement.jpg",
+        "sourceUrl": "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2026/10/23214049/vCmJWZ6sSQ3RhShJ8ueFxxXfgV9B27nvQJ9CLS91-972x597.jpg",
+        "pageUrl": "https://www.insomniac.com/music/artists/volkoder/",
+        "verifiedAt": "2026-11-11"
+      }
     },
     {
       "id": "1262703149",
