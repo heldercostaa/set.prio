@@ -1,5 +1,5 @@
 @theme {
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
   --color-canvas: var(--bg);
   --color-surface: var(--panel);
   --color-raised: var(--panel-soft);
@@ -145,4 +145,30 @@ h1 {
 
 .priority-p4 {
   --priority: #b7a1ff;
+}
+
+@layer base {
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f2f2f7;
+    --panel: #ffffff;
+    --panel-soft: #f2f2f7;
+    --text: #1c1c1e;
+    --secondary: #626267;
+    --tertiary: #6e6e73;
+    --line: #d1d1d6;
+    --hover: #e5e5ea;
+    --chip: #ececf0;
+    --blue: #0066cc;
+    --blue-soft: #e5f0ff;
+    --blue-line: #a9c8ed;
+    --red: #c62828;
+    --orange: #9c4d00;
+    --yellow: #786100;
+    --teal: #006b5c;
+    --shadow: 0 1rem 3.125rem #0002, 0 0 0 0.0625rem #0001;
+  }
+  :root[data-theme="light"] .priority-p4 {
+    --priority: #6950b0;
+  }
 }

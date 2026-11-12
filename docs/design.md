@@ -58,3 +58,7 @@ Typography uses readable artist labels and quieter metadata. Grouped surfaces st
 Semantic Tailwind tokens map canvas, surface, raised surface, content, muted text, separators, and accents to the shared palette. Component utilities own layout, visual treatments, responsive rules, and compound interaction states. Global CSS contains shared tokens, base styles, motion, and a small compatibility layer for dynamically selected priority colors. These are web adaptations, not Apple-provided components.
 
 The board uses a compact navigation bar, one task heading, uniform calendar symbols, flat priority headings, and quiet artist surfaces. Color identifies priority while separators organize the work area. Hover never changes label geometry.
+
+## Appearance
+
+Dark is the first-visit default. The header provides a persistent light appearance option. Semantic tokens adapt grouped backgrounds, labels, separators, focus rings, and priority accents together. Apple devices use San Francisco through the system font stack; no separately downloaded Apple font is redistributed. Translucency is reserved for floating controls, with opaque semantic surfaces as fallback.
