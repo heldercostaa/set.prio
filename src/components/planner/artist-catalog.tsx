@@ -30,17 +30,17 @@ export function ArtistCatalog({
   );
   return (
     <section
-      className="catalog-section bg-surface border border-separator rounded-4.25 p-6 max-[47.5rem]:[padding:1.125rem_10px]"
+      className="catalog-section bg-surface border border-separator rounded-2xl p-6 max-[47.5rem]:[padding:1.125rem_0.625rem]"
       aria-label={t.allArtists}
     >
-      <div className="catalog-heading flex justify-between [align-items:baseline] gap-3 mb-6 max-[47.5rem]:[margin:0_8px_16px] max-[47.5rem]:flex-col max-[47.5rem]:gap-2">
+      <div className="catalog-heading flex justify-between [align-items:baseline] gap-3 mb-6 max-[47.5rem]:[margin:0_0.5rem_1rem] max-[47.5rem]:flex-col max-[47.5rem]:gap-2">
         <h2>{t.allArtists}</h2>
         <span>
           {catalog.appearances.length} {t.performances} · {individualCount} {t.artistsLower}
         </span>
       </div>
       {visibleArtists.length ? (
-        <div className="catalog-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [gap:0.5rem_20px] max-[68.75rem]:[grid-template-columns:repeat(2,_minmax(0,_1fr))] max-[47.5rem]:[grid-template-columns:minmax(0,_1fr)] max-[47.5rem]:gap-0.5">
+        <div className="catalog-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [gap:0.5rem_1.25rem] max-[68.75rem]:[grid-template-columns:repeat(2,_minmax(0,_1fr))] max-[47.5rem]:[grid-template-columns:minmax(0,_1fr)] max-[47.5rem]:gap-0.5">
           {visibleArtists.map((artist) => (
             <ArtistCard
               key={artist.id}
@@ -52,7 +52,7 @@ export function ArtistCatalog({
           ))}
         </div>
       ) : (
-        <div className="no-results [padding:4.375rem_12px] text-center grid [justify-items:center] gap-3 text-muted">
+        <div className="no-results [padding:4.375rem_0.75rem] text-center grid [justify-items:center] gap-3 text-muted">
           <Search size="1.75rem" />
           <h3>{t.noResults}</h3>
           <p>{t.noResultsHint}</p>

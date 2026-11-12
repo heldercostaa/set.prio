@@ -44,7 +44,7 @@ export function ArtistDetails({
             className="artist-hero w-full h-57.5 [object-position:50%_35%] [font-size:3.75rem] max-[47.5rem]:h-50"
           />
         )}
-        <div className="artist-detail-body [padding:1.375rem_24px_20px]">
+        <div className="artist-detail-body [padding:1.375rem_1.5rem_1.25rem]">
           {!members.length && (
             <>
               <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5">
@@ -64,7 +64,7 @@ export function ArtistDetails({
               <Genres artist={artist} language={language} />
             </>
           )}
-          <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_20px]">
+          <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_1.25rem]">
             <Info size="0.9375rem" />
             <p>{t.genreWarning}</p>
           </div>
@@ -73,7 +73,7 @@ export function ArtistDetails({
               <h3>{t.jointArtists}</h3>
               {members.map((member) => (
                 <section
-                  className="member-details border border-separator rounded-3 overflow-hidden"
+                  className="member-details border border-separator rounded-xl overflow-hidden"
                   aria-label={member.name}
                   key={member.id}
                 >
@@ -143,7 +143,7 @@ export function ArtistDetails({
                     </label>
                   </div>
                   {appearance.artistId !== artist.id && (
-                    <p className="billed-name [font-size:0.6875rem] [line-height:1.6] [margin:0.5rem_0_4px] font-medium">
+                    <p className="billed-name [font-size:0.6875rem] [line-height:1.6] [margin:0.5rem_0_0.25rem] font-medium">
                       {billed?.name}
                     </p>
                   )}
@@ -151,7 +151,7 @@ export function ArtistDetails({
                     {appearance.stage ?? t.stageUnknown}
                   </p>
                   <label
-                    className="notes-label block [margin:1rem_0_7px] [font-size:0.6875rem] font-semibold"
+                    className="notes-label block [margin:1rem_0_0.4375rem] [font-size:0.6875rem] font-semibold"
                     htmlFor={`comment-${appearance.id}`}
                   >
                     {t.notes}
@@ -209,7 +209,7 @@ function RecordingDetails({
         />
         {recording && (
           <>
-            <div className="recording-meta flex flex-wrap [gap:0.3125rem_12px] text-muted [font-size:0.5625rem] [line-height:1.6] [margin:0.625rem_1px_0]">
+            <div className="recording-meta flex flex-wrap [gap:0.3125rem_0.75rem] text-muted [font-size:0.5625rem] [line-height:1.6] [margin:0.625rem_0.0625rem_0]">
               <span>{recording.channel}</span>
               {recording.uploadedAt && (
                 <span>
@@ -235,11 +235,11 @@ function RecordingDetails({
               <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26">
                 <input
                   id={ratingId}
-                  inputMode="numeric"
+                  inputMode="decimal"
                   type="number"
                   min={0}
                   max={10}
-                  step={1}
+                  step="any"
                   placeholder="—"
                   aria-describedby={helpId}
                   aria-invalid={ratingError}
@@ -247,7 +247,7 @@ function RecordingDetails({
                   onChange={(event) => {
                     const value = event.target.value;
                     const number = Number(value);
-                    if (value !== '' && (!Number.isInteger(number) || number < 0 || number > 10)) {
+                    if (value !== '' && (!Number.isFinite(number) || number < 0 || number > 10)) {
                       setRatingError(true);
                       return;
                     }

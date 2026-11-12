@@ -37,7 +37,7 @@ function PriorityGroup({
     >
       <div className="group-heading flex items-center justify-between mb-3">
         {priority ? (
-          <h3 className="priority-badge inline-flex items-center gap-1.25 [color:var(--priority)] text-xs font-semibold [line-height:1.2] [padding:0.375rem_8px] rounded-1.5 [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] max-[68.75rem]:text-xs max-[68.75rem]:p-1.5 max-[47.5rem]:text-xs max-[47.5rem]:[padding:0.375rem_8px]">
+          <h3 className="priority-badge inline-flex items-center gap-1.25 [color:var(--priority)] text-xs font-semibold [line-height:1.2] [padding:0.375rem_0.5rem] rounded-md [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] max-[68.75rem]:text-xs max-[68.75rem]:p-1.5 max-[47.5rem]:text-xs max-[47.5rem]:[padding:0.375rem_0.5rem]">
             <span className="priority-dot w-1 h-1 [border-radius:100%] [background:currentColor]" />
             {priority}
             <span className="priority-name font-semibold ml-0.5 pl-1.5 [border-left:0.0625rem_solid_color-mix(in_srgb,_var(--priority)_27%,_transparent)] max-[68.75rem]:[margin-left:0] max-[68.75rem]:pl-1 max-[47.5rem]:pl-1.5">
@@ -73,7 +73,7 @@ function PriorityGroup({
             ))}
           </AnimatePresence>
           {appearances.length === 0 && (
-            <p className="empty-priority [color:var(--tertiary)] [font-size:0.625rem] [line-height:1.65] max-w-66.25 [padding:0.125rem_1px] max-[47.5rem]:[font-size:0.6875rem]">
+            <p className="empty-priority [color:var(--tertiary)] [font-size:0.625rem] [line-height:1.65] max-w-66.25 [padding:0.125rem_0.0625rem] max-[47.5rem]:[font-size:0.6875rem]">
               {priority === 'P0' ? t.emptyPriority : '—'}
             </p>
           )}
@@ -113,10 +113,10 @@ export function DayColumn({
   const t = messages(language);
   return (
     <article
-      className={`day-column border border-separator rounded-4.25 bg-surface [overflow:clip] [box-shadow:0_2px_5px_#00000002] day-${index}`}
+      className={`day-column border border-separator rounded-2xl bg-surface [overflow:clip] [box-shadow:0_0.125rem_0.3125rem_#00000002] day-${index}`}
       aria-label={dayName(day, language)}
     >
-      <header className="day-heading [padding:1.25rem_20px_18px] bg-surface [border-bottom:0.0625rem_solid_var(--line)] max-[68.75rem]:[padding:1.125rem_14px] max-[47.5rem]:[padding:1.1875rem_19px_18px]">
+      <header className="day-heading [padding:1.25rem_1.25rem_1.125rem] bg-surface [border-bottom:0.0625rem_solid_var(--line)] max-[68.75rem]:[padding:1.125rem_0.875rem] max-[47.5rem]:[padding:1.1875rem_1.1875rem_1.125rem]">
         <div className="day-date flex justify-between items-center text-muted [font-size:0.625rem] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] mb-2.75 max-[47.5rem]:text-xs max-[47.5rem]:mb-3">
           {day ? shortDate(day, language) : '—'}
           <span>
@@ -137,7 +137,7 @@ export function DayColumn({
           </span>
         </div>
       </header>
-      <div className="day-groups [padding:0_18px] max-[68.75rem]:[padding:0_13px] max-[47.5rem]:[padding:0_18px]">
+      <div className="day-groups [padding:0_1.125rem] max-[68.75rem]:[padding:0_0.8125rem] max-[47.5rem]:[padding:0_1.125rem]">
         {[...PRIORITIES, null].map((priority) => (
           <PriorityGroup
             key={priority ?? 'none'}

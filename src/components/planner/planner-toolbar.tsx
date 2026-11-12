@@ -24,7 +24,7 @@ export function PlannerToolbar({
   return (
     <div className="toolbar flex items-center gap-4.5 mb-4.5 max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:1fr_auto] max-[47.5rem]:gap-3.5 max-[47.5rem]:mb-4">
       <fieldset
-        className="view-switch flex shrink-0 p-0.75 border border-separator [background:color-mix(in_srgb,_var(--line)_45%,_transparent)] rounded-2.75 max-[47.5rem]:[width:max-content]"
+        className="view-switch flex shrink-0 p-0.75 border border-separator [background:color-mix(in_srgb,_var(--line)_45%,_transparent)] rounded-xl max-[47.5rem]:[width:max-content]"
         aria-label={language === 'en' ? 'View' : 'Visualização'}
       >
         <button
@@ -42,7 +42,7 @@ export function PlannerToolbar({
           <span>{individualCount}</span>
         </button>
       </fieldset>
-      <div className="search flex items-center gap-2.25 [flex:1] [min-width:6.25rem] max-w-112.5 min-h-11 border border-separator bg-surface rounded-2.5 [padding:0_13px] [color:var(--tertiary)] max-[47.5rem]:[grid-column:1_/_-1] max-[47.5rem]:[grid-row:2] max-[47.5rem]:[max-width:none]">
+      <div className="search flex items-center gap-2.25 [flex:1] [min-width:6.25rem] max-w-112.5 min-h-11 border border-separator bg-surface rounded-xl [padding:0_0.8125rem] [color:var(--tertiary)] max-[47.5rem]:[grid-column:1_/_-1] max-[47.5rem]:[grid-row:2] max-[47.5rem]:[max-width:none]">
         <Search size="1.0625rem" />
         <input
           type="search"

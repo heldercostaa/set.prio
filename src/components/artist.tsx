@@ -1,7 +1,7 @@
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import { ArrowUpRight, Disc3, GripVertical, Music2, Play, Star } from 'lucide-react';
+import { ArrowUpRight, Disc3, Music2, Play, Star } from 'lucide-react';
 import { motion, useIsPresent } from 'motion/react';
 import {
   createContext,
@@ -98,12 +98,12 @@ export function SetLink({
     );
   return (
     <a
-      className={`set-link flex items-center gap-3 border border-separator bg-raised rounded-2.75 p-3.25 min-h-16.5 [transition:border-color_0.15s,_background_0.15s] ${compact ? 'compact-set' : ''}`}
+      className={`set-link flex items-center gap-3 border border-separator bg-raised rounded-xl p-3.25 min-h-16.5 [transition:border-color_0.15s,_background_0.15s] ${compact ? 'compact-set' : ''}`}
       href={recording.youtubeUrl}
       target="_blank"
       rel="noreferrer"
     >
-      <span className="play-icon grid [place-items:center] w-8.75 h-8.75 rounded-2.25 [color:var(--red)] [background:color-mix(in_srgb,_var(--red)_9%,_transparent)] shrink-0">
+      <span className="play-icon grid [place-items:center] w-8.75 h-8.75 rounded-lg [color:var(--red)] [background:color-mix(in_srgb,_var(--red)_9%,_transparent)] shrink-0">
         <Play size={compact ? 14 : 18} fill="currentColor" />
       </span>
       <span className="set-link-text flex flex-col gap-1 min-w-0">
@@ -240,7 +240,7 @@ export function ArtistChip({
             type="button"
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_10px] text-sm font-medium [line-height:1.5] text-left rounded-1.75 border border-separator [background:var(--chip)] text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_10px] ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-separator [background:var(--chip)] text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}
@@ -256,16 +256,11 @@ export function ArtistChip({
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
             <span>{artist.name}</span>
-            <GripVertical
-              size="0.75rem"
-              className="chip-grip shrink-0 [color:var(--tertiary)] w-3 [opacity:0] [transition:opacity_0.12s]"
-              aria-hidden="true"
-            />
           </button>
         </HoverCard.Trigger>
         <HoverCard.Portal>
           <HoverCard.Content
-            className="artist-preview w-72 [max-width:calc(100vw_-_24px)] bg-surface text-content rounded-3.75 overflow-hidden [box-shadow:var(--shadow)] [z-index:40] [animation:reveal_0.16s_ease-out] [max-height:min(32.5rem,_calc(100dvh_-_32px))] overflow-y-auto max-[47.5rem]:hidden"
+            className="artist-preview w-72 [max-width:calc(100vw_-_1.5rem)] bg-surface text-content rounded-2xl overflow-hidden [box-shadow:var(--shadow)] [z-index:40] [animation:reveal_0.16s_ease-out] [max-height:min(32.5rem,_calc(100dvh_-_2rem))] overflow-y-auto max-[47.5rem]:hidden"
             side="right"
             align="start"
             sticky="always"
@@ -300,13 +295,13 @@ export function ArtistCard({
       layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="catalog-card min-w-0 flex items-center text-left gap-3 min-h-20.75 [padding:0.5625rem_10px] bg-transparent rounded-2.75 [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_8px] max-[47.5rem]:gap-3"
+      className="catalog-card min-w-0 flex items-center text-left gap-3 min-h-20.75 [padding:0.5625rem_0.625rem] bg-transparent rounded-xl [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_0.5rem] max-[47.5rem]:gap-3"
       data-artist-id={artist.id}
       onClick={() => onOpen(artist.id)}
     >
       <Portrait
         artist={artist}
-        className="catalog-photo w-13.75 h-13.75 rounded-2.5 shrink-0 max-[47.5rem]:w-14 max-[47.5rem]:h-14"
+        className="catalog-photo w-13.75 h-13.75 rounded-xl shrink-0 max-[47.5rem]:w-14 max-[47.5rem]:h-14"
       />
       <span className="catalog-card-body flex flex-col gap-1.25 min-w-0">
         <strong>{artist.name}</strong>

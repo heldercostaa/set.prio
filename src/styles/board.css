@@ -69,11 +69,6 @@
   background: var(--panel);
 }
 
-.artist-chip:hover .chip-grip,
-.artist-chip:focus-visible .chip-grip {
-  opacity: 1;
-}
-
 .unranked-group {
   border-bottom: 0;
   padding-top: 0.75rem;
