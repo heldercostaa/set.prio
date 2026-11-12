@@ -36,7 +36,7 @@
 @keyframes sheet-in {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(1.875rem);
   }
   to {
     opacity: 1;

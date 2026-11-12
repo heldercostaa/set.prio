@@ -5,7 +5,7 @@ import type { Language } from '../../types';
 export function SiteFooter({ language, onAbout }: { language: Language; onAbout: () => void }) {
   const t = messages(language);
   return (
-    <footer className="site-footer [margin:0_auto] max-w-364 [padding:22px_0_30px] [border-top:1px_solid_var(--line)] flex justify-between gap-4 text-muted [font-size:10px] min-[1537px]:max-w-364 max-[1536px]:ml-10 max-[1536px]:mr-10 max-[1100px]:ml-6 max-[1100px]:mr-6 max-[760px]:[margin:0_20px] max-[760px]:[padding:20px_0] max-[760px]:flex-col max-[760px]:[gap:10px] max-[760px]:[font-size:10px]">
+    <footer className="site-footer [margin:0_auto] max-w-364 [padding:1.375rem_0_30px] [border-top:0.0625rem_solid_var(--line)] flex justify-between gap-4 text-muted [font-size:0.625rem] min-[96.0625rem]:max-w-364 max-[96rem]:ml-10 max-[96rem]:mr-10 max-[68.75rem]:ml-6 max-[68.75rem]:mr-6 max-[47.5rem]:[margin:0_20px] max-[47.5rem]:[padding:1.25rem_0] max-[47.5rem]:flex-col max-[47.5rem]:gap-2.5 max-[47.5rem]:[font-size:0.625rem]">
       <div>
         <span>
           {t.createdBy}{' '}
@@ -14,7 +14,7 @@ export function SiteFooter({ language, onAbout }: { language: Language; onAbout:
             <ArrowUpRight size={12} />
           </a>
         </span>
-        <span className="footer-note [color:var(--tertiary)] max-[760px]:[font-size:9px]">
+        <span className="footer-note [color:var(--tertiary)] max-[47.5rem]:[font-size:0.5625rem]">
           {t.officialNote}
         </span>
       </div>

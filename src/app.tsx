@@ -92,7 +92,7 @@ export function App() {
       <ArtistPreviewContext.Provider value={!selected && !about && !manual}>
         <ArtistPreviewCoordinator>
           <a
-            className="skip-link fixed [top:-60px] [left:16px] [z-index:100] p-3 [background:var(--panel)] rounded-2"
+            className="skip-link fixed [top:-3.75rem] [left:1rem] [z-index:100] p-3 [background:var(--panel)] rounded-2"
             href="#main"
           >
             {' '}
@@ -101,13 +101,13 @@ export function App() {
           <SiteHeader language={language} />
           <main
             id="main"
-            className="app-main max-w-384 [padding:40px_40px_0] [margin:auto] max-[1100px]:[padding:30px_24px_0] max-[760px]:[padding:28px_20px_0] max-[360px]:[padding:24px_16px_0]"
+            className="app-main max-w-384 [padding:2.5rem_40px_0] [margin:auto] max-[68.75rem]:[padding:1.875rem_24px_0] max-[47.5rem]:[padding:1.75rem_20px_0] max-[22.5rem]:[padding:1.5rem_16px_0]"
           >
-            <div className="page-heading flex justify-between items-center [gap:22px] mb-8 max-[760px]:mb-6 max-[760px]:items-start">
+            <div className="page-heading flex justify-between items-center gap-5.5 mb-8 max-[47.5rem]:mb-6 max-[47.5rem]:items-start">
               <div>
-                <div className="event-kicker flex gap-2 items-center [color:var(--secondary)] text-xs mb-3 font-medium max-[760px]:[font-size:10px] max-[760px]:[margin-bottom:10px]">
+                <div className="event-kicker flex gap-2 items-center [color:var(--secondary)] text-xs mb-3 font-medium max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:mb-2.5">
                   {t.dateRange}
-                  <span className="location [font-size:9px] font-semibold [letter-spacing:0.085em] pl-2 [margin-left:2px] [border-left:1px_solid_var(--line)] max-[1100px]:hidden">
+                  <span className="location [font-size:0.5625rem] font-semibold [letter-spacing:0.085em] pl-2 ml-0.5 [border-left:0.0625rem_solid_var(--line)] max-[68.75rem]:hidden">
                     ITU, SÃO PAULO
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export function App() {
             </div>
             {state.storageError && (
               <div
-                className="storage-warning flex items-start [gap:10px] [padding:12px_15px] mb-5 [border:1px_solid_color-mix(in_srgb,_var(--orange)_35%,_transparent)] [background:color-mix(in_srgb,_var(--orange)_6%,_transparent)] [border-radius:10px] text-xs [line-height:1.65]"
+                className="storage-warning flex items-start gap-2.5 [padding:0.75rem_15px] mb-5 [border:0.0625rem_solid_color-mix(in_srgb,_var(--orange)_35%,_transparent)] [background:color-mix(in_srgb,_var(--orange)_6%,_transparent)] rounded-2.5 text-xs [line-height:1.65]"
                 role="alert"
               >
                 <Info size={17} />
@@ -144,14 +144,14 @@ export function App() {
               onSearch={setSearch}
               count={entries.length}
             />
-            <div className="genre-notice flex items-center [gap:11px] bg-transparent border-y border-separator [color:var(--secondary)] [border-radius:11px] [padding:14px_0] mb-6 max-[760px]:[padding:14px_0] max-[760px]:gap-2 max-[760px]:items-start max-[760px]:mb-5">
+            <div className="genre-notice flex items-center gap-2.75 bg-transparent border-y border-separator [color:var(--secondary)] rounded-2.75 [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5">
               <Info size={17} />
               <p>
                 <strong>{t.genreTitle}.</strong> {t.genreWarning}
               </p>
               <button
                 type="button"
-                className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent [color:var(--secondary)] [border-radius:10px] shrink-0"
+                className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent [color:var(--secondary)] rounded-2.5 shrink-0"
                 aria-label={t.sources}
                 onClick={() => setAbout(true)}
               >
@@ -168,7 +168,7 @@ export function App() {
                 onOpen={openArtist}
               />
             )}
-            <div className="board-bottom flex justify-between gap-3 [padding:22px_0_24px] [color:var(--secondary)] [font-size:10px] max-[760px]:flex-col max-[760px]:[padding:20px_0] max-[760px]:[gap:10px] max-[760px]:[font-size:9px]">
+            <div className="board-bottom flex justify-between gap-3 [padding:1.375rem_0_24px] [color:var(--secondary)] [font-size:0.625rem] max-[47.5rem]:flex-col max-[47.5rem]:[padding:1.25rem_0] max-[47.5rem]:gap-2.5 max-[47.5rem]:[font-size:0.5625rem]">
               <span>
                 <LockKeyhole size={13} />
                 {t.privacy}
@@ -202,7 +202,7 @@ export function App() {
             {toast && (
               <motion.div
                 role="status"
-                className="toast fixed [z-index:110] [bottom:28px] [left:50%] [transform:translateX(-50%)] [width:max-content] [max-width:calc(100vw_-_32px)] flex items-center [gap:10px] [color:var(--text)] [background:var(--panel)] [box-shadow:var(--shadow)] [border:1px_solid_var(--line)] rounded-3 [padding:15px_19px] text-xs max-[760px]:[bottom:20px] max-[760px]:[font-size:11px] max-[760px]:[line-height:1.6]"
+                className="toast fixed [z-index:110] [bottom:1.75rem] [left:50%] [transform:translateX(-50%)] [width:max-content] [max-width:calc(100vw_-_32px)] flex items-center gap-2.5 [color:var(--text)] [background:var(--panel)] [box-shadow:var(--shadow)] [border:0.0625rem_solid_var(--line)] rounded-3 [padding:0.9375rem_19px] text-xs max-[47.5rem]:[bottom:1.25rem] max-[47.5rem]:[font-size:0.6875rem] max-[47.5rem]:[line-height:1.6]"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 14 }}

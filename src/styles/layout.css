@@ -2,8 +2,8 @@
   display: block;
   border-radius: 23%;
   box-shadow:
-    0 0 0 1px #ffffff40,
-    0 3px 10px #0008;
+    0 0 0 0.0625rem #ffffff40,
+    0 0.1875rem 0.625rem #0008;
 }
 
 .wordmark > span {
@@ -15,20 +15,20 @@
 }
 
 .brand p {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--secondary);
-  margin-top: 5px;
+  margin-top: 0.3125rem;
   letter-spacing: 0.005em;
 }
 
 .language-control > svg {
-  margin-right: 5px;
+  margin-right: 0.3125rem;
 }
 
 .language-control button {
-  min-width: 35px;
-  min-height: 44px;
-  border-radius: 8px;
+  min-width: 2.1875rem;
+  min-height: 2.75rem;
+  border-radius: 0.5rem;
   background: transparent;
   font-weight: 600;
   color: var(--secondary);
@@ -41,33 +41,33 @@
 
 .page-heading > div > p {
   color: var(--secondary);
-  font-size: 14px;
-  margin-top: 9px;
+  font-size: 0.875rem;
+  margin-top: 0.5625rem;
 }
 
 .view-switch button {
-  min-height: 44px;
+  min-height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 13px;
-  gap: 7px;
+  padding: 0 0.8125rem;
+  gap: 0.4375rem;
   color: var(--secondary);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   background: transparent;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .view-switch button[aria-pressed="true"] {
   color: var(--text);
   background: var(--panel);
-  box-shadow: 0 1px 4px #0000000c;
+  box-shadow: 0 0.0625rem 0.25rem #0000000c;
 }
 
 .view-switch button > span {
   color: var(--secondary);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 500;
 }
 
@@ -78,14 +78,14 @@
   width: 100%;
   background: transparent;
   border: 0;
-  font-size: 12px;
-  line-height: 42px;
+  font-size: 0.75rem;
+  line-height: 2.625rem;
   color: var(--text);
 }
 
 .search:focus-within {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--blue);
+  outline-offset: 0.125rem;
 }
 
 .search input:focus-visible {
@@ -98,7 +98,7 @@
 
 .plan-count svg {
   color: var(--teal);
-  margin-right: 3px;
+  margin-right: 0.1875rem;
 }
 
 .plan-count strong {
@@ -112,7 +112,7 @@
 }
 
 .genre-notice p {
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.65;
 }
 
@@ -123,21 +123,21 @@
 
 .genre-notice > .icon-button {
   margin-left: auto;
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   color: var(--blue);
 }
 
 .site-footer > div {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .site-footer a {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 0.125rem;
 }
 
 .site-footer a:hover,
@@ -150,83 +150,83 @@
   background: none;
   color: inherit;
   font-size: inherit;
-  min-height: 30px;
+  min-height: 1.875rem;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .brand img {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   .brand p {
-    font-size: 9px;
+    font-size: 0.5625rem;
   }
   .language-control > svg,
   .github-link {
     display: none;
   }
   .language-control button {
-    min-width: 31px;
-    min-height: 44px;
-    font-size: 10px;
+    min-width: 1.9375rem;
+    min-height: 2.75rem;
+    font-size: 0.625rem;
   }
   .page-heading > div > p {
-    font-size: 12px;
-    max-width: 210px;
+    font-size: 0.75rem;
+    max-width: 13.125rem;
     line-height: 1.5;
   }
   .view-switch button {
-    min-height: 44px;
-    padding: 0 13px;
+    min-height: 2.75rem;
+    padding: 0 0.8125rem;
   }
   .genre-notice > svg {
-    width: 15px;
-    margin-top: 2px;
+    width: 0.9375rem;
+    margin-top: 0.125rem;
   }
   .genre-notice p {
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 1.7;
   }
   .genre-notice > .icon-button {
     display: none;
   }
   .site-footer > div {
-    gap: 16px;
+    gap: 1rem;
     justify-content: space-between;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 22.5rem) {
   .brand p {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
   .brand img {
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
   }
   .language-control button {
-    min-width: 27px;
+    min-width: 1.6875rem;
   }
   .view-switch button {
-    padding: 0 10px;
-    font-size: 11px;
+    padding: 0 0.625rem;
+    font-size: 0.6875rem;
   }
   .plan-count svg {
     display: none;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .language-control button {
-    min-width: 44px;
-    width: 44px;
-    min-height: 44px;
+    min-width: 2.75rem;
+    width: 2.75rem;
+    min-height: 2.75rem;
   }
   .view-switch button,
   .search-clear {
-    min-height: 44px;
+    min-height: 2.75rem;
   }
   .genre-notice p {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }

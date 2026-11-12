@@ -41,21 +41,21 @@ export function ArtistDetails({
         {!members.length && (
           <Portrait
             artist={artist}
-            className="artist-hero w-full [height:230px] [object-position:50%_35%] [font-size:60px] max-[760px]:h-50"
+            className="artist-hero w-full h-57.5 [object-position:50%_35%] [font-size:3.75rem] max-[47.5rem]:h-50"
           />
         )}
-        <div className="artist-detail-body [padding:22px_24px_20px]">
+        <div className="artist-detail-body [padding:1.375rem_24px_20px]">
           {!members.length && (
             <>
-              <div className="detail-topline flex items-center justify-between [gap:10px] mb-3 max-[760px]:items-start max-[360px]:flex-col max-[360px]:[gap:6px]">
-                <span className="eyebrow [font-size:11px] font-semibold [letter-spacing:0.045em]">
+              <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5">
+                <span className="eyebrow [font-size:0.6875rem] font-semibold [letter-spacing:0.045em]">
                   {t.genreShort}
                 </span>
                 <a
                   href={artist.officialUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
+                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
                 >
                   {t.officialProfile}
                   <ArrowUpRight size={13} />
@@ -64,7 +64,7 @@ export function ArtistDetails({
               <Genres artist={artist} language={language} />
             </>
           )}
-          <div className="detail-warning flex gap-2 [font-size:10px] [line-height:1.65] text-muted [margin:15px_0_20px]">
+          <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_20px]">
             <Info size={15} />
             <p>{t.genreWarning}</p>
           </div>
@@ -78,14 +78,14 @@ export function ArtistDetails({
                   key={member.id}
                 >
                   <Portrait artist={member} className="member-portrait w-full h-45" />
-                  <div className="member-details-body [padding:18px]">
-                    <div className="detail-topline flex items-center justify-between [gap:10px] mb-3 max-[760px]:items-start max-[360px]:flex-col max-[360px]:[gap:6px]">
+                  <div className="member-details-body p-4.5">
+                    <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5">
                       <h3>{member.name}</h3>
                       <a
                         href={member.officialUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
+                        className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
                       >
                         {t.officialProfile}
                         <ArrowUpRight size={13} />
@@ -106,20 +106,20 @@ export function ArtistDetails({
               heading={members.length ? t.jointRecording : undefined}
             />
           )}
-          <section className="detail-section [padding:20px_0] [border-top:1px_solid_var(--line)] performances-editor">
+          <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] performances-editor">
             <h3>{t.related}</h3>
             {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
             {appearances.map((appearance) => {
               const billed = artistById.get(appearance.artistId);
               return (
-                <div className="appearance-editor [padding:16px_0]" key={appearance.id}>
-                  <div className="appearance-heading flex justify-between items-center [gap:14px] [margin-bottom:6px] max-[360px]:gap-2 max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-3">
+                <div className="appearance-editor [padding:1rem_0]" key={appearance.id}>
+                  <div className="appearance-heading flex justify-between items-center gap-3.5 mb-1.5 max-[22.5rem]:gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3">
                     <div>
                       <strong>{dayName(appearance.day, language)}</strong>
                       {appearance.day && <span>{longDate(appearance.day, language)}</span>}
                     </div>
-                    <label className="priority-select relative [max-width:205px] [min-width:150px] max-[760px]:min-w-0 max-[760px]:[max-width:none] max-[760px]:w-full max-[360px]:[min-width:125px]">
-                      <span className="sr-only absolute [width:1px] [height:1px] overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
+                    <label className="priority-select relative max-w-51.25 [min-width:9.375rem] max-[47.5rem]:min-w-0 max-[47.5rem]:[max-width:none] max-[47.5rem]:w-full max-[22.5rem]:[min-width:7.8125rem]">
+                      <span className="sr-only absolute w-0.25 h-0.25 overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
                         {t.priority} · {dayName(appearance.day, language)} · {billed?.name}
                       </span>
                       <select
@@ -143,7 +143,7 @@ export function ArtistDetails({
                     </label>
                   </div>
                   {appearance.artistId !== artist.id && (
-                    <p className="billed-name [font-size:11px] [line-height:1.6] [margin:8px_0_4px] font-medium">
+                    <p className="billed-name [font-size:0.6875rem] [line-height:1.6] [margin:0.5rem_0_4px] font-medium">
                       {billed?.name}
                     </p>
                   )}
@@ -151,7 +151,7 @@ export function ArtistDetails({
                     {appearance.stage ?? t.stageUnknown}
                   </p>
                   <label
-                    className="notes-label block [margin:16px_0_7px] [font-size:11px] font-semibold"
+                    className="notes-label block [margin:1rem_0_7px] [font-size:0.6875rem] font-semibold"
                     htmlFor={`comment-${appearance.id}`}
                   >
                     {t.notes}
@@ -171,7 +171,7 @@ export function ArtistDetails({
               );
             })}
           </section>
-          <p className="saved-note flex items-center justify-center [gap:5px] text-muted [font-size:9px] [padding-top:17px]">
+          <p className="saved-note flex items-center justify-center gap-1.25 text-muted [font-size:0.5625rem] pt-4.25">
             <Check size={13} />
             {state.storageError ? t.privacy : t.saved}
           </p>
@@ -200,7 +200,7 @@ function RecordingDetails({
   const helpId = `rating-help-${artist.id}`;
   return (
     <>
-      <section className="detail-section [padding:20px_0] [border-top:1px_solid_var(--line)]">
+      <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)]">
         <h3>{heading ?? t.recommended}</h3>
         <SetLink
           recording={recording}
@@ -209,7 +209,7 @@ function RecordingDetails({
         />
         {recording && (
           <>
-            <div className="recording-meta flex flex-wrap [gap:5px_12px] text-muted [font-size:9px] [line-height:1.6] [margin:10px_1px_0]">
+            <div className="recording-meta flex flex-wrap [gap:0.3125rem_12px] text-muted [font-size:0.5625rem] [line-height:1.6] [margin:0.625rem_1px_0]">
               <span>{recording.channel}</span>
               {recording.uploadedAt && (
                 <span>
@@ -222,7 +222,7 @@ function RecordingDetails({
                 </span>
               )}
             </div>
-            <div className="rating-row flex justify-between items-center gap-4 [margin-top:21px] max-[760px]:[gap:10px]">
+            <div className="rating-row flex justify-between items-center gap-4 mt-5.25 max-[47.5rem]:gap-2.5">
               <div>
                 <label htmlFor={ratingId}>
                   <Star size={16} />
@@ -232,7 +232,7 @@ function RecordingDetails({
                   {t.ratingHint}
                 </p>
               </div>
-              <div className="rating-controls flex items-center [gap:6px] flex-wrap [max-width:115px] shrink-0 [justify-content:flex-end] max-[760px]:max-w-26">
+              <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26">
                 <input
                   id={ratingId}
                   inputMode="numeric"
@@ -258,7 +258,7 @@ function RecordingDetails({
                 <span>/ 10</span>
                 <button
                   type="button"
-                  className="text-link inline-flex items-center gap-1 text-accent [font-size:11px] bg-transparent p-0"
+                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
                   disabled={state.ratings[recording.id] == null}
                   onClick={() => {
                     state.setRating(recording.id, null);
@@ -272,7 +272,7 @@ function RecordingDetails({
             {ratingError && (
               <p
                 role="alert"
-                className="field-error [font-size:11px] [color:var(--red)] [margin-top:10px]"
+                className="field-error [font-size:0.6875rem] [color:var(--red)] mt-2.5"
               >
                 {t.invalidRating}
               </p>
@@ -280,7 +280,7 @@ function RecordingDetails({
           </>
         )}
       </section>
-      <details className="research-details [border-top:1px_solid_var(--line)] [padding-top:15px] [font-size:10px] text-muted">
+      <details className="research-details [border-top:0.0625rem_solid_var(--line)] pt-3.75 [font-size:0.625rem] text-muted">
         <summary>
           {t.setDetails} &amp; {t.genreSources}
         </summary>

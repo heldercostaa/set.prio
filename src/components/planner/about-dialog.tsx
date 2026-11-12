@@ -39,7 +39,7 @@ export function AboutDialog({
           </p>
           {catalog.sources.map((url) => (
             <a
-              className="source-link inline-flex items-center gap-1 text-accent [font-size:10px] [margin:4px_12px_0_0] [overflow-wrap:anywhere] [max-width:100%]"
+              className="source-link inline-flex items-center gap-1 text-accent [font-size:0.625rem] [margin:0.25rem_12px_0_0] [overflow-wrap:anywhere] [max-width:100%]"
               href={url}
               target="_blank"
               rel="noreferrer"
