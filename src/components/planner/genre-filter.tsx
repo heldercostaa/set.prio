@@ -17,7 +17,7 @@ export function GenreFilter({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator bg-surface px-3 text-sm"
+          className="max-[47.5rem]:col-start-1 max-[47.5rem]:row-start-3 max-[47.5rem]:justify-self-start inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator bg-surface px-3 text-sm"
           aria-label={label}
         >
           {label}

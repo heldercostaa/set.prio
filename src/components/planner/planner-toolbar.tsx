@@ -68,7 +68,7 @@ export function PlannerToolbar({
         )}
       </div>
       <GenreFilter language={language} selected={genres} onChange={onGenres} />
-      <span className="plan-count [margin-left:auto] whitespace-nowrap flex items-center gap-1.5 text-muted [font-size:0.6875rem] max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:gap-1.25 max-[22.5rem]:[font-size:0.5625rem] max-[22.5rem]:gap-0.75">
+      <span className="plan-count max-[47.5rem]:col-start-2 max-[47.5rem]:row-start-1 [margin-left:auto] whitespace-nowrap flex items-center gap-1.5 text-muted [font-size:0.6875rem] max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:gap-1.25 max-[22.5rem]:[font-size:0.5625rem] max-[22.5rem]:gap-0.75">
         <CheckCheck size="1rem" />
         <strong>{count}</strong>
         <span>{t.prioritized}</span>
