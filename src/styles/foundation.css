@@ -110,47 +110,11 @@
   }
 }
 
-.skip-link:focus {
-  top: 0.625rem;
-}
-
-.icon-button:hover {
-  background: var(--hover);
-  color: var(--text);
-}
-
 h1 {
   font-size: clamp(1.5625rem, 2.4vw, 2rem);
   line-height: 1.18;
   font-weight: 700;
   letter-spacing: -0.035em;
-}
-
-.button:active:not(:disabled) {
-  transform: scale(0.98);
-}
-
-.button:hover:not(:disabled) {
-  background: var(--hover);
-}
-
-.button.primary {
-  color: #fff;
-  background: #0071e3;
-  border-color: transparent;
-  box-shadow: 0 0.0625rem 0.125rem #0001;
-}
-
-.button.primary:hover:not(:disabled) {
-  background: #0077ed;
-}
-
-.button.primary:disabled {
-  background: var(--panel);
-  border-color: var(--line);
-  color: var(--tertiary);
-  opacity: 1;
-  box-shadow: none;
 }
 
 .compact-set {
@@ -159,28 +123,11 @@ h1 {
   gap: 0.5rem;
 }
 
-.text-link:hover:not(:disabled) {
-  text-decoration: underline;
-}
-
-.storage-warning svg {
-  flex-shrink: 0;
-  color: var(--orange);
-  margin-top: 0.125rem;
-}
-
-.toast > svg {
-  flex-shrink: 0;
-  color: var(--teal);
-}
-
 @media (max-width: 47.5rem) {
   h1 {
     font-size: 1.5625rem;
   }
 }
-
-/* Native control groups and minimum mobile hit areas. */
 
 @layer base {
   fieldset {
@@ -195,8 +142,6 @@ h1 {
     padding: 0;
   }
 }
-
-/* Joint acts keep each member's identity and recording separate. */
 
 .priority-p4 {
   --priority: #b7a1ff;

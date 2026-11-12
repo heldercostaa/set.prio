@@ -59,12 +59,15 @@ export function Genres({ artist, language }: { artist: Artist; language: Languag
     <div className="genre-tags flex gap-1.25 flex-wrap">
       {artist.genre ? (
         <>
-          <span className="genre-tag text-content font-semibold">
+          <span className="genre-tag text-content font-semibold inline-flex items-center gap-1.25 [font-size:0.625rem] [line-height:1.4] [padding:0.3125rem_0.4375rem] rounded-sm [background:var(--chip)]">
             <Music2 size="0.75rem" />
             {artist.genre}
           </span>
           {artist.subgenres.map((genre) => (
-            <span className="subgenre-tag text-muted" key={genre}>
+            <span
+              className="subgenre-tag text-muted inline-flex items-center gap-1.25 [font-size:0.625rem] [line-height:1.4] [padding:0.3125rem_0.4375rem] rounded-sm [background:var(--chip)]"
+              key={genre}
+            >
               {genre}
             </span>
           ))}
@@ -91,14 +94,14 @@ export function SetLink({
   const t = messages(language);
   if (!recording)
     return (
-      <div className="set-unavailable flex items-center gap-2 text-muted [font-size:0.6875rem] [padding:0.75rem_0] [line-height:1.6]">
+      <div className="set-unavailable flex items-center gap-2 text-muted [font-size:0.6875rem] [padding:0.75rem_0] [line-height:1.6] [&_svg]:shrink-0">
         <Disc3 size="1.0625rem" />
         <span>{t.unavailable}</span>
       </div>
     );
   return (
     <a
-      className={`set-link flex items-center gap-3 border border-separator bg-raised rounded-xl p-3.25 min-h-16.5 [transition:border-color_0.15s,_background_0.15s] ${compact ? 'compact-set' : ''}`}
+      className={`set-link flex items-center gap-3 border border-separator bg-raised rounded-xl p-3.25 min-h-16.5 [transition:border-color_0.15s,_background_0.15s] hover:[background:var(--hover)] hover:[border-color:var(--tertiary)] [&_>_svg]:text-muted [&_>_svg]:[margin-left:auto] [&_>_svg]:shrink-0 ${compact ? 'compact-set' : ''}`}
       href={recording.youtubeUrl}
       target="_blank"
       rel="noreferrer"
@@ -106,7 +109,7 @@ export function SetLink({
       <span className="play-icon grid [place-items:center] w-8.75 h-8.75 rounded-lg [color:var(--red)] [background:color-mix(in_srgb,_var(--red)_9%,_transparent)] shrink-0">
         <Play size={compact ? 14 : 18} fill="currentColor" />
       </span>
-      <span className="set-link-text flex flex-col gap-1 min-w-0">
+      <span className="set-link-text flex flex-col gap-1 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:text-muted [&_>_span]:[font-size:0.625rem]">
         <strong>{recording.eventLabel}</strong>{' '}
         <span>
           {(representative ?? recording.representative) ? t.representative : recording.channel}
@@ -133,7 +136,7 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
             aria-label={member.name}
             key={member.id}
           >
-            <div className="preview-member-heading flex gap-3 items-center">
+            <div className="preview-member-heading flex gap-3 items-center [&_>_.portrait]:w-13.5 [&_>_.portrait]:h-13.5 [&_>_.portrait]:rounded-lg [&_>_.portrait]:shrink-0 [&_>_div]:min-w-0 [&_>_div]:grid [&_>_div]:gap-1.75">
               <Portrait artist={member} />
               <div>
                 <strong>{member.name}</strong>
@@ -242,7 +245,7 @@ export function ArtistChip({
             type="button"
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-separator [background:var(--chip)] text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-separator [background:var(--chip)] text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:[border-color:var(--tertiary)] hover:[box-shadow:0_0.0625rem_0.25rem_#00000008] active:[cursor:grabbing] [&.is-prioritized]:bg-surface ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}
@@ -307,7 +310,7 @@ export function ArtistCard({
       layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="catalog-card min-w-0 flex items-center text-left gap-3 min-h-20.75 [padding:0.5625rem_0.625rem] bg-transparent rounded-xl [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_0.5rem] max-[47.5rem]:gap-3"
+      className="catalog-card min-w-0 flex items-center text-left gap-3 min-h-20.75 [padding:0.5625rem_0.625rem] bg-transparent rounded-xl [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_0.5rem] max-[47.5rem]:gap-3 hover:[background:var(--hover)]"
       data-artist-id={artist.id}
       onClick={() => onOpen(artist.id)}
     >
@@ -315,19 +318,22 @@ export function ArtistCard({
         artist={artist}
         className="catalog-photo w-13.75 h-13.75 rounded-xl shrink-0 max-[47.5rem]:w-14 max-[47.5rem]:h-14"
       />
-      <span className="catalog-card-body flex flex-col gap-1.25 min-w-0">
+      <span className="catalog-card-body flex flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
         <strong>{artist.name}</strong>
         <span>{artist.genre ?? messages(language).unknownGenre}</span>
       </span>
       {prioritized ? (
         <Star
           size="1.0625rem"
-          className="selected-star [color:var(--orange)]"
+          className="selected-star [color:var(--orange)] [margin-left:auto] shrink-0 [color:var(--tertiary)]"
           fill="currentColor"
           aria-label={messages(language).prioritized}
         />
       ) : (
-        <ArrowUpRight size="1.0625rem" className="catalog-open" />
+        <ArrowUpRight
+          size="1.0625rem"
+          className="catalog-open [margin-left:auto] shrink-0 [color:var(--tertiary)]"
+        />
       )}
     </motion.button>
   );

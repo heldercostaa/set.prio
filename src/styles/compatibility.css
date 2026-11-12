@@ -1,0 +1,66 @@
+.day-1 .day-icon {
+  color: var(--blue);
+}
+
+.day-2 .day-icon {
+  color: var(--teal);
+}
+
+.priority-p0 {
+  --priority: var(--red);
+}
+
+.priority-p1 {
+  --priority: var(--orange);
+}
+
+.priority-p2 {
+  --priority: var(--yellow);
+}
+
+.priority-p3 {
+  --priority: var(--teal);
+}
+
+.unranked-group {
+  border-bottom: 0;
+  padding-top: 0.75rem;
+}
+
+.unranked-group .group-heading {
+  margin-bottom: 0.375rem;
+}
+
+.unranked-group .artist-chip {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  background: var(--panel-soft);
+}
+
+.drop-active {
+  background: color-mix(in srgb, var(--priority) 8%, transparent);
+  outline: 0.125rem dashed var(--priority);
+  outline-offset: 0.3125rem;
+}
+
+@media (max-width: 47.5rem) {
+  .artist-chip,
+  .unranked-group .artist-chip {
+    min-height: 2.75rem;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.625rem;
+  }
+}
+
+.compact-set .play-icon {
+  width: 1.8125rem;
+  height: 1.8125rem;
+}
+
+.compact-set .set-link-text strong {
+  font-size: 0.625rem;
+}
+
+.compact-set .set-link-text span {
+  font-size: 0.5625rem;
+}

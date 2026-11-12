@@ -33,7 +33,7 @@ function PriorityGroup({
   return (
     <section
       ref={setNodeRef}
-      className={`priority-group ${isOver ? 'drop-active ' : ''}${priority ? `priority-${priority.toLowerCase()}` : 'unranked-group'}`}
+      className={`priority-group [padding:1.0625rem_0_1.125rem] min-h-25.75 [border-bottom:0.0625rem_solid_var(--line)] [transition:background_0.18s] rounded-xs [--priority:var(--secondary)] max-[47.5rem]:min-h-26.25 max-[47.5rem]:[padding:1.1875rem_0] [&:has(.empty-priority)]:min-h-22 ${isOver ? 'drop-active ' : ''}${priority ? `priority-${priority.toLowerCase()}` : 'unranked-group'}`}
       aria-label={`${dayName(day, language)} · ${label}`}
       data-testid={`${day ?? 'tba'}-${priority ?? 'unprioritized'}`}
     >
@@ -49,7 +49,7 @@ function PriorityGroup({
         ) : (
           <button
             type="button"
-            className="unranked-toggle min-h-8 bg-transparent flex items-center gap-1.5 p-0 text-muted [font-size:0.6875rem] font-semibold max-[47.5rem]:min-h-11"
+            className="unranked-toggle min-h-8 bg-transparent flex items-center gap-1.5 p-0 text-muted [font-size:0.6875rem] font-semibold max-[47.5rem]:min-h-11 [&_svg]:[transition:transform_0.15s] [&_svg.collapsed]:[transform:rotate(-90deg)]"
             aria-expanded={expanded}
             onClick={() => setExpanded(!expanded)}
           >
@@ -126,19 +126,19 @@ export function DayColumn({
       aria-label={dayName(day, language)}
     >
       <header className="day-heading [padding:1.25rem_1.25rem_1.125rem] bg-surface [border-bottom:0.0625rem_solid_var(--line)] max-[68.75rem]:[padding:1.125rem_0.875rem] max-[47.5rem]:[padding:1.1875rem_1.1875rem_1.125rem]">
-        <div className="day-date flex justify-between items-center text-muted [font-size:0.625rem] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] mb-2.75 max-[47.5rem]:text-xs max-[47.5rem]:mb-3">
+        <div className="day-date flex justify-between items-center text-muted [font-size:0.625rem] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] mb-2.75 max-[47.5rem]:text-xs max-[47.5rem]:mb-3 [&_>_span]:[font-size:0.625rem] [&_>_span]:[font-weight:400] [&_>_span]:[text-transform:none] [&_>_span]:[letter-spacing:0]">
           {day ? shortDate(day, language) : '—'}
           <span>
             {total.length} {t.performances}
           </span>
         </div>
-        <div className="day-title flex items-center gap-2.5 max-[68.75rem]:gap-1.75 max-[47.5rem]:gap-2.5">
+        <div className="day-title flex items-center gap-2.5 max-[68.75rem]:gap-1.75 max-[47.5rem]:gap-2.5 [&_h2]:[font-size:1.375rem] [&_h2]:[font-weight:650] [&_h2]:[letter-spacing:-0.035em] max-[68.75rem]:[&_h2]:text-xl max-[47.5rem]:[&_h2]:text-2xl">
           <span className="day-icon inline-flex items-center [color:var(--orange)]">
             <Icon size="1.25rem" strokeWidth={1.8} />
           </span>
           <h2>{dayName(day, language)}</h2>
           <span
-            className="day-progress flex [align-items:baseline] gap-0.5 [margin-left:auto] text-xs font-semibold [font-variant-numeric:tabular-nums]"
+            className="day-progress flex [align-items:baseline] gap-0.5 [margin-left:auto] text-xs font-semibold [font-variant-numeric:tabular-nums] [&_>_span]:[color:var(--tertiary)] [&_>_span]:[font-size:0.625rem] [&_>_span]:[font-weight:400]"
             title={`${ranked}/${total.length}`}
           >
             {ranked}

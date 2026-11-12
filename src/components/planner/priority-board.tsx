@@ -66,7 +66,7 @@ export function PriorityBoard({
           accessibility={{ screenReaderInstructions: { draggable: t.move } }}
         >
           <fieldset
-            className="mobile-days hidden max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:repeat(3,_minmax(0,_1fr))] max-[47.5rem]:gap-1 max-[47.5rem]:[background:color-mix(in_srgb,_var(--line)_50%,_transparent)] max-[47.5rem]:border border-separator max-[47.5rem]:rounded-xl max-[47.5rem]:p-0.75 max-[47.5rem]:mb-4"
+            className="mobile-days hidden max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:repeat(3,_minmax(0,_1fr))] max-[47.5rem]:gap-1 max-[47.5rem]:[background:color-mix(in_srgb,_var(--line)_50%,_transparent)] max-[47.5rem]:border border-separator max-[47.5rem]:rounded-xl max-[47.5rem]:p-0.75 max-[47.5rem]:mb-4 max-[47.5rem]:[&_button]:min-h-11 max-[47.5rem]:[&_button]:bg-transparent max-[47.5rem]:[&_button]:rounded-lg max-[47.5rem]:[&_button]:[font-size:0.8125rem] max-[47.5rem]:[&_button]:font-semibold max-[47.5rem]:[&_button]:text-muted max-[47.5rem]:[&_button[aria-pressed='true']]:text-content max-[47.5rem]:[&_button[aria-pressed='true']]:bg-surface max-[47.5rem]:[&_button[aria-pressed='true']]:[box-shadow:0_0.0625rem_0.25rem_#0001] max-[22.5rem]:[&_button]:text-xs"
             aria-label={t.officialDay}
           >
             {DAYS.map((day) => (
@@ -83,7 +83,7 @@ export function PriorityBoard({
           <div className="board-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block">
             {DAYS.map((day, index) => (
               <div
-                className={`day-slot min-w-0 max-[47.5rem]:hidden ${state.activeDay === day ? 'active-day' : ''}`}
+                className={`day-slot min-w-0 max-[47.5rem]:hidden max-[47.5rem]:[&.active-day]:block ${state.activeDay === day ? 'active-day' : ''}`}
                 key={day}
               >
                 <DayColumn
