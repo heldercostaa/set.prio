@@ -51,7 +51,7 @@ export function FloatingPriorityTargets({
       aria-label={
         language === 'en' ? 'Floating priority drop zones' : 'Áreas flutuantes de prioridade'
       }
-      className="pointer-events-none fixed bottom-20 right-4 z-50 w-[min(22rem,calc(100vw_-_2rem))] rounded-2xl border border-separator bg-surface/95 p-3 text-content shadow-xl backdrop-blur-xl pb-[max(.75rem,env(safe-area-inset-bottom))]"
+      className="pointer-events-none fixed bottom-[calc(5rem_+_env(safe-area-inset-bottom))] right-4 z-50 w-[min(22rem,calc(100vw_-_2rem))] rounded-2xl border border-separator bg-surface/95 p-3 text-content shadow-xl backdrop-blur-xl pb-[max(.75rem,env(safe-area-inset-bottom))]"
     >
       <div className="mb-2 flex items-center justify-between gap-2">
         <p className="min-w-0 text-xs text-muted">

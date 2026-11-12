@@ -196,7 +196,7 @@ export function ArtistChip({
   language: Language;
   priority: Priority | null;
   onOpen: (id: string) => void;
-  onQuick?: (id: string) => void;
+  onQuick?: (id: string | null) => void;
 }) {
   const artist = artistById.get(appearance.artistId);
   const isPresent = useIsPresent();

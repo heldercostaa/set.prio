@@ -12,7 +12,7 @@ import {
   useSensors,
   type DragEndEvent,
 } from '@dnd-kit/core';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { ArtistPreviewContext } from '../artist';
 import { artistById, catalog } from '../../data';
 import { dayName, messages } from '../../i18n';
@@ -32,7 +32,7 @@ export function PriorityBoard({
   search: string;
   genres?: string[];
   onOpen: (id: string) => void;
-  onQuick?: (id: string) => void;
+  onQuick?: (id: string | null) => void;
   hoveredAppearance?: string | null;
 }) {
   const previewsAllowed = useContext(ArtistPreviewContext);
@@ -41,8 +41,6 @@ export function PriorityBoard({
   const [dragName, setDragName] = useState<string | null>(null);
   const [keyboardDrag, setKeyboardDrag] = useState(false);
   const [dragAppearance, setDragAppearance] = useState<Appearance | null>(null);
-  const [hidden, setHidden] = useState(false);
-  useEffect(() => setHidden(false), []);
   const [announcement, setAnnouncement] = useState('');
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 7 } }),
@@ -75,7 +73,6 @@ export function PriorityBoard({
             setKeyboardDrag(activatorEvent.type === 'keydown');
             const a = active.data.current?.appearance as Appearance;
             setDragAppearance(a);
-            setHidden(false);
             setDragName(artistById.get(a.artistId)?.name ?? null);
             setAnnouncement(t.dragStarted);
           }}
@@ -137,13 +134,10 @@ export function PriorityBoard({
           )}
           <FloatingPriorityTargets
             appearance={
-              dragAppearance ??
-              (hidden
-                ? null
-                : (catalog.appearances.find((a) => a.id === hoveredAppearance) ?? null))
+              dragAppearance ?? catalog.appearances.find((a) => a.id === hoveredAppearance) ?? null
             }
             language={language}
-            onClose={() => setHidden(true)}
+            onClose={() => onQuick?.(null)}
           />
           <DragOverlay>
             {dragName && (
