@@ -133,7 +133,11 @@ export function PriorityBoard({
                 <div
                   className={`day-slot min-w-0 max-[47.5rem]:w-full max-[47.5rem]:[transform:translateX(var(--day-offset))] ${state.activeDay === day ? 'active-day max-[47.5rem]:relative' : 'max-[47.5rem]:absolute max-[47.5rem]:top-0 max-[47.5rem]:left-0'}`}
                   key={day}
-                  style={{ '--day-offset': `${index * 100}%` } as CSSProperties}
+                  style={
+                    {
+                      '--day-offset': `calc(${index * 100}% + ${index} * var(--day-gap, 0rem))`,
+                    } as CSSProperties
+                  }
                   inert={mobile && state.activeDay !== day}
                   aria-hidden={(mobile && state.activeDay !== day) || undefined}
                 >

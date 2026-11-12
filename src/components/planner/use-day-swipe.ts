@@ -10,6 +10,8 @@ export function useDaySwipe(
 ) {
   const track = useRef<HTMLDivElement>(null);
   const width = useRef(0);
+  const gap = useRef(0);
+  const stride = () => width.current + gap.current;
   const x = useMotionValue(0);
   const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const animation = useRef<AnimationPlaybackControls | null>(null);
@@ -21,7 +23,7 @@ export function useDaySwipe(
     offset: number;
     locked: boolean;
   } | null>(null);
-  const base = () => -DAYS.indexOf(day) * width.current;
+  const base = () => -DAYS.indexOf(day) * stride();
   const stop = useCallback(() => {
     generation.current++;
     animation.current?.stop();
@@ -51,7 +53,9 @@ export function useDaySwipe(
       stop();
       start.current = null;
       width.current = node.clientWidth;
-      x.set(-DAYS.indexOf(day) * width.current);
+      gap.current = parseFloat(getComputedStyle(node).columnGap) || 0;
+      node.style.setProperty('--day-gap', `${gap.current}px`);
+      x.set(-DAYS.indexOf(day) * (width.current + gap.current));
     };
     resize();
     const observer = new ResizeObserver(() => {
@@ -73,7 +77,7 @@ export function useDaySwipe(
         onDayChange(nextDay);
         return;
       }
-      settle(-DAYS.indexOf(nextDay) * width.current, nextDay);
+      settle(-DAYS.indexOf(nextDay) * stride(), nextDay);
     },
     onTouchStart(event: TouchEvent<HTMLDivElement>) {
       start.current = null;
@@ -132,7 +136,7 @@ export function useDaySwipe(
       if (Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy) * 1.5) {
         event.preventDefault();
         if (nextDay) {
-          settle(-DAYS.indexOf(nextDay) * width.current, nextDay);
+          settle(-DAYS.indexOf(nextDay) * stride(), nextDay);
           return;
         }
       }
