@@ -721,25 +721,6 @@
       }
     },
     {
-      "id": "act:3236165984",
-      "name": "Ekanta & Swarup + Special Surprise Act",
-      "photoUrl": null,
-      "photoSourceUrl": null,
-      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=1594421366",
-      "genre": "Psytrance",
-      "subgenres": [],
-      "genreSources": [
-        "https://www.youtube.com/watch?v=9j8ByvqzJkE"
-      ],
-      "recommendedSetId": "9j8ByvqzJkE",
-      "memberIds": [
-        "1594421366",
-        "3236168275"
-      ],
-      "recommendedSetRepresentative": true,
-      "recommendationNote": "Representative recording featuring Ekanta & Swarup. This is not an exact recording of the billed joint act."
-    },
-    {
       "id": "1568023510",
       "name": "ELFIGO",
       "photoUrl": "/artists/1568023510.jpg",
@@ -2004,17 +1985,6 @@
       "recommendedSetRepresentative": false
     },
     {
-      "id": "3236168275",
-      "name": "Special Surprise Act",
-      "photoUrl": null,
-      "photoSourceUrl": null,
-      "officialUrl": "https://brasil.tomorrowland.com/pt/line-up/?page=artists&artist=3236168275",
-      "genre": null,
-      "subgenres": [],
-      "genreSources": [],
-      "recommendedSetId": null
-    },
-    {
       "id": "1532641809",
       "name": "Stephani B",
       "photoUrl": "/artists/1532641809.jpg",
@@ -2666,7 +2636,7 @@
     },
     {
       "id": "3236165984",
-      "artistId": "act:3236165984",
+      "artistId": "1594421366",
       "day": "2027-05-02"
     },
     {
@@ -4328,13 +4298,13 @@
       "representative": false
     }
   ],
-  "sourceArtistCount": 122,
+  "sourceArtistCount": 121,
   "billedActCount": 113,
   "sourceNotes": [
     "The official source has no timetable. Placeholder start/end times are not presented as set times.",
     "Genre labels are LLM-assisted subjective estimates. Source recording links are evidence to assess the interpretation, not authoritative genre declarations.",
     "YouTube search verified recording titles, channels, durations, and view counts. Watch pages verified upload dates where available; HTTP 429 rate limiting leaves remaining dates null.",
-    "MC STRETCH is a host and Special Surprise Act is unidentified. No suitable artist-specific full recording was verified for either entry.",
+    "MC STRETCH is a host. No suitable artist-specific full recording was verified.",
     "Performance 3236098959 (Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer): date=2027-05-01, rendered day=2027-04-30. The catalog follows the official component's rendered day.",
     "Performance 3236152497 (Krewella): date=2027-05-02, rendered day=2027-05-01. The catalog follows the official component's rendered day."
   ]

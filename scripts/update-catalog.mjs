@@ -41,7 +41,16 @@ async function refresh() {
     (weekend) => `${cdn}${block.event}-${weekend.name}-${block.uuid}.json`
   );
   const weeks = await Promise.all(weekendUrls.map(async (url) => JSON.parse(await fetchText(url))));
-  const performances = weeks.flatMap((week) => week.performances ?? []);
+  // Omit the unidentified placeholder while retaining the performance's stable ID.
+  const performances = weeks
+    .flatMap((week) => week.performances ?? [])
+    .map((performance) => ({
+      ...performance,
+      name: performance.name.replace(/\s*\+\s*Special Surprise Act\b/gi, ''),
+      artists: (performance.artists ?? []).filter(
+        (artist) => artist.name.trim().toLowerCase() !== 'special surprise act'
+      ),
+    }));
   if (!performances.length)
     throw new Error(
       'The official source returned no performances; existing catalog was preserved.'
