@@ -1,3 +1,4 @@
+import { ImageShareDialog } from './components/planner/image-share-dialog';
 import { MobileActions } from './components/planner/mobile-actions';
 import { PriorityBoard } from './components/planner/priority-board';
 import { ArtistCatalog } from './components/planner/artist-catalog';
@@ -37,6 +38,7 @@ export function App() {
   const [manual, setManual] = useState<ReturnType<typeof notionPayload> | null>(null);
   const [toast, setToast] = useState('');
   const [busy, setBusy] = useState(false);
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const trigger = useRef<HTMLElement | null>(null);
   const entries = useMemo(() => collectEntries(catalog, state), [state]);
   const artist = selected ? artistById.get(selected) : undefined;
@@ -74,7 +76,13 @@ export function App() {
         );
         setToast(t.downloaded);
       } else if (format === 'image') {
-        downloadBlob(await boardImage(entries, language), 'set-prio-brasil-2027.png');
+        const blob = await boardImage(entries, language);
+        const file = new File([blob], 'set-prio-brasil-2027.png', { type: 'image/png' });
+        if (navigator.canShare?.({ files: [file] })) {
+          setImageFile(file);
+          return;
+        }
+        downloadBlob(file, file.name);
         setToast(t.downloaded);
       } else {
         const payload = notionPayload(entries, language);
@@ -93,7 +101,9 @@ export function App() {
   };
   return (
     <MotionConfig reducedMotion="user">
-      <ArtistPreviewContext.Provider value={!selected && !about && !manual && !quickAppearance}>
+      <ArtistPreviewContext.Provider
+        value={!selected && !about && !manual && !imageFile && !quickAppearance}
+      >
         <ArtistPreviewCoordinator>
           <a
             className="skip-link fixed [top:-3.75rem] [left:1rem] [z-index:100] p-3 [background:var(--panel)] rounded-lg focus:[top:0.625rem]"
@@ -201,6 +211,11 @@ export function App() {
               restoreFocus={restoreFocus}
             />
           )}
+          <ImageShareDialog
+            file={imageFile}
+            language={language}
+            onClose={() => setImageFile(null)}
+          />
           <MobileActions
             appearance={catalog.appearances.find((a) => a.id === quickAppearance) ?? null}
             language={language}
