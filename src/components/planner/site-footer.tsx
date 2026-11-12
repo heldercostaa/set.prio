@@ -1,3 +1,4 @@
+import { ResetPlan } from './reset-plan';
 import { ArrowUpRight } from 'lucide-react';
 import { messages } from '../../i18n';
 import type { Language } from '../../types';
@@ -19,6 +20,7 @@ export function SiteFooter({ language, onAbout }: { language: Language; onAbout:
         </span>
       </div>
       <div>
+        <ResetPlan language={language} />
         <a href="https://github.com/heldercostaa/set.prio" target="_blank" rel="noreferrer">
           GitHub <ArrowUpRight size="0.75rem" />
         </a>

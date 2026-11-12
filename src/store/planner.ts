@@ -109,3 +109,26 @@ usePlanner.subscribe((state, previous) => {
     if (state.storageError !== 'unavailable') usePlanner.setState({ storageError: 'unavailable' });
   }
 });
+
+export function resetPlanner(): boolean {
+  try {
+    const keys = Object.keys(localStorage).filter(
+      (key) =>
+        key === STORAGE_KEY ||
+        key.startsWith(`${STORAGE_KEY}:backup:`) ||
+        key === 'set.prio:appearance'
+    );
+    for (const key of keys) localStorage.removeItem(key);
+    initial.writable = true;
+    usePlanner.setState({
+      ...defaults,
+      priorities: {},
+      ratings: {},
+      comments: {},
+      storageError: null,
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
