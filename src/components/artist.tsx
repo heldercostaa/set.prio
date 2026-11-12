@@ -29,7 +29,13 @@ export function ArtistPreviewCoordinator({ children }: { children: ReactNode }) 
     </PreviewOwnerContext.Provider>
   );
 }
-import { artistById, recordingById, membersFor } from '../data';
+import {
+  artistById,
+  recordingById,
+  membersFor,
+  jointRecordingFor,
+  ratingArtistsFor,
+} from '../data';
 import { dayName, messages } from '../i18n';
 import type { Appearance, Artist, Language, Priority, Recording } from '../types';
 
@@ -101,11 +107,13 @@ export function SetLink({
   language,
   compact = false,
   representative,
+  prominent = false,
 }: {
   recording: Recording | undefined;
   language: Language;
   compact?: boolean;
   representative?: boolean;
+  prominent?: boolean;
 }) {
   const t = messages(language);
   if (!recording)
@@ -117,7 +125,7 @@ export function SetLink({
     );
   return (
     <a
-      className={`set-link flex items-center gap-3 border border-separator bg-raised rounded-xl p-3.25 min-h-16.5 [transition:border-color_0.15s,_background_0.15s] hover:[background:var(--hover)] hover:[border-color:var(--tertiary)] [&_>_svg]:text-muted [&_>_svg]:[margin-left:auto] [&_>_svg]:shrink-0 ${compact ? 'compact-set' : ''}`}
+      className={`set-link flex items-center gap-3 border border-separator bg-raised rounded-xl p-3.25 min-h-16.5 [transition:border-color_0.15s,_background_0.15s] hover:[background:var(--hover)] hover:[border-color:var(--tertiary)] [&_>_svg]:text-muted [&_>_svg]:[margin-left:auto] [&_>_svg]:shrink-0 ${compact ? 'compact-set' : ''} ${prominent ? 'min-h-22 p-4 [&_.play-icon]:size-11 [&_.set-link-text_strong]:text-base' : ''}`}
       href={recording.youtubeUrl}
       target="_blank"
       rel="noreferrer"
@@ -146,6 +154,14 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
         <strong className="preview-name [font-size:1.0625rem] [letter-spacing:-0.02em]">
           <ArtistName artist={artist} language={language} />
         </strong>
+        {jointRecordingFor(artist) && (
+          <section aria-label={messages(language).jointRecording} className="grid gap-2">
+            <span className="text-xs font-semibold text-content">
+              {messages(language).jointRecording}
+            </span>
+            <SetLink recording={recording} language={language} prominent />
+          </section>
+        )}
         {members.map((member) => (
           <section
             className="preview-member grid gap-2.5 pt-3 [border-top:0.0625rem_solid_var(--line)]"
@@ -171,14 +187,6 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
             />
           </section>
         ))}
-        {recording && !(artist.recommendedSetRepresentative ?? recording.representative) && (
-          <>
-            <span className="eyebrow [font-size:0.6875rem] font-semibold [letter-spacing:0.045em] muted text-muted">
-              {messages(language).jointRecording}
-            </span>
-            <SetLink recording={recording} language={language} compact />
-          </>
-        )}
       </div>
     );
   return (
@@ -243,7 +251,7 @@ export function ArtistChip({
   const ratings = usePlanner((s) => s.ratings);
   const bonus =
     artist &&
-    [artist, ...membersFor(artist)].some(
+    ratingArtistsFor(artist, ratings).some(
       (act) => act.recommendedSetId && ratings[act.recommendedSetId] === 11
     );
   if (!artist) return null;

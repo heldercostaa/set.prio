@@ -1,6 +1,6 @@
 import { messages } from '../i18n';
 import { ArtistName } from './artist-nationality';
-import { membersFor } from '../data';
+import { membersFor, ratingArtistsFor } from '../data';
 import { usePlanner } from '../store/planner';
 import type { Artist, Language } from '../types';
 import { WatchedStatus } from './watched-status';
@@ -19,7 +19,7 @@ export function ArtistRating({
   const t = messages(language);
   const ratings = usePlanner((s) => s.ratings);
   const members = membersFor(artist);
-  const acts = members.length ? members : [artist];
+  const acts = ratingArtistsFor(artist, ratings);
   const rated = acts.filter((act) => act.recommendedSetId && ratings[act.recommendedSetId] != null);
   if (!rated.length) return name ? <ArtistName artist={artist} language={language} /> : null;
   return (
@@ -42,7 +42,11 @@ export function ArtistRating({
                   }
                 >
                   {members.length ? (
-                    act.name
+                    act.id === artist.id ? (
+                      t.jointRecording
+                    ) : (
+                      act.name
+                    )
                   ) : catalog ? (
                     t.ratingLabel
                   ) : (

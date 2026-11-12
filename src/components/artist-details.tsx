@@ -1,7 +1,14 @@
 import { ArtistNationality } from './artist-nationality';
 import { RecordingRating } from './recording-rating';
 import { Check, ChevronDown, ExternalLink, Info } from 'lucide-react';
-import { appearancesFor, artistById, catalog, recordingById, membersFor } from '../data';
+import {
+  appearancesFor,
+  artistById,
+  catalog,
+  recordingById,
+  membersFor,
+  jointRecordingFor,
+} from '../data';
 import { dayName, longDate, messages, priorityLabel } from '../i18n';
 import { usePlanner } from '../store/planner';
 import { PRIORITIES, type Artist, type Language, type Priority } from '../types';
@@ -21,11 +28,10 @@ export function ArtistDetails({
 }) {
   const t = messages(language);
   const state = usePlanner();
-  const recording = artist.recommendedSetId
-    ? recordingById.get(artist.recommendedSetId)
-    : undefined;
   const appearances = appearancesFor(artist);
   const members = membersFor(artist);
+  const jointRecording = jointRecordingFor(artist);
+  const jointRated = jointRecording && state.ratings[jointRecording.id] != null;
   return (
     <Modal
       open
@@ -66,6 +72,14 @@ export function ArtistDetails({
             <Info size="0.9375rem" />
             <p>{t.genreWarning}</p>
           </div>
+          {jointRecording && (
+            <RecordingDetails
+              artist={artist}
+              language={language}
+              heading={t.jointRecording}
+              primary
+            />
+          )}
           {members.length ? (
             <section
               className="joint-artists grid gap-5 mt-6 [&_>_h3]:text-base"
@@ -87,20 +101,17 @@ export function ArtistDetails({
                       <ArtistNationality artist={member} language={language} expanded />
                     </div>
                     <Genres artist={member} language={language} />
-                    <RecordingDetails artist={member} language={language} />
+                    <RecordingDetails
+                      artist={member}
+                      language={language}
+                      showRating={!jointRated}
+                    />
                   </div>
                 </section>
               ))}
             </section>
           ) : null}
-          {(!members.length ||
-            (recording && !(artist.recommendedSetRepresentative ?? recording.representative))) && (
-            <RecordingDetails
-              artist={artist}
-              language={language}
-              heading={members.length ? t.jointRecording : undefined}
-            />
-          )}
+          {!members.length && <RecordingDetails artist={artist} language={language} />}
           <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] performances-editor [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
             <h3>{t.related}</h3>
             {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
@@ -206,22 +217,34 @@ function RecordingDetails({
   artist,
   language,
   heading,
+  primary = false,
+  showRating = true,
 }: {
   artist: Artist;
   language: Language;
   heading?: string;
+  primary?: boolean;
+  showRating?: boolean;
 }) {
   const t = messages(language);
   const recording = artist.recommendedSetId
     ? recordingById.get(artist.recommendedSetId)
     : undefined;
   return (
-    <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
+    <section
+      aria-label={heading ?? t.recommended}
+      className={
+        primary
+          ? 'detail-section mb-6 rounded-2xl border border-separator bg-raised p-5 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mb-4'
+          : 'detail-section py-5 border-t border-separator [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:mb-3'
+      }
+    >
       <h3>{heading ?? t.recommended}</h3>
       <SetLink
         recording={recording}
         language={language}
         representative={artist.recommendedSetRepresentative}
+        prominent={primary}
       />
       {recording && (
         <>
@@ -238,7 +261,9 @@ function RecordingDetails({
               </span>
             )}
           </div>
-          <RecordingRating recordingId={recording.id} artistId={artist.id} language={language} />
+          {showRating && (
+            <RecordingRating recordingId={recording.id} artistId={artist.id} language={language} />
+          )}
         </>
       )}
     </section>

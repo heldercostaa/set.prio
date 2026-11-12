@@ -1,11 +1,10 @@
 import { CircleCheck } from 'lucide-react';
-import { membersFor } from '../data';
+import { ratingArtistsFor } from '../data';
 import { usePlanner } from '../store/planner';
 import type { Artist, Language } from '../types';
 export function WatchedStatus({ artist, language }: { artist: Artist; language: Language }) {
   const ratings = usePlanner((s) => s.ratings);
-  const members = membersFor(artist);
-  const artists = members.length ? members : [artist];
+  const artists = ratingArtistsFor(artist, ratings);
   const watched = artists.filter((a) => a.recommendedSetId && ratings[a.recommendedSetId] != null);
   if (!watched.length) return null;
   const complete = watched.length === artists.length;
