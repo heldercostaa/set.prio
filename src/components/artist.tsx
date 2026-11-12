@@ -1,4 +1,5 @@
 import { WatchedStatus } from './watched-status';
+import { DragHint } from './drag-hint';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
@@ -230,7 +231,7 @@ export function ArtistChip({
       layout="position"
       initial={{ opacity: 0, y: 3 }}
       animate={{ opacity: isDragging ? 0.35 : 1, y: 0 }}
-      className="chip-wrapper flex [flex:0_0_auto] [width:max-content] min-w-0 [max-width:100%]"
+      className="chip-wrapper relative hover:z-20 focus-within:z-20 flex [flex:0_0_auto] [width:max-content] min-w-0 [max-width:100%]"
       onPointerEnter={() => onQuick?.(appearance.id)}
       onFocusCapture={() => onQuick?.(appearance.id)}
       inert={!isPresent}
@@ -248,7 +249,7 @@ export function ArtistChip({
             type="button"
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip group/card relative flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}
@@ -264,6 +265,7 @@ export function ArtistChip({
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
             <span>{artist.name}</span>
+            <DragHint />
             <WatchedStatus artist={artist} language={language} />
           </button>
         </HoverCard.Trigger>
