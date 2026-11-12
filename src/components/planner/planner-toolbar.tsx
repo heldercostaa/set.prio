@@ -1,15 +1,18 @@
+import { useRef } from 'react';
 import { CountryFilter } from './country-filter';
 import { ArtistSort } from './artist-sort';
 import type { ArtistSort as Sort } from '../../utils/artist-sort';
 import type { WatchFilter } from '../../data';
 import { controlClassName, controlCountClassName, controlOptionClassName } from '../ui/control';
 import { GenreFilter } from './genre-filter';
-import { Grid2X2, ListMusic, Search, X } from 'lucide-react';
+import { Grid2X2, ListMusic, RotateCcw, Search, X } from 'lucide-react';
 import { catalog } from '../../data';
 import { messages } from '../../i18n';
 import type { Language } from '../../types';
 
 export function PlannerToolbar({
+  onResetFilters,
+  hasFilters,
   sort,
   onSort,
   language,
@@ -24,6 +27,8 @@ export function PlannerToolbar({
   watched,
   onWatched,
 }: {
+  onResetFilters: () => void;
+  hasFilters: boolean;
   sort: Sort;
   onSort: (value: Sort) => void;
   language: Language;
@@ -38,6 +43,7 @@ export function PlannerToolbar({
   genres: string[];
   onGenres: (genres: string[]) => void;
 }) {
+  const searchInput = useRef<HTMLInputElement>(null);
   const t = messages(language);
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
@@ -72,7 +78,7 @@ export function PlannerToolbar({
         <GenreFilter language={language} selected={genres} onChange={onGenres} />
         <CountryFilter language={language} selected={countries} onChange={onCountries} />
         <label
-          className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:flex-1`}
+          className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:min-w-48 max-[47.5rem]:flex-1`}
         >
           <span className="sr-only">
             {language === 'en' ? 'Watched status' : 'Status de visualização'}
@@ -94,6 +100,7 @@ export function PlannerToolbar({
         >
           <Search size="1rem" />
           <input
+            ref={searchInput}
             type="search"
             placeholder={t.search}
             aria-label={t.search}
@@ -112,6 +119,19 @@ export function PlannerToolbar({
           )}
         </div>
         <ArtistSort value={sort} onChange={onSort} language={language} />
+        {hasFilters && (
+          <button
+            type="button"
+            onClick={() => {
+              onResetFilters();
+              searchInput.current?.focus();
+            }}
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised"
+          >
+            <RotateCcw size="0.875rem" aria-hidden="true" />
+            {t.resetFilters}
+          </button>
+        )}
       </div>
     </div>
   );

@@ -51,6 +51,8 @@ const en = {
   jointRecording: 'Joint performance recording',
   notes: 'Your comment',
   notesPlaceholder: 'What do you want to remember?',
+  home: 'Home',
+  resetFilters: 'Reset filters',
   sortBy: 'Sort artists',
   sortHint:
     'Rating sorts keep unrated artists last. For b2b acts, the highest-rated member set is used.',
@@ -173,6 +175,8 @@ const pt: typeof en = {
   jointRecording: 'Gravação da apresentação conjunta',
   notes: 'Seu comentário',
   notesPlaceholder: 'O que você quer lembrar?',
+  home: 'Início',
+  resetFilters: 'Limpar filtros',
   sortBy: 'Ordenar artistas',
   sortHint:
     'Artistas sem avaliação ficam por último. Para b2b, vale a maior avaliação entre os sets dos integrantes.',
