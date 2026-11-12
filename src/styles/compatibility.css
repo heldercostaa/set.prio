@@ -1,11 +1,3 @@
-.day-1 .day-icon {
-  color: var(--blue);
-}
-
-.day-2 .day-icon {
-  color: var(--teal);
-}
-
 .priority-p0 {
   --priority: var(--red);
 }

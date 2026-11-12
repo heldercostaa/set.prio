@@ -23,7 +23,7 @@ export function SiteHeader({ language }: { language: Language }) {
   const setLanguage = usePlanner((s) => s.setLanguage);
   return (
     <header className="site-header [border-bottom:0.0625rem_solid_var(--line)] bg-surface">
-      <div className="header-inner max-w-384 [margin:auto] [padding:1.125rem_2.5rem] flex items-center justify-between gap-4 max-[68.75rem]:[padding:1.25rem_1.5rem] max-[47.5rem]:[padding:1rem_1.25rem] max-[47.5rem]:gap-2 max-[22.5rem]:p-4">
+      <div className="header-inner max-w-384 [margin:auto] px-10 py-3 flex items-center justify-between gap-4 max-[68.75rem]:[padding:1.25rem_1.5rem] max-[47.5rem]:[padding:1rem_1.25rem] max-[47.5rem]:gap-2 max-[22.5rem]:p-4">
         <Brand />
         <div className="header-actions flex items-center gap-3 max-[47.5rem]:gap-1 max-[22.5rem]:[gap:0]">
           <fieldset

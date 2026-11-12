@@ -56,3 +56,5 @@ The PNG uses the same dark grouped surfaces, rounded column outlines, day icons,
 Typography uses readable artist labels and quieter metadata. Grouped surfaces stay flat; separators establish hierarchy without decorative gradients. The genre estimate notice remains visible as a plain information row. Segmented controls and modal dismissal targets retain 44px hit areas.
 
 Semantic Tailwind tokens map canvas, surface, raised surface, content, muted text, separators, and accents to the shared palette. Component utilities own layout, visual treatments, responsive rules, and compound interaction states. Global CSS contains shared tokens, base styles, motion, and a small compatibility layer for dynamically selected priority colors. These are web adaptations, not Apple-provided components.
+
+The board uses a compact navigation bar, one task heading, uniform calendar symbols, flat priority headings, and quiet artist surfaces. Color identifies priority while separators organize the work area. Hover never changes label geometry.

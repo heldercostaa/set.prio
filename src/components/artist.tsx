@@ -41,7 +41,7 @@ export function Portrait({ artist, className = '' }: { artist: Artist; className
     />
   ) : (
     <div
-      className={`portrait object-cover [object-position:center] block [background:var(--chip)] portrait-fallback grid [place-items:center] [background:linear-gradient(135deg,_var(--chip),_var(--hover))] [color:var(--tertiary)] [font-size:1.25rem] font-semibold ${className}`}
+      className={`portrait object-cover [object-position:center] block [background:var(--chip)] portrait-fallback grid [place-items:center] bg-raised [color:var(--tertiary)] [font-size:1.25rem] font-semibold ${className}`}
       aria-hidden="true"
     >
       <span>
@@ -245,7 +245,7 @@ export function ArtistChip({
             type="button"
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-separator [background:var(--chip)] text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:[border-color:var(--tertiary)] hover:[box-shadow:0_0.0625rem_0.25rem_#00000008] active:[cursor:grabbing] [&.is-prioritized]:bg-surface ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip flex w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
             ref={setNodeRef}
             style={{ transform: CSS.Translate.toString(transform) }}
             {...attributes}

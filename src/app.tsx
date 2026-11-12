@@ -105,9 +105,9 @@ export function App() {
           <SiteHeader language={language} />
           <main
             id="main"
-            className="app-main max-w-384 [padding:2.5rem_2.5rem_0] [margin:auto] max-[68.75rem]:[padding:1.875rem_1.5rem_0] max-[47.5rem]:[padding:1.75rem_1.25rem_0] max-[22.5rem]:[padding:1.5rem_1rem_0]"
+            className="app-main max-w-384 px-10 pt-7 [margin:auto] max-[68.75rem]:[padding:1.875rem_1.5rem_0] max-[47.5rem]:[padding:1.75rem_1.25rem_0] max-[22.5rem]:[padding:1.5rem_1rem_0]"
           >
-            <div className="page-heading flex justify-between items-center gap-5.5 mb-8 max-[47.5rem]:mb-6 max-[47.5rem]:items-start [&_>_div_>_p]:text-muted [&_>_div_>_p]:text-sm [&_>_div_>_p]:mt-2.25 max-[47.5rem]:[&_>_div_>_p]:text-xs max-[47.5rem]:[&_>_div_>_p]:[max-width:13.125rem] max-[47.5rem]:[&_>_div_>_p]:[line-height:1.5]">
+            <div className="page-heading flex justify-between items-center gap-5 mb-6 max-[47.5rem]:mb-6 max-[47.5rem]:items-start [&_>_div_>_p]:text-muted [&_>_div_>_p]:text-sm [&_>_div_>_p]:mt-2.25 max-[47.5rem]:[&_>_div_>_p]:text-xs max-[47.5rem]:[&_>_div_>_p]:[max-width:13.125rem] max-[47.5rem]:[&_>_div_>_p]:[line-height:1.5]">
               <div>
                 <div className="event-kicker flex gap-2 items-center [color:var(--secondary)] text-xs mb-3 font-medium max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:mb-2.5">
                   {t.dateRange}
@@ -116,7 +116,6 @@ export function App() {
                   </span>
                 </div>
                 <h1>{t.title}</h1>
-                <p>{t.subtitle}</p>
               </div>
               <ExportMenu
                 language={language}
@@ -150,7 +149,7 @@ export function App() {
               onGenres={setGenres}
               count={entries.length}
             />
-            <div className="genre-notice flex items-center gap-2.75 bg-transparent border-y border-separator [color:var(--secondary)] rounded-xl [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5 [&_>_svg]:text-accent [&_>_svg]:shrink-0 [&_p]:text-xs [&_p]:[line-height:1.65] [&_strong]:text-content [&_strong]:font-semibold [&_>_.icon-button]:[margin-left:auto] [&_>_.icon-button]:w-7 [&_>_.icon-button]:h-7 [&_>_.icon-button]:text-accent max-[47.5rem]:[&_>_svg]:w-3.75 max-[47.5rem]:[&_>_svg]:mt-0.5 max-[47.5rem]:[&_p]:text-xs max-[47.5rem]:[&_p]:[line-height:1.7] max-[47.5rem]:[&_>_.icon-button]:hidden">
+            <div className="genre-notice flex items-center gap-2.75 bg-transparent border-b border-separator text-muted [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5 [&_>_svg]:text-accent [&_>_svg]:shrink-0 [&_p]:text-xs [&_p]:[line-height:1.65] [&_strong]:text-content [&_strong]:font-semibold [&_>_.icon-button]:[margin-left:auto] [&_>_.icon-button]:w-7 [&_>_.icon-button]:h-7 [&_>_.icon-button]:text-accent max-[47.5rem]:[&_>_svg]:w-3.75 max-[47.5rem]:[&_>_svg]:mt-0.5 max-[47.5rem]:[&_p]:text-xs max-[47.5rem]:[&_p]:[line-height:1.7] max-[47.5rem]:[&_>_.icon-button]:hidden">
               <Info size="1.0625rem" />
               <p>
                 <strong>{t.genreTitle}.</strong> {t.genreWarning}
