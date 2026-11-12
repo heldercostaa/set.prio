@@ -1,0 +1,56 @@
+.menu [data-radix-menu-collection-item] {
+  outline: none;
+}
+
+.menu [data-highlighted] {
+  background: var(--hover);
+}
+
+.menu [data-radix-menu-collection-item]:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+.menu [data-radix-dropdown-menu-label],
+.menu > div:first-child:not(.menu-item) {
+  padding: 7px 10px;
+  color: var(--secondary);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.export-item > span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.export-item > span strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.export-item > span small {
+  color: var(--secondary);
+  font-size: 10px;
+}
+
+.export-item > svg:last-child {
+  margin-left: auto;
+  color: var(--tertiary);
+}
+
+.export-item > svg:first-child {
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  .export-trigger > svg:last-child {
+    display: none;
+  }
+  .export-trigger > svg:first-child {
+    width: 19px;
+    height: 19px;
+  }
+}
