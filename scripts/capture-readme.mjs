@@ -66,6 +66,14 @@ try {
   const phone = await mobile.newPage();
   await phone.goto(baseURL);
   await expect(phone.locator('.plan-count')).toContainText('64');
+  const frameBoard = () =>
+    phone.evaluate(() => {
+      const board = document.querySelector('.board-grid');
+      if (!board) throw new Error('Missing priority board');
+      scrollTo(0, board.getBoundingClientRect().top + scrollY);
+    });
+  await frameBoard();
+
   await phone.screenshot({
     path: 'docs/screenshots/readme-mobile-board.png',
     animations: 'disabled',
@@ -82,8 +90,9 @@ try {
   await phone.getByRole('button', { name: 'Close', exact: true }).click();
   await phone.getByRole('button', { name: 'Light mode', exact: true }).click();
   await expect(phone.locator('html')).toHaveAttribute('data-theme', 'light');
-  await phone.evaluate(() => scrollTo(0, 0));
-  await expect.poll(() => phone.evaluate(() => scrollY)).toBe(0);
+  const dismiss = phone.getByRole('button', { name: 'Hide drop zones', exact: true });
+  if (await dismiss.isVisible()) await dismiss.click();
+  await frameBoard();
   await phone.screenshot({
     path: 'docs/screenshots/readme-mobile-light.png',
     animations: 'disabled',
