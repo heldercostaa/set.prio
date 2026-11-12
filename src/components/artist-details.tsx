@@ -100,7 +100,7 @@ export function ArtistDetails({
               const selectedPriority = state.priorities[appearance.id];
               return (
                 <div
-                  className="appearance-editor [padding:1rem_0] [&_+_.appearance-editor]:[border-top:0.0625rem_solid_var(--line)] [&_textarea]:w-full [&_textarea]:[resize:vertical] [&_textarea]:min-h-18.5 [&_textarea]:[max-height:21.875rem] [&_textarea]:bg-raised [&_textarea]:[border:0.0625rem_solid_var(--line)] [&_textarea]:rounded-lg [&_textarea]:p-2.75 [&_textarea]:text-xs [&_textarea]:[line-height:1.65] [&_>_.small:last-child]:[font-size:0.5625rem] [&_>_.small:last-child]:[display:inline-block] [&_>_.small:last-child]:mt-1.25 max-[47.5rem]:[&_textarea]:text-base"
+                  className="appearance-editor [padding:1rem_0] [&_+_.appearance-editor]:[border-top:0.0625rem_solid_var(--line)] [&_textarea]:w-full [&_textarea]:[resize:vertical] [&_textarea]:min-h-18.5 [&_textarea]:[max-height:21.875rem] [&_textarea]:bg-raised [&_textarea]:[border:0.0625rem_solid_var(--line)] [&_textarea]:rounded-lg [&_textarea]:p-2.75 [&_textarea]:text-xs [&_textarea]:[line-height:1.65] max-[47.5rem]:[&_textarea]:text-base"
                   key={appearance.id}
                 >
                   <div className="appearance-heading flex justify-between items-center gap-3.5 mb-1.5 max-[22.5rem]:gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3 [&_>_div]:flex [&_>_div]:flex-col [&_>_div]:gap-1.25 [&_strong]:[font-size:0.8125rem] [&_strong]:font-semibold [&_>_div_>_span]:[font-size:0.625rem] [&_>_div_>_span]:text-muted">
@@ -161,9 +161,6 @@ export function ArtistDetails({
                       {billed?.name}
                     </p>
                   )}
-                  <p className="small text-xs [line-height:1.55] muted text-muted">
-                    {appearance.stage ?? t.stageUnknown}
-                  </p>
                   <label
                     className="notes-label block [margin:1rem_0_0.4375rem] [font-size:0.6875rem] font-semibold"
                     htmlFor={`comment-${appearance.id}`}
@@ -178,9 +175,6 @@ export function ArtistDetails({
                     placeholder={t.notesPlaceholder}
                     onChange={(event) => state.setComment(appearance.id, event.target.value)}
                   />
-                  <span className="small text-xs [line-height:1.55] muted text-muted">
-                    {t.notesHint}
-                  </span>
                 </div>
               );
             })}
@@ -239,7 +233,7 @@ function RecordingDetails({
                 </span>
               )}
             </div>
-            <div className="rating-row flex justify-between items-center gap-4 mt-5.25 max-[47.5rem]:gap-2.5 [&_label]:flex [&_label]:items-center [&_label]:gap-1.5 [&_label]:text-xs [&_label]:font-semibold [&_label]:mb-1.25 [&_label_svg]:[color:var(--orange)] [&_.small]:[font-size:0.625rem] [&_.small]:[max-width:16.25rem] max-[47.5rem]:[&_.small]:[font-size:0.5625rem]">
+            <div className="rating-row flex justify-between items-start gap-4 mt-5.25 max-[47.5rem]:gap-2.5 [&_label]:flex [&_label]:items-center [&_label]:gap-1.5 [&_label]:text-xs [&_label]:font-semibold [&_label]:min-h-11 [&_label_svg]:[color:var(--orange)] [&_.small]:[font-size:0.625rem] [&_.small]:[max-width:16.25rem] max-[47.5rem]:[&_.small]:[font-size:0.5625rem]">
               <div>
                 <label htmlFor={ratingId}>
                   <Star size="1rem" />

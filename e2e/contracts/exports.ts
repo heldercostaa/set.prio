@@ -19,9 +19,9 @@ const catalog: Catalog = {
     },
   ],
   appearances: [
-    { id: 'saturday', artistId: 'artist', day: '2027-05-01', stage: null },
-    { id: 'friday', artistId: 'artist', day: '2027-04-30', stage: null },
-    { id: 'sunday', artistId: 'artist', day: '2027-05-02', stage: null },
+    { id: 'saturday', artistId: 'artist', day: '2027-05-01' },
+    { id: 'friday', artistId: 'artist', day: '2027-04-30' },
+    { id: 'sunday', artistId: 'artist', day: '2027-05-02' },
   ],
   recordings: [
     {
