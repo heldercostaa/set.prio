@@ -109,6 +109,32 @@ function recorder(page, touch = false) {
       await hold(450);
       await page.mouse.up();
     },
+    async swipeLeft(locator) {
+      const target = await center(locator);
+      const session = await page.context().newCDPSession(page);
+      const from = { x: page.viewportSize().width - 48, y: target.y };
+      await pointer(from.x, from.y, true, true);
+      await frame(120);
+      try {
+        await session.send('Input.dispatchTouchEvent', {
+          type: 'touchStart',
+          touchPoints: [{ ...from, id: 1 }],
+        });
+        for (let step = 1; step <= 6; step++) {
+          const point = { x: from.x - step * 36, y: from.y, id: 1 };
+          await session.send('Input.dispatchTouchEvent', {
+            type: 'touchMove',
+            touchPoints: [point],
+          });
+          await pointer(point.x, point.y, true, true);
+          await frame(80);
+        }
+        await session.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+        await pointer(from.x - 216, from.y, false);
+      } finally {
+        await session.detach();
+      }
+    },
     async save(name) {
       const path = new URL(name, output);
       await sharp(frames, { join: { animated: true } })
@@ -171,7 +197,11 @@ try {
   console.log('Recording mobile artist details and ratings');
   const recording = recorder(phone, true);
   await recording.hold(1100);
-  await recording.click(phone.getByRole('button', { name: 'Saturday', exact: true }));
+  await recording.swipeLeft(phone.locator('.day-slot.active-day .day-heading'));
+  await expect(phone.getByRole('button', { name: 'Saturday', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  );
   await recording.hold(1100);
   await recording.click(
     phone.getByRole('button', { name: 'Miss Monique · Saturday', exact: true })

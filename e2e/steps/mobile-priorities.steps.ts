@@ -1,20 +1,7 @@
 import { createBdd, test } from 'playwright-bdd';
-import { expect, type Locator } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { touch } from '../touch';
 const { Given, When, Then } = createBdd(test);
-async function touch(card: Locator, type: string, x: number, y: number) {
-  await card.evaluate(
-    (node, { type, x, y }) => {
-      const point = { identifier: 1, clientX: x, clientY: y };
-      const event = new TouchEvent(type, { bubbles: true, cancelable: true });
-      Object.defineProperties(event, {
-        touches: { value: type === 'touchend' ? [] : [point] },
-        changedTouches: { value: [point] },
-      });
-      node.dispatchEvent(event);
-    },
-    { type, x, y }
-  );
-}
 Given('a narrow English planner', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 740 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -58,6 +45,10 @@ When('I drag Fisher into the floating must-see zone', async ({ page, isMobile })
   }
 });
 Then('Fisher stays prioritized on the official day after the drop', async ({ page }) => {
+  await expect(page.getByRole('button', { name: 'Friday', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  );
   await expect(
     page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
   ).toBeAttached();

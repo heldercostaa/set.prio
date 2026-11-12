@@ -1,3 +1,4 @@
+import { useDaySwipe } from './use-day-swipe';
 import { FloatingPriorityTargets } from './floating-priority-targets';
 import { DayColumn } from '../../components/planner/day-column';
 import {
@@ -39,6 +40,14 @@ export function PriorityBoard({
   const [hasDragMoved, setHasDragMoved] = useState(false);
   const [dragAppearance, setDragAppearance] = useState<Appearance | null>(null);
   const [announcement, setAnnouncement] = useState('');
+  const { cancelSwipe, ...daySwipeHandlers } = useDaySwipe(
+    state.activeDay,
+    (day) => {
+      state.setDay(day);
+      setAnnouncement(dayName(day, language));
+    },
+    previewsAllowed
+  );
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 7 } }),
     useSensor(TouchSensor, { activationConstraint: { delay: 220, tolerance: 6 } }),
@@ -68,6 +77,7 @@ export function PriorityBoard({
               : hits;
           }}
           onDragStart={({ active, activatorEvent }) => {
+            cancelSwipe();
             setKeyboardDrag(activatorEvent.type === 'keydown');
             // Mouse activation already requires movement; a touch hold alone does not.
             setHasDragMoved(activatorEvent.type === 'mousedown');
@@ -105,7 +115,10 @@ export function PriorityBoard({
               </button>
             ))}
           </fieldset>
-          <div className="board-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block">
+          <div
+            {...daySwipeHandlers}
+            className="board-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block max-[47.5rem]:touch-pan-y"
+          >
             {DAYS.map((day, index) => (
               <div
                 className={`day-slot min-w-0 max-[47.5rem]:hidden max-[47.5rem]:[&.active-day]:block ${state.activeDay === day ? 'active-day' : ''}`}
