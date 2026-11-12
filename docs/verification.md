@@ -6,14 +6,14 @@ Tests use Gherkin with playwright-bdd.
 
 `pnpm test` runs 14 contracts once: eight data/component cases and six browser-storage cases. Pure data cases do not launch browser pages. Keep these checks because browser smoke tests cannot independently prove CSV safety, HTML escaping, catalog integrity, or recovery of damaged saves.
 
-`pnpm test:e2e` schedules 44 browser checks for 21 distinct scenarios:
+`pnpm test:e2e` schedules 47 browser checks for 22 distinct scenarios:
 
 | Profile          | Scope                                                                       | Checks |
 | ---------------- | --------------------------------------------------------------------------- | ------ |
-| Desktop Chromium | Complete browser suite                                                      | 21     |
+| Desktop Chromium | Complete browser suite                                                      | 22     |
 | Desktop WebKit   | `@desktop`: hover and mouse interactions                                    | 5      |
-| Pixel 7 Chromium | `@touch`: touch drop, scrolling, swipes, and image sharing                  | 3      |
-| iPhone 13 WebKit | Universal flows, excluding desktop-only and native Chromium clipboard cases | 15     |
+| Pixel 7 Chromium | `@touch`: touch drop, scrolling, swipes, sharing, and sheet dismissal                  | 4      |
+| iPhone 13 WebKit | Universal flows, excluding desktop-only and native Chromium clipboard cases | 16     |
 
 Unsupported cases are excluded by tags rather than launched and skipped. New untagged scenarios run in desktop Chromium and mobile WebKit. This keeps common user flows in both engines without repeating the entire suite across every device.
 
