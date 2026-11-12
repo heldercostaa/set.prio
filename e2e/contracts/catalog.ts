@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test';
 import { catalog } from '../../src/data';
+import { GENRES } from '../../src/data/genres';
 
 export const contracts = {
   'keeps every appearance and recording reference resolvable without inventing performance dates':
@@ -17,6 +18,8 @@ export const contracts = {
       }
       for (const artist of catalog.artists) {
         expect(artist.subgenres.length, artist.name).toBeLessThanOrEqual(2);
+        if (artist.genre) expect([...GENRES], artist.name).toContain(artist.genre);
+        for (const genre of artist.subgenres) expect([...GENRES], artist.name).toContain(genre);
         if (artist.recommendedSetId)
           expect(recordingIds.has(artist.recommendedSetId), artist.name).toBe(true);
         for (const id of artist.memberIds ?? []) expect(artistIds.has(id), artist.name).toBe(true);
