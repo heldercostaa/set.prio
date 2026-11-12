@@ -7,14 +7,6 @@ const output = resolve(root, 'src/data/catalog.json');
 const officialUrl = 'https://brasil.tomorrowland.com/pt/line-up/?page=artists';
 const cdn = 'https://artist-lineup-cdn.tomorrowland.com/';
 const allowedDays = new Set(['2027-04-30', '2027-05-01', '2027-05-02']);
-const placeholderStages = new Set([
-  'FRIDAY',
-  'SATURDAY',
-  'SUNDAY',
-  'SEXTA-FEIRA',
-  'SÁBADO',
-  'DOMINGO',
-]);
 
 async function fetchText(url) {
   const response = await fetch(url, { signal: AbortSignal.timeout(30_000) });
@@ -117,9 +109,7 @@ async function refresh() {
       sourceNotes.push(
         `Performance ${performance.id} (${performance.name}): date=${performance.date}, rendered day=${renderedDate}. The catalog follows the official component's rendered day.`
       );
-    const stageName = performance.stage?.name?.trim();
-    const stage = stageName && !placeholderStages.has(stageName.toUpperCase()) ? stageName : null;
-    appearances.push({ id: performance.id, artistId, day, stage });
+    appearances.push({ id: performance.id, artistId, day });
   }
   const verifiedAt = new Date().toISOString().slice(0, 10);
   const catalog = {

@@ -10,7 +10,7 @@ pnpm catalog:refresh
 
 The refresh discovers the event configuration from the official lineup, rebuilds appearances, and preserves curated metadata by stable identifiers. It never changes browser preferences. Failed or malformed responses leave the existing catalog intact.
 
-Review the diff and source notes before publishing. Follow the rendered official day when source fields conflict, and leave unknown stages or times empty. Preserve joint-act member identities and do not invent solo appearances.
+Review the diff and source notes before publishing. Follow the rendered official day when source fields conflict, and leave unknown times empty. Preserve joint-act member identities and do not invent solo appearances.
 
 ## Curate artist details
 

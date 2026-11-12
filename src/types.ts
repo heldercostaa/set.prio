@@ -21,7 +21,6 @@ export interface Appearance {
   id: string;
   artistId: string;
   day: Day | null;
-  stage: string | null;
 }
 export interface Recording {
   id: string;
