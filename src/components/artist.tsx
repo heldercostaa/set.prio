@@ -332,10 +332,10 @@ export function ArtistCard({
         artist={artist}
         className="catalog-photo w-13.75 h-13.75 rounded-xl shrink-0 max-[47.5rem]:w-14 max-[47.5rem]:h-14"
       />
-      <span className="catalog-card-body flex flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
+      <span className="catalog-card-body flex flex-1 flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
         <strong>{artist.name}</strong>
-        <ArtistRating artist={artist} language={language} />
         <span>{artist.genre ?? messages(language).unknownGenre}</span>
+        <ArtistRating artist={artist} language={language} catalog />
       </span>
       {prioritized ? (
         <Star
