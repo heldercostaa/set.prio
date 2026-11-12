@@ -12,7 +12,7 @@ Tests use Gherkin with playwright-bdd.
 | ---------------- | --------------------------------------------------------------------------- | ------ |
 | Desktop Chromium | Complete browser suite                                                      | 22     |
 | Desktop WebKit   | `@desktop`: hover and mouse interactions                                    | 5      |
-| Pixel 7 Chromium | `@touch`: touch drop, scrolling, swipes, sharing, and sheet dismissal                  | 4      |
+| Pixel 7 Chromium | `@touch`: touch drop, scrolling, swipes, sharing, and sheet dismissal       | 4      |
 | iPhone 13 WebKit | Universal flows, excluding desktop-only and native Chromium clipboard cases | 16     |
 
 Unsupported cases are excluded by tags rather than launched and skipped. New untagged scenarios run in desktop Chromium and mobile WebKit. This keeps common user flows in both engines without repeating the entire suite across every device.
