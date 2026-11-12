@@ -149,7 +149,7 @@ Components use Tailwind utilities. Scoped CSS handles compound states and browse
 
 ### Development workflow
 
-`main` is the default integration branch. Start changes on a descriptive feature branch from the latest `origin/main`, then open a pull request. Keep each change reviewable. Do not push new work directly to `main` or merge without an explicit request. Repository instructions are in [AGENTS.md](./AGENTS.md).
+`main` is the default integration branch. Start changes on a descriptive feature branch from the latest `origin/main`, then open a pull request. Keep each change reviewable. Do not push new work directly to `main` or merge without an explicit request. Repository instructions are in [AGENTS.md](./AGENTS.md). See the [main protection policy](./docs/main-protection.md) for the active GitHub ruleset.
 
 ### Personal Git identity
 
