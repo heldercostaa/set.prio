@@ -111,7 +111,7 @@ function cells(entry: ExportEntry, language: Language) {
       ? `${entry.recording.eventLabel} (${entry.recording.youtubeUrl})${representativeSuffix(entry, language)}`
       : '',
     dayName(entry.appearance.day, language),
-    entry.priority,
+    entry.priority === 'P4' ? priorityLabel(entry.priority, language) : entry.priority,
     entry.artist.genre ?? '',
     entry.artist.subgenres.join(', '),
     entry.rating === null ? '' : String(entry.rating),
@@ -361,7 +361,7 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
       context.arc(x + 30, y + 33.5, 2.5, 0, Math.PI * 2);
       context.fillStyle = color;
       context.fill();
-      label(group.priority, x + 38, y + 25, 12, 600, color);
+      if (group.priority !== 'P4') label(group.priority, x + 38, y + 25, 12, 600, color);
       context.strokeStyle = `${color}45`;
       context.beginPath();
       context.moveTo(x + 62, y + 26);

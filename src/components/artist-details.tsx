@@ -141,7 +141,9 @@ export function ArtistDetails({
                         <option value="">{t.noPriority}</option>
                         {PRIORITIES.map((priority) => (
                           <option key={priority} value={priority}>
-                            {priority} · {priorityLabel(priority, language)}
+                            {priority === 'P4'
+                              ? priorityLabel(priority, language)
+                              : `${priority} · ${priorityLabel(priority, language)}`}
                           </option>
                         ))}
                       </select>

@@ -50,10 +50,14 @@ export function MobileActions({
                 type="button"
                 key={priority}
                 onClick={() => setPriority(appearance.id, priority)}
-                aria-label={`${priority} ${priorityLabel(priority, language)}`}
+                aria-label={
+                  priority === 'P4'
+                    ? priorityLabel(priority, language)
+                    : `${priority} ${priorityLabel(priority, language)}`
+                }
                 className="min-h-11 min-w-11 rounded-lg border border-separator bg-raised px-2 text-sm font-semibold"
               >
-                {priority}
+                {priority === 'P4' ? priorityLabel(priority, language) : priority}
               </button>
             ))}
             <button
