@@ -1,3 +1,4 @@
+import type { WatchFilter } from '../../data';
 import { useDaySwipe } from './use-day-swipe';
 import { FloatingPriorityTargets } from './floating-priority-targets';
 import { DayColumn } from '../../components/planner/day-column';
@@ -25,11 +26,13 @@ export function PriorityBoard({
   language,
   search,
   genres = [],
+  watched = 'all',
   onOpen,
 }: {
   language: Language;
   search: string;
   genres?: string[];
+  watched?: WatchFilter;
   onOpen: (id: string) => void;
 }) {
   const previewsAllowed = useContext(ArtistPreviewContext);
@@ -129,6 +132,7 @@ export function PriorityBoard({
                   index={index}
                   search={search}
                   genres={genres}
+                  watched={watched}
                   language={language}
                   onOpen={onOpen}
                 />
@@ -142,6 +146,7 @@ export function PriorityBoard({
                 index={3}
                 search={search}
                 genres={genres}
+                watched={watched}
                 language={language}
                 onOpen={onOpen}
               />
