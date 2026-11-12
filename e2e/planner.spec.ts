@@ -113,34 +113,51 @@ test('image export includes the whole board', async ({ page }, testInfo) => {
   }
 });
 
-test('mouse drag changes priorities only within the official day', async ({ page, isMobile }) => {
-  test.skip(isMobile, 'Touch has an explicit priority selector; mouse drag is a desktop contract.');
-  await page.setViewportSize({ width: 1440, height: 1600 });
-  const fisher = page.getByRole('button', { name: 'Fisher · Friday', exact: true });
-  const drag = async (targetId: string) => {
-    await expect(fisher).toHaveCount(1);
-    const source = await fisher.boundingBox();
-    const target = await page.getByTestId(targetId).boundingBox();
-    if (!source || !target) throw new Error('Drag target missing');
-    await page.mouse.move(source.x + source.width / 2, source.y + source.height / 2);
-    await page.mouse.down();
-    await page.mouse.move(source.x + source.width / 2 + 14, source.y + source.height / 2, {
-      steps: 3,
-    });
-    await page.mouse.move(target.x + target.width / 2, target.y + target.height / 2, { steps: 18 });
-    await page.mouse.up();
-  };
-  await drag('2027-04-30-P0');
-  await expect(
-    page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
-  ).toBeVisible();
-  await drag('2027-05-01-P1');
-  await expect(
-    page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
-  ).toBeVisible();
-  await expect(
-    page.getByTestId('2027-05-01-P1').getByRole('button', { name: /Fisher/ })
-  ).toHaveCount(0);
+test.describe('desktop dragging', () => {
+  test.use({ viewport: { width: 1440, height: 1600 } });
+
+  test('mouse drag changes priorities only within the official day', async ({ page, isMobile }) => {
+    test.skip(
+      isMobile,
+      'Touch has an explicit priority selector; mouse drag is a desktop contract.'
+    );
+    const fisher = page.getByRole('button', { name: 'Fisher · Friday', exact: true });
+    const drag = async (targetId: string) => {
+      await expect(fisher).toHaveCount(1);
+      await fisher.click({ trial: true });
+      const source = await fisher.boundingBox();
+      if (!source) throw new Error('Drag source missing');
+      await page.mouse.move(source.x + source.width / 2, source.y + source.height / 2);
+      await page.mouse.down();
+      await page.mouse.move(source.x + source.width / 2 + 14, source.y + source.height / 2, {
+        steps: 3,
+      });
+      await expect(page.locator('.drag-overlay')).toBeVisible();
+      const destination = page.getByTestId(targetId);
+      const target = await destination.boundingBox();
+      if (!target) throw new Error('Drag target missing');
+      await page.mouse.move(target.x + target.width / 2, target.y + target.height / 2, {
+        steps: 18,
+      });
+      await expect(destination).toHaveClass(/drop-active/);
+      await page.mouse.up();
+    };
+    await drag('2027-04-30-P0');
+    await expect(
+      page
+        .getByTestId('2027-04-30-P0')
+        .getByRole('button', { name: 'Fisher · Friday', exact: true })
+    ).toBeVisible();
+    await drag('2027-05-01-P1');
+    await expect(
+      page
+        .getByTestId('2027-04-30-P0')
+        .getByRole('button', { name: 'Fisher · Friday', exact: true })
+    ).toBeVisible();
+    await expect(
+      page.getByTestId('2027-05-01-P1').getByRole('button', { name: /Fisher/ })
+    ).toHaveCount(0);
+  });
 });
 
 test('320px layout supports day selection, focus restoration, and reduced motion', async ({
