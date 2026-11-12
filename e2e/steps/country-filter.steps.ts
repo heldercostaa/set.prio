@@ -63,7 +63,7 @@ Then("countries filter both views and preserve each member's origin", async ({ p
   await page.getByRole('menuitemcheckbox', { name: /País desconhecido/ }).click();
   await page.keyboard.press('Escape');
   await expect(
-    page.locator('.catalog-card').filter({ hasText: 'Special Surprise Act' }).first()
+    page.locator('.catalog-card').filter({ hasText: 'Symphony of Unity' }).first()
   ).toBeVisible();
   await expect(page.locator('.catalog-card').filter({ hasText: 'Fisher' })).toHaveCount(0);
 });
