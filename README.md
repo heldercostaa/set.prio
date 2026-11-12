@@ -11,9 +11,8 @@
 
 <br />
 <a href="https://setprio.vercel.app">
-  <img src="./public/logo.svg" alt="set.priority logo" width="80" height="80">
+  <img src="./public/brand.svg" alt="set.priority logo" width="336" height="83">
 </a>
-<h3 align="center" style="font-size: 3em;">set.priority</h3>
 <p align="center">
   Discover artists, prioritize performances, and share your festival plan.
   <br />
