@@ -25,9 +25,7 @@ export function matchesSearch(artist: Artist, search: string, genres: readonly s
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
   const members = artist.memberIds?.map((id) => artistById.get(id)?.name ?? '').join(' ') ?? '';
-  return normalize([artist.name, artist.genre, ...artist.subgenres, members].join(' ')).includes(
-    normalize(search.trim())
-  );
+  return normalize([artist.name, members].join(' ')).includes(normalize(search.trim()));
 }
 
 export function membersFor(artist: Artist): Artist[] {
