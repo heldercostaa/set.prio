@@ -4,8 +4,6 @@ const shared = { features: 'features/**/*.feature', steps: 'e2e/steps/**/*.ts' }
 const testDir = defineBddConfig({
   ...shared,
   tags: 'not @contract',
-  features: 'features/**/*.feature',
-  steps: 'e2e/steps/**/*.ts',
   outputDir: '.features-gen/e2e',
 });
 const contracts = defineBddConfig({
@@ -22,9 +20,13 @@ export default defineConfig({
   use: { baseURL: 'http://127.0.0.1:4173', trace: 'retain-on-failure' },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
-    { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } },
-    { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },
+    { name: 'webkit', grep: /@desktop/, use: { ...devices['Desktop Safari'] } },
+    { name: 'mobile-chromium', grep: /@touch/, use: { ...devices['Pixel 7'] } },
+    {
+      name: 'mobile-webkit',
+      grepInvert: /@desktop|@chromium/,
+      use: { ...devices['iPhone 13'] },
+    },
   ]
     .map((project) => ({ ...project, testDir, testMatch: '**/*.spec.js' }))
     .concat([

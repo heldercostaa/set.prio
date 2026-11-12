@@ -1,3 +1,4 @@
+@touch
 Feature: Prioritize without scrolling back through the lineup
   Scenario: Drop a dragged artist into a floating priority zone
     Given a narrow English planner

@@ -15,7 +15,9 @@ pnpm build
 pnpm preview
 ```
 
-All scenarios are Gherkin features, using playwright-bdd. Contract scenarios run once; browser workflows run in desktop/mobile Chromium and WebKit. Emulation does not replace physical-device checks.
+All scenarios use Gherkin with playwright-bdd. `pnpm test` runs data and storage contracts once. `pnpm test:e2e` runs the complete browser suite in Chromium, universal flows on mobile WebKit, desktop interactions on desktop WebKit, and the touch-drag flow on mobile Chromium.
+
+Use `@desktop` for hover or mouse-only scenarios, `@chromium` for native clipboard access, and `@touch` for the shared floating-drop flow that also exercises touch sensors. Untagged scenarios run on desktop Chromium and mobile WebKit. Keep assertions at the behavior's owning boundary instead of repeating every scenario on every device. See [verification](./verification.md) for coverage and limits.
 
 ## README media
 

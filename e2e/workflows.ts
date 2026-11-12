@@ -1,7 +1,5 @@
-import type { Catalog, Preferences, Priority } from '../src/types';
 import { expect, type Page, type BrowserContext, type TestInfo } from '@playwright/test';
-import { test } from 'playwright-bdd';
-import { readFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
 async function openFisher(page: Page) {
   await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();
@@ -39,7 +37,6 @@ type Fixtures = {
   page: Page;
   context: BrowserContext;
   isMobile: boolean;
-  browserName: 'chromium' | 'webkit' | 'firefox';
 };
 export const workflows: Record<
   string,
@@ -107,91 +104,7 @@ export const workflows: Record<
       expect(csv).not.toContain('"Sunday","P');
       expect(csv.match(/"7"/g)).toHaveLength(2);
     },
-  'image export includes the whole board': async ({ page }, testInfo) => {
-    const catalog = JSON.parse(await readFile('src/data/catalog.json', 'utf8')) as Catalog;
-    const saved: Preferences = {
-      version: 1,
-      language: 'en',
-      activeDay: '2027-04-30',
-      priorities: {},
-      ratings: {},
-      comments: {},
-    };
-    const choices: [string, string, Priority][] = [
-      ['Fisher', '2027-04-30', 'P0'],
-      ['Symphony of Unity', '2027-04-30', 'P1'],
-      ['Symphony of Unity', '2027-05-01', 'P2'],
-      ['Symphony of Unity', '2027-05-02', 'P3'],
-      ['Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer', '2027-04-30', 'P3'],
-    ];
-    for (const [name, day, priority] of choices) {
-      const artist = catalog.artists.find((artist) => artist.name === name);
-      const appearance = catalog.appearances.find(
-        (appearance) => appearance.artistId === artist?.id && appearance.day === day
-      );
-      if (!appearance) throw new Error(`Missing export fixture: ${name} on ${day}`);
-      saved.priorities[appearance.id] = priority;
-    }
-    await page.evaluate(
-      (saved) => localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved)),
-      saved
-    );
-    await page.reload();
-    await expect(page.locator('.plan-count')).toContainText('5');
-    await page
-      .getByRole('button', {
-        name: 'Export plan',
-        exact: true,
-      })
-      .click();
-    const image = await downloadBoardImage(page);
-    const imageBytes = await readFile(await image.path());
-    const metadata = await sharp(imageBytes).metadata();
-    const background = await sharp(imageBytes)
-      .extract({
-        left: 0,
-        top: 0,
-        width: 1,
-        height: 1,
-      })
-      .removeAlpha()
-      .raw()
-      .toBuffer();
-    expect([...background]).toEqual([17, 17, 19]);
-    expect(metadata.width).toBe(2880);
-    expect(metadata.height).toBeGreaterThan(1000);
-    expect(metadata.format).toBe('png');
-    if (testInfo.project.name === 'chromium' || testInfo.project.name === 'mobile-webkit') {
-      await page
-        .getByRole('heading', {
-          name: 'Your priority board',
-          exact: true,
-        })
-        .click();
-      await expect(page.locator('.artist-preview')).toHaveCount(0);
-      await mkdir('docs/screenshots', {
-        recursive: true,
-      });
-      await expect(
-        page.getByText('Your export is ready.', {
-          exact: true,
-        })
-      ).toBeHidden({
-        timeout: 7000,
-      });
-      if (testInfo.project.name === 'chromium')
-        await copyFile(await image.path(), 'docs/screenshots/export.png');
-      await page.screenshot({
-        path: `docs/screenshots/${testInfo.project.name === 'chromium' ? 'desktop' : 'mobile'}.png`,
-        fullPage: true,
-      });
-    }
-  },
-  'mouse drag changes priorities only within the official day': async ({ page, isMobile }) => {
-    test.skip(
-      isMobile,
-      'Touch has an explicit priority selector; mouse drag is a desktop contract.'
-    );
+  'mouse drag changes priorities only within the official day': async ({ page }) => {
     const fisher = page.getByRole('button', {
       name: 'Fisher · Friday',
       exact: true,
@@ -249,6 +162,8 @@ export const workflows: Record<
       reducedMotion: 'reduce',
       colorScheme: 'light',
     });
+    await page.evaluate(() => localStorage.setItem('set.prio:appearance', 'light'));
+    await page.reload();
     await page
       .getByRole('button', {
         name: 'Saturday',
@@ -283,16 +198,14 @@ export const workflows: Record<
     await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(17, 17, 19)');
     await expect(
       page.getByRole('button', {
-        name: 'Appearance',
-        exact: true,
+        name: /^(Light mode|Modo claro)$/,
       })
     ).toHaveCount(0);
   },
   'catalog finds accented artist names and preserves named recording links': async ({ page }) => {
     await page
       .getByRole('button', {
-        name: 'Artists 122',
-        exact: true,
+        name: /^Artists \d+$/,
       })
       .click();
     await page.getByRole('searchbox').fill('kolsch');
@@ -315,15 +228,7 @@ export const workflows: Record<
         .last()
     ).toHaveAttribute('href', /^https:\/\/www.youtube.com\/watch\?v=/);
   },
-  'Chromium clipboard receives an HTML table with named set links': async ({
-    page,
-    context,
-    browserName,
-  }) => {
-    test.skip(
-      browserName !== 'chromium',
-      'WebKit clipboard transport varies by platform; manual fallback is tested in every engine.'
-    );
+  'Chromium clipboard receives an HTML table with named set links': async ({ page, context }) => {
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await prioritizeFisher(page);
     await page
@@ -351,14 +256,9 @@ export const workflows: Record<
     expect(html).toContain('>Tomorrowland Belgium 2026</a>');
     expect(html).toContain('https://www.youtube.com/watch?v=');
   },
-  'stationary labels and reachable recording links': async (
-    { page, isMobile },
-    _testInfo,
-    options
-  ) => {
+  'stationary labels and reachable recording links': async ({ page }, _testInfo, options) => {
     const width = options.width ?? 1280;
     const name = options.artist ?? '';
-    test.skip(isMobile, 'Touch opens artist details directly.');
     const label = page.getByRole('button', {
       name: `${name} · Friday`,
       exact: true,
@@ -472,7 +372,7 @@ export const workflows: Record<
     await expect(label).toBeFocused();
   },
   'b2b details show both artists with independent recording ratings and one performance editor':
-    async ({ page, isMobile }, testInfo) => {
+    async ({ page, isMobile }) => {
       const name = 'Massano b2b Volkoder';
       const label = page.getByRole('button', {
         name: `${name} · Friday`,
@@ -504,17 +404,6 @@ export const workflows: Record<
             })
             .getByRole('link')
         ).toHaveAttribute('href', 'https://www.youtube.com/watch?v=nSYt0B-EGwA');
-        if (testInfo.project.name === 'chromium') {
-          await preview
-            .getByRole('img', {
-              name: 'Massano',
-              exact: true,
-            })
-            .evaluate((image: HTMLImageElement) => image.decode());
-          await preview.screenshot({
-            path: 'docs/screenshots/b2b-preview.png',
-          });
-        }
       }
       await label.click();
       const dialog = page.getByRole('dialog', {
@@ -687,7 +576,14 @@ export const workflows: Record<
       footer.channels.some((channel) => channel.max > 150),
       'Credits remain inside the complete image'
     ).toBe(true);
-    if (testInfo.project.name === 'chromium')
-      await copyFile(await download.path(), 'docs/screenshots/export-full.png');
+    expect(metadata.format).toBe('png');
+    expect(download.suggestedFilename()).toBe('set-prio-brasil-2027.png');
+    const background = await sharp(bytes)
+      .extract({ left: 0, top: 0, width: 1, height: 1 })
+      .removeAlpha()
+      .raw()
+      .toBuffer();
+    expect([...background]).toEqual([17, 17, 19]);
+    await testInfo.attach('complete-board', { body: bytes, contentType: 'image/png' });
   },
 };

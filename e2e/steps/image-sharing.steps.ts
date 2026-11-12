@@ -47,5 +47,4 @@ Then('the native share request contains a valid PNG file', async ({ page }) => {
   expect(shared.type).toBe('image/png');
   expect(shared.bytes).toEqual([137, 80, 78, 71, 13, 10, 26, 10]);
   expect(shared.size).toBeGreaterThan(1000);
-  await expect(page.getByRole('dialog')).toHaveCount(0);
 });

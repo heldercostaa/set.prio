@@ -4,7 +4,12 @@ const { Given, When, Then } = createBdd(test);
 const key = 'set.prio:brasil-2027:v1';
 const invalid: Record<string, string> = {
   'malformed JSON': '{broken json',
-  'future version': JSON.stringify({ version: 99, comments: { old: 'recover me' } }),
+  'future version': JSON.stringify({
+    version: 99,
+    priorities: {},
+    ratings: {},
+    comments: { old: 'recover me' },
+  }),
   'invalid rating': JSON.stringify({
     version: 1,
     priorities: { valid: 'P0' },

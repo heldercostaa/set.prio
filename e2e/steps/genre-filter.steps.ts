@@ -2,7 +2,7 @@ import { createBdd, test } from 'playwright-bdd';
 import { expect } from '@playwright/test';
 const { When, Then } = createBdd(test);
 When('I select House and Techno in the catalog genre filter', async ({ page }) => {
-  await page.getByRole('button', { name: 'Artists 122', exact: true }).click();
+  await page.getByRole('button', { name: /^Artists \d+$/ }).click();
   await page.getByRole('button', { name: 'Genres', exact: true }).click();
   await page.getByRole('menuitemcheckbox', { name: 'House', exact: true }).click();
   await page.getByRole('menuitemcheckbox', { name: 'Techno', exact: true }).click();

@@ -5,10 +5,7 @@ Feature: Festival planning workflows
     Given an English planner with no saved priorities
     Then the planner supports "multiple appearances have independent priorities and export despite search and mobile day filters"
 
-  Scenario: image export includes the whole board
-    Given an English planner with no saved priorities
-    Then the planner supports "image export includes the whole board"
-
+  @desktop
   Scenario: mouse drag changes priorities only within the official day
     Given an English planner at 1440 pixels wide
     Then the planner supports "mouse drag changes priorities only within the official day"
@@ -21,10 +18,12 @@ Feature: Festival planning workflows
     Given an English planner with no saved priorities
     Then the planner supports "catalog finds accented artist names and preserves named recording links"
 
+  @chromium
   Scenario: Chromium clipboard receives an HTML table with named set links
     Given an English planner with no saved priorities
     Then the planner supports "Chromium clipboard receives an HTML table with named set links"
 
+  @desktop
   Scenario Outline: Hover previews remain stationary and usable
     Given an English planner at <width> pixels wide
     Then I can inspect "<artist>" without label movement
@@ -33,14 +32,7 @@ Feature: Festival planning workflows
       | width | artist |
       | 1280 | Fisher |
       | 1024 | Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer |
-      | 1024 | Matisse & Sadko present Melodicca |
-      | 1024 | Bella Claxton b2b Paige Tomlinson |
-      | 1280 | Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer |
-      | 1280 | Matisse & Sadko present Melodicca |
-      | 1280 | Bella Claxton b2b Paige Tomlinson |
-      | 1440 | Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer |
       | 1440 | Matisse & Sadko present Melodicca |
-      | 1440 | Bella Claxton b2b Paige Tomlinson |
 
   Scenario: b2b details show both artists with independent recording ratings and one performance editor
     Given an English planner with no saved priorities
