@@ -11,7 +11,7 @@ function Brand() {
       <div>
         <div className="wordmark [font-size:1.6875rem] font-medium [letter-spacing:-0.075rem] [line-height:1.06] max-[47.5rem]:[font-size:1.5rem] max-[22.5rem]:[font-size:1.4375rem] [&_>_span]:[color:#ff453a] [&_strong]:font-bold">
           set<span>.</span>
-          <strong>prio</strong>
+          <strong>priority</strong>
         </div>
       </div>
     </div>

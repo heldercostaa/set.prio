@@ -11,9 +11,9 @@
 
 <br />
 <a href="https://setprio.vercel.app">
-  <img src="./public/logo.svg" alt="set.prio logo" width="80" height="80">
+  <img src="./public/logo.svg" alt="set.priority logo" width="80" height="80">
 </a>
-<h3 align="center" style="font-size: 3em;">set.prio</h3>
+<h3 align="center" style="font-size: 3em;">set.priority</h3>
 <p align="center">
   Discover artists, prioritize performances, and share your festival plan.
   <br />
@@ -53,7 +53,7 @@
 </div>
 <br />
 
-set.prio is a personal planner for deciding which artists to see. Organize performances by priority, explore recommended recordings, and keep ratings and notes. The bundled artist catalog covers Tomorrowland Brasil.
+set.priority is a personal planner for deciding which artists to see. Organize performances by priority, explore recommended recordings, and keep ratings and notes. The bundled artist catalog covers Tomorrowland Brasil.
 
 <p align="center">
   <picture>
