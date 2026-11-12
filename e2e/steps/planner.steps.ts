@@ -21,7 +21,7 @@ When('I mark Fisher as a must-see, rate the set zero, and add a comment', async 
   await page
     .getByLabel('Your comment', { exact: true })
     .fill('Olá, friends\nSee you at the front.');
-  await page.getByRole('spinbutton', { name: 'Rate this set', exact: true }).fill('0');
+  await page.getByRole('slider', { name: 'Rate this set', exact: true }).press('Home');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(
     page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
@@ -46,9 +46,9 @@ Then(
     await expect(
       page.getByRole('combobox', { name: 'Prioridade · Sexta-feira · Fisher', exact: true })
     ).toHaveValue('P0');
-    await expect(
-      page.getByRole('spinbutton', { name: 'Avalie este set', exact: true })
-    ).toHaveValue('0');
+    await expect(page.getByRole('slider', { name: 'Avalie este set', exact: true })).toHaveValue(
+      '0'
+    );
     await expect(page.getByLabel('Seu comentário', { exact: true })).toHaveValue(
       'Olá, friends\nSee you at the front.'
     );

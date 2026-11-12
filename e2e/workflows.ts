@@ -1,3 +1,4 @@
+import { setSliderRating } from './rating-input';
 import { captureImageShares, readSharedImage } from './image-sharing';
 import { expect, type Page, type BrowserContext, type TestInfo } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
@@ -71,12 +72,13 @@ export const workflows: Record<
           exact: true,
         })
         .selectOption('P2');
-      await dialog
-        .getByRole('spinbutton', {
+      await setSliderRating(
+        dialog.getByRole('slider', {
           name: 'Rate this set',
           exact: true,
-        })
-        .fill('7');
+        }),
+        7
+      );
       await dialog
         .getByRole('button', {
           name: 'Close',
@@ -441,18 +443,19 @@ export const workflows: Record<
       await expect(massano.locator('.genre-tag')).toHaveText('Melodic techno');
       await expect(volkoder.locator('.genre-tag')).toHaveText('Tech house');
       await massano
-        .getByRole('spinbutton', {
+        .getByRole('slider', {
           name: 'Rate this set',
           exact: true,
         })
-        .fill('0');
-      await volkoder
-        .getByRole('spinbutton', {
+        .press('Home');
+      await setSliderRating(
+        volkoder.getByRole('slider', {
           name: 'Rate this set',
           exact: true,
-        })
-        .fill('8');
-      await expect(massano.getByRole('spinbutton')).toHaveValue('0');
+        }),
+        8
+      );
+      await expect(massano.getByRole('slider')).toHaveValue('0');
       await expect(dialog.getByRole('combobox')).toHaveCount(1);
       await dialog.getByRole('combobox').selectOption('P0');
       await dialog
@@ -485,8 +488,8 @@ export const workflows: Record<
           exact: true,
         })
       ).toBeVisible();
-      await expect(massano.getByRole('spinbutton')).toHaveValue('0');
-      await expect(volkoder.getByRole('spinbutton')).toHaveValue('8');
+      await expect(massano.getByRole('slider')).toHaveValue('0');
+      await expect(volkoder.getByRole('slider')).toHaveAttribute('aria-valuenow', '8');
       await expect(dialog.getByRole('combobox')).toHaveValue('P0');
       await expect(
         dialog.getByLabel('Seu comentário', {

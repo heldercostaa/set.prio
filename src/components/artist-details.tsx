@@ -1,5 +1,5 @@
-import { Check, ChevronDown, ExternalLink, Info, Star } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { RecordingRating } from './recording-rating';
+import { Check, ChevronDown, ExternalLink, Info } from 'lucide-react';
 import { appearancesFor, artistById, catalog, recordingById, membersFor } from '../data';
 import { dayName, longDate, messages, priorityLabel } from '../i18n';
 import { usePlanner } from '../store/planner';
@@ -203,16 +203,9 @@ function RecordingDetails({
   heading?: string;
 }) {
   const t = messages(language);
-  const state = usePlanner();
   const recording = artist.recommendedSetId
     ? recordingById.get(artist.recommendedSetId)
     : undefined;
-  const [ratingError, setRatingError] = useState(false);
-  const rating = recording ? state.ratings[recording.id] : null;
-  const [draft, setDraft] = useState(String(rating ?? ''));
-  useEffect(() => setDraft(String(rating ?? '')), [rating]);
-  const ratingId = `set-rating-${artist.id}`;
-  const helpId = `rating-help-${artist.id}`;
   return (
     <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
       <h3>{heading ?? t.recommended}</h3>
@@ -236,78 +229,7 @@ function RecordingDetails({
               </span>
             )}
           </div>
-          <div className="rating-row flex justify-between items-start gap-4 mt-5.25 max-[47.5rem]:gap-2.5 [&_label]:flex [&_label]:items-center [&_label]:gap-1.5 [&_label]:text-xs [&_label]:font-semibold [&_label]:min-h-11 [&_label_svg]:[color:var(--orange)] [&_.small]:[font-size:0.625rem] [&_.small]:[max-width:16.25rem] max-[47.5rem]:[&_.small]:[font-size:0.5625rem]">
-            <div>
-              <label htmlFor={ratingId}>
-                <Star size="1rem" />
-                {t.rating}
-              </label>
-              <p className="muted text-muted small text-xs [line-height:1.55]" id={helpId}>
-                {t.ratingHint}
-              </p>
-            </div>
-            <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26 [&_input]:w-13.75 [&_input]:min-h-11 [&_input]:p-2 [&_input]:[border:0.0625rem_solid_var(--line)] [&_input]:rounded-lg [&_input]:bg-raised [&_input]:[text-align:center] [&_input]:text-base [&_>_span]:text-muted [&_>_span]:[font-size:0.6875rem] [&_>_button]:[font-size:0.5625rem] max-[47.5rem]:[&_>_button]:min-h-11">
-              <input
-                id={ratingId}
-                inputMode="decimal"
-                type="text"
-                role="spinbutton"
-                aria-valuemin={0}
-                aria-valuemax={10}
-                aria-valuenow={rating ?? undefined}
-                placeholder="—"
-                aria-describedby={helpId}
-                aria-invalid={ratingError}
-                value={draft}
-                onKeyDown={(event) => {
-                  if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
-                  event.preventDefault();
-                  const next = Math.min(
-                    10,
-                    Math.max(0, (rating ?? 0) + (event.key === 'ArrowUp' ? 1 : -1))
-                  );
-                  setDraft(String(next));
-                  setRatingError(false);
-                  state.setRating(recording.id, next);
-                }}
-                onChange={(event) => {
-                  const value = event.target.value;
-                  setDraft(value);
-                  const normalized = value.replace(',', '.');
-                  const number = Number(normalized);
-                  if (
-                    value !== '' &&
-                    (!/^\d*(?:[.,]\d*)?$/.test(value) ||
-                      !Number.isFinite(number) ||
-                      number < 0 ||
-                      number > 10)
-                  ) {
-                    setRatingError(true);
-                    return;
-                  }
-                  setRatingError(false);
-                  state.setRating(recording.id, value === '' ? null : number);
-                }}
-              />
-              <span>/ 10</span>
-              <button
-                type="button"
-                className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
-                disabled={state.ratings[recording.id] == null}
-                onClick={() => {
-                  state.setRating(recording.id, null);
-                  setRatingError(false);
-                }}
-              >
-                {t.clearRating}
-              </button>
-            </div>
-          </div>
-          {ratingError && (
-            <p role="alert" className="field-error [font-size:0.6875rem] [color:var(--red)] mt-2.5">
-              {t.invalidRating}
-            </p>
-          )}
+          <RecordingRating recordingId={recording.id} artistId={artist.id} language={language} />
         </>
       )}
     </section>

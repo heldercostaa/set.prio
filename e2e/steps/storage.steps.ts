@@ -14,7 +14,7 @@ const invalid: Record<string, string> = {
     version: 1,
     priorities: { valid: 'P0' },
     comments: { old: 'recover me' },
-    ratings: { video: 11 },
+    ratings: { video: 10.5 },
   }),
 };
 Given('a saved plan containing {string}', async ({ page }, kind: string) => {

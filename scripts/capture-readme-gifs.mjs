@@ -208,13 +208,13 @@ try {
   );
   await expect(phone.getByRole('dialog', { name: 'Miss Monique', exact: true })).toBeVisible();
   await recording.hold(1500);
-  const rating = phone.getByRole('spinbutton', { name: 'Rate this set', exact: true });
+  const rating = phone.getByRole('slider', { name: 'Rate this set', exact: true });
   await rating.scrollIntoViewIfNeeded();
   await recording.hold(600);
-  await recording.click(rating);
-  for (const character of '8.5') {
-    await rating.pressSequentially(character);
-    await recording.frame(220);
+  await rating.press('Home');
+  for (let step = 0; step < 17; step++) {
+    await rating.press('ArrowRight');
+    await recording.frame(80);
   }
   await recording.hold(1000);
   const priority = phone.getByRole('combobox', {

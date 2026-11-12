@@ -9,7 +9,9 @@ Then('watched filters follow recording ratings in the board and catalog', async 
   await expect(fisher).toHaveCount(0);
   await filter.selectOption('unwatched');
   await fisher.click();
-  await page.getByRole('spinbutton', { name: 'Rate this set', exact: true }).fill('0');
+  await page
+    .getByRole('slider', { name: 'Rate this set', exact: true })
+    .click({ position: { x: 1, y: 22 } });
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(fisher).toHaveCount(0);
   await filter.selectOption('watched');

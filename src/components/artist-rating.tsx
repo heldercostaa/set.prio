@@ -1,0 +1,58 @@
+import { membersFor } from '../data';
+import { usePlanner } from '../store/planner';
+import type { Artist, Language } from '../types';
+import { WatchedStatus } from './watched-status';
+
+export function ArtistRating({
+  artist,
+  language,
+  name,
+}: {
+  artist: Artist;
+  language: Language;
+  name?: string;
+}) {
+  const ratings = usePlanner((s) => s.ratings);
+  const members = membersFor(artist);
+  const acts = members.length ? members : [artist];
+  const rated = acts.filter((act) => act.recommendedSetId && ratings[act.recommendedSetId] != null);
+  if (!rated.length) return name ? <span>{name}</span> : null;
+  return (
+    <span className="flex w-full min-w-0 flex-col gap-1">
+      {name && members.length > 0 && <span>{name}</span>}
+      <span className="sr-only">
+        <WatchedStatus artist={artist} language={language} />
+      </span>
+      {rated.map((act) => {
+        const score = act.recommendedSetId ? ratings[act.recommendedSetId] : null;
+        if (score == null) return null;
+        const bonus = score === 11;
+        return (
+          <span key={act.id} className="block min-w-0">
+            <span className="flex items-center justify-between gap-2 text-[0.6875rem] leading-relaxed">
+              {(members.length > 0 || name) && (
+                <span
+                  className={members.length ? 'text-muted' : 'text-sm font-medium text-content'}
+                >
+                  {members.length ? act.name : name}
+                </span>
+              )}
+              <span
+                className={`ml-auto font-semibold tabular-nums ${bonus ? 'text-[#ffd580]' : 'text-[var(--orange)]'}`}
+              >
+                {new Intl.NumberFormat(language).format(score)}
+                {bonus ? '/10' : ''}
+              </span>
+            </span>
+            <span className="block h-0.75 overflow-hidden rounded-full bg-separator">
+              <span
+                className={`block h-full rounded-full ${bonus ? 'bg-linear-to-r from-[#ffd580] via-[#ff8fc8] to-[#b8a4ff] bg-size-[200%_100%] motion-safe:animate-[rating-flow_5s_linear_infinite]' : 'bg-[var(--orange)]'}`}
+                style={{ width: `${Math.min(score, 10) * 10}%` }}
+              />
+            </span>
+          </span>
+        );
+      })}
+    </span>
+  );
+}
