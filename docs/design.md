@@ -67,4 +67,4 @@ The board uses a compact navigation bar, one task heading, uniform day symbols, 
 
 The app uses a single dark palette. Semantic tokens define grouped backgrounds, labels, separators, focus rings, and priority accents consistently. Apple devices use San Francisco through the system font stack; no separately downloaded Apple font is redistributed. Translucency is reserved for floating controls, with opaque semantic surfaces as fallback.
 
-Toolbar search and genre controls share a reusable surface class and a 13px-equivalent rem typography token. Search and filter sit together on all viewport sizes; mobile text inputs use the browser-safe 1rem size to avoid iPhone focus zoom. Segmented controls retain the same weight and hierarchy.
+The view switch, genre filter, and search field share surface, border, radius, typography, and icon tokens. Inset borders keep controls and touch targets at the same height, including search with its clear button. Search and filter sit together on all viewport sizes; mobile text inputs use the browser-safe 1rem size to avoid iPhone focus zoom.
