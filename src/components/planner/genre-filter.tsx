@@ -1,3 +1,4 @@
+import { messages } from '../../i18n';
 import { GENRES } from '../../data/genres';
 import type { Language } from '../../types';
 import { MultiSelectFilter } from './multi-select-filter';
@@ -17,6 +18,7 @@ export function GenreFilter({
       allLabel={language === 'en' ? 'All genres' : 'Todos os gêneros'}
       clearLabel={language === 'en' ? 'Clear genres' : 'Limpar gêneros'}
       options={GENRES.map((value) => ({ value, label: value }))}
+      notice={messages(language).genreWarning}
       selected={selected}
       onChange={onChange}
     />

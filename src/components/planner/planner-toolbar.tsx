@@ -50,14 +50,14 @@ export function PlannerToolbar({
   return (
     <div className="toolbar relative mb-1.5">
       {hasFilters && (
-        <div className="absolute right-0 bottom-full z-10 flex justify-end">
+        <div className="fixed bottom-4 left-4 z-40">
           <button
             type="button"
             onClick={() => {
               onResetFilters();
               searchInput.current?.focus();
             }}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-surface px-2 text-xs font-medium text-accent shadow-sm hover:bg-raised"
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-surface px-3 text-xs font-medium text-accent shadow-[var(--shadow)] inset-ring inset-ring-separator hover:bg-raised"
           >
             <RotateCcw size="0.875rem" aria-hidden="true" />
             {t.resetFilters}

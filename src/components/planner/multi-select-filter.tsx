@@ -1,12 +1,13 @@
 import { controlClassName, controlCountClassName, menuMotionClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { ChevronDown, Check, RotateCcw } from 'lucide-react';
+import { ChevronDown, Check, Info, RotateCcw } from 'lucide-react';
 import type { Language } from '../../types';
 export function MultiSelectFilter({
   language,
   label,
   allLabel,
   clearLabel,
+  notice,
   options,
   selected,
   onChange,
@@ -15,6 +16,7 @@ export function MultiSelectFilter({
   label: string;
   allLabel: string;
   clearLabel: string;
+  notice?: string;
   options: { value: string; label: string }[];
   selected: string[];
   onChange: (value: string[]) => void;
@@ -51,6 +53,12 @@ export function MultiSelectFilter({
             </span>
           </div>
           <DropdownMenu.Separator className="mx-3 h-px shrink-0 bg-separator" />
+          {notice && (
+            <div className="mx-3 mt-3 flex shrink-0 gap-2 rounded-xl bg-raised p-3 text-xs leading-relaxed text-muted">
+              <Info className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+              <p>{notice}</p>
+            </div>
+          )}
           <DropdownMenu.Group className="min-h-0 overflow-y-auto overscroll-contain p-1.5">
             {options.map((option) => (
               <DropdownMenu.CheckboxItem
