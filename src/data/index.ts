@@ -49,3 +49,14 @@ export function matchesWatchFilter(
   );
   return filter === 'watched' ? complete : !complete;
 }
+
+export function countriesFor(artist: Artist): string[] {
+  const members = membersFor(artist);
+  const acts = members.length ? members : [artist];
+  return [
+    ...new Set(acts.flatMap((act) => (act.countryCodes?.length ? act.countryCodes : ['unknown']))),
+  ];
+}
+export function matchesCountries(artist: Artist, selected: readonly string[]) {
+  return !selected.length || countriesFor(artist).some((code) => selected.includes(code));
+}

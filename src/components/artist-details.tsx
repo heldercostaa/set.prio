@@ -1,3 +1,4 @@
+import { ArtistNationality } from './artist-nationality';
 import { RecordingRating } from './recording-rating';
 import { Check, ChevronDown, ExternalLink, Info } from 'lucide-react';
 import { appearancesFor, artistById, catalog, recordingById, membersFor } from '../data';
@@ -47,6 +48,11 @@ export function ArtistDetails({
         )}
         <div className="artist-detail-body [padding:1.375rem_1.5rem_1.25rem] max-[47.5rem]:p-5 max-[47.5rem]:[&_.genre-tag]:[font-size:0.6875rem] max-[47.5rem]:[&_.subgenre-tag]:[font-size:0.6875rem]">
           {!members.length && (
+            <div className="mb-4">
+              <ArtistNationality artist={artist} language={language} expanded />
+            </div>
+          )}
+          {!members.length && (
             <>
               <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
                 <span className="eyebrow [font-size:0.6875rem] font-semibold [letter-spacing:0.045em]">
@@ -76,6 +82,9 @@ export function ArtistDetails({
                   <div className="member-details-body p-4.5 [&_.detail-topline]:mb-3.5 [&_.detail-topline_h3]:text-xl">
                     <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
                       <h3>{member.name}</h3>
+                    </div>
+                    <div className="mb-3">
+                      <ArtistNationality artist={member} language={language} expanded />
                     </div>
                     <Genres artist={member} language={language} />
                     <RecordingDetails artist={member} language={language} />

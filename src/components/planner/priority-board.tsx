@@ -30,6 +30,7 @@ export function PriorityBoard({
   language,
   search,
   genres = [],
+  countries = [],
   watched = 'all',
   onOpen,
 }: {
@@ -37,6 +38,7 @@ export function PriorityBoard({
   language: Language;
   search: string;
   genres?: string[];
+  countries?: string[];
   watched?: WatchFilter;
   onOpen: (id: string) => void;
 }) {
@@ -150,6 +152,7 @@ export function PriorityBoard({
                     index={index}
                     search={search}
                     genres={genres}
+                    countries={countries}
                     watched={watched}
                     language={language}
                     onOpen={onOpen}
@@ -166,6 +169,7 @@ export function PriorityBoard({
                 index={3}
                 search={search}
                 genres={genres}
+                countries={countries}
                 watched={watched}
                 language={language}
                 onOpen={onOpen}

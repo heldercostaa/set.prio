@@ -1,3 +1,4 @@
+import { matchesCountries } from '../../data';
 import { compareArtists, type ArtistSort } from '../../utils/artist-sort';
 import { matchesWatchFilter, type WatchFilter } from '../../data';
 import { Search } from 'lucide-react';
@@ -13,6 +14,7 @@ export function ArtistCatalog({
   language,
   search,
   genres = [],
+  countries = [],
   watched = 'all',
   onSearch,
   onOpen,
@@ -21,6 +23,7 @@ export function ArtistCatalog({
   language: Language;
   search: string;
   genres?: string[];
+  countries?: string[];
   watched?: WatchFilter;
   onSearch: (value: string) => void;
   onOpen: (id: string) => void;
@@ -33,9 +36,14 @@ export function ArtistCatalog({
   const visibleArtists = useMemo(
     () =>
       catalog.artists
-        .filter((a) => matchesSearch(a, search, genres) && matchesWatchFilter(a, watched, ratings))
+        .filter(
+          (a) =>
+            matchesSearch(a, search, genres) &&
+            matchesCountries(a, countries) &&
+            matchesWatchFilter(a, watched, ratings)
+        )
         .sort(compareArtists(sort, language, ratings)),
-    [search, language, genres, watched, ratings, sort]
+    [search, language, genres, countries, watched, ratings, sort]
   );
   return (
     <section

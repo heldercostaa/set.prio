@@ -1,3 +1,4 @@
+import { matchesCountries } from '../../data';
 import { compareArtists, type ArtistSort } from '../../utils/artist-sort';
 import { matchesWatchFilter, type WatchFilter } from '../../data';
 import { useDroppable } from '@dnd-kit/core';
@@ -92,6 +93,7 @@ export function DayColumn({
   index,
   search,
   genres = [],
+  countries = [],
   watched = 'all',
   language,
   onOpen,
@@ -101,6 +103,7 @@ export function DayColumn({
   index: number;
   search: string;
   genres?: string[];
+  countries?: string[];
   watched?: WatchFilter;
   language: Language;
   onOpen: (id: string) => void;
@@ -115,6 +118,7 @@ export function DayColumn({
         appearance.day === day &&
         artist !== undefined &&
         matchesSearch(artist, search, genres) &&
+        matchesCountries(artist, countries) &&
         matchesWatchFilter(artist, watched, ratings)
       );
     })
