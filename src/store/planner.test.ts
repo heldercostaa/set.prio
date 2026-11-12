@@ -12,6 +12,7 @@ describe('browser preference lifecycle', () => {
     first.getState().setPriority('retired-appearance', 'P1');
     first.getState().setComment('retired-appearance', 'Keep this after a lineup change');
     first.getState().setRating('shared-video', 0);
+    first.getState().setRating('decimal-video', 8.5);
     first.getState().setLanguage('pt-BR');
     const saved = JSON.parse(localStorage.getItem(key) ?? '{}');
     localStorage.setItem(key, JSON.stringify({ ...saved, theme: 'light' }));
@@ -21,7 +22,7 @@ describe('browser preference lifecycle', () => {
       language: 'pt-BR',
       priorities: { 'retired-appearance': 'P1' },
       comments: { 'retired-appearance': 'Keep this after a lineup change' },
-      ratings: { 'shared-video': 0 },
+      ratings: { 'shared-video': 0, 'decimal-video': 8.5 },
     });
     second.getState().setRating('shared-video', null);
     expect(JSON.parse(localStorage.getItem(key) ?? '{}').ratings['shared-video']).toBeNull();

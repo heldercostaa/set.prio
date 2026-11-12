@@ -235,11 +235,11 @@ function RecordingDetails({
               <div className="rating-controls flex items-center [gap:6px] flex-wrap [max-width:115px] shrink-0 [justify-content:flex-end] max-[760px]:max-w-26">
                 <input
                   id={ratingId}
-                  inputMode="numeric"
+                  inputMode="decimal"
                   type="number"
                   min={0}
                   max={10}
-                  step={1}
+                  step="any"
                   placeholder="—"
                   aria-describedby={helpId}
                   aria-invalid={ratingError}
@@ -247,7 +247,7 @@ function RecordingDetails({
                   onChange={(event) => {
                     const value = event.target.value;
                     const number = Number(value);
-                    if (value !== '' && (!Number.isInteger(number) || number < 0 || number > 10)) {
+                    if (value !== '' && (!Number.isFinite(number) || number < 0 || number > 10)) {
                       setRatingError(true);
                       return;
                     }
