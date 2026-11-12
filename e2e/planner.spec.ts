@@ -226,25 +226,20 @@ test('Chromium clipboard receives an HTML table with named set links', async ({
 for (const width of [1024, 1280, 1440]) {
   test.describe(`Hover previews at ${width}px`, () => {
     test.use({ viewport: { width, height: 1000 } });
-    test('wrapped labels stay stationary and their recording links remain reachable', async ({
-      page,
-      isMobile,
-    }) => {
-      test.skip(isMobile, 'Touch opens artist details directly.');
-      test.setTimeout(60000);
-      for (const name of [
-        'Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer',
-        'Matisse & Sadko present Melodicca',
-        'Bella Claxton b2b Paige Tomlinson',
-      ]) {
+    for (const name of [
+      'Smash The House Take Over: Dimitri Vegas b2b Lilly Palmer',
+      'Matisse & Sadko present Melodicca',
+      'Bella Claxton b2b Paige Tomlinson',
+    ]) {
+      test(`${name}: stationary label and reachable recording links`, async ({
+        page,
+        isMobile,
+      }) => {
+        test.skip(isMobile, 'Touch opens artist details directly.');
         const label = page.getByRole('button', { name: `${name} · Friday`, exact: true });
-        // A focusable control releases the prior keyboard preview on every platform.
-        await page.getByRole('searchbox').click();
-        await page.mouse.move(0, 0);
-        await label.scrollIntoViewIfNeeded();
-        await expect(page.locator('.artist-preview')).toHaveCount(0);
         await label.hover();
-        await expect(page.locator('.artist-preview')).toBeVisible();
+        const preview = page.locator('.artist-preview');
+        await expect(preview.getByText(name, { exact: true })).toBeVisible();
         const samples = await label.evaluate(async (element) => {
           const values = [];
           for (let i = 0; i < 10; i++) {
@@ -267,9 +262,10 @@ for (const width of [1024, 1280, 1440]) {
         await label.click();
         await expect(page.getByRole('dialog', { name, exact: true })).toBeVisible();
         await page.getByRole('button', { name: 'Close', exact: true }).click();
-        await page.getByRole('heading', { name: 'Your priority board', exact: true }).click();
-      }
-    });
+        await expect(page.getByRole('dialog')).toHaveCount(0);
+        await expect(label).toBeFocused();
+      });
+    }
   });
 }
 
