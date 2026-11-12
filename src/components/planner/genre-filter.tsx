@@ -17,12 +17,12 @@ export function GenreFilter({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="max-[47.5rem]:col-start-1 max-[47.5rem]:row-start-3 max-[47.5rem]:justify-self-start inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator bg-surface px-3 text-sm"
+          className="max-[47.5rem]:col-start-1 max-[47.5rem]:row-start-2 max-[47.5rem]:justify-self-start inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator bg-surface px-3 text-xs font-semibold text-muted"
           aria-label={label}
         >
           {label}
           {selected.length > 0 && <span>{selected.length}</span>}
-          <ChevronDown size={16} />
+          <ChevronDown size="1rem" />
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
@@ -52,7 +52,7 @@ export function GenreFilter({
             >
               <span className="size-4">
                 <DropdownMenu.ItemIndicator>
-                  <Check size={16} />
+                  <Check size="1rem" />
                 </DropdownMenu.ItemIndicator>
               </span>
               {genre}
