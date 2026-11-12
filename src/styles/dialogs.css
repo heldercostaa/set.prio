@@ -3,7 +3,7 @@
 }
 
 .modal-heading h2 {
-  font-size: 22px;
+  font-size: 1.375rem;
   line-height: 1.2;
   letter-spacing: -0.025em;
   overflow-wrap: anywhere;
@@ -11,10 +11,10 @@
 }
 
 .modal-heading p {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--secondary);
   line-height: 1.6;
-  margin-top: 6px;
+  margin-top: 0.375rem;
 }
 
 .artist-modal-scroll,
@@ -30,22 +30,22 @@
 .detail-warning > svg {
   flex-shrink: 0;
   color: var(--blue);
-  margin-top: 1px;
+  margin-top: 0.0625rem;
 }
 
 .detail-section h3 {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
-  margin-bottom: 13px;
+  margin-bottom: 0.8125rem;
 }
 
 .rating-row label {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
+  gap: 0.375rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 
 .rating-row label svg {
@@ -53,94 +53,94 @@
 }
 
 .rating-row .small {
-  font-size: 10px;
-  max-width: 260px;
+  font-size: 0.625rem;
+  max-width: 16.25rem;
 }
 
 .rating-controls input {
-  width: 55px;
-  min-height: 44px;
-  padding: 8px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  width: 3.4375rem;
+  min-height: 2.75rem;
+  padding: 0.5rem;
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.5rem;
   background: var(--panel-soft);
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .rating-controls > span {
   color: var(--secondary);
-  font-size: 11px;
+  font-size: 0.6875rem;
 }
 
 .rating-controls > button {
-  font-size: 9px;
+  font-size: 0.5625rem;
 }
 
 .appearance-editor + .appearance-editor {
-  border-top: 1px solid var(--line);
+  border-top: 0.0625rem solid var(--line);
 }
 
 .appearance-heading > div {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .appearance-heading strong {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
 .appearance-heading > div > span {
-  font-size: 10px;
+  font-size: 0.625rem;
   color: var(--secondary);
 }
 
 .appearance-editor textarea {
   width: 100%;
   resize: vertical;
-  min-height: 74px;
-  max-height: 350px;
+  min-height: 4.625rem;
+  max-height: 21.875rem;
   background: var(--panel-soft);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 11px;
-  font-size: 12px;
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.65;
 }
 
 .appearance-editor > .small:last-child {
-  font-size: 9px;
+  font-size: 0.5625rem;
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 0.3125rem;
 }
 
 .research-details summary {
   cursor: pointer;
-  min-height: 32px;
+  min-height: 2rem;
 }
 
 .research-details > div {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   line-height: 1.6;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .research-details a {
   display: inline-flex;
-  gap: 5px;
+  gap: 0.3125rem;
   align-items: center;
   color: var(--blue);
   overflow-wrap: anywhere;
 }
 
 .about-body section {
-  padding-bottom: 24px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 0.0625rem solid var(--line);
 }
 
 .about-body section:last-child {
@@ -151,117 +151,117 @@
 
 .about-body section > svg {
   color: var(--blue);
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 }
 
 .about-body h3 {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .about-body p {
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.75;
   color: var(--secondary);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .about-body .small {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 
 .manual-body textarea {
   width: 100%;
-  height: 220px;
+  height: 13.75rem;
   background: var(--panel-soft);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 12px;
-  font-size: 11px;
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  font-size: 0.6875rem;
   line-height: 1.7;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .modal-heading h2 {
-    font-size: 21px;
+    font-size: 1.3125rem;
   }
   .artist-detail-body,
   .about-body,
   .manual-body {
-    padding: 20px;
+    padding: 1.25rem;
   }
   .artist-detail-body .genre-tag,
   .artist-detail-body .subgenre-tag {
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
   .detail-topline .text-link {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
   .rating-row .small {
-    font-size: 9px;
+    font-size: 0.5625rem;
   }
   .rating-controls > button {
-    min-height: 34px;
+    min-height: 2.125rem;
   }
   .appearance-editor textarea {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .manual-actions .button {
-    font-size: 11px;
-    padding: 10px;
+    font-size: 0.6875rem;
+    padding: 0.625rem;
   }
   .text-link,
   .research-details summary,
   .source-link,
   .site-footer a,
   .site-footer button {
-    min-height: 32px;
+    min-height: 2rem;
     align-items: center;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .text-link,
   .research-details summary,
   .source-link,
   .site-footer a,
   .site-footer button,
   .rating-controls > button {
-    min-height: 44px;
+    min-height: 2.75rem;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .search input,
   .priority-select select,
   .manual-body textarea {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
 .preview-member-heading > .portrait {
-  width: 54px;
-  height: 54px;
-  border-radius: 8px;
+  width: 3.375rem;
+  height: 3.375rem;
+  border-radius: 0.5rem;
   flex-shrink: 0;
 }
 
 .preview-member-heading > div {
   min-width: 0;
   display: grid;
-  gap: 7px;
+  gap: 0.4375rem;
 }
 
 .joint-artists > h3 {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .member-details-body .detail-topline {
-  margin-bottom: 14px;
+  margin-bottom: 0.875rem;
 }
 
 .member-details-body .detail-topline h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
 }

@@ -29,22 +29,22 @@ export function ExportMenu({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] bg-surface border border-separator [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[760px]:[font-size:0] max-[760px]:p-0 max-[760px]:w-11 max-[760px]:h-11 max-[760px]:[min-width:44px] max-[760px]:[margin-top:26px] max-[760px]:[gap:0]"
+          className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[47.5rem]:[font-size:0] max-[47.5rem]:p-0 max-[47.5rem]:w-11 max-[47.5rem]:h-11 max-[47.5rem]:[min-width:2.75rem] max-[47.5rem]:mt-6.5 max-[47.5rem]:[gap:0]"
           disabled={!count || busy}
           title={!count ? t.noPlan : undefined}
         >
           {busy ? (
-            <LoaderCircle size={17} className="spin [animation:spin_1s_linear_infinite]" />
+            <LoaderCircle size="1.0625rem" className="spin [animation:spin_1s_linear_infinite]" />
           ) : (
-            <ArrowDownToLine size={17} />
+            <ArrowDownToLine size="1.0625rem" />
           )}
           {busy ? t.copying : t.export}
-          <ChevronDown size={14} />
+          <ChevronDown size="0.875rem" />
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="menu bg-surface border border-separator [box-shadow:var(--shadow)] [border-radius:13px] [padding:6px] [z-index:80] text-content [animation:reveal_0.14s_ease-out] export-menu [width:322px] [max-width:calc(100vw_-_24px)]"
+          className="menu bg-surface border border-separator [box-shadow:var(--shadow)] rounded-xl p-1.5 [z-index:80] text-content [animation:reveal_0.14s_ease-out] export-menu w-80.5 [max-width:calc(100vw_-_1.5rem)]"
           align="end"
           sideOffset={10}
           collisionPadding={12}
@@ -52,7 +52,7 @@ export function ExportMenu({
           <DropdownMenu.Label>
             {count} {t.rowCount}
           </DropdownMenu.Label>
-          <p className="export-scope text-muted [font-size:10px] [line-height:1.6] [padding:0_10px_10px]">
+          <p className="export-scope text-muted [font-size:0.625rem] [line-height:1.6] [padding:0_0.625rem_0.625rem]">
             {t.exportScope}
           </p>
           {(
@@ -64,17 +64,17 @@ export function ExportMenu({
           ).map(({ key, Icon, label, hint }) => (
             <DropdownMenu.Item
               key={key}
-              className="menu-item relative min-h-11 flex items-center [gap:10px] rounded-2 [padding:10px] text-xs cursor-pointer export-item"
+              className="menu-item relative min-h-11 flex items-center gap-2.5 rounded-lg p-2.5 text-xs cursor-pointer export-item"
               onSelect={() => {
                 void onExport(key);
               }}
             >
-              <Icon size={19} />
+              <Icon size="1.1875rem" />
               <span>
                 <strong>{label}</strong>
                 <small>{hint}</small>
               </span>
-              <ArrowUpRight size={14} />
+              <ArrowUpRight size="0.875rem" />
             </DropdownMenu.Item>
           ))}
         </DropdownMenu.Content>

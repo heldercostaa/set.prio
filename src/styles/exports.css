@@ -7,32 +7,32 @@
 }
 
 .menu [data-radix-menu-collection-item]:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: -2px;
+  outline: 0.125rem solid var(--blue);
+  outline-offset: -0.125rem;
 }
 
 .menu [data-radix-dropdown-menu-label],
 .menu > div:first-child:not(.menu-item) {
-  padding: 7px 10px;
+  padding: 0.4375rem 0.625rem;
   color: var(--secondary);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 600;
 }
 
 .export-item > span {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .export-item > span strong {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
 .export-item > span small {
   color: var(--secondary);
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 
 .export-item > svg:last-child {
@@ -45,12 +45,12 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .export-trigger > svg:last-child {
     display: none;
   }
   .export-trigger > svg:first-child {
-    width: 19px;
-    height: 19px;
+    width: 1.1875rem;
+    height: 1.1875rem;
   }
 }

@@ -6,10 +6,10 @@ import type { Language } from '../../types';
 
 function Brand() {
   return (
-    <div className="brand flex items-center [gap:13px] shrink-0 max-[760px]:[gap:10px] max-[360px]:gap-2">
+    <div className="brand flex items-center gap-3.25 shrink-0 max-[47.5rem]:gap-2.5 max-[22.5rem]:gap-2">
       <img src={publicAsset('/logo.svg')} width={46} height={46} alt="" />
       <div>
-        <div className="wordmark [font-size:27px] font-medium [letter-spacing:-1.2px] [line-height:1.06] max-[760px]:[font-size:24px] max-[360px]:[font-size:23px]">
+        <div className="wordmark [font-size:1.6875rem] font-medium [letter-spacing:-0.075rem] [line-height:1.06] max-[47.5rem]:[font-size:1.5rem] max-[22.5rem]:[font-size:1.4375rem]">
           set<span>.</span>
           <strong>prio</strong>
         </div>
@@ -22,15 +22,15 @@ export function SiteHeader({ language }: { language: Language }) {
   const t = messages(language);
   const setLanguage = usePlanner((s) => s.setLanguage);
   return (
-    <header className="site-header [border-bottom:1px_solid_var(--line)] bg-surface">
-      <div className="header-inner max-w-384 [margin:auto] [padding:18px_40px] flex items-center justify-between gap-4 max-[1100px]:[padding:20px_24px] max-[760px]:[padding:16px_20px] max-[760px]:gap-2 max-[360px]:p-4">
+    <header className="site-header [border-bottom:0.0625rem_solid_var(--line)] bg-surface">
+      <div className="header-inner max-w-384 [margin:auto] [padding:1.125rem_2.5rem] flex items-center justify-between gap-4 max-[68.75rem]:[padding:1.25rem_1.5rem] max-[47.5rem]:[padding:1rem_1.25rem] max-[47.5rem]:gap-2 max-[22.5rem]:p-4">
         <Brand />
-        <div className="header-actions flex items-center gap-3 max-[760px]:gap-1 max-[360px]:[gap:0]">
+        <div className="header-actions flex items-center gap-3 max-[47.5rem]:gap-1 max-[22.5rem]:[gap:0]">
           <fieldset
-            className="language-control flex items-center [gap:3px] [font-size:11px] text-muted"
+            className="language-control flex items-center gap-0.75 [font-size:0.6875rem] text-muted"
             aria-label={language === 'en' ? 'Language' : 'Idioma'}
           >
-            <Globe2 size={15} />
+            <Globe2 size="0.9375rem" />
             <button
               type="button"
               aria-pressed={language === 'en'}
@@ -49,13 +49,13 @@ export function SiteHeader({ language }: { language: Language }) {
             </button>
           </fieldset>
           <a
-            className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted [border-radius:10px] shrink-0 github-link"
+            className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted rounded-xl shrink-0 github-link"
             href="https://github.com/heldercostaa/set.prio"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
           >
-            <Code size={19} />
+            <Code size="1.1875rem" />
           </a>
         </div>
       </div>

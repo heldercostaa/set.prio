@@ -36,10 +36,10 @@ export function ManualCopyDialog({
           aria-label={t.manualTitle}
           onFocus={(event) => event.target.select()}
         />
-        <div className="manual-actions flex [gap:10px] [justify-content:flex-end] mt-4">
+        <div className="manual-actions flex gap-2.5 [justify-content:flex-end] mt-4">
           <button
             type="button"
-            className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] bg-surface border border-separator [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s]"
+            className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s]"
             onClick={() => {
               manualText.current?.focus();
               manualText.current?.select();
@@ -49,7 +49,7 @@ export function ManualCopyDialog({
           </button>
           <button
             type="button"
-            className="button inline-flex justify-center [gap:9px] items-center min-h-11 [padding:10px_16px] bg-surface border border-separator [border-radius:10px] text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary"
+            className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary"
             onClick={() => {
               onExport();
             }}

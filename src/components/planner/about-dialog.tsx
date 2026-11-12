@@ -25,12 +25,12 @@ export function AboutDialog({
     >
       <div className="about-body p-6">
         <section>
-          <LockKeyhole size={22} />
+          <LockKeyhole size="1.375rem" />
           <h3>{t.localTitle}</h3>
           <p>{t.localBody}</p>
         </section>
         <section>
-          <ShieldCheck size={22} />
+          <ShieldCheck size="1.375rem" />
           <h3>{t.dataTitle}</h3>
           <p>{t.dataBody}</p>
           <p className="small text-xs [line-height:1.55] muted text-muted">
@@ -39,14 +39,14 @@ export function AboutDialog({
           </p>
           {catalog.sources.map((url) => (
             <a
-              className="source-link inline-flex items-center gap-1 text-accent [font-size:10px] [margin:4px_12px_0_0] [overflow-wrap:anywhere] [max-width:100%]"
+              className="source-link inline-flex items-center gap-1 text-accent [font-size:0.625rem] [margin:0.25rem_0.75rem_0_0] [overflow-wrap:anywhere] [max-width:100%]"
               href={url}
               target="_blank"
               rel="noreferrer"
               key={url}
             >
               {new URL(url).hostname}
-              <ArrowUpRight size={12} />
+              <ArrowUpRight size="0.75rem" />
             </a>
           ))}
         </section>

@@ -22,9 +22,9 @@ export function PlannerToolbar({
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
-    <div className="toolbar flex items-center [gap:18px] [margin-bottom:18px] max-[760px]:grid max-[760px]:[grid-template-columns:1fr_auto] max-[760px]:[gap:14px] max-[760px]:mb-4">
+    <div className="toolbar flex items-center gap-4.5 mb-4.5 max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:1fr_auto] max-[47.5rem]:gap-3.5 max-[47.5rem]:mb-4">
       <fieldset
-        className="view-switch flex shrink-0 [padding:3px] border border-separator [background:color-mix(in_srgb,_var(--line)_45%,_transparent)] [border-radius:11px] max-[760px]:[width:max-content]"
+        className="view-switch flex shrink-0 p-0.75 border border-separator [background:color-mix(in_srgb,_var(--line)_45%,_transparent)] rounded-xl max-[47.5rem]:[width:max-content]"
         aria-label={language === 'en' ? 'View' : 'Visualização'}
       >
         <button
@@ -33,17 +33,17 @@ export function PlannerToolbar({
           aria-pressed={view === 'board'}
           onClick={() => onView('board')}
         >
-          <Grid2X2 size={16} />
+          <Grid2X2 size="1rem" />
           {t.board}
         </button>
         <button type="button" aria-pressed={view === 'artists'} onClick={() => onView('artists')}>
-          <ListMusic size={17} />
+          <ListMusic size="1.0625rem" />
           {t.artists}
           <span>{individualCount}</span>
         </button>
       </fieldset>
-      <div className="search flex items-center [gap:9px] [flex:1] [min-width:100px] [max-width:450px] min-h-11 border border-separator bg-surface [border-radius:10px] [padding:0_13px] [color:var(--tertiary)] max-[760px]:[grid-column:1_/_-1] max-[760px]:[grid-row:2] max-[760px]:[max-width:none]">
-        <Search size={17} />
+      <div className="search flex items-center gap-2.25 [flex:1] [min-width:6.25rem] max-w-112.5 min-h-11 border border-separator bg-surface rounded-xl [padding:0_0.8125rem] [color:var(--tertiary)] max-[47.5rem]:[grid-column:1_/_-1] max-[47.5rem]:[grid-row:2] max-[47.5rem]:[max-width:none]">
+        <Search size="1.0625rem" />
         <input
           type="search"
           placeholder={t.search}
@@ -54,16 +54,16 @@ export function PlannerToolbar({
         {search && (
           <button
             type="button"
-            className="search-clear [min-width:28px] min-h-10 bg-transparent grid [place-items:center] text-muted max-[760px]:[min-width:44px]"
+            className="search-clear [min-width:1.75rem] min-h-10 bg-transparent grid [place-items:center] text-muted max-[47.5rem]:[min-width:2.75rem]"
             aria-label={t.clearSearch}
             onClick={() => onSearch('')}
           >
-            <X size={15} />
+            <X size="0.9375rem" />
           </button>
         )}
       </div>
-      <span className="plan-count [margin-left:auto] whitespace-nowrap flex items-center [gap:6px] text-muted [font-size:11px] max-[760px]:[font-size:10px] max-[760px]:[gap:5px] max-[360px]:[font-size:9px] max-[360px]:[gap:3px]">
-        <CheckCheck size={16} />
+      <span className="plan-count [margin-left:auto] whitespace-nowrap flex items-center gap-1.5 text-muted [font-size:0.6875rem] max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:gap-1.25 max-[22.5rem]:[font-size:0.5625rem] max-[22.5rem]:gap-0.75">
+        <CheckCheck size="1rem" />
         <strong>{count}</strong>
         <span>{t.prioritized}</span>
       </span>

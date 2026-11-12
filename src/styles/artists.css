@@ -1,12 +1,12 @@
 .catalog-heading h2 {
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-weight: 650;
   letter-spacing: -0.025em;
 }
 
 .catalog-heading > span {
   color: var(--secondary);
-  font-size: 11px;
+  font-size: 0.6875rem;
 }
 
 .catalog-card:hover {
@@ -14,13 +14,13 @@
 }
 
 .catalog-card-body strong {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 
 .catalog-card-body > span {
-  font-size: 10px;
+  font-size: 0.625rem;
   color: var(--secondary);
 }
 
@@ -33,22 +33,22 @@
 
 .no-results h3 {
   color: var(--text);
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .no-results p {
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .genre-tag,
 .subgenre-tag {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 10px;
+  gap: 0.3125rem;
+  font-size: 0.625rem;
   line-height: 1.4;
-  padding: 5px 7px;
-  border-radius: 5px;
+  padding: 0.3125rem 0.4375rem;
+  border-radius: 0.3125rem;
   background: var(--chip);
 }
 
@@ -58,14 +58,14 @@
 }
 
 .set-link-text strong {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 
 .set-link-text > span {
   color: var(--secondary);
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 
 .set-link > svg {
@@ -75,33 +75,33 @@
 }
 
 .compact-set .play-icon {
-  width: 29px;
-  height: 29px;
+  width: 1.8125rem;
+  height: 1.8125rem;
 }
 
 .compact-set .set-link-text strong {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 
 .compact-set .set-link-text span {
-  font-size: 9px;
+  font-size: 0.5625rem;
 }
 
 .set-unavailable svg {
   flex-shrink: 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .catalog-heading h2 {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .catalog-heading > span {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
   .catalog-card-body strong {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
   .catalog-card-body > span {
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
 }

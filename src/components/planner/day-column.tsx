@@ -37,30 +37,30 @@ function PriorityGroup({
     >
       <div className="group-heading flex items-center justify-between mb-3">
         {priority ? (
-          <h3 className="priority-badge inline-flex items-center [gap:5px] [color:var(--priority)] text-xs font-semibold [line-height:1.2] [padding:6px_8px] [border-radius:6px] [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] max-[1100px]:text-xs max-[1100px]:[padding:6px] max-[760px]:text-xs max-[760px]:[padding:6px_8px]">
+          <h3 className="priority-badge inline-flex items-center gap-1.25 [color:var(--priority)] text-xs font-semibold [line-height:1.2] [padding:0.375rem_0.5rem] rounded-md [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] max-[68.75rem]:text-xs max-[68.75rem]:p-1.5 max-[47.5rem]:text-xs max-[47.5rem]:[padding:0.375rem_0.5rem]">
             <span className="priority-dot w-1 h-1 [border-radius:100%] [background:currentColor]" />
             {priority}
-            <span className="priority-name font-semibold [margin-left:2px] [padding-left:6px] [border-left:1px_solid_color-mix(in_srgb,_var(--priority)_27%,_transparent)] max-[1100px]:[margin-left:0] max-[1100px]:pl-1 max-[760px]:[padding-left:6px]">
+            <span className="priority-name font-semibold ml-0.5 pl-1.5 [border-left:0.0625rem_solid_color-mix(in_srgb,_var(--priority)_27%,_transparent)] max-[68.75rem]:[margin-left:0] max-[68.75rem]:pl-1 max-[47.5rem]:pl-1.5">
               {label}
             </span>
           </h3>
         ) : (
           <button
             type="button"
-            className="unranked-toggle min-h-8 bg-transparent flex items-center [gap:6px] p-0 text-muted [font-size:11px] font-semibold max-[760px]:min-h-11"
+            className="unranked-toggle min-h-8 bg-transparent flex items-center gap-1.5 p-0 text-muted [font-size:0.6875rem] font-semibold max-[47.5rem]:min-h-11"
             aria-expanded={expanded}
             onClick={() => setExpanded(!expanded)}
           >
-            <ChevronDown size={13} className={expanded ? '' : 'collapsed'} />
+            <ChevronDown size="0.8125rem" className={expanded ? '' : 'collapsed'} />
             {label}
           </button>
         )}
-        <span className="group-count [color:var(--tertiary)] [font-size:10px] [font-variant-numeric:tabular-nums] [padding-right:3px]">
+        <span className="group-count [color:var(--tertiary)] [font-size:0.625rem] [font-variant-numeric:tabular-nums] pr-0.75">
           {appearances.length}
         </span>
       </div>
       {expanded && (
-        <div className="artist-chips flex items-start flex-wrap [gap:6px] [min-height:25px] max-[760px]:[gap:7px]">
+        <div className="artist-chips flex items-start flex-wrap gap-1.5 min-h-6.25 max-[47.5rem]:gap-1.75">
           <AnimatePresence initial={false}>
             {appearances.map((appearance) => (
               <ArtistChip
@@ -73,7 +73,7 @@ function PriorityGroup({
             ))}
           </AnimatePresence>
           {appearances.length === 0 && (
-            <p className="empty-priority [color:var(--tertiary)] [font-size:10px] [line-height:1.65] [max-width:265px] [padding:2px_1px] max-[760px]:[font-size:11px]">
+            <p className="empty-priority [color:var(--tertiary)] [font-size:0.625rem] [line-height:1.65] max-w-66.25 [padding:0.125rem_0.0625rem] max-[47.5rem]:[font-size:0.6875rem]">
               {priority === 'P0' ? t.emptyPriority : '—'}
             </p>
           )}
@@ -113,23 +113,23 @@ export function DayColumn({
   const t = messages(language);
   return (
     <article
-      className={`day-column border border-separator [border-radius:17px] bg-surface [overflow:clip] [box-shadow:0_2px_5px_#00000002] day-${index}`}
+      className={`day-column border border-separator rounded-2xl bg-surface [overflow:clip] [box-shadow:0_0.125rem_0.3125rem_#00000002] day-${index}`}
       aria-label={dayName(day, language)}
     >
-      <header className="day-heading [padding:20px_20px_18px] bg-surface [border-bottom:1px_solid_var(--line)] max-[1100px]:[padding:18px_14px] max-[760px]:[padding:19px_19px_18px]">
-        <div className="day-date flex justify-between items-center text-muted [font-size:10px] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] [margin-bottom:11px] max-[760px]:text-xs max-[760px]:mb-3">
+      <header className="day-heading [padding:1.25rem_1.25rem_1.125rem] bg-surface [border-bottom:0.0625rem_solid_var(--line)] max-[68.75rem]:[padding:1.125rem_0.875rem] max-[47.5rem]:[padding:1.1875rem_1.1875rem_1.125rem]">
+        <div className="day-date flex justify-between items-center text-muted [font-size:0.625rem] font-semibold [letter-spacing:0.045em] [text-transform:uppercase] mb-2.75 max-[47.5rem]:text-xs max-[47.5rem]:mb-3">
           {day ? shortDate(day, language) : '—'}
           <span>
             {total.length} {t.performances}
           </span>
         </div>
-        <div className="day-title flex items-center [gap:10px] max-[1100px]:[gap:7px] max-[760px]:[gap:10px]">
+        <div className="day-title flex items-center gap-2.5 max-[68.75rem]:gap-1.75 max-[47.5rem]:gap-2.5">
           <span className="day-icon inline-flex items-center [color:var(--orange)]">
-            <Icon size={20} strokeWidth={1.8} />
+            <Icon size="1.25rem" strokeWidth={1.8} />
           </span>
           <h2>{dayName(day, language)}</h2>
           <span
-            className="day-progress flex [align-items:baseline] [gap:2px] [margin-left:auto] text-xs font-semibold [font-variant-numeric:tabular-nums]"
+            className="day-progress flex [align-items:baseline] gap-0.5 [margin-left:auto] text-xs font-semibold [font-variant-numeric:tabular-nums]"
             title={`${ranked}/${total.length}`}
           >
             {ranked}
@@ -137,7 +137,7 @@ export function DayColumn({
           </span>
         </div>
       </header>
-      <div className="day-groups [padding:0_18px] max-[1100px]:[padding:0_13px] max-[760px]:[padding:0_18px]">
+      <div className="day-groups [padding:0_1.125rem] max-[68.75rem]:[padding:0_0.8125rem] max-[47.5rem]:[padding:0_1.125rem]">
         {[...PRIORITIES, null].map((priority) => (
           <PriorityGroup
             key={priority ?? 'none'}

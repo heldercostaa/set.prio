@@ -62,7 +62,7 @@ export function PriorityBoard({
           accessibility={{ screenReaderInstructions: { draggable: t.move } }}
         >
           <fieldset
-            className="mobile-days hidden max-[760px]:grid max-[760px]:[grid-template-columns:repeat(3,_minmax(0,_1fr))] max-[760px]:gap-1 max-[760px]:[background:color-mix(in_srgb,_var(--line)_50%,_transparent)] max-[760px]:border border-separator max-[760px]:[border-radius:11px] max-[760px]:[padding:3px] max-[760px]:mb-4"
+            className="mobile-days hidden max-[47.5rem]:grid max-[47.5rem]:[grid-template-columns:repeat(3,_minmax(0,_1fr))] max-[47.5rem]:gap-1 max-[47.5rem]:[background:color-mix(in_srgb,_var(--line)_50%,_transparent)] max-[47.5rem]:border border-separator max-[47.5rem]:rounded-xl max-[47.5rem]:p-0.75 max-[47.5rem]:mb-4"
             aria-label={t.officialDay}
           >
             {DAYS.map((day) => (
@@ -76,10 +76,10 @@ export function PriorityBoard({
               </button>
             ))}
           </fieldset>
-          <div className="board-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[1100px]:[gap:14px] max-[760px]:block">
+          <div className="board-grid grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] [align-items:start] gap-5 max-[68.75rem]:gap-3.5 max-[47.5rem]:block">
             {DAYS.map((day, index) => (
               <div
-                className={`day-slot min-w-0 max-[760px]:hidden ${state.activeDay === day ? 'active-day' : ''}`}
+                className={`day-slot min-w-0 max-[47.5rem]:hidden ${state.activeDay === day ? 'active-day' : ''}`}
                 key={day}
               >
                 <DayColumn
@@ -99,7 +99,7 @@ export function PriorityBoard({
           )}
           <DragOverlay>
             {dragName && (
-              <div className="drag-overlay bg-surface [border:1px_solid_var(--blue)] rounded-2 [padding:10px_14px] text-xs [box-shadow:var(--shadow)] max-w-70">
+              <div className="drag-overlay bg-surface [border:0.0625rem_solid_var(--blue)] rounded-lg [padding:0.625rem_0.875rem] text-xs [box-shadow:var(--shadow)] max-w-70">
                 {dragName}
               </div>
             )}
