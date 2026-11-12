@@ -1,3 +1,4 @@
+import { matchesWatchFilter, type WatchFilter } from '../../data';
 import { useDroppable } from '@dnd-kit/core';
 import { AudioLines, ChevronDown } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
@@ -89,6 +90,7 @@ export function DayColumn({
   index,
   search,
   genres = [],
+  watched = 'all',
   language,
   onOpen,
 }: {
@@ -96,15 +98,20 @@ export function DayColumn({
   index: number;
   search: string;
   genres?: string[];
+  watched?: WatchFilter;
   language: Language;
   onOpen: (id: string) => void;
 }) {
+  const ratings = usePlanner((state) => state.ratings);
   const priorities = usePlanner((state) => state.priorities);
   const appearances = catalog.appearances
     .filter((appearance) => {
       const artist = artistById.get(appearance.artistId);
       return (
-        appearance.day === day && artist !== undefined && matchesSearch(artist, search, genres)
+        appearance.day === day &&
+        artist !== undefined &&
+        matchesSearch(artist, search, genres) &&
+        matchesWatchFilter(artist, watched, ratings)
       );
     })
     .sort((a, b) =>

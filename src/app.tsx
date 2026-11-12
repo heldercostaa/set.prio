@@ -1,3 +1,4 @@
+import type { WatchFilter } from './data';
 import { useMediaQuery } from './components/ui/use-media-query';
 import { useImageShare } from './components/planner/use-image-share';
 import { ImageShareDialog } from './components/planner/image-share-dialog';
@@ -32,6 +33,7 @@ export function App() {
   const language = state.language,
     t = messages(language);
   const [search, setSearch] = useState('');
+  const [watched, setWatched] = useState<WatchFilter>('all');
   const [genres, setGenres] = useState<string[]>([]);
   const [view, setView] = useState<'board' | 'artists'>('board');
   const [selected, setSelected] = useState<string | null>(null);
@@ -181,6 +183,8 @@ export function App() {
               onSearch={setSearch}
               genres={genres}
               onGenres={setGenres}
+              watched={watched}
+              onWatched={setWatched}
               count={entries.length}
             />
             <div className="genre-notice flex items-center gap-2.75 bg-transparent border-b border-separator text-muted [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5 [&_>_svg]:text-accent [&_>_svg]:shrink-0 [&_p]:text-xs [&_p]:[line-height:1.65] [&_strong]:text-content [&_strong]:font-semibold [&_>_.icon-button]:[margin-left:auto] [&_>_.icon-button]:w-7 [&_>_.icon-button]:h-7 [&_>_.icon-button]:text-accent max-[47.5rem]:[&_>_svg]:w-3.75 max-[47.5rem]:[&_>_svg]:mt-0.5 max-[47.5rem]:[&_p]:text-xs max-[47.5rem]:[&_p]:[line-height:1.7] max-[47.5rem]:[&_>_.icon-button]:hidden">
@@ -199,6 +203,7 @@ export function App() {
             </div>
             {view === 'board' ? (
               <PriorityBoard
+                watched={watched}
                 language={language}
                 search={search}
                 genres={genres}
@@ -206,6 +211,7 @@ export function App() {
               />
             ) : (
               <ArtistCatalog
+                watched={watched}
                 genres={genres}
                 language={language}
                 search={search}

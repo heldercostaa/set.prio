@@ -34,3 +34,18 @@ export function membersFor(artist: Artist): Artist[] {
     return member ? [member] : [];
   });
 }
+
+export type WatchFilter = 'all' | 'watched' | 'unwatched';
+export function matchesWatchFilter(
+  artist: Artist,
+  filter: WatchFilter,
+  ratings: Record<string, number | null>
+) {
+  if (filter === 'all') return true;
+  const members = membersFor(artist);
+  const acts = members.length ? members : [artist];
+  const complete = acts.every(
+    (act) => act.recommendedSetId && ratings[act.recommendedSetId] != null
+  );
+  return filter === 'watched' ? complete : !complete;
+}

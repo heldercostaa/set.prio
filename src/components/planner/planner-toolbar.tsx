@@ -1,3 +1,4 @@
+import type { WatchFilter } from '../../data';
 import { controlClassName, controlCountClassName, controlOptionClassName } from '../ui/control';
 import { GenreFilter } from './genre-filter';
 import { CheckCheck, Grid2X2, ListMusic, Search, X } from 'lucide-react';
@@ -14,6 +15,8 @@ export function PlannerToolbar({
   count,
   genres,
   onGenres,
+  watched,
+  onWatched,
 }: {
   language: Language;
   view: 'board' | 'artists';
@@ -21,6 +24,8 @@ export function PlannerToolbar({
   search: string;
   onSearch: (search: string) => void;
   count: number;
+  watched: WatchFilter;
+  onWatched: (value: WatchFilter) => void;
   genres: string[];
   onGenres: (genres: string[]) => void;
 }) {
@@ -79,6 +84,24 @@ export function PlannerToolbar({
           )}
         </div>
       </div>
+      <label
+        className={`${controlClassName} inline-flex items-center px-3 max-[47.5rem]:col-span-2`}
+      >
+        <span className="sr-only">
+          {language === 'en' ? 'Watched status' : 'Status de visualização'}
+        </span>
+        <select
+          className="min-h-11 w-full cursor-pointer bg-transparent text-control text-content outline-none max-[47.5rem]:text-base"
+          value={watched}
+          onChange={(event) => onWatched(event.target.value as WatchFilter)}
+        >
+          <option value="all">{language === 'en' ? 'All sets' : 'Todos os sets'}</option>
+          <option value="watched">{language === 'en' ? 'Watched' : 'Assistidos'}</option>
+          <option value="unwatched">
+            {language === 'en' ? 'Not watched yet' : 'Ainda não assistidos'}
+          </option>
+        </select>
+      </label>
       <span className="plan-count max-[47.5rem]:col-start-2 max-[47.5rem]:row-start-1 [margin-left:auto] whitespace-nowrap flex items-center gap-1.5 text-muted [font-size:0.6875rem] max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:gap-1.25 max-[22.5rem]:[font-size:0.5625rem] max-[22.5rem]:gap-0.75 [&_svg]:[color:var(--teal)] [&_svg]:mr-0.75 [&_strong]:text-content [&_strong]:[font-variant-numeric:tabular-nums] max-[22.5rem]:[&_svg]:hidden">
         <CheckCheck size="1rem" />
         <strong>{count}</strong>

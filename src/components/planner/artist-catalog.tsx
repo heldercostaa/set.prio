@@ -1,3 +1,4 @@
+import { matchesWatchFilter, type WatchFilter } from '../../data';
 import { Search } from 'lucide-react';
 import { useMemo } from 'react';
 import { ArtistCard } from '../../components/artist';
@@ -10,25 +11,28 @@ export function ArtistCatalog({
   language,
   search,
   genres = [],
+  watched = 'all',
   onSearch,
   onOpen,
 }: {
   language: Language;
   search: string;
   genres?: string[];
+  watched?: WatchFilter;
   onSearch: (value: string) => void;
   onOpen: (id: string) => void;
 }) {
   const t = messages(language);
+  const ratings = usePlanner((s) => s.ratings);
   const priorities = usePlanner((s) => s.priorities);
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   const visibleArtists = useMemo(
     () =>
       catalog.artists
-        .filter((a) => matchesSearch(a, search, genres))
+        .filter((a) => matchesSearch(a, search, genres) && matchesWatchFilter(a, watched, ratings))
         .sort((a, b) => a.name.localeCompare(b.name, language)),
-    [search, language, genres]
+    [search, language, genres, watched, ratings]
   );
   return (
     <section
