@@ -17,8 +17,11 @@ Then('I can switch between light and dark appearances and keep my choice', async
         });
       return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
     };
-    const foreground = luminance(getComputedStyle(group.querySelector('h3')!).color);
-    const background = luminance(getComputedStyle(group.closest('article')!).backgroundColor);
+    const heading = group.querySelector('h3');
+    const column = group.closest('article');
+    if (!heading || !column) throw new Error('Missing rendered Avoid heading or day column');
+    const foreground = luminance(getComputedStyle(heading).color);
+    const background = luminance(getComputedStyle(column).backgroundColor);
     return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
   });
   expect(avoidContrast, 'Avoid label remains readable in light mode').toBeGreaterThanOrEqual(4.5);
