@@ -1261,7 +1261,7 @@
       "genreSources": [
         "https://www.youtube.com/watch?v=rPV3BWCpRNM"
       ],
-      "recommendedSetId": "rPV3BWCpRNM",
+      "recommendedSetId": "yU7_OAXxEKc",
       "recommendedSetRepresentative": false
     },
     {
@@ -4721,6 +4721,18 @@
       "viewCount": 3297480,
       "verifiedAt": "2026-11-11",
       "selectionReason": "Full set from Tomorrowland’s official channel; chosen by recency and verified audience reach.",
+      "representative": false
+    },
+    {
+      "id": "yU7_OAXxEKc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=yU7_OAXxEKc",
+      "title": "KREWELLA // No Phone Zone (LIVE in LA)",
+      "eventLabel": "No Phone Zone · Los Angeles 2026",
+      "channel": "Brownies & Lemonade",
+      "uploadedAt": "2026-10-01",
+      "viewCount": 157618,
+      "verifiedAt": "2026-11-12",
+      "selectionReason": "User-selected full set. Publisher description confirms the PEAK premiere at El Cid, Los Angeles, September 3, 2026.",
       "representative": false
     }
   ],
