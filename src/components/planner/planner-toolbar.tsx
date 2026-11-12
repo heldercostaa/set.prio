@@ -95,6 +95,19 @@ export function PlannerToolbar({
             </option>
           </select>
         </label>
+        {hasFilters && (
+          <button
+            type="button"
+            onClick={() => {
+              onResetFilters();
+              searchInput.current?.focus();
+            }}
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised"
+          >
+            <RotateCcw size="0.875rem" aria-hidden="true" />
+            {t.resetFilters}
+          </button>
+        )}
         <div
           className={`search ${controlClassName} flex items-center gap-2 [flex:1] min-w-0 max-w-none px-3 max-[47.5rem]:basis-full [color:var(--tertiary)] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-control [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base`}
         >
@@ -119,19 +132,6 @@ export function PlannerToolbar({
           )}
         </div>
         <ArtistSort value={sort} onChange={onSort} language={language} />
-        {hasFilters && (
-          <button
-            type="button"
-            onClick={() => {
-              onResetFilters();
-              searchInput.current?.focus();
-            }}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised"
-          >
-            <RotateCcw size="0.875rem" aria-hidden="true" />
-            {t.resetFilters}
-          </button>
-        )}
       </div>
     </div>
   );
