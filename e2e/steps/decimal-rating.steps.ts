@@ -5,7 +5,7 @@ When("I score Fisher's recording eight and a half", async ({ page }) => {
   await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();
   const rating = page.getByRole('spinbutton', { name: 'Rate this set', exact: true });
   await expect(rating).toHaveAttribute('inputmode', 'decimal');
-  await rating.fill('8.5');
+  await rating.fill('8,5');
   await expect(rating).toHaveValue('8.5');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
 });
