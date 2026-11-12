@@ -21,7 +21,7 @@ function PriorityGroup({
   appearances: Appearance[];
   language: Language;
   onOpen: (id: string) => void;
-  onQuick?: (id: string) => void;
+  onQuick?: (id: string | null) => void;
 }) {
   const t = messages(language);
   const { setNodeRef, isOver } = useDroppable({
@@ -102,7 +102,7 @@ export function DayColumn({
   genres?: string[];
   language: Language;
   onOpen: (id: string) => void;
-  onQuick?: (id: string) => void;
+  onQuick?: (id: string | null) => void;
 }) {
   const priorities = usePlanner((state) => state.priorities);
   const Icon = CalendarDays;
