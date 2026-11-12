@@ -35,7 +35,7 @@ export function ArtistCatalog({
       className="catalog-section bg-surface border border-separator rounded-2xl p-6 max-[47.5rem]:[padding:1.125rem_0.625rem]"
       aria-label={t.allArtists}
     >
-      <div className="catalog-heading flex justify-between [align-items:baseline] gap-3 mb-6 max-[47.5rem]:[margin:0_0.5rem_1rem] max-[47.5rem]:flex-col max-[47.5rem]:gap-2">
+      <div className="catalog-heading flex justify-between [align-items:baseline] gap-3 mb-6 max-[47.5rem]:[margin:0_0.5rem_1rem] max-[47.5rem]:flex-col max-[47.5rem]:gap-2 [&_h2]:[font-size:1.1875rem] [&_h2]:[font-weight:650] [&_h2]:[letter-spacing:-0.025em] [&_>_span]:text-muted [&_>_span]:[font-size:0.6875rem] max-[47.5rem]:[&_h2]:text-lg max-[47.5rem]:[&_>_span]:[font-size:0.625rem]">
         <h2>{t.allArtists}</h2>
         <span>
           {catalog.appearances.length} {t.performances} · {individualCount} {t.artistsLower}
@@ -54,13 +54,13 @@ export function ArtistCatalog({
           ))}
         </div>
       ) : (
-        <div className="no-results [padding:4.375rem_0.75rem] text-center grid [justify-items:center] gap-3 text-muted">
+        <div className="no-results [padding:4.375rem_0.75rem] text-center grid [justify-items:center] gap-3 text-muted [&_h3]:text-content [&_h3]:text-lg [&_p]:[font-size:0.8125rem]">
           <Search size="1.75rem" />
           <h3>{t.noResults}</h3>
           <p>{t.noResultsHint}</p>
           <button
             type="button"
-            className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
+            className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
             onClick={() => onSearch('')}
           >
             {t.clearSearch}

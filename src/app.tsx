@@ -96,7 +96,7 @@ export function App() {
       <ArtistPreviewContext.Provider value={!selected && !about && !manual && !quickAppearance}>
         <ArtistPreviewCoordinator>
           <a
-            className="skip-link fixed [top:-3.75rem] [left:1rem] [z-index:100] p-3 [background:var(--panel)] rounded-lg"
+            className="skip-link fixed [top:-3.75rem] [left:1rem] [z-index:100] p-3 [background:var(--panel)] rounded-lg focus:[top:0.625rem]"
             href="#main"
           >
             {' '}
@@ -107,7 +107,7 @@ export function App() {
             id="main"
             className="app-main max-w-384 [padding:2.5rem_2.5rem_0] [margin:auto] max-[68.75rem]:[padding:1.875rem_1.5rem_0] max-[47.5rem]:[padding:1.75rem_1.25rem_0] max-[22.5rem]:[padding:1.5rem_1rem_0]"
           >
-            <div className="page-heading flex justify-between items-center gap-5.5 mb-8 max-[47.5rem]:mb-6 max-[47.5rem]:items-start">
+            <div className="page-heading flex justify-between items-center gap-5.5 mb-8 max-[47.5rem]:mb-6 max-[47.5rem]:items-start [&_>_div_>_p]:text-muted [&_>_div_>_p]:text-sm [&_>_div_>_p]:mt-2.25 max-[47.5rem]:[&_>_div_>_p]:text-xs max-[47.5rem]:[&_>_div_>_p]:[max-width:13.125rem] max-[47.5rem]:[&_>_div_>_p]:[line-height:1.5]">
               <div>
                 <div className="event-kicker flex gap-2 items-center [color:var(--secondary)] text-xs mb-3 font-medium max-[47.5rem]:[font-size:0.625rem] max-[47.5rem]:mb-2.5">
                   {t.dateRange}
@@ -127,7 +127,7 @@ export function App() {
             </div>
             {state.storageError && (
               <div
-                className="storage-warning flex items-start gap-2.5 [padding:0.75rem_0.9375rem] mb-5 [border:0.0625rem_solid_color-mix(in_srgb,_var(--orange)_35%,_transparent)] [background:color-mix(in_srgb,_var(--orange)_6%,_transparent)] rounded-xl text-xs [line-height:1.65]"
+                className="storage-warning flex items-start gap-2.5 [padding:0.75rem_0.9375rem] mb-5 [border:0.0625rem_solid_color-mix(in_srgb,_var(--orange)_35%,_transparent)] [background:color-mix(in_srgb,_var(--orange)_6%,_transparent)] rounded-xl text-xs [line-height:1.65] [&_svg]:shrink-0 [&_svg]:[color:var(--orange)] [&_svg]:mt-0.5"
                 role="alert"
               >
                 <Info size="1.0625rem" />
@@ -150,14 +150,14 @@ export function App() {
               onGenres={setGenres}
               count={entries.length}
             />
-            <div className="genre-notice flex items-center gap-2.75 bg-transparent border-y border-separator [color:var(--secondary)] rounded-xl [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5">
+            <div className="genre-notice flex items-center gap-2.75 bg-transparent border-y border-separator [color:var(--secondary)] rounded-xl [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5 [&_>_svg]:text-accent [&_>_svg]:shrink-0 [&_p]:text-xs [&_p]:[line-height:1.65] [&_strong]:text-content [&_strong]:font-semibold [&_>_.icon-button]:[margin-left:auto] [&_>_.icon-button]:w-7 [&_>_.icon-button]:h-7 [&_>_.icon-button]:text-accent max-[47.5rem]:[&_>_svg]:w-3.75 max-[47.5rem]:[&_>_svg]:mt-0.5 max-[47.5rem]:[&_p]:text-xs max-[47.5rem]:[&_p]:[line-height:1.7] max-[47.5rem]:[&_>_.icon-button]:hidden">
               <Info size="1.0625rem" />
               <p>
                 <strong>{t.genreTitle}.</strong> {t.genreWarning}
               </p>
               <button
                 type="button"
-                className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent [color:var(--secondary)] rounded-xl shrink-0"
+                className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent [color:var(--secondary)] rounded-xl shrink-0 hover:[background:var(--hover)] hover:text-content"
                 aria-label={t.sources}
                 onClick={() => setAbout(true)}
               >
@@ -181,7 +181,7 @@ export function App() {
                 onOpen={openArtist}
               />
             )}
-            <div className="board-bottom flex justify-between gap-3 [padding:1.375rem_0_1.5rem] [color:var(--secondary)] [font-size:0.625rem] max-[47.5rem]:flex-col max-[47.5rem]:[padding:1.25rem_0] max-[47.5rem]:gap-2.5 max-[47.5rem]:[font-size:0.5625rem]">
+            <div className="board-bottom flex justify-between gap-3 [padding:1.375rem_0_1.5rem] [color:var(--secondary)] [font-size:0.625rem] max-[47.5rem]:flex-col max-[47.5rem]:[padding:1.25rem_0] max-[47.5rem]:gap-2.5 max-[47.5rem]:[font-size:0.5625rem] [&_>_span]:inline-flex [&_>_span]:items-center [&_>_span]:gap-1.5">
               <span>
                 <LockKeyhole size="0.8125rem" />
                 {t.privacy}
@@ -220,7 +220,7 @@ export function App() {
             {toast && (
               <motion.div
                 role="status"
-                className="toast fixed [z-index:110] [bottom:1.75rem] [left:50%] [transform:translateX(-50%)] [width:max-content] [max-width:calc(100vw_-_2rem)] flex items-center gap-2.5 [color:var(--text)] [background:var(--panel)] [box-shadow:var(--shadow)] [border:0.0625rem_solid_var(--line)] rounded-xl [padding:0.9375rem_1.1875rem] text-xs max-[47.5rem]:[bottom:1.25rem] max-[47.5rem]:[font-size:0.6875rem] max-[47.5rem]:[line-height:1.6]"
+                className="toast fixed [z-index:110] [bottom:1.75rem] [left:50%] [transform:translateX(-50%)] [width:max-content] [max-width:calc(100vw_-_2rem)] flex items-center gap-2.5 [color:var(--text)] [background:var(--panel)] [box-shadow:var(--shadow)] [border:0.0625rem_solid_var(--line)] rounded-xl [padding:0.9375rem_1.1875rem] text-xs max-[47.5rem]:[bottom:1.25rem] max-[47.5rem]:[font-size:0.6875rem] max-[47.5rem]:[line-height:1.6] [&_>_svg]:shrink-0 [&_>_svg]:[color:var(--teal)]"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 14 }}

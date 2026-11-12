@@ -1,8 +1,4 @@
 @import "tailwindcss";
 @import "./styles/foundation.css";
-@import "./styles/layout.css";
-@import "./styles/board.css";
-@import "./styles/artists.css";
-@import "./styles/dialogs.css";
-@import "./styles/exports.css";
+@import "./styles/compatibility.css";
 @import "./styles/motion.css";

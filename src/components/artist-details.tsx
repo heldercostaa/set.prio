@@ -37,17 +37,17 @@ export function ArtistDetails({
       className="artist-modal"
       onRestoreFocus={restoreFocus}
     >
-      <div className="artist-modal-scroll">
+      <div className="artist-modal-scroll [overflow-y:auto] [overscroll-behavior:contain]">
         {!members.length && (
           <Portrait
             artist={artist}
             className="artist-hero w-full h-57.5 [object-position:50%_35%] [font-size:3.75rem] max-[47.5rem]:h-50"
           />
         )}
-        <div className="artist-detail-body [padding:1.375rem_1.5rem_1.25rem]">
+        <div className="artist-detail-body [padding:1.375rem_1.5rem_1.25rem] max-[47.5rem]:p-5 max-[47.5rem]:[&_.genre-tag]:[font-size:0.6875rem] max-[47.5rem]:[&_.subgenre-tag]:[font-size:0.6875rem]">
           {!members.length && (
             <>
-              <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5">
+              <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
                 <span className="eyebrow [font-size:0.6875rem] font-semibold [letter-spacing:0.045em]">
                   {t.genreShort}
                 </span>
@@ -55,7 +55,7 @@ export function ArtistDetails({
                   href={artist.officialUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
+                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
                 >
                   {t.officialProfile}
                   <ArrowUpRight size="0.8125rem" />
@@ -64,12 +64,15 @@ export function ArtistDetails({
               <Genres artist={artist} language={language} />
             </>
           )}
-          <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_1.25rem]">
+          <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_1.25rem] [&_>_svg]:shrink-0 [&_>_svg]:text-accent [&_>_svg]:mt-0.25">
             <Info size="0.9375rem" />
             <p>{t.genreWarning}</p>
           </div>
           {members.length ? (
-            <section className="joint-artists grid gap-5 mt-6" aria-label={t.jointArtists}>
+            <section
+              className="joint-artists grid gap-5 mt-6 [&_>_h3]:text-base"
+              aria-label={t.jointArtists}
+            >
               <h3>{t.jointArtists}</h3>
               {members.map((member) => (
                 <section
@@ -78,14 +81,14 @@ export function ArtistDetails({
                   key={member.id}
                 >
                   <Portrait artist={member} className="member-portrait w-full h-45" />
-                  <div className="member-details-body p-4.5">
-                    <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5">
+                  <div className="member-details-body p-4.5 [&_.detail-topline]:mb-3.5 [&_.detail-topline_h3]:text-xl">
+                    <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
                       <h3>{member.name}</h3>
                       <a
                         href={member.officialUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
+                        className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
                       >
                         {t.officialProfile}
                         <ArrowUpRight size="0.8125rem" />
@@ -106,19 +109,22 @@ export function ArtistDetails({
               heading={members.length ? t.jointRecording : undefined}
             />
           )}
-          <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] performances-editor">
+          <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] performances-editor [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
             <h3>{t.related}</h3>
             {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
             {appearances.map((appearance) => {
               const billed = artistById.get(appearance.artistId);
               return (
-                <div className="appearance-editor [padding:1rem_0]" key={appearance.id}>
-                  <div className="appearance-heading flex justify-between items-center gap-3.5 mb-1.5 max-[22.5rem]:gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3">
+                <div
+                  className="appearance-editor [padding:1rem_0] [&_+_.appearance-editor]:[border-top:0.0625rem_solid_var(--line)] [&_textarea]:w-full [&_textarea]:[resize:vertical] [&_textarea]:min-h-18.5 [&_textarea]:[max-height:21.875rem] [&_textarea]:bg-raised [&_textarea]:[border:0.0625rem_solid_var(--line)] [&_textarea]:rounded-lg [&_textarea]:p-2.75 [&_textarea]:text-xs [&_textarea]:[line-height:1.65] [&_>_.small:last-child]:[font-size:0.5625rem] [&_>_.small:last-child]:[display:inline-block] [&_>_.small:last-child]:mt-1.25 max-[47.5rem]:[&_textarea]:text-base"
+                  key={appearance.id}
+                >
+                  <div className="appearance-heading flex justify-between items-center gap-3.5 mb-1.5 max-[22.5rem]:gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3 [&_>_div]:flex [&_>_div]:flex-col [&_>_div]:gap-1.25 [&_strong]:[font-size:0.8125rem] [&_strong]:font-semibold [&_>_div_>_span]:[font-size:0.625rem] [&_>_div_>_span]:text-muted">
                     <div>
                       <strong>{dayName(appearance.day, language)}</strong>
                       {appearance.day && <span>{longDate(appearance.day, language)}</span>}
                     </div>
-                    <label className="priority-select relative max-w-51.25 [min-width:9.375rem] max-[47.5rem]:min-w-0 max-[47.5rem]:[max-width:none] max-[47.5rem]:w-full max-[22.5rem]:[min-width:7.8125rem]">
+                    <label className="priority-select relative max-w-51.25 [min-width:9.375rem] max-[47.5rem]:min-w-0 max-[47.5rem]:[max-width:none] max-[47.5rem]:w-full max-[22.5rem]:[min-width:7.8125rem] [&_select]:appearance-none [&_select]:w-full [&_select]:[border:0.0625rem_solid_var(--line)] [&_select]:rounded-lg [&_select]:bg-raised [&_select]:min-h-11 [&_select]:[padding:0.5rem_1.75rem_0.5rem_0.625rem] [&_select]:[font-size:0.6875rem] [&_select]:[cursor:pointer] [&_>_svg]:absolute [&_>_svg]:[right:0.5625rem] [&_>_svg]:[top:0.9375rem] [&_>_svg]:pointer-events-none [&_>_svg]:text-muted max-[47.5rem]:[&_select]:text-base max-[22.5rem]:[&_select]:pl-2">
                       <span className="sr-only absolute w-0.25 h-0.25 overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
                         {t.priority} · {dayName(appearance.day, language)} · {billed?.name}
                       </span>
@@ -200,7 +206,7 @@ function RecordingDetails({
   const helpId = `rating-help-${artist.id}`;
   return (
     <>
-      <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)]">
+      <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
         <h3>{heading ?? t.recommended}</h3>
         <SetLink
           recording={recording}
@@ -222,7 +228,7 @@ function RecordingDetails({
                 </span>
               )}
             </div>
-            <div className="rating-row flex justify-between items-center gap-4 mt-5.25 max-[47.5rem]:gap-2.5">
+            <div className="rating-row flex justify-between items-center gap-4 mt-5.25 max-[47.5rem]:gap-2.5 [&_label]:flex [&_label]:items-center [&_label]:gap-1.5 [&_label]:text-xs [&_label]:font-semibold [&_label]:mb-1.25 [&_label_svg]:[color:var(--orange)] [&_.small]:[font-size:0.625rem] [&_.small]:[max-width:16.25rem] max-[47.5rem]:[&_.small]:[font-size:0.5625rem]">
               <div>
                 <label htmlFor={ratingId}>
                   <Star size="1rem" />
@@ -232,7 +238,7 @@ function RecordingDetails({
                   {t.ratingHint}
                 </p>
               </div>
-              <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26">
+              <div className="rating-controls flex items-center gap-1.5 flex-wrap max-w-28.75 shrink-0 [justify-content:flex-end] max-[47.5rem]:max-w-26 [&_input]:w-13.75 [&_input]:min-h-11 [&_input]:p-2 [&_input]:[border:0.0625rem_solid_var(--line)] [&_input]:rounded-lg [&_input]:bg-raised [&_input]:[text-align:center] [&_input]:text-base [&_>_span]:text-muted [&_>_span]:[font-size:0.6875rem] [&_>_button]:[font-size:0.5625rem] max-[47.5rem]:[&_>_button]:min-h-11">
                 <input
                   id={ratingId}
                   inputMode="decimal"
@@ -258,7 +264,7 @@ function RecordingDetails({
                 <span>/ 10</span>
                 <button
                   type="button"
-                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
+                  className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0 [&:hover:not(:disabled)]:underline max-[47.5rem]:min-h-11 max-[47.5rem]:items-center"
                   disabled={state.ratings[recording.id] == null}
                   onClick={() => {
                     state.setRating(recording.id, null);
@@ -280,7 +286,7 @@ function RecordingDetails({
           </>
         )}
       </section>
-      <details className="research-details [border-top:0.0625rem_solid_var(--line)] pt-3.75 [font-size:0.625rem] text-muted">
+      <details className="research-details [border-top:0.0625rem_solid_var(--line)] pt-3.75 [font-size:0.625rem] text-muted [&_summary]:[cursor:pointer] [&_summary]:min-h-8 [&_>_div]:flex [&_>_div]:flex-col [&_>_div]:gap-2 [&_>_div]:[line-height:1.6] [&_>_div]:mt-2.5 [&_a]:inline-flex [&_a]:gap-1.25 [&_a]:items-center [&_a]:text-accent [&_a]:[overflow-wrap:anywhere] max-[47.5rem]:[&_summary]:min-h-11 max-[47.5rem]:[&_summary]:items-center">
         <summary>
           {t.setDetails} &amp; {t.genreSources}
         </summary>

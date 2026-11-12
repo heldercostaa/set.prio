@@ -33,7 +33,7 @@ The app uses dark appearance throughout, including native form controls, dialogs
 
 The neutral and semantic palette adapts Apple's platform design guidance for browser rendering. Text accents are adjusted for contrast instead of assuming native platform color APIs exist in CSS.
 
-Spacing uses a small 4px-based scale. Main grouped surfaces use 17px radii; buttons and fields use 8–11px. System typography uses weight and spacing to establish hierarchy without a custom downloaded font.
+Spacing uses Tailwind’s rem-based scale. Component radii and typography scale with the browser’s root font size. System typography uses weight and spacing to establish hierarchy without a custom downloaded font.
 
 The canonical SVG retains its original #1C1C1E base, #3A3A3C track, white knob, #FF453A dot, and shadow. The supplied dark square is unchanged throughout the app and exports. PNGs are rasterized from that asset.
 
@@ -55,4 +55,4 @@ The PNG uses the same dark grouped surfaces, rounded column outlines, day icons,
 
 Typography uses readable artist labels and quieter metadata. Grouped surfaces stay flat; separators establish hierarchy without decorative gradients. The genre estimate notice remains visible as a plain information row. Segmented controls and modal dismissal targets retain 44px hit areas.
 
-Semantic Tailwind tokens map canvas, surface, raised surface, content, muted text, separators, and accents to the shared palette. Component utilities own layout; feature styles retain compound interaction states. These are web adaptations, not Apple-provided components.
+Semantic Tailwind tokens map canvas, surface, raised surface, content, muted text, separators, and accents to the shared palette. Component utilities own layout, visual treatments, responsive rules, and compound interaction states. Global CSS contains shared tokens, base styles, motion, and a small compatibility layer for dynamically selected priority colors. These are web adaptations, not Apple-provided components.

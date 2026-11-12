@@ -29,7 +29,7 @@ export function ExportMenu({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[47.5rem]:[font-size:0] max-[47.5rem]:p-0 max-[47.5rem]:w-11 max-[47.5rem]:h-11 max-[47.5rem]:[min-width:2.75rem] max-[47.5rem]:mt-6.5 max-[47.5rem]:[gap:0]"
+          className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary export-trigger max-[47.5rem]:[font-size:0] max-[47.5rem]:p-0 max-[47.5rem]:w-11 max-[47.5rem]:h-11 max-[47.5rem]:[min-width:2.75rem] max-[47.5rem]:mt-6.5 max-[47.5rem]:[gap:0] [&:active:not(:disabled)]:[transform:scale(0.98)] [&:hover:not(:disabled)]:[background:var(--hover)] [&.primary]:[color:#fff] [&.primary]:[background:#0071e3] [&.primary]:[border-color:transparent] [&.primary]:[box-shadow:0_0.0625rem_0.125rem_#0001] [&.primary:hover:not(:disabled)]:[background:#0077ed] [&.primary:disabled]:bg-surface [&.primary:disabled]:[border-color:var(--line)] [&.primary:disabled]:[color:var(--tertiary)] [&.primary:disabled]:opacity-100 [&.primary:disabled]:[box-shadow:none] max-[47.5rem]:[&_>_svg:last-child]:hidden max-[47.5rem]:[&_>_svg:first-child]:w-4.75 max-[47.5rem]:[&_>_svg:first-child]:h-4.75"
           disabled={!count || busy}
           title={!count ? t.noPlan : undefined}
         >
@@ -44,7 +44,7 @@ export function ExportMenu({
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="menu bg-surface border border-separator [box-shadow:var(--shadow)] rounded-xl p-1.5 [z-index:80] text-content [animation:reveal_0.14s_ease-out] export-menu w-80.5 [max-width:calc(100vw_-_1.5rem)]"
+          className="menu bg-surface border border-separator [box-shadow:var(--shadow)] rounded-xl p-1.5 [z-index:80] text-content [animation:reveal_0.14s_ease-out] export-menu w-80.5 [max-width:calc(100vw_-_1.5rem)] [&_[data-radix-menu-collection-item]]:[outline:none] [&_[data-highlighted]]:[background:var(--hover)] [&_[data-radix-menu-collection-item]:focus-visible]:[outline:0.125rem_solid_var(--blue)] [&_[data-radix-menu-collection-item]:focus-visible]:[outline-offset:-0.125rem] [&_[data-radix-dropdown-menu-label]]:[padding:0.4375rem_0.625rem] [&_[data-radix-dropdown-menu-label]]:text-muted [&_[data-radix-dropdown-menu-label]]:[font-size:0.625rem] [&_[data-radix-dropdown-menu-label]]:font-semibold [&_>_div:first-child:not(.menu-item)]:[padding:0.4375rem_0.625rem] [&_>_div:first-child:not(.menu-item)]:text-muted [&_>_div:first-child:not(.menu-item)]:[font-size:0.625rem] [&_>_div:first-child:not(.menu-item)]:font-semibold"
           align="end"
           sideOffset={10}
           collisionPadding={12}
@@ -64,7 +64,7 @@ export function ExportMenu({
           ).map(({ key, Icon, label, hint }) => (
             <DropdownMenu.Item
               key={key}
-              className="menu-item relative min-h-11 flex items-center gap-2.5 rounded-lg p-2.5 text-xs cursor-pointer export-item"
+              className="menu-item relative min-h-11 flex items-center gap-2.5 rounded-lg p-2.5 text-xs cursor-pointer export-item [&_>_span]:flex [&_>_span]:flex-col [&_>_span]:gap-1.25 [&_>_span_strong]:text-xs [&_>_span_strong]:font-semibold [&_>_span_small]:text-muted [&_>_span_small]:[font-size:0.625rem] [&_>_svg:last-child]:[margin-left:auto] [&_>_svg:last-child]:[color:var(--tertiary)] [&_>_svg:first-child]:text-muted [&_>_svg:first-child]:shrink-0"
               onSelect={() => {
                 void onExport(key);
               }}
