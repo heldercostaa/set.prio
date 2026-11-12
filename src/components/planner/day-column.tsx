@@ -51,7 +51,7 @@ function PriorityGroup({
             aria-expanded={expanded}
             onClick={() => setExpanded(!expanded)}
           >
-            <ChevronDown size={13} className={expanded ? '' : 'collapsed'} />
+            <ChevronDown size="0.8125rem" className={expanded ? '' : 'collapsed'} />
             {label}
           </button>
         )}
@@ -125,7 +125,7 @@ export function DayColumn({
         </div>
         <div className="day-title flex items-center gap-2.5 max-[68.75rem]:gap-1.75 max-[47.5rem]:gap-2.5">
           <span className="day-icon inline-flex items-center [color:var(--orange)]">
-            <Icon size={20} strokeWidth={1.8} />
+            <Icon size="1.25rem" strokeWidth={1.8} />
           </span>
           <h2>{dayName(day, language)}</h2>
           <span

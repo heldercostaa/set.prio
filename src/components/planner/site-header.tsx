@@ -30,7 +30,7 @@ export function SiteHeader({ language }: { language: Language }) {
             className="language-control flex items-center gap-0.75 [font-size:0.6875rem] text-muted"
             aria-label={language === 'en' ? 'Language' : 'Idioma'}
           >
-            <Globe2 size={15} />
+            <Globe2 size="0.9375rem" />
             <button
               type="button"
               aria-pressed={language === 'en'}
@@ -55,7 +55,7 @@ export function SiteHeader({ language }: { language: Language }) {
             rel="noreferrer"
             aria-label="GitHub"
           >
-            <Code size={19} />
+            <Code size="1.1875rem" />
           </a>
         </div>
       </div>

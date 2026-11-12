@@ -58,14 +58,14 @@ export function ArtistDetails({
                   className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
                 >
                   {t.officialProfile}
-                  <ArrowUpRight size={13} />
+                  <ArrowUpRight size="0.8125rem" />
                 </a>
               </div>
               <Genres artist={artist} language={language} />
             </>
           )}
           <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_20px]">
-            <Info size={15} />
+            <Info size="0.9375rem" />
             <p>{t.genreWarning}</p>
           </div>
           {members.length ? (
@@ -88,7 +88,7 @@ export function ArtistDetails({
                         className="text-link inline-flex items-center gap-1 text-accent [font-size:0.6875rem] bg-transparent p-0"
                       >
                         {t.officialProfile}
-                        <ArrowUpRight size={13} />
+                        <ArrowUpRight size="0.8125rem" />
                       </a>
                     </div>
                     <Genres artist={member} language={language} />
@@ -139,7 +139,7 @@ export function ArtistDetails({
                           </option>
                         ))}
                       </select>
-                      <ChevronDown size={14} />
+                      <ChevronDown size="0.875rem" />
                     </label>
                   </div>
                   {appearance.artistId !== artist.id && (
@@ -172,7 +172,7 @@ export function ArtistDetails({
             })}
           </section>
           <p className="saved-note flex items-center justify-center gap-1.25 text-muted [font-size:0.5625rem] pt-4.25">
-            <Check size={13} />
+            <Check size="0.8125rem" />
             {state.storageError ? t.privacy : t.saved}
           </p>
         </div>
@@ -225,7 +225,7 @@ function RecordingDetails({
             <div className="rating-row flex justify-between items-center gap-4 mt-5.25 max-[47.5rem]:gap-2.5">
               <div>
                 <label htmlFor={ratingId}>
-                  <Star size={16} />
+                  <Star size="1rem" />
                   {t.rating}
                 </label>
                 <p className="muted text-muted small text-xs [line-height:1.55]" id={helpId}>
@@ -292,7 +292,7 @@ function RecordingDetails({
           {artist.genreSources.map((url) => (
             <a key={url} href={url} target="_blank" rel="noreferrer">
               {new URL(url).hostname}
-              <ExternalLink size={12} />
+              <ExternalLink size="0.75rem" />
             </a>
           ))}
         </div>

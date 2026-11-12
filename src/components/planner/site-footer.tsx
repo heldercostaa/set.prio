@@ -11,7 +11,7 @@ export function SiteFooter({ language, onAbout }: { language: Language; onAbout:
           {t.createdBy}{' '}
           <a href="https://github.com/heldercostaa" target="_blank" rel="noreferrer">
             Helder Costa
-            <ArrowUpRight size={12} />
+            <ArrowUpRight size="0.75rem" />
           </a>
         </span>
         <span className="footer-note [color:var(--tertiary)] max-[47.5rem]:[font-size:0.5625rem]">
@@ -20,7 +20,7 @@ export function SiteFooter({ language, onAbout }: { language: Language; onAbout:
       </div>
       <div>
         <a href="https://github.com/heldercostaa/set.prio" target="_blank" rel="noreferrer">
-          GitHub <ArrowUpRight size={12} />
+          GitHub <ArrowUpRight size="0.75rem" />
         </a>
         <a
           href="https://brasil.tomorrowland.com/pt/line-up/?page=artists"
@@ -28,7 +28,7 @@ export function SiteFooter({ language, onAbout }: { language: Language; onAbout:
           rel="noreferrer"
         >
           {t.source}
-          <ArrowUpRight size={12} />
+          <ArrowUpRight size="0.75rem" />
         </a>
         <button type="button" onClick={onAbout}>
           {t.sources}

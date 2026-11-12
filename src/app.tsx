@@ -126,7 +126,7 @@ export function App() {
                 className="storage-warning flex items-start gap-2.5 [padding:0.75rem_15px] mb-5 [border:0.0625rem_solid_color-mix(in_srgb,_var(--orange)_35%,_transparent)] [background:color-mix(in_srgb,_var(--orange)_6%,_transparent)] rounded-2.5 text-xs [line-height:1.65]"
                 role="alert"
               >
-                <Info size={17} />
+                <Info size="1.0625rem" />
                 <p>
                   {state.storageError === 'recovered'
                     ? t.storageRecovered
@@ -145,7 +145,7 @@ export function App() {
               count={entries.length}
             />
             <div className="genre-notice flex items-center gap-2.75 bg-transparent border-y border-separator [color:var(--secondary)] rounded-2.75 [padding:0.875rem_0] mb-6 max-[47.5rem]:[padding:0.875rem_0] max-[47.5rem]:gap-2 max-[47.5rem]:items-start max-[47.5rem]:mb-5">
-              <Info size={17} />
+              <Info size="1.0625rem" />
               <p>
                 <strong>{t.genreTitle}.</strong> {t.genreWarning}
               </p>
@@ -155,7 +155,7 @@ export function App() {
                 aria-label={t.sources}
                 onClick={() => setAbout(true)}
               >
-                <ArrowUpRight size={17} />
+                <ArrowUpRight size="1.0625rem" />
               </button>
             </div>
             {view === 'board' ? (
@@ -170,11 +170,11 @@ export function App() {
             )}
             <div className="board-bottom flex justify-between gap-3 [padding:1.375rem_0_24px] [color:var(--secondary)] [font-size:0.625rem] max-[47.5rem]:flex-col max-[47.5rem]:[padding:1.25rem_0] max-[47.5rem]:gap-2.5 max-[47.5rem]:[font-size:0.5625rem]">
               <span>
-                <LockKeyhole size={13} />
+                <LockKeyhole size="0.8125rem" />
                 {t.privacy}
               </span>
               <span>
-                <ShieldCheck size={13} />
+                <ShieldCheck size="0.8125rem" />
                 {t.checked} {longDate(catalog.verifiedAt, language)}
               </span>
             </div>
@@ -207,7 +207,7 @@ export function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 14 }}
               >
-                <Check size={16} />
+                <Check size="1rem" />
                 {toast}
               </motion.div>
             )}

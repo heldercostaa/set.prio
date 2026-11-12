@@ -47,7 +47,7 @@ export function Modal({
                 className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted rounded-full shrink-0 close-button w-11 h-11 [background:var(--chip)] [margin-top:-0.25rem] [margin-right:-0.25rem] max-[47.5rem]:w-11 max-[47.5rem]:h-11"
                 aria-label={closeLabel}
               >
-                <X size={20} />
+                <X size="1.25rem" />
               </button>
             </Dialog.Close>
           </div>

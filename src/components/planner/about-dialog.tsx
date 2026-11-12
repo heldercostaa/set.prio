@@ -25,12 +25,12 @@ export function AboutDialog({
     >
       <div className="about-body p-6">
         <section>
-          <LockKeyhole size={22} />
+          <LockKeyhole size="1.375rem" />
           <h3>{t.localTitle}</h3>
           <p>{t.localBody}</p>
         </section>
         <section>
-          <ShieldCheck size={22} />
+          <ShieldCheck size="1.375rem" />
           <h3>{t.dataTitle}</h3>
           <p>{t.dataBody}</p>
           <p className="small text-xs [line-height:1.55] muted text-muted">
@@ -46,7 +46,7 @@ export function AboutDialog({
               key={url}
             >
               {new URL(url).hostname}
-              <ArrowUpRight size={12} />
+              <ArrowUpRight size="0.75rem" />
             </a>
           ))}
         </section>

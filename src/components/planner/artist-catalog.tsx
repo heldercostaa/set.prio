@@ -53,7 +53,7 @@ export function ArtistCatalog({
         </div>
       ) : (
         <div className="no-results [padding:4.375rem_12px] text-center grid [justify-items:center] gap-3 text-muted">
-          <Search size={28} />
+          <Search size="1.75rem" />
           <h3>{t.noResults}</h3>
           <p>{t.noResultsHint}</p>
           <button

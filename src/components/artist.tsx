@@ -60,7 +60,7 @@ export function Genres({ artist, language }: { artist: Artist; language: Languag
       {artist.genre ? (
         <>
           <span className="genre-tag text-content font-semibold">
-            <Music2 size={12} />
+            <Music2 size="0.75rem" />
             {artist.genre}
           </span>
           {artist.subgenres.map((genre) => (
@@ -92,7 +92,7 @@ export function SetLink({
   if (!recording)
     return (
       <div className="set-unavailable flex items-center gap-2 text-muted [font-size:0.6875rem] [padding:0.75rem_0] [line-height:1.6]">
-        <Disc3 size={17} />
+        <Disc3 size="1.0625rem" />
         <span>{t.unavailable}</span>
       </div>
     );
@@ -112,7 +112,7 @@ export function SetLink({
           {(representative ?? recording.representative) ? t.representative : recording.channel}
         </span>
       </span>
-      <ArrowUpRight size={17} />
+      <ArrowUpRight size="1.0625rem" />
     </a>
   );
 }
@@ -257,7 +257,7 @@ export function ArtistChip({
           >
             <span>{artist.name}</span>
             <GripVertical
-              size={12}
+              size="0.75rem"
               className="chip-grip shrink-0 [color:var(--tertiary)] w-3 [opacity:0] [transition:opacity_0.12s]"
               aria-hidden="true"
             />
@@ -314,13 +314,13 @@ export function ArtistCard({
       </span>
       {prioritized ? (
         <Star
-          size={17}
+          size="1.0625rem"
           className="selected-star [color:var(--orange)]"
           fill="currentColor"
           aria-label={messages(language).prioritized}
         />
       ) : (
-        <ArrowUpRight size={17} className="catalog-open" />
+        <ArrowUpRight size="1.0625rem" className="catalog-open" />
       )}
     </motion.button>
   );

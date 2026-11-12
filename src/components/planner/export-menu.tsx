@@ -34,12 +34,12 @@ export function ExportMenu({
           title={!count ? t.noPlan : undefined}
         >
           {busy ? (
-            <LoaderCircle size={17} className="spin [animation:spin_1s_linear_infinite]" />
+            <LoaderCircle size="1.0625rem" className="spin [animation:spin_1s_linear_infinite]" />
           ) : (
-            <ArrowDownToLine size={17} />
+            <ArrowDownToLine size="1.0625rem" />
           )}
           {busy ? t.copying : t.export}
-          <ChevronDown size={14} />
+          <ChevronDown size="0.875rem" />
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
@@ -69,12 +69,12 @@ export function ExportMenu({
                 void onExport(key);
               }}
             >
-              <Icon size={19} />
+              <Icon size="1.1875rem" />
               <span>
                 <strong>{label}</strong>
                 <small>{hint}</small>
               </span>
-              <ArrowUpRight size={14} />
+              <ArrowUpRight size="0.875rem" />
             </DropdownMenu.Item>
           ))}
         </DropdownMenu.Content>
