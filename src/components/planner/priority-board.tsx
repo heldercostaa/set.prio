@@ -23,11 +23,13 @@ export function PriorityBoard({
   search,
   genres = [],
   onOpen,
+  onQuick,
 }: {
   language: Language;
   search: string;
   genres?: string[];
   onOpen: (id: string) => void;
+  onQuick?: (id: string) => void;
 }) {
   const previewsAllowed = useContext(ArtistPreviewContext);
   const t = messages(language);
@@ -91,6 +93,7 @@ export function PriorityBoard({
                   genres={genres}
                   language={language}
                   onOpen={onOpen}
+                  onQuick={onQuick}
                 />
               </div>
             ))}
@@ -104,6 +107,7 @@ export function PriorityBoard({
                 genres={genres}
                 language={language}
                 onOpen={onOpen}
+                onQuick={onQuick}
               />
             </div>
           )}

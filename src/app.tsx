@@ -1,3 +1,4 @@
+import { MobileActions } from './components/planner/mobile-actions';
 import { PriorityBoard } from './components/planner/priority-board';
 import { ArtistCatalog } from './components/planner/artist-catalog';
 import { ManualCopyDialog } from './components/planner/manual-copy-dialog';
@@ -29,6 +30,7 @@ export function App() {
     t = messages(language);
   const [search, setSearch] = useState('');
   const [genres, setGenres] = useState<string[]>([]);
+  const [quickAppearance, setQuickAppearance] = useState<string | null>(null);
   const [view, setView] = useState<'board' | 'artists'>('board');
   const [selected, setSelected] = useState<string | null>(null);
   const [about, setAbout] = useState(false);
@@ -47,6 +49,7 @@ export function App() {
     return () => clearTimeout(timeout);
   }, [toast]);
   const openArtist = (id: string) => {
+    setQuickAppearance(null);
     trigger.current = document.activeElement as HTMLElement;
     setSelected(id);
   };
@@ -90,7 +93,7 @@ export function App() {
   };
   return (
     <MotionConfig reducedMotion="user">
-      <ArtistPreviewContext.Provider value={!selected && !about && !manual}>
+      <ArtistPreviewContext.Provider value={!selected && !about && !manual && !quickAppearance}>
         <ArtistPreviewCoordinator>
           <a
             className="skip-link fixed [top:-3.75rem] [left:1rem] [z-index:100] p-3 [background:var(--panel)] rounded-lg"
@@ -167,6 +170,7 @@ export function App() {
                 search={search}
                 genres={genres}
                 onOpen={openArtist}
+                onQuick={setQuickAppearance}
               />
             ) : (
               <ArtistCatalog
@@ -198,6 +202,11 @@ export function App() {
               restoreFocus={restoreFocus}
             />
           )}
+          <MobileActions
+            appearance={catalog.appearances.find((a) => a.id === quickAppearance) ?? null}
+            language={language}
+            onClose={() => setQuickAppearance(null)}
+          />
           <AboutDialog language={language} open={about} onOpenChange={setAbout} />
           <ManualCopyDialog
             language={language}
