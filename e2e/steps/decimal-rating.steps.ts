@@ -15,4 +15,9 @@ Then('the fractional recording score is restored after reloading', async ({ page
   await expect(page.getByRole('spinbutton', { name: 'Rate this set', exact: true })).toHaveValue(
     '8.5'
   );
+  const rating = page.getByRole('spinbutton', { name: 'Rate this set', exact: true });
+  await rating.press('ArrowUp');
+  await expect(rating).toHaveValue('9.5');
+  await rating.press('ArrowDown');
+  await expect(rating).toHaveValue('8.5');
 });

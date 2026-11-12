@@ -29,7 +29,7 @@ Radix supplies accessible web primitives. It is not an official Apple component 
 | P2              | #ffe066 |
 | P3              | #70d7c7 |
 
-The app uses dark appearance throughout, including native form controls, dialogs, browser chrome metadata, the installation manifest, and image exports. It remains dark when the operating system prefers light. There is no appearance switch.
+Dark is the default regardless of operating-system preference. An explicit persistent light mode updates semantic surfaces and native form controls; branded image exports retain their dark layout.
 
 The neutral and semantic palette adapts Apple's platform design guidance for browser rendering. Text accents are adjusted for contrast instead of assuming native platform color APIs exist in CSS.
 
@@ -62,3 +62,5 @@ The board uses a compact navigation bar, one task heading, uniform calendar symb
 ## Appearance
 
 Dark is the first-visit default. The header provides a persistent light appearance option. Semantic tokens adapt grouped backgrounds, labels, separators, focus rings, and priority accents together. Apple devices use San Francisco through the system font stack; no separately downloaded Apple font is redistributed. Translucency is reserved for floating controls, with opaque semantic surfaces as fallback.
+
+Toolbar search and genre controls share a reusable surface class and a 13px-equivalent rem typography token. Search and filter sit together on all viewport sizes; mobile text inputs use the browser-safe 1rem size to avoid iPhone focus zoom. Segmented controls retain the same weight and hierarchy.

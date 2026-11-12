@@ -22,7 +22,7 @@ export function WatchedStatus({ artist, language }: { artist: Artist; language: 
       role="img"
       aria-label={title}
       title={title}
-      className="inline-flex shrink-0 items-center text-teal-400"
+      className="inline-flex shrink-0 items-center [color:var(--teal)]"
     >
       <CircleCheck
         size="0.875rem"
