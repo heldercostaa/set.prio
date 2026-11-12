@@ -1,0 +1,56 @@
+import { ArrowUpRight, LockKeyhole, ShieldCheck } from 'lucide-react';
+import { Modal } from '../../components/ui/modal';
+import { catalog } from '../../data';
+import { longDate, messages } from '../../i18n';
+import type { Language } from '../../types';
+
+export function AboutDialog({
+  language,
+  open,
+  onOpenChange,
+}: {
+  language: Language;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  const t = messages(language);
+  return (
+    <Modal
+      open={open}
+      onOpenChange={onOpenChange}
+      title="set.prio"
+      description="Tomorrowland Brasil 2027"
+      closeLabel={t.close}
+      className="about-modal"
+    >
+      <div className="about-body p-6">
+        <section>
+          <LockKeyhole size={22} />
+          <h3>{t.localTitle}</h3>
+          <p>{t.localBody}</p>
+        </section>
+        <section>
+          <ShieldCheck size={22} />
+          <h3>{t.dataTitle}</h3>
+          <p>{t.dataBody}</p>
+          <p className="small text-xs [line-height:1.55] muted [color:var(--secondary)]">
+            {t.checked}: {longDate(catalog.verifiedAt, language)} · {catalog.appearances.length}{' '}
+            {t.performances}
+          </p>
+          {catalog.sources.map((url) => (
+            <a
+              className="source-link inline-flex items-center gap-1 [color:var(--blue)] [font-size:10px] [margin:4px_12px_0_0] [overflow-wrap:anywhere] [max-width:100%]"
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              key={url}
+            >
+              {new URL(url).hostname}
+              <ArrowUpRight size={12} />
+            </a>
+          ))}
+        </section>
+      </div>
+    </Modal>
+  );
+}

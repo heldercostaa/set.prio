@@ -1,0 +1,267 @@
+.modal:focus {
+  outline: none;
+}
+
+.modal-heading h2 {
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  font-weight: 650;
+}
+
+.modal-heading p {
+  font-size: 11px;
+  color: var(--secondary);
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+.artist-modal-scroll,
+.about-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.detail-topline .eyebrow {
+  color: var(--secondary);
+}
+
+.detail-warning > svg {
+  flex-shrink: 0;
+  color: var(--blue);
+  margin-top: 1px;
+}
+
+.detail-section h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 13px;
+}
+
+.rating-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.rating-row label svg {
+  color: var(--orange);
+}
+
+.rating-row .small {
+  font-size: 10px;
+  max-width: 260px;
+}
+
+.rating-controls input {
+  width: 55px;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  text-align: center;
+  font-size: 16px;
+}
+
+.rating-controls > span {
+  color: var(--secondary);
+  font-size: 11px;
+}
+
+.rating-controls > button {
+  font-size: 9px;
+}
+
+.appearance-editor + .appearance-editor {
+  border-top: 1px solid var(--line);
+}
+
+.appearance-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.appearance-heading strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.appearance-heading > div > span {
+  font-size: 10px;
+  color: var(--secondary);
+}
+
+.appearance-editor textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 74px;
+  max-height: 350px;
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.appearance-editor > .small:last-child {
+  font-size: 9px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.research-details summary {
+  cursor: pointer;
+  min-height: 32px;
+}
+
+.research-details > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.research-details a {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--blue);
+  overflow-wrap: anywhere;
+}
+
+.about-body section {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-body section:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: 0;
+}
+
+.about-body section > svg {
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.about-body h3 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.about-body p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.about-body .small {
+  font-size: 10px;
+}
+
+.manual-body textarea {
+  width: 100%;
+  height: 220px;
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .modal-heading h2 {
+    font-size: 21px;
+  }
+  .artist-detail-body,
+  .about-body,
+  .manual-body {
+    padding: 20px;
+  }
+  .artist-detail-body .genre-tag,
+  .artist-detail-body .subgenre-tag {
+    font-size: 11px;
+  }
+  .detail-topline .text-link {
+    font-size: 10px;
+  }
+  .rating-row .small {
+    font-size: 9px;
+  }
+  .rating-controls > button {
+    min-height: 34px;
+  }
+  .appearance-editor textarea {
+    font-size: 16px;
+  }
+  .manual-actions .button {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .text-link,
+  .research-details summary,
+  .source-link,
+  .site-footer a,
+  .site-footer button {
+    min-height: 32px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .text-link,
+  .research-details summary,
+  .source-link,
+  .site-footer a,
+  .site-footer button,
+  .rating-controls > button {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 760px) {
+  .search input,
+  .priority-select select,
+  .manual-body textarea {
+    font-size: 16px;
+  }
+}
+
+.preview-member-heading > .portrait {
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.preview-member-heading > div {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.joint-artists > h3 {
+  font-size: 16px;
+}
+
+.member-details-body .detail-topline {
+  margin-bottom: 14px;
+}
+
+.member-details-body .detail-topline h3 {
+  font-size: 20px;
+}

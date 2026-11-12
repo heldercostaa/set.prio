@@ -1,0 +1,107 @@
+.catalog-heading h2 {
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.catalog-heading > span {
+  color: var(--secondary);
+  font-size: 11px;
+}
+
+.catalog-card:hover {
+  background: var(--hover);
+}
+
+.catalog-card-body strong {
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.catalog-card-body > span {
+  font-size: 10px;
+  color: var(--secondary);
+}
+
+.catalog-open,
+.selected-star {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--tertiary);
+}
+
+.no-results h3 {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.no-results p {
+  font-size: 13px;
+}
+
+.genre-tag,
+.subgenre-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 5px 7px;
+  border-radius: 5px;
+  background: var(--chip);
+}
+
+.set-link:hover {
+  background: var(--hover);
+  border-color: var(--tertiary);
+}
+
+.set-link-text strong {
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.set-link-text > span {
+  color: var(--secondary);
+  font-size: 10px;
+}
+
+.set-link > svg {
+  color: var(--secondary);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.compact-set .play-icon {
+  width: 29px;
+  height: 29px;
+}
+
+.compact-set .set-link-text strong {
+  font-size: 10px;
+}
+
+.compact-set .set-link-text span {
+  font-size: 9px;
+}
+
+.set-unavailable svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  .catalog-heading h2 {
+    font-size: 18px;
+  }
+  .catalog-heading > span {
+    font-size: 10px;
+  }
+  .catalog-card-body strong {
+    font-size: 13px;
+  }
+  .catalog-card-body > span {
+    font-size: 11px;
+  }
+}
