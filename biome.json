@@ -11,7 +11,8 @@
       "!**/pnpm-lock.yaml",
       "!src/data/catalog.json",
       "!public/**/*.svg",
-      "!public/artists"
+      "!public/artists",
+      "!!**/.features-gen"
     ]
   },
   "formatter": {
