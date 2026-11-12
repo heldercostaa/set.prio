@@ -1,0 +1,26 @@
+import { createBdd, test } from 'playwright-bdd';
+import { expect } from '@playwright/test';
+import { touch } from '../touch';
+const { Then } = createBdd(test);
+Then('artist details dismiss with a downward heading swipe', async ({ page }) => {
+  const card = page.getByRole('button', { name: 'Fisher · Friday', exact: true });
+  await card.click();
+  const dialog = page.getByRole('dialog', { name: 'Fisher', exact: true });
+  const heading = dialog.locator('.modal-heading');
+  await touch(heading, 'touchstart', 100, 100);
+  await touch(heading, 'touchend', 190, 110);
+  await expect(dialog).toBeVisible();
+  await touch(heading, 'touchstart', 100, 100);
+  await touch(heading, 'touchcancel', 100, 210);
+  await expect(dialog).toBeVisible();
+  await touch(heading, 'touchstart', 100, 100);
+  await touch(heading, 'touchend', 100, 210);
+  await expect(dialog).toHaveCount(0);
+  await expect(card).toBeFocused();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await card.click();
+  await touch(heading, 'touchstart', 100, 100);
+  await touch(heading, 'touchend', 100, 210);
+  await expect(dialog).toHaveCount(0);
+  await expect(card).toBeFocused();
+});

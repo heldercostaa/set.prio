@@ -45,7 +45,7 @@ The right-hand grip extends the card’s hover surface while its layout slot sta
 
 Floating targets use each priority’s color and dashed outline in an aligned grid above the back-to-top button. They appear only after an artist drag moves, then remain visible until drop or cancellation. Hover, focus, and a stationary touch hold keep them hidden. Artist previews and the card’s drag grip still respond to hover.
 
-Artist details use a Radix modal with a fixed heading and scrollable content. Mobile displays a bottom sheet. Focus returns to the originating artist or its moved replacement card.
+Artist details use a Radix modal with a fixed heading and scrollable content. Mobile displays a bottom sheet with a grab handle. Swipe down from its heading to dismiss it; content scrolling remains independent. Closing slides the sheet down and fades the overlay before restoring focus. Reduced-motion mode closes immediately. Focus returns to the originating artist or its moved replacement card.
 
 Motion emphasizes card relocation, modal entry, and export feedback. Reduced-motion preferences disable transition animation. Hover previews supplement the clickable modal; touch users get all information through the modal.
 
