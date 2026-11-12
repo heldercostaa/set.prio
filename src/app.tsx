@@ -1,3 +1,4 @@
+import type { ArtistSort } from './utils/artist-sort';
 import { FadeView } from './components/ui/fade-view';
 import type { WatchFilter } from './data';
 import { useMediaQuery } from './components/ui/use-media-query';
@@ -34,6 +35,7 @@ export function App() {
   const state = usePlanner();
   const language = state.language,
     t = messages(language);
+  const [sort, setSort] = useState<ArtistSort>('name-asc');
   const [search, setSearch] = useState('');
   const [watched, setWatched] = useState<WatchFilter>('all');
   const [genres, setGenres] = useState<string[]>([]);
@@ -188,6 +190,8 @@ export function App() {
               </div>
             )}
             <PlannerToolbar
+              sort={sort}
+              onSort={setSort}
               language={language}
               view={view}
               onView={setView}
@@ -217,6 +221,7 @@ export function App() {
               <FadeView key={view}>
                 {view === 'board' ? (
                   <PriorityBoard
+                    sort={sort}
                     watched={watched}
                     language={language}
                     search={search}
@@ -225,6 +230,7 @@ export function App() {
                   />
                 ) : (
                   <ArtistCatalog
+                    sort={sort}
                     watched={watched}
                     genres={genres}
                     language={language}

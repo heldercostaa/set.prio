@@ -1,3 +1,4 @@
+import { compareArtists, type ArtistSort } from '../../utils/artist-sort';
 import { matchesWatchFilter, type WatchFilter } from '../../data';
 import { useDroppable } from '@dnd-kit/core';
 import { AudioLines, ChevronDown } from 'lucide-react';
@@ -86,6 +87,7 @@ function PriorityGroup({
   );
 }
 export function DayColumn({
+  sort,
   day,
   index,
   search,
@@ -94,6 +96,7 @@ export function DayColumn({
   language,
   onOpen,
 }: {
+  sort: ArtistSort;
   day: Day | null;
   index: number;
   search: string;
@@ -104,6 +107,7 @@ export function DayColumn({
 }) {
   const ratings = usePlanner((state) => state.ratings);
   const priorities = usePlanner((state) => state.priorities);
+  const compare = compareArtists(sort, language, ratings);
   const appearances = catalog.appearances
     .filter((appearance) => {
       const artist = artistById.get(appearance.artistId);
@@ -114,12 +118,11 @@ export function DayColumn({
         matchesWatchFilter(artist, watched, ratings)
       );
     })
-    .sort((a, b) =>
-      (artistById.get(a.artistId)?.name ?? '').localeCompare(
-        artistById.get(b.artistId)?.name ?? '',
-        language
-      )
-    );
+    .sort((a, b) => {
+      const left = artistById.get(a.artistId),
+        right = artistById.get(b.artistId);
+      return left && right ? compare(left, right) : 0;
+    });
   const total = catalog.appearances.filter((appearance) => appearance.day === day);
   const ranked = total.filter((appearance) => priorities[appearance.id]).length;
   const t = messages(language);
