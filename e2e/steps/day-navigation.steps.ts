@@ -6,6 +6,7 @@ const { When, Then } = createBdd(test);
 When('I preview and cancel a partial day swipe', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   const board = page.locator('.board-grid');
+  await board.scrollIntoViewIfNeeded();
   const origin = await board.evaluate((e) => e.getBoundingClientRect().x);
   await touch(board, 'touchstart', 160, 450);
   await touch(board, 'touchmove', 135, 450);
