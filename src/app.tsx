@@ -101,9 +101,7 @@ export function App() {
   };
   return (
     <MotionConfig reducedMotion="user">
-      <ArtistPreviewContext.Provider
-        value={!selected && !about && !manual && !imageFile && !quickAppearance}
-      >
+      <ArtistPreviewContext.Provider value={!selected && !about && !manual && !imageFile}>
         <ArtistPreviewCoordinator>
           <a
             className="skip-link fixed [top:-3.75rem] [left:1rem] [z-index:100] p-3 [background:var(--panel)] rounded-lg focus:[top:0.625rem]"
@@ -179,6 +177,7 @@ export function App() {
                 search={search}
                 genres={genres}
                 onOpen={openArtist}
+                hoveredAppearance={quickAppearance}
                 onQuick={setQuickAppearance}
               />
             ) : (
@@ -216,11 +215,7 @@ export function App() {
             language={language}
             onClose={() => setImageFile(null)}
           />
-          <MobileActions
-            appearance={catalog.appearances.find((a) => a.id === quickAppearance) ?? null}
-            language={language}
-            onClose={() => setQuickAppearance(null)}
-          />
+          <MobileActions language={language} />
           <AboutDialog language={language} open={about} onOpenChange={setAbout} />
           <ManualCopyDialog
             language={language}
