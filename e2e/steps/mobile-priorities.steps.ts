@@ -1,6 +1,20 @@
 import { createBdd, test } from 'playwright-bdd';
-import { expect } from '@playwright/test';
+import { expect, type Locator } from '@playwright/test';
 const { Given, When, Then } = createBdd(test);
+async function touch(card: Locator, type: string, x: number, y: number) {
+  await card.evaluate(
+    (node, { type, x, y }) => {
+      const point = { identifier: 1, clientX: x, clientY: y };
+      const event = new TouchEvent(type, { bubbles: true, cancelable: true });
+      Object.defineProperties(event, {
+        touches: { value: type === 'touchend' ? [] : [point] },
+        changedTouches: { value: [point] },
+      });
+      node.dispatchEvent(event);
+    },
+    { type, x, y }
+  );
+}
 Given('a narrow English planner', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 740 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -17,46 +31,26 @@ When('I drag Fisher into the floating must-see zone', async ({ page, isMobile })
   const x = source.x + source.width / 2,
     y = source.y + source.height / 2;
   if (isMobile) {
-    await card.evaluate(
-      (node, { x, y }) => {
-        const event = new TouchEvent('touchstart', { bubbles: true, cancelable: true });
-        Object.defineProperties(event, {
-          touches: { value: [{ identifier: 1, clientX: x, clientY: y }] },
-          changedTouches: { value: [{ identifier: 1, clientX: x, clientY: y }] },
-        });
-        node.dispatchEvent(event);
-      },
-      { x, y }
-    );
+    await touch(card, 'touchstart', x, y);
   } else {
     await page.mouse.move(x, y);
     await page.mouse.down();
     await page.mouse.move(x + 10, y, { steps: 3 });
   }
   await expect(page.locator('.drag-overlay')).toBeVisible();
+  if (isMobile) {
+    await expect(page.getByTestId('floating-P0')).toBeHidden();
+    await touch(card, 'touchmove', x + 12, y);
+  }
   const target = page.getByTestId('floating-P0');
   await expect(target).toBeInViewport({ ratio: 1 });
   const bounds = await target.boundingBox();
   if (!bounds) throw new Error('Missing drop target');
   const end = { x: bounds.x + bounds.width / 2, y: bounds.y + bounds.height / 2 };
   if (isMobile) {
-    await card.evaluate((node, { x, y }) => {
-      const event = new TouchEvent('touchmove', { bubbles: true, cancelable: true });
-      Object.defineProperties(event, {
-        touches: { value: [{ identifier: 1, clientX: x, clientY: y }] },
-        changedTouches: { value: [{ identifier: 1, clientX: x, clientY: y }] },
-      });
-      node.dispatchEvent(event);
-    }, end);
+    await touch(card, 'touchmove', end.x, end.y);
     await expect(target).toHaveAccessibleName('Release here · P0 · Must-see');
-    await card.evaluate((node) => {
-      const event = new TouchEvent('touchend', { bubbles: true, cancelable: true });
-      Object.defineProperties(event, {
-        touches: { value: [] },
-        changedTouches: { value: [{ identifier: 1 }] },
-      });
-      node.dispatchEvent(event);
-    });
+    await touch(card, 'touchend', end.x, end.y);
   } else {
     await page.mouse.move(end.x, end.y, { steps: 12 });
     await expect(target).toHaveAccessibleName('Release here · P0 · Must-see');

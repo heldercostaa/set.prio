@@ -43,7 +43,7 @@ Desktop shows three day columns. Mobile shows a day selector, keeping every acti
 
 The right-hand grip extends the card’s hover surface while its layout slot stays unchanged. At a column edge, the extension shifts inward instead of wrapping the card. The grip remains draggable, and previews keep a measured gap from the expanded surface.
 
-Floating targets use each priority’s color and dashed outline in an aligned grid above the back-to-top button. Mouse or pen hover reveals them; leaving the artist hides them. During a drag, they stay visible until drop or cancellation. Focusing a card or restoring focus after closing details does not open them.
+Floating targets use each priority’s color and dashed outline in an aligned grid above the back-to-top button. They appear only after an artist drag moves, then remain visible until drop or cancellation. Hover, focus, and a stationary touch hold keep them hidden. Artist previews and the card’s drag grip still respond to hover.
 
 Artist details use a Radix modal with a fixed heading and scrollable content. Mobile displays a bottom sheet. Focus returns to the originating artist or its moved replacement card.
 

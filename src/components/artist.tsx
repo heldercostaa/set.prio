@@ -191,13 +191,11 @@ export function ArtistChip({
   language,
   priority,
   onOpen,
-  onQuick,
 }: {
   appearance: Appearance;
   language: Language;
   priority: Priority | null;
   onOpen: (id: string) => void;
-  onQuick?: (id: string | null) => void;
 }) {
   const artist = artistById.get(appearance.artistId);
   const isPresent = useIsPresent();
@@ -233,10 +231,6 @@ export function ArtistChip({
       initial={{ opacity: 0, y: 3 }}
       animate={{ opacity: isDragging ? 0.35 : 1, y: 0 }}
       className="chip-wrapper relative hover:z-20 focus-within:z-20 flex [flex:0_0_auto] [width:max-content] min-w-0 [max-width:100%]"
-      onPointerEnter={(event) => {
-        if (event.pointerType !== 'touch') onQuick?.(appearance.id);
-      }}
-      onPointerLeave={() => onQuick?.(null)}
       inert={!isPresent}
       aria-hidden={!isPresent}
       style={{ zIndex: isDragging ? 3 : undefined }}
