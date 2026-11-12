@@ -355,19 +355,21 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
       const color = palette[group.priority];
       const title = priorityLabel(group.priority, language);
       context.font = font(500, 12);
-      const badgeWidth = context.measureText(title).width + 61;
+      const badgeWidth = context.measureText(title).width + (group.priority === 'P4' ? 29 : 61);
       box(x + 20, y + 20, badgeWidth, 27, 6, `${color}17`);
       context.beginPath();
       context.arc(x + 30, y + 33.5, 2.5, 0, Math.PI * 2);
       context.fillStyle = color;
       context.fill();
       if (group.priority !== 'P4') label(group.priority, x + 38, y + 25, 12, 600, color);
-      context.strokeStyle = `${color}45`;
-      context.beginPath();
-      context.moveTo(x + 62, y + 26);
-      context.lineTo(x + 62, y + 41);
-      context.stroke();
-      label(title, x + 70, y + 25, 12, 500, color);
+      if (group.priority !== 'P4') {
+        context.strokeStyle = `${color}45`;
+        context.beginPath();
+        context.moveTo(x + 62, y + 26);
+        context.lineTo(x + 62, y + 41);
+        context.stroke();
+      }
+      label(title, x + (group.priority === 'P4' ? 38 : 70), y + 25, 12, 500, color);
       context.textAlign = 'right';
       label(String(group.names.length), x + columnWidth - 22, y + 26, 12, 400, secondary);
       context.textAlign = 'left';

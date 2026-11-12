@@ -1,3 +1,4 @@
+import { controlClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown, Check } from 'lucide-react';
 import { GENRES } from '../../data/genres';
@@ -17,7 +18,7 @@ export function GenreFilter({
       <DropdownMenu.Trigger asChild>
         <button
           type="button"
-          className="max-[47.5rem]:col-start-1 max-[47.5rem]:row-start-2 max-[47.5rem]:justify-self-start inline-flex min-h-11 items-center gap-2 rounded-lg border border-separator bg-surface px-3 text-xs font-semibold text-muted"
+          className={`${controlClassName} inline-flex shrink-0 items-center gap-2 px-3 font-medium text-content hover:bg-raised`}
           aria-label={label}
         >
           {label}

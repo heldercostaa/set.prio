@@ -256,6 +256,17 @@ function RecordingDetails({
                   aria-describedby={helpId}
                   aria-invalid={ratingError}
                   value={draft}
+                  onKeyDown={(event) => {
+                    if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+                    event.preventDefault();
+                    const next = Math.min(
+                      10,
+                      Math.max(0, (rating ?? 0) + (event.key === 'ArrowUp' ? 1 : -1))
+                    );
+                    setDraft(String(next));
+                    setRatingError(false);
+                    state.setRating(recording.id, next);
+                  }}
                   onChange={(event) => {
                     const value = event.target.value;
                     setDraft(value);

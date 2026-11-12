@@ -13,6 +13,9 @@ export function AppearanceToggle({ language }: { language: Language }) {
   const [appearance, setAppearance] = useState(initialAppearance);
   useEffect(() => {
     document.documentElement.dataset.theme = appearance;
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', appearance === 'light' ? '#f2f2f7' : '#111113');
     try {
       localStorage.setItem(key, appearance);
     } catch {

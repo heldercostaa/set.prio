@@ -1,4 +1,7 @@
 @theme {
+  --text-control: 0.8125rem;
+  --text-control--line-height: 1.25rem;
+  --text-control--font-weight: 500;
   --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
   --color-canvas: var(--bg);
   --color-surface: var(--panel);
