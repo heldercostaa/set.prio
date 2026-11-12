@@ -12,7 +12,7 @@ After({ tags: 'not @data' }, async ({ page }) => {
 Given('an English planner with no saved priorities', async ({ page }) => {
   await page.goto('/');
   await expect(
-    page.getByRole('heading', { name: 'Set your priorities.', exact: true })
+    page.getByRole('heading', { name: 'Choose the priority of your Sets.', exact: true })
   ).toBeVisible();
 });
 When('I mark Fisher as a must-see, rate the set zero, and add a comment', async ({ page }) => {
@@ -42,7 +42,7 @@ Then(
   'my language, priority, zero rating, watched status, and multiline comment are restored',
   async ({ page }) => {
     await expect(
-      page.getByRole('heading', { name: 'Defina suas prioridades.', exact: true })
+      page.getByRole('heading', { name: 'Defina a prioridade dos seus Sets.', exact: true })
     ).toBeVisible();
     const fisher = page.getByRole('button', { name: 'Fisher · Sexta-feira', exact: true });
     await expect(fisher.getByRole('img', { name: 'Set assistido', exact: true })).toBeVisible();
