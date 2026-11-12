@@ -100,7 +100,7 @@ export const workflows: Record<
         .click();
       const download = await downloadEvent;
       const csv = await readFile(await download.path(), 'utf8');
-      expect(download.suggestedFilename()).toBe('set-prio-brasil-2027.csv');
+      expect(download.suggestedFilename()).toBe('set.priority-brasil-2027.csv');
       expect(csv).toContain('"Symphony of Unity"');
       expect(csv).toContain('"Friday","P0"');
       expect(csv).toContain('"Saturday","P2"');
@@ -166,7 +166,7 @@ export const workflows: Record<
       reducedMotion: 'reduce',
       colorScheme: 'light',
     });
-    await page.evaluate(() => localStorage.setItem('set.prio:appearance', 'light'));
+    await page.evaluate(() => localStorage.setItem('set.priority:appearance', 'light'));
     await page.reload();
     await page
       .getByRole('button', {
@@ -564,7 +564,7 @@ export const workflows: Record<
     await page.evaluate(
       ({ priorities, ratings }) =>
         localStorage.setItem(
-          'set.prio:brasil-2027:v1',
+          'set.priority:brasil-2027:v1',
           JSON.stringify({
             version: 1,
             language: 'en',
@@ -624,7 +624,7 @@ export const workflows: Record<
       'The exported image includes the gold 11/10 score treatment'
     ).toBeGreaterThan(10);
     expect(metadata.format).toBe('png');
-    expect(filename).toBe('set-prio-brasil-2027.png');
+    expect(filename).toBe('set.priority-brasil-2027.png');
     const background = await sharp(bytes)
       .extract({ left: 0, top: 0, width: 1, height: 1 })
       .removeAlpha()

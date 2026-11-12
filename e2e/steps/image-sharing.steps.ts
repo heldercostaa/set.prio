@@ -27,7 +27,7 @@ When('I prepare and share my priority image', async ({ page, isMobile }) => {
 Then('the native share request contains a valid PNG file', async ({ page }) => {
   await expect(page.getByRole('dialog')).toHaveCount(0);
   const shared = await readSharedImage(page);
-  expect(shared.name).toBe('set-prio-brasil-2027.png');
+  expect(shared.name).toBe('set.priority-brasil-2027.png');
   expect(shared.type).toBe('image/png');
   expect(shared.bytes.slice(0, 8)).toEqual([137, 80, 78, 71, 13, 10, 26, 10]);
   expect(shared.size).toBeGreaterThan(1000);

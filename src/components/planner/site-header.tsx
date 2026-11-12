@@ -57,7 +57,7 @@ export function SiteHeader({ language }: { language: Language }) {
           </fieldset>
           <a
             className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted rounded-xl shrink-0 github-link hover:[background:var(--hover)] hover:text-content max-[47.5rem]:hidden"
-            href="https://github.com/heldercostaa/set.prio"
+            href="https://github.com/heldercostaa/set.priority"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"

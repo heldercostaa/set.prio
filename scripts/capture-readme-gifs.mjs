@@ -10,7 +10,7 @@ await mkdir(output, { recursive: true });
 async function prepare(browser, options) {
   const context = await browser.newContext({ ...options, deviceScaleFactor: 1 });
   await context.addInitScript((saved) => {
-    localStorage.setItem('set.prio:brasil-2027:v1', JSON.stringify(saved));
+    localStorage.setItem('set.priority:brasil-2027:v1', JSON.stringify(saved));
   }, readmePlan);
   const page = await context.newPage();
   page.setDefaultTimeout(10000);

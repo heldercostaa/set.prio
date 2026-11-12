@@ -1,4 +1,4 @@
-# Working in set.prio
+# Working in set.priority
 
 - Use `main` as the default and integration branch.
 - Start new work from an up-to-date `origin/main` on a descriptive feature branch.

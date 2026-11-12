@@ -1,7 +1,7 @@
 import { createBdd, test } from 'playwright-bdd';
 import { expect } from '@playwright/test';
 const { Given, When, Then } = createBdd(test);
-const key = 'set.prio:brasil-2027:v1';
+const key = 'set.priority:brasil-2027:v1';
 const invalid: Record<string, string> = {
   'malformed JSON': '{broken json',
   'future version': JSON.stringify({
@@ -103,4 +103,64 @@ Then('catalog updates retain absent appearances and recording ratings', async ({
   expect(saved.comments['retired-appearance']).toBe('Keep this after a lineup change');
   expect(saved.ratings['shared-video']).toBe(0);
   expect(Object.values(saved.priorities)).toContain('P0');
+});
+
+const previousPlan = JSON.stringify({
+  version: 1,
+  language: 'en',
+  activeDay: '2027-04-30',
+  priorities: { 'retired-appearance': 'P0' },
+  comments: { 'retired-appearance': 'Olá — keep this plan' },
+  ratings: { recording: 0 },
+});
+Given('my previous plan is available as {string}', async ({ page }, source: string) => {
+  if (source === 'previous storage key') {
+    await page.addInitScript(
+      (raw) => localStorage.setItem('set.prio:brasil-2027:v1', raw),
+      previousPlan
+    );
+    await page.goto('/');
+  } else {
+    if (source === 'conflicting domain transfer') {
+      await page.addInitScript(
+        ({ key }) =>
+          localStorage.setItem(
+            key,
+            JSON.stringify({
+              version: 1,
+              language: 'en',
+              activeDay: '2027-04-30',
+              priorities: {},
+              comments: { newer: 'Keep my newer edits' },
+              ratings: {},
+            })
+          ),
+        { key }
+      );
+    }
+    await page.goto(`/#${new URLSearchParams({ 'transfer-plan': previousPlan })}`);
+  }
+});
+Then('the renamed planner preserves it without replacing newer edits', async ({ page }) => {
+  expect(new URL(page.url()).hash).toBe('');
+  const saved = await page.evaluate(
+    (key) => ({
+      current: JSON.parse(localStorage.getItem(key) ?? '{}'),
+      backups: Object.keys(localStorage)
+        .filter((name) => name.startsWith(`${key}:backup:transfer:`))
+        .map((name) => localStorage.getItem(name)),
+    }),
+    key
+  );
+  if (saved.current.comments.newer) {
+    expect(saved.current.comments.newer).toBe('Keep my newer edits');
+    expect(saved.backups).toContain(previousPlan);
+    await expect(page.getByRole('alert')).toContainText('transferred plan was preserved');
+  } else {
+    expect(saved.current).toEqual(JSON.parse(previousPlan));
+    await page.reload();
+    expect(
+      await page.evaluate((key) => JSON.parse(localStorage.getItem(key) ?? '{}'), key)
+    ).toEqual(JSON.parse(previousPlan));
+  }
 });

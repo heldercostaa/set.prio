@@ -25,7 +25,7 @@ export function useImageShare(entries: ExportEntry[], language: Language) {
     update('preparing');
     try {
       const blob = await boardImage(entries, language);
-      const file = new File([blob], 'set-prio-brasil-2027.png', { type: 'image/png' });
+      const file = new File([blob], 'set.priority-brasil-2027.png', { type: 'image/png' });
       if (navigator.canShare({ files: [file] })) update('ready', file);
       else update('unsupported');
     } catch {

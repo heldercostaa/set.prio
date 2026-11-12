@@ -102,6 +102,8 @@ const en = {
     'The lineup is bundled with the app. Artists and days come from the official festival source. Genres are estimates; missing recording details stay unknown. Updates preserve your preferences.',
   storageUnavailable:
     'Browser storage is unavailable. You can keep planning and exporting, but changes may not survive a reload.',
+  storageMigrationConflict:
+    'This browser already has a plan. The transferred plan was preserved as a local backup without replacing it.',
   storageRecovered:
     'An unreadable save was preserved as a local backup. A fresh plan is open; see the README for recovery.',
   storageProtected:
@@ -226,6 +228,8 @@ const pt: typeof en = {
     'O line-up faz parte do aplicativo. Artistas e dias vêm da fonte oficial do festival. Gêneros são estimativas; detalhes indisponíveis ficam em branco. Atualizações preservam suas preferências.',
   storageUnavailable:
     'O armazenamento do navegador está indisponível. Você pode planejar e exportar, mas as alterações podem não sobreviver a uma recarga.',
+  storageMigrationConflict:
+    'Este navegador já tem um plano. O plano transferido foi preservado em um backup local, sem substituir o atual.',
   storageRecovered:
     'Um plano ilegível foi preservado como backup local. Um plano novo está aberto; consulte o README para recuperar os dados.',
   storageProtected:
