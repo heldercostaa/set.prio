@@ -25,8 +25,14 @@ When('I give Fisher the bonus score beyond ten', async ({ page }) => {
   await setSliderRating(slider, 10);
   await slider.press('ArrowRight');
   await expect(slider).toHaveAttribute('aria-valuenow', '11');
+  await expect(
+    page.getByRole('dialog').getByRole('img', { name: 'Exceptional rating: 11 out of 10' })
+  ).toBeVisible();
   await slider.press('ArrowLeft');
   await expect(slider).toHaveAttribute('aria-valuenow', '10');
+  await expect(
+    page.getByRole('dialog').getByRole('img', { name: 'Exceptional rating: 11 out of 10' })
+  ).toHaveCount(0);
   await slider.press('ArrowRight');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
 });

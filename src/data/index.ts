@@ -53,6 +53,12 @@ export function ratingArtistsFor(artist: Artist, ratings: Record<string, number 
   return members.length ? members : [artist];
 }
 
+export function hasExceptionalRating(artist: Artist, ratings: Record<string, number | null>) {
+  return ratingArtistsFor(artist, ratings).some(
+    (act) => act.recommendedSetId && ratings[act.recommendedSetId] === 11
+  );
+}
+
 export type WatchFilter = 'all' | 'watched' | 'unwatched';
 export function matchesWatchFilter(
   artist: Artist,
