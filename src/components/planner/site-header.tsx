@@ -14,14 +14,14 @@ function Brand({ language }: { language: Language }) {
       <img
         src={publicAsset('/logo.svg')}
         alt=""
-        className="size-9 shrink-0 rounded-[23%] ring-1 ring-white/20 max-[22.5rem]:size-8"
+        className="size-9 shrink-0 rounded-[23%] ring-1 ring-white/20 max-[47.5rem]:size-8"
       />
       <img
         src={publicAsset('/wordmark.svg')}
         alt="set.priority"
         width="167"
         height="35"
-        className="wordmark h-7 w-auto shrink-0 max-[22.5rem]:h-5"
+        className="wordmark h-7 w-auto shrink-0 max-[47.5rem]:h-6 max-[22.5rem]:h-5"
       />
     </a>
   );
@@ -31,7 +31,7 @@ export function SiteHeader({ language }: { language: Language }) {
   const setLanguage = usePlanner((s) => s.setLanguage);
   return (
     <header className="site-header border-b border-separator bg-canvas">
-      <div className="header-inner mx-auto flex min-h-18 max-w-384 items-center justify-between gap-3 px-10 py-3 max-[68.75rem]:px-6 max-[47.5rem]:px-5 max-[22.5rem]:gap-2 max-[22.5rem]:px-4">
+      <div className="header-inner mx-auto flex min-h-18 max-w-384 items-center justify-between gap-3 px-10 py-3 max-[68.75rem]:px-6 max-[47.5rem]:min-h-16 max-[47.5rem]:px-5 max-[47.5rem]:py-2 max-[22.5rem]:gap-2 max-[22.5rem]:px-4">
         <Brand language={language} />
         <div className="header-actions flex items-center gap-3 max-[47.5rem]:gap-1 max-[22.5rem]:[gap:0]">
           <fieldset

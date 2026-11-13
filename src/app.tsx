@@ -189,7 +189,7 @@ export function App() {
             id="main"
             className="app-main max-w-384 px-10 pt-4 [margin:auto] max-[68.75rem]:[padding:1rem_1.5rem_0] max-[47.5rem]:[padding:1rem_1.25rem_0] max-[22.5rem]:[padding:1rem_1rem_0]"
           >
-            <div className="page-heading flex items-start justify-between gap-4 max-[47.5rem]:mb-2">
+            <div className="page-heading flex items-start justify-between gap-4 max-[47.5rem]:mb-6 max-[47.5rem]:flex-col max-[47.5rem]:gap-4">
               <div className="min-w-0">
                 <h1
                   aria-label={t.planHeading}
@@ -210,7 +210,7 @@ export function App() {
                     <span className="rounded-md bg-[#ff453a]/12 px-1 text-[#ff453a]">Sets</span>
                   </span>
                 </h1>
-                <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm max-[47.5rem]:text-xs">
+                <div className="mt-1 max-[47.5rem]:mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm max-[47.5rem]:text-xs">
                   <span className="text-content">Tomorrowland Brasil 2027</span>
                   <span aria-hidden="true" className="text-muted max-[47.5rem]:hidden">
                     ·
@@ -218,7 +218,7 @@ export function App() {
                   <span className="text-muted tabular-nums max-[47.5rem]:basis-full">
                     {t.dateRange}
                   </span>
-                  <span className="plan-count inline-flex items-center gap-1.5 whitespace-nowrap text-xs text-muted">
+                  <span className="plan-count max-[47.5rem]:hidden inline-flex items-center gap-1.5 whitespace-nowrap text-xs text-muted">
                     <CheckCheck size="0.875rem" className="text-[var(--teal)]" aria-hidden="true" />
                     <strong className="font-semibold tabular-nums text-content">
                       {entries.length}
@@ -227,7 +227,12 @@ export function App() {
                   </span>
                 </div>
               </div>
-              <div className="flex shrink-0 self-stretch flex-col items-end justify-between gap-1">
+              <div className="flex shrink-0 self-stretch flex-col items-end justify-between gap-1 max-[47.5rem]:flex-row max-[47.5rem]:items-center">
+                <span className="hidden max-[47.5rem]:inline-flex items-center gap-1.5 text-xs text-muted">
+                  <CheckCheck size="0.875rem" className="text-[var(--teal)]" aria-hidden="true" />
+                  <strong className="text-content">{entries.length}</strong>
+                  {t.prioritized}
+                </span>
                 <ExportMenu
                   language={language}
                   count={entries.length}
@@ -242,7 +247,7 @@ export function App() {
                   disabled={!hasFilters}
                   onClick={resetFilters}
                   title={t.resetFilters}
-                  className="inline-flex min-h-11 items-center justify-center gap-1.5 bg-transparent pl-2 text-xs font-medium text-accent disabled:cursor-default disabled:opacity-35 max-[47.5rem]:px-0 max-[47.5rem]:min-w-11"
+                  className="max-[47.5rem]:hidden inline-flex min-h-11 items-center justify-center gap-1.5 bg-transparent pl-2 text-xs font-medium text-accent disabled:cursor-default disabled:opacity-35 max-[47.5rem]:px-0 max-[47.5rem]:min-w-11"
                 >
                   <RotateCcw size="0.875rem" aria-hidden="true" />
                   <span className="max-[47.5rem]:sr-only">{t.resetFilters}</span>
@@ -267,6 +272,9 @@ export function App() {
               </div>
             )}
             <PlannerToolbar
+              mobile={mobile}
+              hasFilters={hasFilters}
+              onReset={resetFilters}
               sort={sort}
               onSort={setSort}
               language={language}
