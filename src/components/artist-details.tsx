@@ -1,4 +1,6 @@
 import { FilterNotice } from './planner/filter-notice';
+import { MC_STRETCH_ID } from '../data/easter-eggs';
+import { McStretchDetails } from './mc-stretch-details';
 import { ArtistNationality } from './artist-nationality';
 import { ArtistNotes } from './artist-notes';
 import { RecordingRating } from './recording-rating';
@@ -32,6 +34,15 @@ export function ArtistDetails({
 }) {
   const t = messages(language);
   const state = usePlanner();
+  if (artist.id === MC_STRETCH_ID)
+    return (
+      <McStretchDetails
+        artist={artist}
+        language={language}
+        onClose={onClose}
+        restoreFocus={restoreFocus}
+      />
+    );
   const members = membersFor(artist);
   const jointRecording = jointRecordingFor(artist);
   const jointRated = jointRecording && state.ratings[jointRecording.id] != null;

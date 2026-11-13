@@ -16,6 +16,7 @@ const en = {
   rateBeforeSharing: 'Rate this set to share your score.',
   downloadSetHint: 'Download the image to share it in your favorite app.',
 
+  mcStretchQuestion: 'What is this guy even doing here?',
   settings: 'Settings',
   displaySettings: 'Choose what to show on artist cards.',
   showArtistFlags: 'Show artist flags',
@@ -146,6 +147,7 @@ const en = {
   comments: 'Comment',
 };
 const pt: typeof en = {
+  mcStretchQuestion: 'O que esse cara tá fazendo aqui?',
   title: en.title,
   shareSet: 'Compartilhar este set',
   setAt: 'No',

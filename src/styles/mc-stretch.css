@@ -1,0 +1,41 @@
+.mc-stretch-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.mc-stretch-left,
+.mc-stretch-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  background: var(--panel-soft);
+}
+
+.mc-stretch-left {
+  border-radius: 8px 0 0 8px;
+  padding-right: 12px;
+  rotate: -1deg;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 35%, 100% 55%, calc(100% - 3px) 100%, 0 100%);
+}
+
+.mc-stretch-right {
+  border-radius: 0 8px 8px 0;
+  padding-left: 12px;
+  rotate: 1deg;
+  translate: 0 2px;
+  clip-path: polygon(3px 0, 100% 0, 100% 100%, 0 100%, 4px 55%, 0 35%);
+}
+
+.artist-preview.mc-stretch-fractured-surface {
+  position: relative;
+}
+
+.mc-stretch-fractured-surface {
+  box-shadow: none;
+  filter: url("#mc-stretch-slip") drop-shadow(0 14px 28px #0005);
+}

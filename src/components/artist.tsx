@@ -1,5 +1,8 @@
+import { MC_STRETCH_ID } from '../data/easter-eggs';
+import { McStretchPhrases } from './mc-stretch-phrases';
+import { McStretchLabel, McStretchNotice } from './mc-stretch-label';
 import { RatingSparkles } from './rating-sparkles';
-import { ArtistName } from './artist-nationality';
+import { ArtistName, ArtistNationality } from './artist-nationality';
 import { ArtistRating } from './artist-rating';
 import { usePlanner } from '../store/planner';
 import { DragHint } from './drag-hint';
@@ -18,6 +21,7 @@ import {
 } from 'react';
 import { publicAsset } from '../utils/assets';
 export const ArtistPreviewContext = createContext(true);
+export const MysteryNoticeContext = createContext<string | null>(null);
 const PreviewOwnerContext = createContext<{
   active: string | null;
   setActive: Dispatch<SetStateAction<string | null>>;
@@ -145,6 +149,21 @@ export function SetLink({
   );
 }
 function Preview({ artist, language }: { artist: Artist; language: Language }) {
+  if (artist.id === MC_STRETCH_ID)
+    return (
+      <>
+        <Portrait artist={artist} landscape className="preview-photo h-38 w-full" />
+        <div className="preview-body grid gap-3 p-4">
+          <strong className="preview-name [font-size:1.0625rem] [letter-spacing:-0.02em]">
+            {artist.name}
+          </strong>
+          <ArtistNationality artist={artist} language={language} expanded />
+          <div className="border-t border-separator pt-4">
+            <McStretchPhrases />
+          </div>
+        </div>
+      </>
+    );
   const recording = artist.recommendedSetId
     ? recordingById.get(artist.recommendedSetId)
     : undefined;
@@ -221,6 +240,9 @@ export function ArtistChip({
   onOpen: (id: string) => void;
 }) {
   const artist = artistById.get(appearance.artistId);
+  const mystery = appearance.artistId === MC_STRETCH_ID;
+  const mysteryNotice = useContext(MysteryNoticeContext) === appearance.id;
+  const showMystery = mystery && mysteryNotice;
   const isPresent = useIsPresent();
   const owner = useContext(PreviewOwnerContext);
   const [localPreview, setLocalPreview] = useState(false);
@@ -254,14 +276,14 @@ export function ArtistChip({
     <motion.div
       layout="position"
       initial={{ opacity: 0, y: 3 }}
-      animate={{ opacity: isDragging ? 0.35 : 1, y: 0 }}
+      animate={{ opacity: isDragging && !mystery ? 0.35 : 1, y: 0 }}
       className={`chip-wrapper relative hover:z-20 focus-within:z-20 flex [flex:0_0_auto] min-w-0 w-max ${artist.name.length > 40 ? 'max-w-[min(100%,14rem)]' : 'max-w-full'}`}
       inert={!isPresent}
       aria-hidden={!isPresent}
       style={{ zIndex: isDragging ? 3 : undefined }}
     >
       <HoverCard.Root
-        open={isPresent && previewsAllowed && preview && !isDragging}
+        open={isPresent && previewsAllowed && (showMystery || (preview && !isDragging))}
         onOpenChange={setPreview}
         openDelay={350}
         closeDelay={160}
@@ -270,17 +292,24 @@ export function ArtistChip({
           <button
             type="button"
             data-exceptional={bonus || undefined}
+            data-mystery-drag={(mystery && isDragging) || undefined}
             data-artist-id={artist.id}
             data-appearance-id={appearance.id}
-            className={`artist-chip group/card relative isolate flex data-[exceptional=true]:border-[#ffd58066] data-[exceptional=true]:bg-linear-125 data-[exceptional=true]:from-[#ffd5800e] data-[exceptional=true]:via-[#ff8fc80d] data-[exceptional=true]:to-[#b8a4ff12] data-[exceptional=true]:overflow-hidden data-[exceptional=true]:after:pointer-events-none data-[exceptional=true]:after:absolute data-[exceptional=true]:after:inset-[-100%] data-[exceptional=true]:after:bg-linear-110 data-[exceptional=true]:after:from-transparent data-[exceptional=true]:after:via-[#ffe4a326] data-[exceptional=true]:after:to-transparent motion-safe:data-[exceptional=true]:after:animate-[rating-board-shimmer_4s_ease-in-out_infinite] w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''}`}
+            className={`artist-chip group/card relative isolate flex data-[exceptional=true]:border-[#ffd58066] data-[exceptional=true]:bg-linear-125 data-[exceptional=true]:from-[#ffd5800e] data-[exceptional=true]:via-[#ff8fc80d] data-[exceptional=true]:to-[#b8a4ff12] data-[exceptional=true]:overflow-hidden data-[exceptional=true]:after:pointer-events-none data-[exceptional=true]:after:absolute data-[exceptional=true]:after:inset-[-100%] data-[exceptional=true]:after:bg-linear-110 data-[exceptional=true]:after:from-transparent data-[exceptional=true]:after:via-[#ffe4a326] data-[exceptional=true]:after:to-transparent motion-safe:data-[exceptional=true]:after:animate-[rating-board-shimmer_4s_ease-in-out_infinite] w-full min-w-0 items-center min-h-10 [max-width:100%] gap-0.75 [padding:0.5rem_0.625rem] text-sm font-medium [line-height:1.5] text-left rounded-lg border border-transparent bg-raised text-content [transition:background_0.15s,_border-color_0.15s,_box-shadow_0.15s] [cursor:grab] max-[68.75rem]:[font-size:0.8125rem] max-[68.75rem]:[padding:0.5rem_0.625rem] [&_>_span]:min-w-0 [&_>_span]:[overflow-wrap:anywhere] hover:[background:var(--hover)] hover:border-separator active:[cursor:grabbing] [&.is-prioritized]:bg-raised ${priority ? 'is-prioritized' : ''} ${mystery ? 'motion-safe:data-[mystery-drag=true]:animate-[mystery-nope_0.4s_ease-in-out]' : ''}`}
             ref={setNodeRef}
-            style={{ transform: CSS.Translate.toString(transform) }}
+            style={{
+              transform: mystery ? undefined : CSS.Translate.toString(transform),
+              padding: mystery ? '1px 0 3px' : undefined,
+              background: mystery ? 'transparent' : undefined,
+              borderColor: mystery ? 'transparent' : undefined,
+            }}
             {...attributes}
             {...listeners}
             onFocus={() => setPreview(true, true)}
             onBlur={() => setPreview(false)}
-            onClick={() => {
+            onClick={(event) => {
               if (!isDragging) {
+                if (mystery) event.currentTarget.focus();
                 setPreview(false);
                 onOpen(artist.id);
               }
@@ -288,26 +317,43 @@ export function ArtistChip({
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
             {bonus && <RatingSparkles compact seed={artist.id} />}
-            <span className="inline-flex w-full min-w-0 flex-col items-start gap-1 transition-transform group-hover/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-focus-visible/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-active/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] motion-reduce:transition-none">
-              <ArtistRating artist={artist} language={language} name={artist.name} />
-            </span>
+            {mystery ? (
+              <McStretchLabel artist={artist} language={language} />
+            ) : (
+              <span className="inline-flex w-full min-w-0 flex-col items-start gap-1 transition-transform group-hover/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-focus-visible/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-active/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] motion-reduce:transition-none">
+                <ArtistRating artist={artist} language={language} name={artist.name} />
+              </span>
+            )}
             <DragHint onSpacingChange={setPreviewOffset} />
           </button>
         </HoverCard.Trigger>
         <HoverCard.Portal>
           <HoverCard.Content
-            className="artist-preview w-72 [max-width:calc(100vw_-_1.5rem)] bg-surface text-content rounded-2xl overflow-hidden [box-shadow:var(--shadow)] [z-index:40] [animation:reveal_0.16s_ease-out] [max-height:min(32.5rem,_calc(100dvh_-_2rem))] overflow-y-auto max-[47.5rem]:hidden"
-            side="right"
+            className={
+              showMystery
+                ? 'mc-stretch-notice z-50 w-[210px] max-w-[calc(100vw-1.5rem)] rounded-[14px] rounded-bl-[5px] border border-[#8b779e] bg-[#2a2532] text-[#f4eefb] shadow-[0_8px_24px_#0005] motion-safe:animate-[reveal_0.16s_ease-out]'
+                : 'artist-preview w-72 [max-width:calc(100vw_-_1.5rem)] bg-surface text-content rounded-2xl overflow-hidden [box-shadow:var(--shadow)] [z-index:40] [animation:reveal_0.16s_ease-out] [max-height:min(32.5rem,_calc(100dvh_-_2rem))] overflow-y-auto max-[47.5rem]:hidden' +
+                  (mystery ? ' mc-stretch-fractured-surface' : '')
+            }
+            role={showMystery ? 'status' : undefined}
+            aria-live={showMystery ? 'polite' : undefined}
+            side={showMystery ? 'top' : 'right'}
             align="start"
+            alignOffset={showMystery ? 36 : 0}
             sticky="always"
-            sideOffset={previewOffset}
+            sideOffset={showMystery ? 15 : previewOffset}
             collisionPadding={12}
             onFocusCapture={() => setPreview(true)}
             onBlurCapture={(event) => {
               if (!event.currentTarget.contains(event.relatedTarget as Node)) setPreview(false);
             }}
           >
-            <Preview artist={artist} language={language} />
+            {showMystery ? (
+              <McStretchNotice language={language} />
+            ) : (
+              <Preview artist={artist} language={language} />
+            )}
+            {showMystery && <HoverCard.Arrow className="fill-[#8b779e]" />}
           </HoverCard.Content>
         </HoverCard.Portal>
       </HoverCard.Root>
@@ -335,7 +381,10 @@ export function ArtistCard({
       data-long-name={artist.name.length > 40 || undefined}
       className="catalog-card min-w-0 flex items-center data-[long-name=true]:items-start text-left gap-3 min-h-20.75 [padding:0.5625rem_0.625rem] bg-transparent rounded-xl [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_0.5rem] max-[47.5rem]:gap-3 hover:[background:var(--hover)]"
       data-artist-id={artist.id}
-      onClick={() => onOpen(artist.id)}
+      onClick={(event) => {
+        if (artist.id === MC_STRETCH_ID) event.currentTarget.focus();
+        onOpen(artist.id);
+      }}
     >
       <Portrait
         artist={artist}

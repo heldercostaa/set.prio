@@ -1,5 +1,6 @@
 import { SetShareProvider } from './components/set-share';
 import { RatingConfetti } from './components/rating-confetti';
+import { McStretchFractureFilter } from './components/mc-stretch-label';
 import { useUrlFilters } from './hooks/use-url-filters';
 import type { ArtistSort } from './utils/artist-sort';
 import { FadeView } from './components/ui/fade-view';
@@ -184,6 +185,7 @@ function PlannerApp() {
   };
   return (
     <MotionConfig reducedMotion="user">
+      <McStretchFractureFilter />
       <ArtistPreviewContext.Provider value={!selected && !about && !manual && !imageFile}>
         <ArtistPreviewCoordinator>
           <a

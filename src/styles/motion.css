@@ -136,3 +136,22 @@
     opacity: 0;
   }
 }
+
+@keyframes mystery-nope {
+  0%,
+  100% {
+    translate: 0;
+  }
+  20% {
+    translate: -4px 0;
+  }
+  40% {
+    translate: 4px 0;
+  }
+  60% {
+    translate: -2px 0;
+  }
+  80% {
+    translate: 2px 0;
+  }
+}
