@@ -5,9 +5,12 @@ import { DAYS, type Day, type Language, type Preferences, type Priority } from '
 export const STORAGE_KEY = 'set.priority:brasil-2027:v1';
 const LEGACY_STORAGE_KEY = 'set.prio:brasil-2027:v1';
 type StorageError = 'unavailable' | 'recovered' | 'protected' | 'migrationConflict' | null;
-const defaults: Preferences = {
+type DisplayPreferences = { showArtistFlags: boolean; showArtistRatings: boolean };
+const defaults: Preferences & DisplayPreferences = {
   version: 1,
   language: 'en',
+  showArtistFlags: true,
+  showArtistRatings: true,
   activeDay: DAYS[0],
   priorities: {},
   ratings: {},
@@ -16,7 +19,11 @@ const defaults: Preferences = {
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
-function load(): { preferences: Preferences; error: StorageError; writable: boolean } {
+function load(): {
+  preferences: Preferences & DisplayPreferences;
+  error: StorageError;
+  writable: boolean;
+} {
   let raw: string | null;
   let migrationConflict = false;
   try {
@@ -72,6 +79,9 @@ function load(): { preferences: Preferences; error: StorageError; writable: bool
       preferences: {
         ...defaults,
         language: data.language === 'pt-BR' ? 'pt-BR' : 'en',
+        showArtistFlags: typeof data.showArtistFlags === 'boolean' ? data.showArtistFlags : true,
+        showArtistRatings:
+          typeof data.showArtistRatings === 'boolean' ? data.showArtistRatings : true,
         activeDay: DAYS.includes(data.activeDay as Day) ? (data.activeDay as Day) : DAYS[0],
         priorities,
         ratings,
@@ -90,11 +100,15 @@ function load(): { preferences: Preferences; error: StorageError; writable: bool
   }
 }
 interface Planner extends Preferences {
+  showArtistFlags: boolean;
+  showArtistRatings: boolean;
   storageError: StorageError;
   setPriority: (id: string, priority: Priority | null) => void;
   setComment: (id: string, comment: string) => void;
   setRating: (id: string, rating: number | null) => void;
   setLanguage: (language: Language) => void;
+  setShowArtistFlags: (show: boolean) => void;
+  setShowArtistRatings: (show: boolean) => void;
   setDay: (day: Day) => void;
 }
 const initial = load();
@@ -109,12 +123,16 @@ export const usePlanner = create<Planner>((set) => ({
     set((state) => ({ ratings: { ...state.ratings, [id]: rating } }));
   },
   setLanguage: (language) => set({ language }),
+  setShowArtistFlags: (showArtistFlags) => set({ showArtistFlags }),
+  setShowArtistRatings: (showArtistRatings) => set({ showArtistRatings }),
   setDay: (activeDay) => set({ activeDay }),
 }));
 function serialize(state: Planner) {
   return JSON.stringify({
     version: 1,
     language: state.language,
+    showArtistFlags: state.showArtistFlags,
+    showArtistRatings: state.showArtistRatings,
     activeDay: state.activeDay,
     priorities: state.priorities,
     ratings: state.ratings,

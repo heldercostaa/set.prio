@@ -2,6 +2,10 @@ import { DAYS, type Day, type Language, type Priority } from './types';
 
 const en = {
   title: 'set.priority',
+  settings: 'Settings',
+  displaySettings: 'Choose what to show on artist cards.',
+  showArtistFlags: 'Show artist flags',
+  showArtistRatings: 'Show artist ratings',
   planHeading: 'Choose the priority of your Sets.',
   subtitle: 'Find your artists. Make your weekend.',
   search: 'Search artists',
@@ -128,6 +132,10 @@ const en = {
 };
 const pt: typeof en = {
   title: en.title,
+  settings: 'Configurações',
+  displaySettings: 'Escolha o que mostrar nos cartões dos artistas.',
+  showArtistFlags: 'Mostrar bandeiras',
+  showArtistRatings: 'Mostrar avaliações',
   planHeading: 'Defina a prioridade dos seus Sets.',
   subtitle: 'Encontre seus artistas e monte sua programação.',
   search: 'Buscar artistas',

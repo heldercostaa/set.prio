@@ -51,6 +51,8 @@ export interface Catalog {
 export interface Preferences {
   version: 1;
   language: Language;
+  showArtistFlags?: boolean;
+  showArtistRatings?: boolean;
   activeDay: Day;
   priorities: Record<string, Priority | null>;
   comments: Record<string, string>;
