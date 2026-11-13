@@ -329,6 +329,7 @@ export function ArtistCard({
   prioritized: boolean;
   onOpen: (id: string) => void;
 }) {
+  const showFlags = usePlanner((s) => s.showArtistFlags);
   return (
     <motion.button
       type="button"
@@ -345,7 +346,7 @@ export function ArtistCard({
       />
       <span className="catalog-card-body flex flex-1 flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
         <strong>
-          <ArtistName artist={artist} language={language} />
+          <ArtistName artist={artist} language={language} showFlag={showFlags} />
         </strong>
         <span>{artist.genre ?? messages(language).unknownGenre}</span>
         <ArtistRating artist={artist} language={language} catalog />

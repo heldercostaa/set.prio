@@ -1,5 +1,5 @@
 import { publicAsset } from '../../utils/assets';
-import { Code } from 'lucide-react';
+import { DisplaySettings } from './display-settings';
 import { messages } from '../../i18n';
 import { usePlanner } from '../../store/planner';
 import type { Language } from '../../types';
@@ -55,15 +55,7 @@ export function SiteHeader({ language }: { language: Language }) {
               PT
             </button>
           </fieldset>
-          <a
-            className="icon-button w-11 h-11 inline-flex items-center justify-center bg-transparent text-muted rounded-xl shrink-0 github-link hover:[background:var(--hover)] hover:text-content max-[47.5rem]:hidden"
-            href="https://github.com/heldercostaa/set.priority"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-          >
-            <Code size="1.125rem" />
-          </a>
+          <DisplaySettings language={language} />
         </div>
       </div>
     </header>

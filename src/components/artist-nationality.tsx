@@ -47,10 +47,18 @@ export function ArtistNationality({
     </span>
   );
 }
-export function ArtistName({ artist, language }: { artist: Artist; language: Language }) {
+export function ArtistName({
+  artist,
+  language,
+  showFlag = true,
+}: {
+  artist: Artist;
+  language: Language;
+  showFlag?: boolean;
+}) {
   return (
     <span className="inline-flex min-w-0 items-center gap-1.5">
-      <ArtistNationality artist={artist} language={language} />
+      {showFlag && <ArtistNationality artist={artist} language={language} />}
       <span className="min-w-0 [overflow-wrap:anywhere]">{artist.name}</span>
     </span>
   );
