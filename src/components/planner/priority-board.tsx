@@ -182,7 +182,7 @@ export function PriorityBoard({
           />
           <DragOverlay>
             {dragName && (
-              <div className="drag-overlay bg-surface [border:0.0625rem_solid_var(--blue)] rounded-lg [padding:0.625rem_0.875rem] text-xs [box-shadow:var(--shadow)] max-w-70">
+              <div className="drag-overlay bg-surface border border-separator rounded-lg [padding:0.625rem_0.875rem] text-xs [box-shadow:var(--shadow)] max-w-70">
                 {dragName}
               </div>
             )}

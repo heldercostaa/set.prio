@@ -33,7 +33,7 @@ export function FilterNotice({
               setOpen((value) => !value);
             }
           }}
-          className={`flex min-h-11 w-fit max-w-full shrink-0 cursor-help items-center gap-1.5 rounded-lg text-xs font-medium leading-relaxed text-muted focus-visible:outline-2 focus-visible:outline-accent ${className}`}
+          className={`flex min-h-11 w-fit max-w-full shrink-0 cursor-help items-center gap-1.5 rounded-lg text-xs font-medium leading-relaxed text-muted focus-visible:outline-2 focus-visible:outline-focus ${className}`}
         >
           <Info className="size-3.5 shrink-0 text-accent" aria-hidden="true" />
           {language === 'en'

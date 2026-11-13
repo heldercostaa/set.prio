@@ -2,7 +2,7 @@ import { boardSparkles } from './board-sparkles';
 import { compareArtists, type ArtistSort } from './artist-sort';
 import { artistCountries, countryFlag } from './countries';
 import { publicAsset } from './assets';
-import { dayName, messages, priorityLabel, shortDate } from '../i18n';
+import { dayName, messages, priorityHasCode, priorityLabel, shortDate } from '../i18n';
 import {
   DAYS,
   PRIORITIES,
@@ -31,7 +31,12 @@ export interface ExportEntry {
   priority: Priority;
   rating: number | null;
   comment: string;
-  members?: { artist: Artist; recording: Recording | undefined; rating: number | null }[];
+  members?: {
+    artist: Artist;
+    recording: Recording | undefined;
+    rating: number | null;
+    comment?: string;
+  }[];
 }
 export function collectEntries(catalog: Catalog, preferences: Preferences): ExportEntry[] {
   const artists = new Map(catalog.artists.map((a) => [a.id, a]));
@@ -51,7 +56,7 @@ export function collectEntries(catalog: Catalog, preferences: Preferences): Expo
           recording,
           priority,
           rating: recording ? (preferences.ratings[recording.id] ?? null) : null,
-          comment: preferences.comments[appearance.id] ?? '',
+          comment: preferences.comments[artist.id] ?? preferences.comments[appearance.id] ?? '',
           members: artist.memberIds?.flatMap((id) => {
             const member = artists.get(id);
             if (!member) return [];
@@ -63,6 +68,11 @@ export function collectEntries(catalog: Catalog, preferences: Preferences): Expo
                 artist: member,
                 recording: set,
                 rating: set ? (preferences.ratings[set.id] ?? null) : null,
+                comment:
+                  preferences.comments[member.id] ??
+                  preferences.comments[artist.id] ??
+                  preferences.comments[appearance.id] ??
+                  '',
               },
             ];
           }),
@@ -114,7 +124,7 @@ function cells(entry: ExportEntry, language: Language) {
       ? `${entry.recording.eventLabel} (${entry.recording.youtubeUrl})${representativeSuffix(entry, language)}`
       : '',
     dayName(entry.appearance.day, language),
-    entry.priority === 'P4' ? priorityLabel(entry.priority, language) : entry.priority,
+    !priorityHasCode(entry.priority) ? priorityLabel(entry.priority, language) : entry.priority,
     entry.artist.genre ?? '',
     entry.artist.subgenres.join(', '),
     entry.rating === null ? '' : String(entry.rating),
@@ -366,11 +376,11 @@ export async function boardImage(
   const styles = getComputedStyle(document.documentElement);
   const tokenColor = (token: string) => styles.getPropertyValue(token).trim();
   const palette = {
-    P0: tokenColor('--red'),
-    P1: tokenColor('--orange'),
-    P2: tokenColor('--yellow'),
-    P3: tokenColor('--teal'),
-    P4: tokenColor('--avoid'),
+    P0: tokenColor('--priority-p0'),
+    P1: tokenColor('--priority-p1'),
+    P2: tokenColor('--priority-p2'),
+    P3: tokenColor('--priority-p3'),
+    P4: tokenColor('--priority-p4'),
   };
   const text = tokenColor('--text'),
     secondary = tokenColor('--secondary'),
@@ -458,21 +468,22 @@ export async function boardImage(
       const color = palette[group.priority];
       const title = priorityLabel(group.priority, language);
       context.font = font(600, 12);
-      const badgeWidth = context.measureText(title).width + (group.priority === 'P4' ? 29 : 61);
+      const badgeWidth =
+        context.measureText(title).width + (!priorityHasCode(group.priority) ? 29 : 61);
       box(x + 20, y + 17, badgeWidth, 27, 6, `${color}17`);
       context.beginPath();
       context.arc(x + 30, y + 30.5, 2.5, 0, Math.PI * 2);
       context.fillStyle = color;
       context.fill();
-      if (group.priority !== 'P4') label(group.priority, x + 38, y + 22, 12, 600, color);
-      if (group.priority !== 'P4') {
+      if (priorityHasCode(group.priority)) label(group.priority, x + 38, y + 22, 12, 600, color);
+      if (priorityHasCode(group.priority)) {
         context.strokeStyle = `${color}45`;
         context.beginPath();
         context.moveTo(x + 62, y + 23);
         context.lineTo(x + 62, y + 38);
         context.stroke();
       }
-      label(title, x + (group.priority === 'P4' ? 38 : 70), y + 22, 12, 600, color);
+      label(title, x + (!priorityHasCode(group.priority) ? 38 : 70), y + 22, 12, 600, color);
       context.textAlign = 'right';
       label(String(group.names.length), x + columnWidth - 22, y + 23, 10, 400, secondary);
       context.textAlign = 'left';

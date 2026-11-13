@@ -51,15 +51,28 @@ export function ArtistName({
   artist,
   language,
   showFlag = true,
+  compact = false,
 }: {
   artist: Artist;
   language: Language;
   showFlag?: boolean;
+  compact?: boolean;
 }) {
+  const long = compact && artist.name.length > 40;
   return (
-    <span className="inline-flex min-w-0 items-center gap-1.5">
+    <span
+      className={
+        long
+          ? 'inline-flex w-full min-w-0 flex-col items-start gap-1'
+          : 'inline-flex min-w-0 items-center gap-1.5'
+      }
+    >
       {showFlag && <ArtistNationality artist={artist} language={language} />}
-      <span className="min-w-0 [overflow-wrap:anywhere]">{artist.name}</span>
+      <span
+        className={`min-w-0 [overflow-wrap:anywhere] ${long ? 'text-balance' : compact ? 'line-clamp-2' : ''}`}
+      >
+        {artist.name}
+      </span>
     </span>
   );
 }

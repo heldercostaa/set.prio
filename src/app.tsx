@@ -1,3 +1,4 @@
+import { SetShareProvider } from './components/set-share';
 import { RatingConfetti } from './components/rating-confetti';
 import { useUrlFilters } from './hooks/use-url-filters';
 import type { ArtistSort } from './utils/artist-sort';
@@ -33,6 +34,14 @@ import {
 } from './utils/exports';
 
 export function App() {
+  return (
+    <SetShareProvider>
+      <PlannerApp />
+    </SetShareProvider>
+  );
+}
+
+function PlannerApp() {
   const reducedMotion = useReducedMotion();
   const state = usePlanner();
   const language = state.language,

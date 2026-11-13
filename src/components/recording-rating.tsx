@@ -1,7 +1,8 @@
+import { useSetShare } from './set-share';
 import { RatingConfetti } from './rating-confetti';
 import { useCallback, useRef, useState } from 'react';
 import { RatingSparkles } from './rating-sparkles';
-import { Check, HandFist } from 'lucide-react';
+import { Check, Sparkles, Share } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { messages } from '../i18n';
 import { usePlanner } from '../store/planner';
@@ -17,6 +18,7 @@ export function RecordingRating({
   artistId: string;
   language: Language;
 }) {
+  const share = useSetShare();
   const rating = usePlanner((s) => s.ratings[recordingId]) ?? null;
   const setRating = usePlanner((s) => s.setRating);
   const reduced = useReducedMotion();
@@ -113,10 +115,20 @@ export function RecordingRating({
         <p
           className={`mt-2 flex items-center justify-center gap-1.5 text-xs ${special ? 'text-[#e9cee4]' : 'text-muted'}`}
         >
-          {special && <HandFist size="0.875rem" aria-hidden="true" className="shrink-0" />}
+          {special && <Sparkles size="0.875rem" aria-hidden="true" className="shrink-0" />}
           {rating === null ? t.unrated : special ? t.beyondPerfect : t.yourRating}
         </p>
       </motion.div>
+      {rating !== null && (
+        <button
+          type="button"
+          onClick={(event) => share({ artistId, recordingId }, event.currentTarget)}
+          className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-separator bg-raised px-4 text-sm font-medium hover:bg-[var(--hover)]"
+        >
+          <Share size={16} />
+          {t.shareMyRating}
+        </button>
+      )}
       <div className="mt-1 flex items-center justify-between gap-3 text-xs">
         <span id={`${id}-hint`} className="flex items-center gap-1 text-muted">
           {rating === null ? (

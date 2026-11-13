@@ -22,7 +22,7 @@ When('I mark Fisher as a must-see, rate the set zero, and add a comment', async 
     .getByRole('combobox', { name: 'Priority · Friday · Fisher', exact: true })
     .selectOption('P0');
   await page
-    .getByLabel('Your comment', { exact: true })
+    .getByLabel('Notes about the set and artist', { exact: true })
     .fill('Olá, friends\nSee you at the front.');
   await page.getByRole('slider', { name: 'Rate this set', exact: true }).press('Home');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
@@ -54,7 +54,7 @@ Then(
     await expect(
       page.getByRole('slider', { name: 'Dê uma nota para este set', exact: true })
     ).toHaveValue('0');
-    await expect(page.getByLabel('Suas anotações', { exact: true })).toHaveValue(
+    await expect(page.getByLabel('Anotações sobre o set e o artista', { exact: true })).toHaveValue(
       'Olá, friends\nSee you at the front.'
     );
   }
@@ -87,6 +87,8 @@ When('I mark Fisher as an artist to avoid', async ({ page }) => {
 Then('Fisher remains avoided on Friday after reloading', async ({ page }) => {
   await page.reload();
   const group = page.getByTestId('2027-04-30-P4');
-  await expect(group.getByRole('heading', { name: 'I’ll skip', exact: true })).toBeVisible();
+  await expect(
+    group.getByRole('heading', { name: "I'd rather eat glass", exact: true })
+  ).toBeVisible();
   await expect(group.getByRole('button', { name: 'Fisher · Friday', exact: true })).toBeVisible();
 });

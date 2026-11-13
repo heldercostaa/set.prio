@@ -79,6 +79,7 @@ set.priority is a personal planner for deciding which artists to see. Organize p
 - Search artists and filter by multiple genres
 - Preview sets, mark watched recordings with ratings, and keep comments
 - Share the plan as a PNG, CSV, or Notion table
+- Share individual set ratings as a PNG, including artist notes, an optional priority, and a special 11/10 design
 - English and Brazilian Portuguese, with a dark interface
 - Browser-local saving and a confirmed reset action
 
