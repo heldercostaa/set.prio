@@ -1,22 +1,25 @@
+import type { ArtistSort } from '../../utils/artist-sort';
 import { useRef, useState } from 'react';
 import { boardImage, type ExportEntry } from '../../utils/exports';
 import type { Language } from '../../types';
 
 export type ImageShareStatus = 'idle' | 'preparing' | 'ready' | 'unsupported' | 'error';
-export function useImageShare(entries: ExportEntry[], language: Language) {
+export function useImageShare(entries: ExportEntry[], language: Language, sort: ArtistSort) {
   const request = useRef(0);
   const [prepared, setPrepared] = useState<{
     entries: ExportEntry[];
     language: Language;
+    sort: ArtistSort;
     status: ImageShareStatus;
     file: File | null;
   } | null>(null);
-  const current = prepared?.entries === entries && prepared.language === language;
+  const current =
+    prepared?.entries === entries && prepared.language === language && prepared.sort === sort;
   const prepare = async () => {
     if (current && (prepared.status === 'ready' || prepared.status === 'preparing')) return;
     const id = ++request.current;
     const update = (status: ImageShareStatus, file: File | null = null) => {
-      if (id === request.current) setPrepared({ entries, language, status, file });
+      if (id === request.current) setPrepared({ entries, language, sort, status, file });
     };
     if (typeof navigator.share !== 'function' || typeof navigator.canShare !== 'function') {
       update('unsupported');
@@ -24,7 +27,7 @@ export function useImageShare(entries: ExportEntry[], language: Language) {
     }
     update('preparing');
     try {
-      const blob = await boardImage(entries, language);
+      const blob = await boardImage(entries, language, sort);
       const file = new File([blob], 'set.priority-brasil-2027.png', { type: 'image/png' });
       if (navigator.canShare({ files: [file] })) update('ready', file);
       else update('unsupported');
