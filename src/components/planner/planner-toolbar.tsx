@@ -10,8 +10,6 @@ import { messages } from '../../i18n';
 import type { Language } from '../../types';
 
 export function PlannerToolbar({
-  onResetFilters,
-  hasFilters,
   sort,
   onSort,
   language,
@@ -26,8 +24,6 @@ export function PlannerToolbar({
   watched,
   onWatched,
 }: {
-  onResetFilters: () => void;
-  hasFilters: boolean;
   sort: Sort;
   onSort: (value: Sort) => void;
   language: Language;
@@ -74,20 +70,8 @@ export function PlannerToolbar({
           </button>
         </fieldset>
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 ">
-          <GenreFilter
-            language={language}
-            selected={genres}
-            onChange={onGenres}
-            onResetAll={onResetFilters}
-            canReset={hasFilters}
-          />
-          <CountryFilter
-            language={language}
-            selected={countries}
-            onChange={onCountries}
-            onResetAll={onResetFilters}
-            canReset={hasFilters}
-          />
+          <GenreFilter language={language} selected={genres} onChange={onGenres} />
+          <CountryFilter language={language} selected={countries} onChange={onCountries} />
           <label
             className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:min-w-48 max-[47.5rem]:flex-1`}
           >

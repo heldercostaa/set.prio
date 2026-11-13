@@ -6,14 +6,10 @@ export function GenreFilter({
   language,
   selected,
   onChange,
-  onResetAll,
-  canReset,
 }: {
   language: Language;
   selected: string[];
   onChange: (value: string[]) => void;
-  onResetAll?: () => void;
-  canReset?: boolean;
 }) {
   return (
     <MultiSelectFilter
@@ -25,8 +21,6 @@ export function GenreFilter({
       notice={messages(language).genreWarning}
       selected={selected}
       onChange={onChange}
-      onResetAll={onResetAll}
-      canReset={canReset}
     />
   );
 }
