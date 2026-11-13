@@ -16,7 +16,7 @@ export function ArtistNationality({
   if (!countries.length)
     return expanded ? (
       <span className="text-xs text-muted">
-        {language === 'en' ? 'Country not verified' : 'País não verificado'}
+        {language === 'en' ? 'Country not verified' : 'País não confirmado'}
       </span>
     ) : null;
   return (

@@ -106,7 +106,7 @@ export const contracts = {
     const entries = collectEntries(representativeCatalog, preferences);
     expect(toCsv(entries, 'en')).toContain(' · Representative recording');
     expect(notionPayload(entries, 'pt-BR').html).toContain(
-      '>Tomorrowland Belgium 2026</a> · Gravação representativa'
+      '>Tomorrowland Belgium 2026</a> · Set de referência'
     );
   },
   'expands a b2b into attributed artist rows with their own sets, genres and ratings': () => {

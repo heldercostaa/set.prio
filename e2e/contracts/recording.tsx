@@ -30,9 +30,9 @@ export const contracts = {
   'unavailable recordings are localized without search links': () => {
     try {
       const view = render(<SetLink recording={undefined} language="pt-BR" />);
-      expect(view.getByText('Nenhum set completo verificado disponível.').textContent).toBe(
-        'Nenhum set completo verificado disponível.'
-      );
+      expect(
+        view.getByText('Ainda não encontramos um set completo com fonte confirmada.').textContent
+      ).toBe('Ainda não encontramos um set completo com fonte confirmada.');
       expect(view.queryByRole('link')).toBeNull();
     } finally {
       cleanup();

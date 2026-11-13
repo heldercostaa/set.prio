@@ -76,7 +76,7 @@ export function PlannerToolbar({
             className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:min-w-48 max-[47.5rem]:flex-1`}
           >
             <span className="sr-only">
-              {language === 'en' ? 'Watched status' : 'Status de visualização'}
+              {language === 'en' ? 'Watched status' : 'Sets que você já viu'}
             </span>
             <select
               className="min-h-11 w-full cursor-pointer bg-transparent text-control text-content outline-none max-[47.5rem]:text-base"
@@ -84,9 +84,9 @@ export function PlannerToolbar({
               onChange={(event) => onWatched(event.target.value as WatchFilter)}
             >
               <option value="all">{language === 'en' ? 'All sets' : 'Todos os sets'}</option>
-              <option value="watched">{language === 'en' ? 'Watched' : 'Assistidos'}</option>
+              <option value="watched">{language === 'en' ? 'Watched' : 'Já vi'}</option>
               <option value="unwatched">
-                {language === 'en' ? 'Not watched yet' : 'Ainda não assistidos'}
+                {language === 'en' ? 'Not watched yet' : 'Ainda não vi'}
               </option>
             </select>
           </label>

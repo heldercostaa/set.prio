@@ -69,7 +69,7 @@ export function ExportMenu({
           collisionPadding={12}
         >
           <DropdownMenu.Label>
-            {count} {t.rowCount}
+            {count} {count === 1 ? t.rowCountSingle : t.rowCount}
           </DropdownMenu.Label>
           <p className="export-scope text-muted [font-size:0.625rem] [line-height:1.6] [padding:0_0.625rem_0.625rem]">
             {t.exportScope}

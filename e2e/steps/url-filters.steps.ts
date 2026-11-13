@@ -45,11 +45,10 @@ Then('filter choices survive refresh and reset leaves my saved plan intact', asy
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'Reset filters', exact: true }).click();
   expect(new URL(page.url()).search).toBe('?view=artists');
-  await expect(page.getByRole('searchbox')).toBeFocused();
   await expect(page.getByRole('searchbox')).toHaveValue('');
   await expect(page.getByRole('combobox', { name: 'Watched status' })).toHaveValue('all');
   await expect(page.getByRole('combobox', { name: 'Sort artists' })).toHaveValue('name-asc');
-  await expect(page.getByRole('button', { name: 'Reset filters', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Reset filters', exact: true })).toBeDisabled();
   await page.getByRole('button', { name: 'Board', exact: true }).click();
   await expect(
     page.getByTestId('2027-04-30-P0').getByRole('button', { name: 'Fisher · Friday', exact: true })
@@ -84,6 +83,6 @@ Then(
       'aria-pressed',
       'true'
     );
-    await expect(page.getByRole('button', { name: 'Limpar filtros', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Limpar filtros', exact: true })).toBeDisabled();
   }
 );

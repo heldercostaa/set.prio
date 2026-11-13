@@ -48,7 +48,7 @@ export function ImageShareDialog({
       description={
         en
           ? 'Choose Save Image in the share sheet to save to Photos, when available.'
-          : 'Escolha Salvar Imagem no menu de compartilhamento para salvar no app Fotos, quando disponível.'
+          : 'No menu de compartilhamento, procure a opção Salvar Imagem para guardar a imagem no app Fotos, se essa opção estiver disponível.'
       }
       closeLabel={en ? 'Close' : 'Fechar'}
       onRestoreFocus={() => document.querySelector<HTMLButtonElement>('.export-trigger')?.focus()}

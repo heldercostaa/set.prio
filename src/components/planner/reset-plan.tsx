@@ -8,7 +8,7 @@ export function ResetPlan({ language }: { language: Language }) {
   const [failed, setFailed] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
   const en = language === 'en';
-  const title = en ? 'Reset everything?' : 'Redefinir tudo?';
+  const title = en ? 'Reset everything?' : 'Apagar sua programação?';
   return (
     <>
       <button
@@ -18,7 +18,7 @@ export function ResetPlan({ language }: { language: Language }) {
         className="inline-flex min-h-11 items-center gap-1.5 text-muted"
       >
         <RotateCcw size="0.875rem" />
-        {en ? 'Reset plan' : 'Redefinir plano'}
+        {en ? 'Reset plan' : 'Apagar programação'}
       </button>
       <Modal
         open={open}
@@ -27,7 +27,7 @@ export function ResetPlan({ language }: { language: Language }) {
         description={
           en
             ? 'You will lose all priorities, ratings, comments, and preferences saved for this planner in this browser. This cannot be undone.'
-            : 'Você perderá todas as prioridades, avaliações, comentários e preferências deste planejador neste navegador. Esta ação não pode ser desfeita.'
+            : 'Isso apaga todas as prioridades, notas, anotações e preferências salvas neste navegador. Não será possível recuperar esses dados.'
         }
         closeLabel={en ? 'Close' : 'Fechar'}
         onRestoreFocus={() => trigger.current?.focus()}
@@ -48,13 +48,13 @@ export function ResetPlan({ language }: { language: Language }) {
               else setFailed(true);
             }}
           >
-            {en ? 'Reset everything' : 'Redefinir tudo'}
+            {en ? 'Reset everything' : 'Apagar tudo'}
           </button>
           {failed && (
             <p role="alert" className="text-sm text-muted">
               {en
                 ? 'Browser storage could not be cleared. Your saved plan was left in place.'
-                : 'Não foi possível limpar o armazenamento. Seu plano salvo foi mantido.'}
+                : 'Não foi possível apagar os dados. Sua programação continua salva.'}
             </p>
           )}
         </div>

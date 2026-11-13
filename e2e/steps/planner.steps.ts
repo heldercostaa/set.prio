@@ -42,7 +42,7 @@ Then(
   'my language, priority, zero rating, watched status, and multiline comment are restored',
   async ({ page }) => {
     await expect(
-      page.getByRole('heading', { name: 'Defina a prioridade dos seus Sets.', exact: true })
+      page.getByRole('heading', { name: 'Organize seus Sets.', exact: true })
     ).toBeVisible();
     const fisher = page.getByRole('button', { name: 'Fisher · Sexta-feira', exact: true });
     await expect(fisher.getByRole('img', { name: 'Set assistido', exact: true })).toBeVisible();
@@ -50,10 +50,10 @@ Then(
     await expect(
       page.getByRole('combobox', { name: 'Prioridade · Sexta-feira · Fisher', exact: true })
     ).toHaveValue('P0');
-    await expect(page.getByRole('slider', { name: 'Avalie este set', exact: true })).toHaveValue(
-      '0'
-    );
-    await expect(page.getByLabel('Seu comentário', { exact: true })).toHaveValue(
+    await expect(
+      page.getByRole('slider', { name: 'Dê uma nota para este set', exact: true })
+    ).toHaveValue('0');
+    await expect(page.getByLabel('Suas anotações', { exact: true })).toHaveValue(
       'Olá, friends\nSee you at the front.'
     );
   }
