@@ -152,7 +152,7 @@ export function App() {
             id="main"
             className="app-main max-w-384 px-10 pt-7 [margin:auto] max-[68.75rem]:[padding:1.875rem_1.5rem_0] max-[47.5rem]:[padding:1.75rem_1.25rem_0] max-[22.5rem]:[padding:1.5rem_1rem_0]"
           >
-            <div className="page-heading mb-6 flex items-center justify-between gap-4 max-[47.5rem]:items-start">
+            <div className="page-heading mb-6 flex items-center justify-between gap-4 max-[47.5rem]:mb-5 max-[47.5rem]:items-start">
               <div className="min-w-0">
                 <h1
                   aria-label={t.planHeading}
