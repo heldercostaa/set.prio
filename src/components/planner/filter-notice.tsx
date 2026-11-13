@@ -33,7 +33,7 @@ export function FilterNotice({
               setOpen((value) => !value);
             }
           }}
-          className={`flex min-h-11 shrink-0 cursor-help items-center gap-1.5 rounded-lg text-xs font-medium leading-relaxed text-muted focus-visible:outline-2 focus-visible:outline-accent ${className}`}
+          className={`flex min-h-11 w-fit max-w-full shrink-0 cursor-help items-center gap-1.5 rounded-lg text-xs font-medium leading-relaxed text-muted focus-visible:outline-2 focus-visible:outline-accent ${className}`}
         >
           <Info className="size-3.5 shrink-0 text-accent" aria-hidden="true" />
           {language === 'en'
@@ -43,11 +43,11 @@ export function FilterNotice({
       </HoverCard.Trigger>
       <HoverCard.Portal>
         <HoverCard.Content
-          side="right"
+          side={window.matchMedia('(max-width: 47.5rem)').matches ? 'bottom' : 'right'}
           align="start"
           sideOffset={8}
           collisionPadding={12}
-          className="z-60 w-64 max-w-[calc(100vw-1.5rem)] rounded-xl bg-surface p-4 text-xs leading-relaxed text-muted shadow-[var(--shadow)] inset-ring inset-ring-separator"
+          className="z-100 w-64 max-w-[calc(100vw-1.5rem)] rounded-xl bg-surface p-4 text-xs leading-relaxed text-muted shadow-[var(--shadow)] inset-ring inset-ring-separator"
         >
           <p id={descriptionId}>{notice.replace(/^.*?[.!?]\s*/, '')}</p>
         </HoverCard.Content>
