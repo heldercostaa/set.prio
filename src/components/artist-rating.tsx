@@ -59,7 +59,7 @@ export function ArtistRating({
             </span>
             <span className="block h-0.75 overflow-hidden rounded-full bg-separator">
               <span
-                className={`block h-full rounded-full ${bonus ? 'bg-linear-to-r from-[#ffd580] via-[#ff8fc8] to-[#b8a4ff] bg-size-[200%_100%] motion-safe:animate-[rating-flow_5s_linear_infinite]' : 'bg-[var(--orange)]'}`}
+                className={`block h-full rounded-full ${bonus ? 'bg-[linear-gradient(90deg,#ffd580_0%,#ff8fc8_25%,#b8a4ff_50%,#ff8fc8_75%,#ffd580_100%)] bg-size-[200%_100%] bg-repeat-x motion-safe:animate-[rating-flow_5s_linear_infinite]' : 'bg-[var(--orange)]'}`}
                 style={{ width: `${Math.min(score, 10) * 10}%` }}
               />
             </span>

@@ -99,3 +99,40 @@
     transform: scale(1.1) rotate(20deg);
   }
 }
+
+@keyframes board-sparkle {
+  0%,
+  28%,
+  100% {
+    opacity: 0;
+    transform: translate(var(--star-x-0), var(--star-y-0));
+  }
+  5% {
+    opacity: 0.6;
+  }
+  13% {
+    opacity: 0;
+  }
+  33%,
+  61% {
+    opacity: 0;
+    transform: translate(var(--star-x-1), var(--star-y-1));
+  }
+  38% {
+    opacity: 0.5;
+  }
+  47% {
+    opacity: 0;
+  }
+  66%,
+  94% {
+    opacity: 0;
+    transform: translate(var(--star-x-2), var(--star-y-2));
+  }
+  72% {
+    opacity: 0.6;
+  }
+  81% {
+    opacity: 0;
+  }
+}

@@ -1,5 +1,7 @@
+import { RatingConfetti } from './rating-confetti';
+import { useCallback, useRef, useState } from 'react';
 import { RatingSparkles } from './rating-sparkles';
-import { Check } from 'lucide-react';
+import { Check, HandFist } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { messages } from '../i18n';
 import { usePlanner } from '../store/planner';
@@ -18,12 +20,42 @@ export function RecordingRating({
   const rating = usePlanner((s) => s.ratings[recordingId]) ?? null;
   const setRating = usePlanner((s) => s.setRating);
   const reduced = useReducedMotion();
+  const burstId = useRef(0);
+  const finishBurst = useCallback(() => setBurst(null), []);
+  const [burst, setBurst] = useState<{
+    id: number;
+    container: HTMLElement;
+    x: number;
+    y: number;
+  } | null>(null);
+  const updateRating = (value: number, input: HTMLInputElement) => {
+    const previous = usePlanner.getState().ratings[recordingId];
+    setRating(recordingId, value);
+    if (value !== 11) {
+      setBurst(null);
+      return;
+    }
+    if (previous === 11 || reduced) return;
+    const container = input.closest<HTMLElement>('[role="dialog"]');
+    if (!container) return;
+    const modalBounds = container.getBoundingClientRect();
+    const inputBounds = input.getBoundingClientRect();
+    setBurst({
+      id: ++burstId.current,
+      container,
+      x: inputBounds.left + inputBounds.width / 2 - modalBounds.left,
+      y: Math.min(inputBounds.bottom + 48 - modalBounds.top, modalBounds.height - 40),
+    });
+  };
   const t = messages(language);
   const special = rating === 11;
   const formatted = rating === null ? '—' : new Intl.NumberFormat(language).format(rating);
   const id = `set-rating-${artistId}`;
   return (
     <div className="mt-6">
+      {burst && special && !reduced && (
+        <RatingConfetti key={burst.id} {...burst} onComplete={finishBurst} />
+      )}
       <label htmlFor={id} className="flex items-center justify-between gap-3 text-xs font-semibold">
         {t.rating}
         <span className="text-muted font-normal">{t.personalRating}</span>
@@ -42,9 +74,11 @@ export function RecordingRating({
         aria-valuetext={rating === null ? t.unrated : `${formatted} / 10`}
         aria-describedby={`${id}-hint`}
         className="mt-2 min-h-11 w-full cursor-pointer accent-[var(--orange)]"
-        onChange={(event) => setRating(recordingId, ratingFromStep(Number(event.target.value)))}
+        onChange={(event) =>
+          updateRating(ratingFromStep(Number(event.currentTarget.value)), event.currentTarget)
+        }
         onPointerUp={(event) =>
-          setRating(recordingId, ratingFromStep(Number(event.currentTarget.value)))
+          updateRating(ratingFromStep(Number(event.currentTarget.value)), event.currentTarget)
         }
         onKeyDown={(event) => {
           if (rating === null && ['Home', 'ArrowLeft', 'ArrowDown'].includes(event.key)) {
@@ -79,11 +113,7 @@ export function RecordingRating({
         <p
           className={`mt-2 flex items-center justify-center gap-1.5 text-xs ${special ? 'text-[#e9cee4]' : 'text-muted'}`}
         >
-          {special && (
-            <span aria-hidden="true" className="shrink-0">
-              👊
-            </span>
-          )}
+          {special && <HandFist size="0.875rem" aria-hidden="true" className="shrink-0" />}
           {rating === null ? t.unrated : special ? t.beyondPerfect : t.yourRating}
         </p>
       </motion.div>
@@ -102,7 +132,10 @@ export function RecordingRating({
           type="button"
           className="min-h-11 bg-transparent text-accent disabled:text-muted disabled:opacity-50"
           disabled={rating === null}
-          onClick={() => setRating(recordingId, null)}
+          onClick={() => {
+            setBurst(null);
+            setRating(recordingId, null);
+          }}
         >
           {t.clearRating}
         </button>

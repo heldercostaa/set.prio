@@ -1,3 +1,4 @@
+import { RatingConfetti } from './components/rating-confetti';
 import { useUrlFilters } from './hooks/use-url-filters';
 import type { ArtistSort } from './utils/artist-sort';
 import { FadeView } from './components/ui/fade-view';
@@ -16,10 +17,10 @@ import { SiteFooter } from './components/planner/site-footer';
 import { SiteHeader } from './components/planner/site-header';
 import { RotateCcw, Check, CheckCheck, Info, LockKeyhole, ShieldCheck } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArtistPreviewContext, ArtistPreviewCoordinator } from './components/artist';
 import { ArtistDetails } from './components/artist-details';
-import { artistById, catalog } from './data';
+import { artistById, catalog, ratingArtistsFor } from './data';
 import { longDate, messages } from './i18n';
 import { usePlanner } from './store/planner';
 import {
@@ -49,6 +50,9 @@ export function App() {
   const setCountries = (value: string[]) => setFilter('countries', value);
   const setView = (value: 'board' | 'artists') => setFilter('view', value);
   const [selected, setSelected] = useState<string | null>(null);
+  const [boardBurst, setBoardBurst] = useState<{ id: number; x: number; y: number } | null>(null);
+  const boardBurstId = useRef(0);
+  const finishBoardBurst = useCallback(() => setBoardBurst(null), []);
   const [about, setAbout] = useState(false);
   const [manual, setManual] = useState<ReturnType<typeof notionPayload> | null>(null);
   const [toast, setToast] = useState('');
@@ -68,6 +72,7 @@ export function App() {
     return () => clearTimeout(timeout);
   }, [toast]);
   const openArtist = (id: string) => {
+    setBoardBurst(null);
     trigger.current = document.activeElement as HTMLElement;
     setSelected(id);
   };
@@ -80,6 +85,38 @@ export function App() {
       ).find((element) => element.dataset.artistId === selected && !element.closest('[inert]'));
       (card ?? document.getElementById('board-view'))?.focus();
     }
+    if (!artist || view !== 'board' || reducedMotion || document.querySelector('[role="dialog"]'))
+      return;
+    const ratings = usePlanner.getState().ratings;
+    if (
+      !ratingArtistsFor(artist, ratings).some(
+        (act) => act.recommendedSetId && ratings[act.recommendedSetId] === 11
+      )
+    )
+      return;
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.artist-chip')).filter(
+      (element) => element.dataset.artistId === artist.id && !element.closest('[inert]')
+    );
+    const card =
+      chips.find((element) => element === document.activeElement) ??
+      chips.find((element) => {
+        const bounds = element.getBoundingClientRect();
+        return (
+          bounds.width > 0 &&
+          bounds.height > 0 &&
+          bounds.bottom > 0 &&
+          bounds.top < window.innerHeight &&
+          bounds.right > 0 &&
+          bounds.left < window.innerWidth
+        );
+      });
+    if (!card) return;
+    const bounds = card.getBoundingClientRect();
+    setBoardBurst({
+      id: ++boardBurstId.current,
+      x: bounds.left + bounds.width / 2,
+      y: bounds.top + bounds.height / 2,
+    });
   };
   const handleExport = async (format: 'image' | 'csv' | 'notion') => {
     if (!entries.length) return;
@@ -284,6 +321,16 @@ export function App() {
               language={language}
               onClose={() => setSelected(null)}
               restoreFocus={restoreFocus}
+            />
+          )}
+          {boardBurst && !reducedMotion && (
+            <RatingConfetti
+              key={boardBurst.id}
+              container={document.body}
+              x={boardBurst.x}
+              y={boardBurst.y}
+              viewport
+              onComplete={finishBoardBurst}
             />
           )}
           <ImageShareDialog

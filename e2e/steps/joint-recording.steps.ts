@@ -65,7 +65,7 @@ Then(
     }
     await chip.click();
     const dialog = page.getByRole('dialog', { name: act.name, exact: true });
-    const joint = dialog.getByRole('region', { name: 'Joint performance recording', exact: true });
+    const joint = dialog.getByRole('region', { name: act.name, exact: true });
     const links = dialog.locator('.set-link');
     await expect(links.first()).toHaveAttribute(
       'href',
