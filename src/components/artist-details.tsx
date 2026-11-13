@@ -1,6 +1,7 @@
+import { FilterNotice } from './planner/filter-notice';
 import { ArtistNationality } from './artist-nationality';
 import { RecordingRating } from './recording-rating';
-import { Check, ChevronDown, ExternalLink, Info } from 'lucide-react';
+import { Check, ChevronDown, ExternalLink } from 'lucide-react';
 import {
   appearancesFor,
   artistById,
@@ -68,10 +69,7 @@ export function ArtistDetails({
               <Genres artist={artist} language={language} />
             </>
           )}
-          <div className="detail-warning flex gap-2 [font-size:0.625rem] [line-height:1.65] text-muted [margin:0.9375rem_0_1.25rem] [&_>_svg]:shrink-0 [&_>_svg]:text-accent [&_>_svg]:mt-0.25">
-            <Info size="0.9375rem" />
-            <p>{t.genreWarning}</p>
-          </div>
+          <FilterNotice language={language} notice={t.genreWarning} className="mt-2 mb-1" />
           {jointRecording && (
             <RecordingDetails
               artist={artist}
