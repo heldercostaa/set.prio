@@ -1,6 +1,8 @@
+import { FilterNotice } from './filter-notice';
+import { messages } from '../../i18n';
 import { controlClassName, controlCountClassName, menuMotionClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { ChevronDown, Check, Info, RotateCcw } from 'lucide-react';
+import { ChevronDown, Check, RotateCcw } from 'lucide-react';
 import type { Language } from '../../types';
 export function MultiSelectFilter({
   language,
@@ -8,6 +10,8 @@ export function MultiSelectFilter({
   allLabel,
   clearLabel,
   notice,
+  onResetAll,
+  canReset,
   options,
   selected,
   onChange,
@@ -17,6 +21,8 @@ export function MultiSelectFilter({
   allLabel: string;
   clearLabel: string;
   notice?: string;
+  onResetAll?: () => void;
+  canReset?: boolean;
   options: { value: string; label: string }[];
   selected: string[];
   onChange: (value: string[]) => void;
@@ -53,19 +59,7 @@ export function MultiSelectFilter({
             </span>
           </div>
           <DropdownMenu.Separator className="mx-3 h-px shrink-0 bg-separator" />
-          {notice && (
-            <details className="group/notice mx-3 mt-3 shrink-0 rounded-xl bg-raised text-xs leading-relaxed text-muted">
-              <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-3 font-medium text-content [&::-webkit-details-marker]:hidden">
-                <Info className="size-4 shrink-0 text-accent" aria-hidden="true" />
-                {language === 'en'
-                  ? 'Genres are AI-assisted estimates.'
-                  : 'Gêneros são estimativas auxiliadas por IA.'}
-              </summary>
-              <p className="hidden px-3 pb-3 group-hover/notice:block group-focus-within/notice:block group-open/notice:block">
-                {notice.replace(/^.*?[.!?]\s*/, '')}
-              </p>
-            </details>
-          )}
+          {notice && <FilterNotice language={language} notice={notice} />}
           <DropdownMenu.Group className="min-h-0 overflow-y-auto overscroll-contain p-1.5">
             {options.map((option) => (
               <DropdownMenu.CheckboxItem
@@ -100,6 +94,19 @@ export function MultiSelectFilter({
               <RotateCcw className="size-4 shrink-0" />
               {clearLabel}
             </DropdownMenu.Item>
+            {onResetAll && (
+              <>
+                <DropdownMenu.Separator className="my-1 h-px bg-separator" />
+                <DropdownMenu.Item
+                  disabled={!canReset}
+                  onSelect={onResetAll}
+                  className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-lg px-2.5 text-muted outline-none transition-colors data-[highlighted]:bg-raised data-[disabled]:cursor-default data-[disabled]:opacity-50"
+                >
+                  <RotateCcw className="size-4 shrink-0" />
+                  {messages(language).resetFilters}
+                </DropdownMenu.Item>
+              </>
+            )}
           </div>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

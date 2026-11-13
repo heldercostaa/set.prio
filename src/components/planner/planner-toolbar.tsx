@@ -1,11 +1,10 @@
-import { useRef } from 'react';
 import { CountryFilter } from './country-filter';
 import { ArtistSort } from './artist-sort';
 import type { ArtistSort as Sort } from '../../utils/artist-sort';
 import type { WatchFilter } from '../../data';
 import { controlClassName, controlCountClassName, controlOptionClassName } from '../ui/control';
 import { GenreFilter } from './genre-filter';
-import { Grid2X2, ListMusic, RotateCcw, Search, X } from 'lucide-react';
+import { Grid2X2, ListMusic, Search, X } from 'lucide-react';
 import { catalog } from '../../data';
 import { messages } from '../../i18n';
 import type { Language } from '../../types';
@@ -43,7 +42,6 @@ export function PlannerToolbar({
   genres: string[];
   onGenres: (genres: string[]) => void;
 }) {
-  const searchInput = useRef<HTMLInputElement>(null);
   const t = messages(language);
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
@@ -76,8 +74,20 @@ export function PlannerToolbar({
           </button>
         </fieldset>
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 ">
-          <GenreFilter language={language} selected={genres} onChange={onGenres} />
-          <CountryFilter language={language} selected={countries} onChange={onCountries} />
+          <GenreFilter
+            language={language}
+            selected={genres}
+            onChange={onGenres}
+            onResetAll={onResetFilters}
+            canReset={hasFilters}
+          />
+          <CountryFilter
+            language={language}
+            selected={countries}
+            onChange={onCountries}
+            onResetAll={onResetFilters}
+            canReset={hasFilters}
+          />
           <label
             className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:min-w-48 max-[47.5rem]:flex-1`}
           >
@@ -101,26 +111,12 @@ export function PlannerToolbar({
           >
             <Search size="1rem" />
             <input
-              ref={searchInput}
               type="search"
               placeholder={t.search}
               aria-label={t.search}
               value={search}
               onChange={(event) => onSearch(event.target.value)}
             />
-            <button
-              type="button"
-              aria-label={t.resetFilters}
-              title={t.resetFilters}
-              disabled={!hasFilters}
-              onClick={() => {
-                onResetFilters();
-                searchInput.current?.focus();
-              }}
-              className={`grid size-11 shrink-0 place-items-center rounded-lg bg-transparent text-accent hover:bg-raised ${hasFilters ? '' : 'invisible'}`}
-            >
-              <RotateCcw size="1rem" aria-hidden="true" />
-            </button>
             {search && (
               <button
                 type="button"
