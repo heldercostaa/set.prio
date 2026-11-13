@@ -1,6 +1,7 @@
 import { FilterNotice } from './planner/filter-notice';
 import { ArtistNationality } from './artist-nationality';
 import { RecordingRating } from './recording-rating';
+import { ExceptionalCrown } from './exceptional-crown';
 import { Check, ChevronDown, ExternalLink } from 'lucide-react';
 import {
   appearancesFor,
@@ -9,6 +10,7 @@ import {
   recordingById,
   membersFor,
   jointRecordingFor,
+  hasExceptionalRating,
 } from '../data';
 import { dayName, longDate, messages, priorityLabel } from '../i18n';
 import { usePlanner } from '../store/planner';
@@ -33,6 +35,7 @@ export function ArtistDetails({
   const members = membersFor(artist);
   const jointRecording = jointRecordingFor(artist);
   const jointRated = jointRecording && state.ratings[jointRecording.id] != null;
+  const exceptional = hasExceptionalRating(artist, state.ratings);
   return (
     <Modal
       open
@@ -40,6 +43,19 @@ export function ArtistDetails({
         if (!open) onClose();
       }}
       title={artist.name}
+      titleAdornment={
+        members.length > 0 && exceptional ? (
+          <ExceptionalCrown language={language} className="size-7" />
+        ) : undefined
+      }
+      headingAdornment={
+        !members.length && exceptional ? (
+          <ExceptionalCrown
+            language={language}
+            className="absolute -bottom-4 left-1/2 z-10 size-8 -translate-x-1/2"
+          />
+        ) : undefined
+      }
       description="Tomorrowland Brasil 2027"
       closeLabel={t.close}
       className="artist-modal"

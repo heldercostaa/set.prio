@@ -35,7 +35,7 @@ import {
   recordingById,
   membersFor,
   jointRecordingFor,
-  ratingArtistsFor,
+  hasExceptionalRating,
 } from '../data';
 import { dayName, messages } from '../i18n';
 import type { Appearance, Artist, Language, Priority, Recording } from '../types';
@@ -248,11 +248,7 @@ export function ArtistChip({
     disabled: !appearance.day || !isPresent,
   });
   const ratings = usePlanner((s) => s.ratings);
-  const bonus =
-    artist &&
-    ratingArtistsFor(artist, ratings).some(
-      (act) => act.recommendedSetId && ratings[act.recommendedSetId] === 11
-    );
+  const bonus = artist && hasExceptionalRating(artist, ratings);
   if (!artist) return null;
   return (
     <motion.div

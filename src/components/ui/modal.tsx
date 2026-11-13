@@ -6,6 +6,8 @@ interface Props {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   title: string;
+  titleAdornment?: ReactNode;
+  headingAdornment?: ReactNode;
   description: string;
   closeLabel: string;
   children: ReactNode;
@@ -16,6 +18,8 @@ export function Modal({
   open,
   onOpenChange,
   title,
+  titleAdornment,
+  headingAdornment,
   description,
   closeLabel,
   children,
@@ -89,8 +93,11 @@ export function Modal({
               aria-hidden="true"
               className="absolute left-1/2 top-2 hidden h-1 w-8 -translate-x-1/2 rounded-full bg-muted/40 max-[47.5rem]:block"
             />
-            <div>
-              <Dialog.Title>{title}</Dialog.Title>
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <Dialog.Title className="min-w-0">{title}</Dialog.Title>
+                {titleAdornment}
+              </div>
               <Dialog.Description>{description}</Dialog.Description>
             </div>
             <Dialog.Close asChild>
@@ -102,6 +109,7 @@ export function Modal({
                 <X size="1.25rem" />
               </button>
             </Dialog.Close>
+            {headingAdornment}
           </div>
           {children}
         </Dialog.Content>
