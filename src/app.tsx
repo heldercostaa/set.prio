@@ -57,7 +57,7 @@ export function App() {
   const trigger = useRef<HTMLElement | null>(null);
   const entries = useMemo(() => collectEntries(catalog, state), [state]);
   const mobile = useMediaQuery('(width < 47.5rem), (hover: none) and (pointer: coarse)');
-  const imageShare = useImageShare(entries, language);
+  const imageShare = useImageShare(entries, language, sort);
   const artist = selected ? artistById.get(selected) : undefined;
   useEffect(() => {
     document.documentElement.lang = language;
@@ -108,7 +108,7 @@ export function App() {
           }
           return;
         }
-        const blob = await boardImage(entries, language);
+        const blob = await boardImage(entries, language, sort);
         const file = new File([blob], 'set.priority-brasil-2027.png', { type: 'image/png' });
         if (navigator.canShare?.({ files: [file] })) {
           setImageFile(file);

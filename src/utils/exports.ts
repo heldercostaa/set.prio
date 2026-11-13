@@ -1,3 +1,5 @@
+import { compareArtists, type ArtistSort } from './artist-sort';
+import { artistCountries, countryFlag } from './countries';
 import { publicAsset } from './assets';
 import { dayName, messages, priorityLabel, shortDate } from '../i18n';
 import {
@@ -189,7 +191,11 @@ export function downloadBlob(blob: Blob, filename: string) {
   anchor.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-export async function boardImage(entries: ExportEntry[], language: Language): Promise<Blob> {
+export async function boardImage(
+  entries: ExportEntry[],
+  language: Language,
+  sort: ArtistSort = 'name-asc'
+): Promise<Blob> {
   await document.fonts.ready;
   const t = messages(language);
   const days = [...DAYS, ...(entries.some((entry) => entry.appearance.day === null) ? [null] : [])];
@@ -226,6 +232,14 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
     if (line) lines.push(line);
     return lines;
   };
+  const ratings = Object.fromEntries(
+    entries.flatMap((entry) =>
+      [entry, ...(entry.members ?? [])].flatMap((act) =>
+        act.recording ? [[act.recording.id, act.rating]] : []
+      )
+    )
+  );
+  const compare = compareArtists(sort, language, ratings);
   const columns = days.map((day) => {
     const groups = PRIORITIES.map((priority) => {
       let x = 0,
@@ -233,16 +247,26 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
         rowHeight = 0;
       const names = entries
         .filter((entry) => entry.appearance.day === day && entry.priority === priority)
+        .sort((a, b) => compare(a.artist, b.artist))
         .map((entry) => {
           const ratedJoint =
             entry.rating !== null &&
             entry.recording &&
             !(entry.artist.recommendedSetRepresentative ?? entry.recording.representative);
-          const joint = Boolean(entry.members?.length) && !ratedJoint;
+          const joint = Boolean(entry.members?.length);
           const rated = (
-            joint ? (entry.members ?? []) : [{ artist: entry.artist, rating: entry.rating }]
+            joint && !ratedJoint
+              ? (entry.members ?? [])
+              : [{ artist: entry.artist, rating: entry.rating }]
           ).flatMap((member) =>
-            member.rating === null ? [] : [{ name: member.artist.name, rating: member.rating }]
+            member.rating === null
+              ? []
+              : [
+                  {
+                    name: ratedJoint && joint ? t.jointRecording : member.artist.name,
+                    rating: member.rating,
+                  },
+                ]
           );
           const formatScore = (rating: number) =>
             `${new Intl.NumberFormat(language).format(rating)}${rating === 11 ? '/10' : ''}`;
@@ -254,7 +278,15 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
             : 0;
           const scoreGap = rated.length ? 8 + scoreWidth : 0;
           context.font = font(500, 14);
-          const nameWidth = context.measureText(entry.artist.name).width;
+          const flags = artistCountries(
+            entry.artist,
+            entry.members?.map((member) => member.artist)
+          )
+            .map(({ code }) => countryFlag(code))
+            .filter(Boolean)
+            .map((value) => ({ value, width: context.measureText(value).width }));
+          const flagWidth = flags.reduce((sum, flag) => sum + flag.width + 6, 0);
+          const nameWidth = context.measureText(entry.artist.name).width + flagWidth;
           context.font = font(400, 11);
           const memberWidth =
             joint && rated.length
@@ -266,7 +298,10 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
             Math.ceil(Math.max(nameWidth + (joint ? 0 : scoreGap), memberWidth)) + 22
           );
           context.font = font(500, 14);
-          const lines = wrap(entry.artist.name, chipWidth - 22 - (joint ? 0 : scoreGap));
+          const lines = wrap(
+            entry.artist.name,
+            chipWidth - 22 - flagWidth - (joint ? 0 : scoreGap)
+          );
           const ratings = rated.map((member) => {
             context.font = font(400, 11);
             return {
@@ -291,6 +326,8 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
           }
           const chip = {
             lines,
+            flags,
+            flagWidth,
             ratings,
             joint,
             bonus: rated.some((member) => member.rating === 11),
@@ -303,7 +340,14 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
           rowHeight = Math.max(rowHeight, chipHeight);
           return chip;
         });
-      return { priority, names, height: Math.max(88, 55 + y + rowHeight + 18) };
+      context.font = font(400, 10);
+      const emptyHeight =
+        !names.length && priority === 'P0' ? wrap(t.emptyPriority, innerWidth).length * 16.5 : 0;
+      return {
+        priority,
+        names,
+        height: Math.max(88, 55 + y + Math.max(rowHeight, emptyHeight) + 18),
+      };
     });
     return {
       day,
@@ -443,8 +487,13 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
           fill = gradient;
         }
         box(cx, cy, chip.width, chip.height, 8, fill, chip.bonus ? '#ffd58066' : undefined);
+        let flagX = cx + 11;
+        for (const flag of chip.flags) {
+          label(flag.value, flagX, cy + 9 + (chip.lines.length - 1) * 10.5, 14, 400);
+          flagX += flag.width + 6;
+        }
         chip.lines.forEach((value, i) => {
-          label(value, cx + 11, cy + 9 + i * 21, 14, 500);
+          label(value, cx + 11 + chip.flagWidth, cy + 9 + i * 21, 14, 500);
         });
         let ry = cy + 9 + chip.lines.length * 21 + (chip.joint ? 4 : 0);
         for (const member of chip.ratings) {
@@ -458,7 +507,9 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
           label(
             member.text,
             cx + chip.width - 11,
-            chip.joint ? ry : cy + 11,
+            chip.joint
+              ? ry + ((member.lines.length - 1) * 16.5) / 2
+              : cy + 9 + (chip.lines.length * 21 - 16.5) / 2,
             11,
             600,
             bonus ? '#ffd580' : tokenColor('--orange')
@@ -481,7 +532,12 @@ export async function boardImage(entries: ExportEntry[], language: Language): Pr
           ry += 7;
         }
       }
-      if (!group.names.length) label('—', x + 20, y + 65, 16, 400, secondary);
+      if (!group.names.length && group.priority === 'P0') {
+        context.font = font(400, 10);
+        wrap(t.emptyPriority, innerWidth).forEach((value, i) => {
+          label(value, x + 20, y + 55 + i * 16.5, 10, 400, secondary);
+        });
+      }
       y += group.height;
       if (group.priority !== PRIORITIES.at(-1)) {
         context.strokeStyle = line;

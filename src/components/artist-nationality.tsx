@@ -1,6 +1,6 @@
 import { membersFor } from '../data';
 import type { Artist, Language } from '../types';
-import { countryFlag, countryName } from '../utils/countries';
+import { artistCountries, countryFlag, countryName } from '../utils/countries';
 
 export function ArtistNationality({
   artist,
@@ -12,10 +12,7 @@ export function ArtistNationality({
   expanded?: boolean;
 }) {
   const members = membersFor(artist);
-  const acts = artist.countryAttributions ?? (members.length ? members : [artist]);
-  const countries = acts.flatMap((act) =>
-    (act.countryCodes ?? []).map((code) => ({ code, name: act.name }))
-  );
+  const countries = artistCountries(artist, members);
   if (!countries.length)
     return expanded ? (
       <span className="text-xs text-muted">
