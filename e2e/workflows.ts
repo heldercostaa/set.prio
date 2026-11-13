@@ -458,8 +458,8 @@ export const workflows: Record<
       await expect(massano.getByRole('slider')).toHaveValue('0');
       await expect(dialog.getByRole('combobox')).toHaveCount(1);
       await dialog.getByRole('combobox').selectOption('P0');
-      await dialog
-        .getByLabel('Your comment', {
+      await massano
+        .getByLabel('Notes about the set and artist', {
           exact: true,
         })
         .fill('Together on Friday');
@@ -492,7 +492,7 @@ export const workflows: Record<
       await expect(volkoder.getByRole('slider')).toHaveAttribute('aria-valuenow', '8');
       await expect(dialog.getByRole('combobox')).toHaveValue('P0');
       await expect(
-        dialog.getByLabel('Suas anotações', {
+        massano.getByLabel('Anotações sobre o set e o artista', {
           exact: true,
         })
       ).toHaveValue('Together on Friday');

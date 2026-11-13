@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { AudioLines } from 'lucide-react';
+import { AudioLines, Sparkles } from 'lucide-react';
 import sharp from 'sharp';
 for (const [size, name] of [
   [32, 'favicon-32'],
@@ -24,3 +24,14 @@ await writeFile(
   )
 );
 console.log('Generated the shared Audio lines day icon from Lucide.');
+
+await writeFile(
+  'public/icons/sparkles.svg',
+  renderToStaticMarkup(
+    createElement(Sparkles, {
+      xmlns: 'http://www.w3.org/2000/svg',
+      color: '#e9cee4',
+      strokeWidth: 1.8,
+    })
+  )
+);

@@ -39,7 +39,7 @@ export function ManualCopyDialog({
         <div className="manual-actions flex gap-2.5 [justify-content:flex-end] mt-4 max-[47.5rem]:[&_.button]:[font-size:0.6875rem] max-[47.5rem]:[&_.button]:p-2.5">
           <button
             type="button"
-            className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] [&:active:not(:disabled)]:[transform:scale(0.98)] [&:hover:not(:disabled)]:[background:var(--hover)] [&.primary]:[color:#fff] [&.primary]:[background:#0071e3] [&.primary]:[border-color:transparent] [&.primary]:[box-shadow:0_0.0625rem_0.125rem_#0001] [&.primary:hover:not(:disabled)]:[background:#0077ed] [&.primary:disabled]:bg-surface [&.primary:disabled]:[border-color:var(--line)] [&.primary:disabled]:[color:var(--tertiary)] [&.primary:disabled]:opacity-100 [&.primary:disabled]:[box-shadow:none]"
+            className="button inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-separator bg-surface px-4 py-2.5 text-xs font-semibold text-content transition-colors hover:bg-raised"
             onClick={() => {
               manualText.current?.focus();
               manualText.current?.select();
@@ -49,7 +49,7 @@ export function ManualCopyDialog({
           </button>
           <button
             type="button"
-            className="button inline-flex justify-center gap-2.25 items-center min-h-11 [padding:0.625rem_1rem] bg-surface border border-separator rounded-xl text-xs font-semibold [transition:background_0.15s,_transform_0.15s] primary [&:active:not(:disabled)]:[transform:scale(0.98)] [&:hover:not(:disabled)]:[background:var(--hover)] [&.primary]:[color:#fff] [&.primary]:[background:#0071e3] [&.primary]:[border-color:transparent] [&.primary]:[box-shadow:0_0.0625rem_0.125rem_#0001] [&.primary:hover:not(:disabled)]:[background:#0077ed] [&.primary:disabled]:bg-surface [&.primary:disabled]:[border-color:var(--line)] [&.primary:disabled]:[color:var(--tertiary)] [&.primary:disabled]:opacity-100 [&.primary:disabled]:[box-shadow:none]"
+            className="button inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-content px-4 py-2.5 text-xs font-semibold text-surface transition-opacity hover:opacity-90"
             onClick={() => {
               onExport();
             }}

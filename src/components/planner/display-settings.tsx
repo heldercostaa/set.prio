@@ -59,7 +59,7 @@ export function DisplaySettings({ language }: { language: Language }) {
                   type="checkbox"
                   checked={item.checked}
                   onChange={(event) => item.set(event.target.checked)}
-                  className="size-5 accent-[var(--blue)]"
+                  className="size-5 accent-content"
                 />
               </label>
             ))}
@@ -86,7 +86,7 @@ export function DisplaySettings({ language }: { language: Language }) {
               checked={item.checked}
               onCheckedChange={(checked) => item.set(checked === true)}
               onSelect={(event) => event.preventDefault()}
-              className="flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-lg px-2 text-sm outline-none data-[highlighted]:bg-[var(--hover)] focus-visible:outline-2 focus-visible:outline-[var(--blue)]"
+              className="flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-lg px-2 text-sm outline-none data-[highlighted]:bg-[var(--hover)] focus-visible:outline-2 focus-visible:outline-[var(--focus)]"
             >
               <span>{item.label}</span>
               <DropdownMenu.ItemIndicator>

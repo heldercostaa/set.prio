@@ -1,17 +1,17 @@
 .priority-p0 {
-  --priority: var(--red);
+  --priority: var(--priority-p0);
 }
 
 .priority-p1 {
-  --priority: var(--orange);
+  --priority: var(--priority-p1);
 }
 
 .priority-p2 {
-  --priority: var(--yellow);
+  --priority: var(--priority-p2);
 }
 
 .priority-p3 {
-  --priority: var(--teal);
+  --priority: var(--priority-p3);
 }
 
 .unranked-group {

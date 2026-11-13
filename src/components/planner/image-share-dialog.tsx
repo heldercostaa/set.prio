@@ -72,7 +72,7 @@ export function ImageShareDialog({
             onClick={() => {
               void share();
             }}
-            className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-blue-600 px-4 text-sm text-white"
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-content px-4 text-sm font-semibold text-surface"
           >
             <Share size="1.125rem" aria-hidden="true" />
             {t.shareImage}

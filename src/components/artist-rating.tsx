@@ -24,11 +24,13 @@ export function ArtistRating({
   const acts = ratingArtistsFor(artist, ratings);
   const rated = acts.filter((act) => act.recommendedSetId && ratings[act.recommendedSetId] != null);
   if (!showRatings || !rated.length)
-    return name ? <ArtistName artist={artist} language={language} showFlag={showFlags} /> : null;
+    return name ? (
+      <ArtistName artist={artist} language={language} showFlag={showFlags} compact />
+    ) : null;
   return (
     <span className="flex w-full min-w-0 flex-col gap-1">
       {name && members.length > 0 && (
-        <ArtistName artist={artist} language={language} showFlag={showFlags} />
+        <ArtistName artist={artist} language={language} showFlag={showFlags} compact />
       )}
       <span className="sr-only">
         <WatchedStatus artist={artist} language={language} />
@@ -46,12 +48,12 @@ export function ArtistRating({
                     members.length || catalog ? 'text-muted' : 'text-sm font-medium text-content'
                   }
                 >
-                  {members.length ? (
+                  {members.length && act.id !== artist.id ? (
                     act.name
-                  ) : catalog ? (
+                  ) : catalog || members.length ? (
                     t.ratingLabel
                   ) : (
-                    <ArtistName artist={artist} language={language} showFlag={showFlags} />
+                    <ArtistName artist={artist} language={language} showFlag={showFlags} compact />
                   )}
                 </span>
               )}

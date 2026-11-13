@@ -153,6 +153,7 @@ export const contracts = {
       },
       comments: {
         friday: 'Meet together',
+        [second.id]: 'Notes about the second artist',
       },
     });
     expect(entries).toHaveLength(1);
@@ -167,7 +168,7 @@ export const contracts = {
       rows.map((row) => [...row.querySelectorAll('td')].slice(2).map((cell) => cell.textContent))
     ).toEqual([
       ['Friday', 'P0', 'House', 'Tech house, Deep house', '0', 'Meet together'],
-      ['Friday', 'P0', 'Trance', 'Progressive trance', '8', 'Meet together'],
+      ['Friday', 'P0', 'Trance', 'Progressive trance', '8', 'Notes about the second artist'],
     ]);
     expect(rows.map((row) => row.querySelector('a')?.getAttribute('href'))).toEqual([
       catalog.recordings[0].youtubeUrl,

@@ -255,7 +255,7 @@ export function ArtistChip({
       layout="position"
       initial={{ opacity: 0, y: 3 }}
       animate={{ opacity: isDragging ? 0.35 : 1, y: 0 }}
-      className="chip-wrapper relative hover:z-20 focus-within:z-20 flex [flex:0_0_auto] [width:max-content] min-w-0 [max-width:100%]"
+      className={`chip-wrapper relative hover:z-20 focus-within:z-20 flex [flex:0_0_auto] min-w-0 w-max ${artist.name.length > 40 ? 'max-w-[min(100%,14rem)]' : 'max-w-full'}`}
       inert={!isPresent}
       aria-hidden={!isPresent}
       style={{ zIndex: isDragging ? 3 : undefined }}
@@ -332,7 +332,8 @@ export function ArtistCard({
       layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="catalog-card min-w-0 flex items-center text-left gap-3 min-h-20.75 [padding:0.5625rem_0.625rem] bg-transparent rounded-xl [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_0.5rem] max-[47.5rem]:gap-3 hover:[background:var(--hover)]"
+      data-long-name={artist.name.length > 40 || undefined}
+      className="catalog-card min-w-0 flex items-center data-[long-name=true]:items-start text-left gap-3 min-h-20.75 [padding:0.5625rem_0.625rem] bg-transparent rounded-xl [transition:background_0.15s] max-[47.5rem]:[padding:0.625rem_0.5rem] max-[47.5rem]:gap-3 hover:[background:var(--hover)]"
       data-artist-id={artist.id}
       onClick={() => onOpen(artist.id)}
     >
@@ -342,7 +343,7 @@ export function ArtistCard({
       />
       <span className="catalog-card-body flex flex-1 flex-col gap-1.25 min-w-0 [&_strong]:text-xs [&_strong]:font-semibold [&_strong]:[overflow-wrap:anywhere] [&_>_span]:[font-size:0.625rem] [&_>_span]:text-muted max-[47.5rem]:[&_strong]:[font-size:0.8125rem] max-[47.5rem]:[&_>_span]:[font-size:0.6875rem]">
         <strong>
-          <ArtistName artist={artist} language={language} showFlag={showFlags} />
+          <ArtistName artist={artist} language={language} showFlag={showFlags} compact />
         </strong>
         <span>{artist.genre ?? messages(language).unknownGenre}</span>
         <ArtistRating artist={artist} language={language} catalog />

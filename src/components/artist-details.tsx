@@ -1,5 +1,6 @@
 import { FilterNotice } from './planner/filter-notice';
 import { ArtistNationality } from './artist-nationality';
+import { ArtistNotes } from './artist-notes';
 import { RecordingRating } from './recording-rating';
 import { ExceptionalCrown } from './exceptional-crown';
 import { Check, ChevronDown, ExternalLink } from 'lucide-react';
@@ -12,7 +13,7 @@ import {
   jointRecordingFor,
   hasExceptionalRating,
 } from '../data';
-import { dayName, longDate, messages, priorityLabel } from '../i18n';
+import { dayName, longDate, messages, priorityHasCode, priorityLabel } from '../i18n';
 import { usePlanner } from '../store/planner';
 import { PRIORITIES, type Artist, type Language, type Priority } from '../types';
 import { Genres, Portrait, SetLink } from './artist';
@@ -31,7 +32,6 @@ export function ArtistDetails({
 }) {
   const t = messages(language);
   const state = usePlanner();
-  const appearances = appearancesFor(artist);
   const members = membersFor(artist);
   const jointRecording = jointRecordingFor(artist);
   const jointRated = jointRecording && state.ratings[jointRecording.id] != null;
@@ -62,30 +62,19 @@ export function ArtistDetails({
       onRestoreFocus={restoreFocus}
     >
       <div className="artist-modal-scroll [overflow-y:auto] [overscroll-behavior:contain]">
-        {!members.length && (
-          <Portrait
-            artist={artist}
-            landscape
-            className="artist-hero w-full h-57.5 [font-size:3.75rem] max-[47.5rem]:h-50"
-          />
+        {!members.length ? (
+          <ArtistHero artist={artist} language={language} disclaimer />
+        ) : (
+          <div className="border-b border-separator px-5 py-2 min-[47.5rem]:px-6">
+            <FilterNotice
+              language={language}
+              notice={t.genreWarning}
+              className="my-0 text-[0.625rem]! [&_svg]:size-3"
+            />
+          </div>
         )}
-        <div className="artist-detail-body [padding:1.375rem_1.5rem_1.25rem] max-[47.5rem]:p-5 max-[47.5rem]:[&_.genre-tag]:[font-size:0.6875rem] max-[47.5rem]:[&_.subgenre-tag]:[font-size:0.6875rem]">
-          {!members.length && (
-            <div className="mb-4">
-              <ArtistNationality artist={artist} language={language} expanded />
-            </div>
-          )}
-          {!members.length && (
-            <>
-              <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
-                <span className="eyebrow [font-size:0.6875rem] font-semibold [letter-spacing:0.045em]">
-                  {t.genreShort}
-                </span>
-              </div>
-              <Genres artist={artist} language={language} />
-            </>
-          )}
-          <FilterNotice language={language} notice={t.genreWarning} className="mt-2 mb-1" />
+        <div className="artist-detail-body px-6 pb-5 max-[47.5rem]:px-5">
+          <AppearancesEditor artist={artist} language={language} />
           {jointRecording && (
             <RecordingDetails artist={artist} language={language} heading={artist.name} primary />
           )}
@@ -101,15 +90,8 @@ export function ArtistDetails({
                   aria-label={member.name}
                   key={member.id}
                 >
-                  <Portrait artist={member} landscape className="member-portrait w-full h-45" />
-                  <div className="member-details-body p-4.5 [&_.detail-topline]:mb-3.5 [&_.detail-topline_h3]:text-xl">
-                    <div className="detail-topline flex items-center justify-between gap-2.5 mb-3 max-[47.5rem]:items-start max-[22.5rem]:flex-col max-[22.5rem]:gap-1.5 [&_.eyebrow]:text-muted max-[47.5rem]:[&_.text-link]:[font-size:0.625rem]">
-                      <h3>{member.name}</h3>
-                    </div>
-                    <div className="mb-3">
-                      <ArtistNationality artist={member} language={language} expanded />
-                    </div>
-                    <Genres artist={member} language={language} />
+                  <ArtistHero artist={member} language={language} heading />
+                  <div className="member-details-body px-4.5 pb-4.5">
                     <RecordingDetails
                       artist={member}
                       language={language}
@@ -121,93 +103,9 @@ export function ArtistDetails({
             </section>
           ) : null}
           {!members.length && <RecordingDetails artist={artist} language={language} />}
-          <section className="detail-section [padding:1.25rem_0] [border-top:0.0625rem_solid_var(--line)] performances-editor [&_h3]:[font-size:0.8125rem] [&_h3]:font-semibold [&_h3]:mb-3.25">
-            <h3>{t.related}</h3>
-            {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
-            {appearances.map((appearance) => {
-              const billed = artistById.get(appearance.artistId);
-              const selectedPriority = state.priorities[appearance.id];
-              return (
-                <div
-                  className="appearance-editor [padding:1rem_0] [&_+_.appearance-editor]:[border-top:0.0625rem_solid_var(--line)] [&_textarea]:w-full [&_textarea]:[resize:vertical] [&_textarea]:min-h-18.5 [&_textarea]:[max-height:21.875rem] [&_textarea]:bg-raised [&_textarea]:[border:0.0625rem_solid_var(--line)] [&_textarea]:rounded-lg [&_textarea]:p-2.75 [&_textarea]:text-xs [&_textarea]:[line-height:1.65] max-[47.5rem]:[&_textarea]:text-base"
-                  key={appearance.id}
-                >
-                  <div className="appearance-heading flex justify-between items-center gap-3.5 mb-1.5 max-[22.5rem]:gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3 [&_>_div]:flex [&_>_div]:flex-col [&_>_div]:gap-1.25 [&_strong]:[font-size:0.8125rem] [&_strong]:font-semibold [&_>_div_>_span]:[font-size:0.625rem] [&_>_div_>_span]:text-muted">
-                    <div>
-                      <strong>{dayName(appearance.day, language)}</strong>
-                      {appearance.day && <span>{longDate(appearance.day, language)}</span>}
-                    </div>
-                    <label
-                      className={`priority-select relative inline-flex min-h-11 max-w-full items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold [--priority:var(--secondary)] [color:var(--priority)] [border-color:color-mix(in_srgb,_var(--priority)_20%,_transparent)] [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] focus-within:ring-2 focus-within:ring-accent max-[47.5rem]:w-full ${selectedPriority ? `priority-${selectedPriority.toLowerCase()}` : ''}`}
-                    >
-                      <span aria-hidden="true" className="flex min-w-0 flex-1 items-center gap-1.5">
-                        <span className="h-1 w-1 shrink-0 rounded-full bg-current" />
-                        {selectedPriority ? (
-                          <>
-                            {selectedPriority !== 'P4' && (
-                              <span className="border-r pr-1.5 [border-color:color-mix(in_srgb,_var(--priority)_27%,_transparent)]">
-                                {selectedPriority}
-                              </span>
-                            )}
-                            {priorityLabel(selectedPriority, language)}
-                          </>
-                        ) : (
-                          t.noPriority
-                        )}
-                      </span>
-                      <span className="sr-only absolute w-0.25 h-0.25 overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
-                        {t.priority} · {dayName(appearance.day, language)} · {billed?.name}
-                      </span>
-                      <select
-                        className="absolute inset-0 h-full w-full cursor-pointer opacity-0 text-base"
-                        aria-label={`${t.priority} · ${dayName(appearance.day, language)} · ${billed?.name}`}
-                        value={selectedPriority ?? ''}
-                        onChange={(event) =>
-                          state.setPriority(
-                            appearance.id,
-                            (event.target.value || null) as Priority | null
-                          )
-                        }
-                      >
-                        <option value="">{t.noPriority}</option>
-                        {PRIORITIES.map((priority) => (
-                          <option key={priority} value={priority}>
-                            {priority === 'P4'
-                              ? priorityLabel(priority, language)
-                              : `${priority} · ${priorityLabel(priority, language)}`}
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronDown
-                        size="0.875rem"
-                        aria-hidden="true"
-                        className="pointer-events-none shrink-0"
-                      />
-                    </label>
-                  </div>
-                  {appearance.artistId !== artist.id && (
-                    <p className="billed-name [font-size:0.6875rem] [line-height:1.6] [margin:0.5rem_0_0.25rem] font-medium">
-                      {billed?.name}
-                    </p>
-                  )}
-                  <label
-                    className="notes-label block [margin:1rem_0_0.4375rem] [font-size:0.6875rem] font-semibold"
-                    htmlFor={`comment-${appearance.id}`}
-                  >
-                    {t.notes}
-                  </label>
-                  <textarea
-                    id={`comment-${appearance.id}`}
-                    rows={2}
-                    maxLength={10000}
-                    value={state.comments[appearance.id] ?? ''}
-                    placeholder={t.notesPlaceholder}
-                    onChange={(event) => state.setComment(appearance.id, event.target.value)}
-                  />
-                </div>
-              );
-            })}
-          </section>
+          {members.length > 0 && !jointRecording && (
+            <ArtistNotes artist={artist} language={language} />
+          )}
           <ResearchDetails
             artists={members.length ? [artist, ...members] : [artist]}
             language={language}
@@ -219,6 +117,132 @@ export function ArtistDetails({
         </div>
       </div>
     </Modal>
+  );
+}
+
+function AppearancesEditor({ artist, language }: { artist: Artist; language: Language }) {
+  const t = messages(language);
+  const state = usePlanner();
+  const appearances = appearancesFor(artist);
+  return (
+    <section className="detail-section py-3 performances-editor">
+      {appearances.length === 0 && <p className="muted text-muted">{t.noSolo}</p>}
+      {appearances.map((appearance) => {
+        const billed = artistById.get(appearance.artistId);
+        const selectedPriority = state.priorities[appearance.id];
+        return (
+          <div
+            className="appearance-editor py-3 [&_+_.appearance-editor]:border-t [&_+_.appearance-editor]:border-separator"
+            key={appearance.id}
+          >
+            <div className="appearance-heading grid grid-cols-[minmax(0,1fr)_13.75rem] items-center gap-3.5 max-[22.5rem]:grid-cols-1 max-[22.5rem]:gap-2">
+              <div className="min-w-0">
+                <strong className="block text-[0.8125rem] leading-5 font-semibold">
+                  {dayName(appearance.day, language)}
+                </strong>
+                {appearance.day && (
+                  <span className="mt-1 block text-[0.625rem] leading-4 text-muted">
+                    {longDate(appearance.day, language)}
+                  </span>
+                )}
+              </div>
+              <label
+                className={`priority-select relative inline-flex h-11 w-full min-w-0 items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold [--priority:var(--secondary)] [color:var(--priority)] [border-color:color-mix(in_srgb,_var(--priority)_20%,_transparent)] [background:color-mix(in_srgb,_var(--priority)_9%,_transparent)] focus-within:ring-2 focus-within:ring-focus max-[47.5rem]:w-full ${selectedPriority ? `priority-${selectedPriority.toLowerCase()}` : ''}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex min-w-0 flex-1 items-center gap-1.5 whitespace-nowrap"
+                >
+                  <span className="h-1 w-1 shrink-0 rounded-full bg-current" />
+                  {selectedPriority ? (
+                    <>
+                      {priorityHasCode(selectedPriority) && (
+                        <span className="border-r pr-1.5 [border-color:color-mix(in_srgb,_var(--priority)_27%,_transparent)]">
+                          {selectedPriority}
+                        </span>
+                      )}
+                      <span className="truncate">{priorityLabel(selectedPriority, language)}</span>
+                    </>
+                  ) : (
+                    <span className="truncate">{t.noPriority}</span>
+                  )}
+                </span>
+                <span className="sr-only absolute w-0.25 h-0.25 overflow-hidden [clip:rect(0,_0,_0,_0)] whitespace-nowrap">
+                  {t.priority} · {dayName(appearance.day, language)} · {billed?.name}
+                </span>
+                <select
+                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0 text-base"
+                  aria-label={`${t.priority} · ${dayName(appearance.day, language)} · ${billed?.name}`}
+                  value={selectedPriority ?? ''}
+                  onChange={(event) =>
+                    state.setPriority(
+                      appearance.id,
+                      (event.target.value || null) as Priority | null
+                    )
+                  }
+                >
+                  <option value="">{t.noPriority}</option>
+                  {PRIORITIES.map((priority) => (
+                    <option key={priority} value={priority}>
+                      {!priorityHasCode(priority)
+                        ? priorityLabel(priority, language)
+                        : `${priority} · ${priorityLabel(priority, language)}`}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  size="0.875rem"
+                  aria-hidden="true"
+                  className="pointer-events-none shrink-0"
+                />
+              </label>
+            </div>
+            {appearance.artistId !== artist.id && (
+              <p className="billed-name mt-2 text-[0.6875rem] leading-relaxed font-medium">
+                {billed?.name}
+              </p>
+            )}
+          </div>
+        );
+      })}
+    </section>
+  );
+}
+
+function ArtistHero({
+  artist,
+  language,
+  heading = false,
+  disclaimer = false,
+}: {
+  artist: Artist;
+  language: Language;
+  heading?: boolean;
+  disclaimer?: boolean;
+}) {
+  const t = messages(language);
+  return (
+    <div className="relative isolate grid min-h-60 items-end overflow-hidden bg-raised">
+      <Portrait artist={artist} landscape className="absolute inset-0 h-full w-full" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-black/5"
+      />
+      <div className="relative grid gap-2.5 px-6 pt-20 pb-3 text-white max-[47.5rem]:px-5 [&_.text-muted]:text-white/75 [&_.genre-tag]:bg-white/15 [&_.genre-tag]:text-white [&_.subgenre-tag]:bg-black/30 [&_.subgenre-tag]:text-white/80 [&_.genre-tag]:text-xs [&_.subgenre-tag]:text-xs [&_a]:text-white/75">
+        {heading && <h3 className="text-xl font-semibold tracking-tight">{artist.name}</h3>}
+        <ArtistNationality artist={artist} language={language} expanded />
+        <div>
+          <Genres artist={artist} language={language} />
+          {disclaimer && (
+            <FilterNotice
+              language={language}
+              notice={t.genreWarning}
+              className="my-0 min-h-6! items-start! pt-1 text-[0.625rem]! leading-snug! [&_svg]:mt-0.5 [&_svg]:size-3"
+            />
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -245,7 +269,7 @@ function RecordingDetails({
       className={
         primary
           ? 'detail-section mb-6 rounded-2xl border border-separator bg-raised p-5 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mb-4'
-          : 'detail-section py-5 border-t border-separator [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:mb-3'
+          : 'detail-section py-4 border-t border-separator [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:mb-3'
       }
     >
       <h3>{heading ?? t.recommended}</h3>
@@ -275,6 +299,7 @@ function RecordingDetails({
           )}
         </>
       )}
+      <ArtistNotes artist={artist} language={language} />
     </section>
   );
 }

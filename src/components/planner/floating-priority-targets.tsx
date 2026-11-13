@@ -1,7 +1,7 @@
 import { useDroppable } from '@dnd-kit/core';
 import { Undo2 } from 'lucide-react';
 import { artistById } from '../../data';
-import { dayName, messages, priorityLabel } from '../../i18n';
+import { dayName, messages, priorityHasCode, priorityLabel } from '../../i18n';
 import type { Appearance, Language, Priority } from '../../types';
 import { PRIORITIES } from '../../types';
 
@@ -20,35 +20,30 @@ function DropTarget({
   });
   const t = messages(language);
   const code = priority
-    ? priority === 'P4'
-      ? priorityLabel(priority, language)
-      : priority
-    : t.clearPriority;
-  const description = priority
-    ? priority === 'P4'
-      ? t.skipSet
+    ? priorityHasCode(priority)
+      ? priority
       : priorityLabel(priority, language)
-    : t.unprioritized;
-  const name = priority && priority !== 'P4' ? `${code} · ${description}` : code;
+    : t.clearPriority;
+  const description = priority ? priorityLabel(priority, language) : null;
+  const showDescription = priority !== null && (isOver || (description && description !== code));
+  const name = priority && priorityHasCode(priority) ? `${code} · ${description}` : code;
   return (
     <fieldset
       ref={setNodeRef}
       aria-label={`${isOver ? t.releaseHere : t.dropInto} · ${name}`}
       data-testid={`floating-${priority ?? 'clear'}`}
       data-over={isOver}
-      className={`flex h-16 min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-dashed px-1.5 py-1 text-center [border-color:color-mix(in_srgb,var(--priority)_70%,transparent)] [background:color-mix(in_srgb,var(--priority)_8%,var(--panel))] [transition:background-color_0.12s,border-color_0.12s] data-[over=true]:[border-color:var(--priority)] data-[over=true]:[background:color-mix(in_srgb,var(--priority)_18%,var(--panel))] motion-reduce:transition-none ${priority ? `priority-${priority.toLowerCase()}` : '[--priority:var(--secondary)]'}`}
+      className={`${priority ? 'h-16' : 'h-11'} ${priority === 'P4' ? 'col-span-4' : priority ? 'col-span-2' : 'col-span-6'} flex min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl border border-dashed px-1 py-1 text-center [border-color:color-mix(in_srgb,var(--priority)_70%,transparent)] [background:color-mix(in_srgb,var(--priority)_8%,var(--panel))] [transition:background-color_0.12s,border-color_0.12s] data-[over=true]:[border-color:var(--priority)] data-[over=true]:[background:color-mix(in_srgb,var(--priority)_18%,var(--panel))] motion-reduce:transition-none ${priority ? `priority-${priority.toLowerCase()}` : '[--priority:var(--secondary)]'}`}
     >
-      <span className="inline-flex h-4 items-center justify-center gap-1.5 text-xs font-semibold leading-4 [color:var(--priority)]">
-        {priority ? (
-          <span className="size-1.5 rounded-full bg-current" aria-hidden="true" />
-        ) : (
-          <Undo2 size="0.875rem" aria-hidden="true" />
-        )}
+      <span className="inline-flex min-h-4 items-center justify-center gap-1.5 text-xs font-semibold leading-4 [color:var(--priority)]">
+        {!priority && <Undo2 size="0.875rem" aria-hidden="true" className="shrink-0" />}
         {code}
       </span>
-      <span className="flex h-7 items-center justify-center text-xs leading-3.5 text-muted">
-        {isOver ? t.releaseHere : description}
-      </span>
+      {showDescription && (
+        <span className="flex min-h-3.5 items-center justify-center whitespace-nowrap text-xs leading-3.5 text-muted max-[22.5rem]:text-[0.6875rem]">
+          {isOver ? t.releaseHere : description}
+        </span>
+      )}
     </fieldset>
   );
 }
@@ -72,7 +67,7 @@ export function FloatingPriorityTargets({
         <span className="truncate font-medium">{artist?.name}</span>
         <span className="shrink-0 text-muted">{dayName(appearance.day, language)}</span>
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-6 gap-2">
         {[...PRIORITIES, null].map((priority) => (
           <DropTarget
             key={priority ?? 'none'}

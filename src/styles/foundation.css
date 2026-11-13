@@ -9,13 +9,15 @@
   --color-content: var(--text);
   --color-muted: var(--secondary);
   --color-separator: var(--line);
-  --color-accent: var(--blue);
+  --color-accent: var(--text);
+  --color-focus: var(--focus);
 }
 
 @layer base {
   :root {
     font-family: var(--font-sans);
     color-scheme: dark;
+    accent-color: var(--text);
     --bg: #111113;
     --panel: #1c1c1e;
     --panel-soft: #202023;
@@ -25,14 +27,17 @@
     --line: #38383a;
     --hover: #303033;
     --chip: #29292d;
-    --blue: #78b8ff;
-    --blue-soft: #192637;
-    --blue-line: #2a405d;
+    --focus: var(--text);
     --red: #ff6961;
     --orange: #ffb266;
     --yellow: #ffe066;
     --teal: #70d7c7;
     --avoid: #b7a1ff;
+    --priority-p0: #ff6961;
+    --priority-p1: #ffb85c;
+    --priority-p2: #8bcb9b;
+    --priority-p3: #8aafe6;
+    --priority-p4: #92929c;
     --shadow: 0 1rem 3.125rem #0007, 0 0 0 0.0625rem #ffffff0d;
     color: var(--text);
     background: var(--bg);
@@ -91,14 +96,9 @@
     text-decoration: none;
   }
 
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible,
-  summary:focus-visible {
-    outline: 0.1875rem solid var(--blue);
-    outline-offset: 0.1875rem;
+  :focus-visible {
+    outline: 0.125rem solid var(--focus);
+    outline-offset: 0.125rem;
   }
 
   p,
@@ -135,5 +135,5 @@
 }
 
 .priority-p4 {
-  --priority: var(--avoid);
+  --priority: var(--priority-p4);
 }
