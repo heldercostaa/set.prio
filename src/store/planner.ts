@@ -8,7 +8,7 @@ type StorageError = 'unavailable' | 'recovered' | 'protected' | 'migrationConfli
 type DisplayPreferences = { showArtistFlags: boolean; showArtistRatings: boolean };
 const defaults: Preferences & DisplayPreferences = {
   version: 1,
-  language: 'en',
+  language: 'pt-BR',
   showArtistFlags: true,
   showArtistRatings: true,
   activeDay: DAYS[0],
@@ -78,7 +78,7 @@ function load(): {
     return {
       preferences: {
         ...defaults,
-        language: data.language === 'pt-BR' ? 'pt-BR' : 'en',
+        language: data.language === 'en' ? 'en' : 'pt-BR',
         showArtistFlags: typeof data.showArtistFlags === 'boolean' ? data.showArtistFlags : true,
         showArtistRatings:
           typeof data.showArtistRatings === 'boolean' ? data.showArtistRatings : true,
