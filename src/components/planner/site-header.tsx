@@ -9,19 +9,19 @@ function Brand({ language }: { language: Language }) {
     <a
       href={window.location.pathname}
       aria-label={`set.priority · ${messages(language).home}`}
-      className="brand flex min-h-11 min-w-0 items-center gap-2.5 rounded-lg"
+      className="brand flex min-h-11 min-w-0 items-center gap-2.5 rounded-lg max-[22.5rem]:gap-2"
     >
       <img
         src={publicAsset('/logo.svg')}
         alt=""
-        className="size-9 shrink-0 rounded-[23%] ring-1 ring-white/20"
+        className="size-9 shrink-0 rounded-[23%] ring-1 ring-white/20 max-[22.5rem]:size-8"
       />
       <img
         src={publicAsset('/wordmark.svg')}
         alt="set.priority"
         width="167"
         height="35"
-        className="wordmark h-7 w-auto shrink-0 max-[22.5rem]:h-6"
+        className="wordmark h-7 w-auto shrink-0 max-[22.5rem]:h-5"
       />
     </a>
   );
