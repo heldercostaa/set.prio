@@ -10,6 +10,9 @@ import { messages } from '../../i18n';
 import type { Language } from '../../types';
 
 export function PlannerToolbar({
+  mobile,
+  onReset,
+  hasFilters,
   sort,
   onSort,
   language,
@@ -24,6 +27,9 @@ export function PlannerToolbar({
   watched,
   onWatched,
 }: {
+  mobile: boolean;
+  onReset: () => void;
+  hasFilters: boolean;
   sort: Sort;
   onSort: (value: Sort) => void;
   language: Language;
@@ -41,11 +47,48 @@ export function PlannerToolbar({
   const t = messages(language);
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
+  const activeCount =
+    Number(Boolean(search)) +
+    Number(genres.length > 0) +
+    Number(countries.length > 0) +
+    Number(watched !== 'all') +
+    Number(sort !== 'name-asc');
+  const filterSummary = activeCount
+    ? language === 'en'
+      ? `${activeCount} active filter${activeCount === 1 ? '' : 's'}`
+      : `${activeCount} filtro${activeCount === 1 ? '' : 's'} ativo${activeCount === 1 ? '' : 's'}`
+    : language === 'en'
+      ? 'All artists'
+      : 'Todos os artistas';
+  const searchControl = (
+    <div
+      className={`search ${controlClassName} flex items-center gap-2 [flex:1] min-w-0 max-w-none px-3 max-[47.5rem]:basis-full [color:var(--tertiary)] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-control [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base`}
+    >
+      <Search size="1rem" />
+      <input
+        type="search"
+        placeholder={t.search}
+        aria-label={t.search}
+        value={search}
+        onChange={(event) => onSearch(event.target.value)}
+      />
+      {search && (
+        <button
+          type="button"
+          className="search-clear -mr-3 grid size-11 shrink-0 place-items-center bg-transparent text-muted"
+          aria-label={t.clearSearch}
+          onClick={() => onSearch('')}
+        >
+          <X size="1rem" />
+        </button>
+      )}
+    </div>
+  );
   return (
-    <div className="toolbar relative mb-3">
-      <div className="flex flex-wrap items-center gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3.5">
+    <div className="toolbar relative mb-3 max-[47.5rem]:mb-6">
+      <div className="flex flex-wrap items-center gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-4">
         <fieldset
-          className={`view-switch ${controlClassName} flex shrink-0 max-[47.5rem]:w-max`}
+          className={`view-switch ${controlClassName} flex shrink-0 max-[47.5rem]:w-full max-[47.5rem]:[&_button]:flex-1`}
           aria-label={language === 'en' ? 'View' : 'Visualização'}
         >
           <button
@@ -69,51 +112,78 @@ export function PlannerToolbar({
             <span className={controlCountClassName}>{individualCount}</span>
           </button>
         </fieldset>
-        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 ">
+        {mobile && (
+          <div className="flex min-w-0 items-center gap-3">
+            {searchControl}
+            <ArtistSort value={sort} onChange={onSort} language={language} />
+          </div>
+        )}
+        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 max-[47.5rem]:grid max-[47.5rem]:grid-cols-2 max-[47.5rem]:gap-3 max-[47.5rem]:[&>button]:w-full max-[47.5rem]:[&>button]:justify-between max-[47.5rem]:[&>button]:min-w-0 max-[47.5rem]:[&>button]:text-base">
           <GenreFilter language={language} selected={genres} onChange={onGenres} />
           <CountryFilter language={language} selected={countries} onChange={onCountries} />
-          <label
-            className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:min-w-48 max-[47.5rem]:flex-1`}
-          >
-            <span className="sr-only">
-              {language === 'en' ? 'Watched status' : 'Sets que você já viu'}
-            </span>
-            <select
-              className="min-h-11 w-full cursor-pointer bg-transparent text-control text-content outline-none max-[47.5rem]:text-base"
-              value={watched}
-              onChange={(event) => onWatched(event.target.value as WatchFilter)}
+          {!mobile && (
+            <label
+              className={`${controlClassName} inline-flex shrink-0 items-center px-3 max-[47.5rem]:w-full max-[47.5rem]:min-w-0`}
             >
-              <option value="all">{language === 'en' ? 'All sets' : 'Todos os sets'}</option>
-              <option value="watched">{language === 'en' ? 'Watched' : 'Já vi'}</option>
-              <option value="unwatched">
-                {language === 'en' ? 'Not watched yet' : 'Ainda não vi'}
-              </option>
-            </select>
-          </label>
-          <div
-            className={`search ${controlClassName} flex items-center gap-2 [flex:1] min-w-0 max-w-none px-3 max-[47.5rem]:basis-full [color:var(--tertiary)] max-[47.5rem]:[max-width:none] [&_input]:outline-none [&_input]:[flex:1] [&_input]:min-w-0 [&_input]:w-full [&_input]:bg-transparent [&_input]:border-0 [&_input]:text-control [&_input]:[line-height:2.625rem] [&_input]:text-content [&:focus-within]:[outline:0.125rem_solid_var(--blue)] [&:focus-within]:[outline-offset:0.125rem] [&_input:focus-visible]:outline-none [&_input::-webkit-search-cancel-button]:hidden max-[47.5rem]:[&_input]:text-base`}
-          >
-            <Search size="1rem" />
-            <input
-              type="search"
-              placeholder={t.search}
-              aria-label={t.search}
-              value={search}
-              onChange={(event) => onSearch(event.target.value)}
-            />
-            {search && (
+              <span className="sr-only">
+                {language === 'en' ? 'Watched status' : 'Sets que você já viu'}
+              </span>
+              <select
+                className="min-h-11 w-full cursor-pointer bg-transparent text-control text-content outline-none max-[47.5rem]:text-base"
+                value={watched}
+                onChange={(event) => onWatched(event.target.value as WatchFilter)}
+              >
+                <option value="all">{language === 'en' ? 'All sets' : 'Todos os sets'}</option>
+                <option value="watched">{language === 'en' ? 'Watched' : 'Já vi'}</option>
+                <option value="unwatched">
+                  {language === 'en' ? 'Not watched yet' : 'Ainda não vi'}
+                </option>
+              </select>
+            </label>
+          )}
+
+          {!mobile && searchControl}
+          {!mobile && <ArtistSort value={sort} onChange={onSort} language={language} />}
+        </div>
+        {mobile && (
+          <>
+            <fieldset
+              className={`${controlClassName} flex w-full gap-1 p-1`}
+              aria-label={language === 'en' ? 'Watched status' : 'Sets que você já viu'}
+            >
+              {(
+                [
+                  ['all', language === 'en' ? 'All' : 'Todos'],
+                  ['watched', language === 'en' ? 'Watched' : 'Já vi'],
+                  ['unwatched', language === 'en' ? 'Not watched yet' : 'Ainda não vi'],
+                ] as const
+              ).map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={watched === value}
+                  onClick={() => onWatched(value)}
+                  className="min-h-11 min-w-0 flex-1 rounded-lg px-1 text-xs text-muted aria-pressed:bg-[var(--hover)] aria-pressed:text-content"
+                >
+                  {label}
+                </button>
+              ))}
+            </fieldset>
+            <div className="-mt-3 flex items-center justify-between gap-3">
+              <span aria-live="polite" className="text-xs text-muted">
+                {filterSummary}
+              </span>
               <button
                 type="button"
-                className="search-clear -mr-3 grid size-11 shrink-0 place-items-center bg-transparent text-muted"
-                aria-label={t.clearSearch}
-                onClick={() => onSearch('')}
+                disabled={!hasFilters}
+                onClick={onReset}
+                className="min-h-11 shrink-0 text-xs text-accent disabled:opacity-35"
               >
-                <X size="1rem" />
+                {t.resetFilters}
               </button>
-            )}
-          </div>
-          <ArtistSort value={sort} onChange={onSort} language={language} />
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
