@@ -71,12 +71,7 @@ export function ArtistDetails({
           )}
           <FilterNotice language={language} notice={t.genreWarning} className="mt-2 mb-1" />
           {jointRecording && (
-            <RecordingDetails
-              artist={artist}
-              language={language}
-              heading={t.jointRecording}
-              primary
-            />
+            <RecordingDetails artist={artist} language={language} heading={artist.name} primary />
           )}
           {members.length ? (
             <section
