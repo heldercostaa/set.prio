@@ -155,10 +155,8 @@ function Preview({ artist, language }: { artist: Artist; language: Language }) {
           <ArtistName artist={artist} language={language} />
         </strong>
         {jointRecordingFor(artist) && (
-          <section aria-label={messages(language).jointRecording} className="grid gap-2">
-            <span className="text-xs font-semibold text-content">
-              {messages(language).jointRecording}
-            </span>
+          <section aria-label={artist.name} className="grid gap-2">
+            <span className="text-xs font-semibold text-content">{artist.name}</span>
             <SetLink recording={recording} language={language} prominent />
           </section>
         )}

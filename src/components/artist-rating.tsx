@@ -42,11 +42,7 @@ export function ArtistRating({
                   }
                 >
                   {members.length ? (
-                    act.id === artist.id ? (
-                      t.jointRecording
-                    ) : (
-                      act.name
-                    )
+                    act.name
                   ) : catalog ? (
                     t.ratingLabel
                   ) : (

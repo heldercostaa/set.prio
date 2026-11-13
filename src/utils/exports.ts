@@ -263,7 +263,7 @@ export async function boardImage(
               ? []
               : [
                   {
-                    name: ratedJoint && joint ? t.jointRecording : member.artist.name,
+                    name: member.artist.name,
                     rating: member.rating,
                   },
                 ]
