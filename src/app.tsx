@@ -185,7 +185,7 @@ export function App() {
                   </span>
                 </div>
               </div>
-              <div className="flex shrink-0 flex-col items-end gap-1">
+              <div className="flex shrink-0 self-stretch flex-col items-end justify-between gap-1">
                 <ExportMenu
                   language={language}
                   count={entries.length}
@@ -200,7 +200,7 @@ export function App() {
                   disabled={!hasFilters}
                   onClick={resetFilters}
                   title={t.resetFilters}
-                  className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent"
+                  className="inline-flex min-h-11 translate-y-4 items-center justify-center gap-1.5 bg-transparent px-2 text-xs font-medium text-accent disabled:cursor-default disabled:opacity-35"
                 >
                   <RotateCcw size="0.875rem" aria-hidden="true" />
                   <span className="max-[47.5rem]:sr-only">{t.resetFilters}</span>
