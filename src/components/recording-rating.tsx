@@ -1,4 +1,4 @@
-import { Check, Sparkles } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { messages } from '../i18n';
 import { usePlanner } from '../store/planner';
@@ -77,7 +77,11 @@ export function RecordingRating({
         <p
           className={`mt-2 flex items-center justify-center gap-1.5 text-xs ${special ? 'text-[#e9cee4]' : 'text-muted'}`}
         >
-          {special && <Sparkles size="0.875rem" aria-hidden="true" />}
+          {special && (
+            <span aria-hidden="true" className="shrink-0">
+              👊
+            </span>
+          )}
           {rating === null ? t.unrated : special ? t.beyondPerfect : t.yourRating}
         </p>
       </motion.div>
