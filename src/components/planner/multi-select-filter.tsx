@@ -1,5 +1,4 @@
 import { FilterNotice } from './filter-notice';
-import { messages } from '../../i18n';
 import { controlClassName, controlCountClassName, menuMotionClassName } from '../ui/control';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown, Check, RotateCcw } from 'lucide-react';
@@ -10,8 +9,6 @@ export function MultiSelectFilter({
   allLabel,
   clearLabel,
   notice,
-  onResetAll,
-  canReset,
   options,
   selected,
   onChange,
@@ -21,8 +18,6 @@ export function MultiSelectFilter({
   allLabel: string;
   clearLabel: string;
   notice?: string;
-  onResetAll?: () => void;
-  canReset?: boolean;
   options: { value: string; label: string }[];
   selected: string[];
   onChange: (value: string[]) => void;
@@ -94,19 +89,6 @@ export function MultiSelectFilter({
               <RotateCcw className="size-4 shrink-0" />
               {clearLabel}
             </DropdownMenu.Item>
-            {onResetAll && (
-              <>
-                <DropdownMenu.Separator className="my-1 h-px bg-separator" />
-                <DropdownMenu.Item
-                  disabled={!canReset}
-                  onSelect={onResetAll}
-                  className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-lg px-2.5 text-muted outline-none transition-colors data-[highlighted]:bg-raised data-[disabled]:cursor-default data-[disabled]:opacity-50"
-                >
-                  <RotateCcw className="size-4 shrink-0" />
-                  {messages(language).resetFilters}
-                </DropdownMenu.Item>
-              </>
-            )}
           </div>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

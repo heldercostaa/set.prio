@@ -14,7 +14,7 @@ import { ExportMenu } from './components/planner/export-menu';
 import { PlannerToolbar } from './components/planner/planner-toolbar';
 import { SiteFooter } from './components/planner/site-footer';
 import { SiteHeader } from './components/planner/site-header';
-import { Check, CheckCheck, Info, LockKeyhole, ShieldCheck } from 'lucide-react';
+import { RotateCcw, Check, CheckCheck, Info, LockKeyhole, ShieldCheck } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArtistPreviewContext, ArtistPreviewCoordinator } from './components/artist';
@@ -185,15 +185,27 @@ export function App() {
                   </span>
                 </div>
               </div>
-              <ExportMenu
-                language={language}
-                count={entries.length}
-                busy={busy}
-                onExport={handleExport}
-                mobile={mobile}
-                imageShareStatus={imageShare.status}
-                onPrepareImage={imageShare.prepare}
-              />
+              <div className="flex shrink-0 flex-col items-end gap-1">
+                <ExportMenu
+                  language={language}
+                  count={entries.length}
+                  busy={busy}
+                  onExport={handleExport}
+                  mobile={mobile}
+                  imageShareStatus={imageShare.status}
+                  onPrepareImage={imageShare.prepare}
+                />
+                <button
+                  type="button"
+                  disabled={!hasFilters}
+                  onClick={resetFilters}
+                  title={t.resetFilters}
+                  className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg bg-transparent px-2 text-xs font-medium text-accent hover:bg-raised disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent"
+                >
+                  <RotateCcw size="0.875rem" aria-hidden="true" />
+                  <span className="max-[47.5rem]:sr-only">{t.resetFilters}</span>
+                </button>
+              </div>
             </div>
             {state.storageError && (
               <div
@@ -213,8 +225,6 @@ export function App() {
               </div>
             )}
             <PlannerToolbar
-              onResetFilters={resetFilters}
-              hasFilters={hasFilters}
               sort={sort}
               onSort={setSort}
               language={language}
