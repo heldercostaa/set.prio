@@ -128,7 +128,7 @@ const en = {
 };
 const pt: typeof en = {
   title: en.title,
-  planHeading: 'Organize seus Sets.',
+  planHeading: 'Defina a prioridade dos seus Sets.',
   subtitle: 'Encontre seus artistas e monte sua programação.',
   search: 'Buscar artistas',
   board: 'Quadro',

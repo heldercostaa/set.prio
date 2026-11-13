@@ -42,7 +42,7 @@ Then(
   'my language, priority, zero rating, watched status, and multiline comment are restored',
   async ({ page }) => {
     await expect(
-      page.getByRole('heading', { name: 'Organize seus Sets.', exact: true })
+      page.getByRole('heading', { name: 'Defina a prioridade dos seus Sets.', exact: true })
     ).toBeVisible();
     const fisher = page.getByRole('button', { name: 'Fisher · Sexta-feira', exact: true });
     await expect(fisher.getByRole('img', { name: 'Set assistido', exact: true })).toBeVisible();
