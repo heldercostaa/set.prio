@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject, type TouchEvent } from 'react';
+import { useCallback, useEffect, useRef, type RefObject, type TouchEvent } from 'react';
 
 export function useSheetSwipe(
   content: RefObject<HTMLDivElement | null>,
@@ -11,8 +11,15 @@ export function useSheetSwipe(
     y: number;
     offset: number;
     locked: boolean;
+    scrollable: HTMLElement | null;
   } | null>(null);
   const rebound = useRef<Animation[]>([]);
+  const preventScroll = useRef<((event: globalThis.TouchEvent) => void) | null>(null);
+  const stopPreventingScroll = useCallback(() => {
+    if (preventScroll.current)
+      content.current?.removeEventListener('touchmove', preventScroll.current);
+    preventScroll.current = null;
+  }, [content]);
   const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reset = () => {
     if (content.current) content.current.style.translate = '';
@@ -27,6 +34,7 @@ export function useSheetSwipe(
       overlay.current.style.opacity = String(1 - y / Math.max(1, node.clientHeight));
   };
   const settle = () => {
+    stopPreventingScroll();
     start.current = null;
     const node = content.current;
     const translate = node ? getComputedStyle(node).translate : '0 0';
@@ -49,9 +57,10 @@ export function useSheetSwipe(
   };
   useEffect(
     () => () => {
+      stopPreventingScroll();
       for (const animation of rebound.current) animation.cancel();
     },
-    []
+    [stopPreventingScroll]
   );
   return {
     onTouchStart(event: TouchEvent<HTMLDivElement>) {
@@ -69,13 +78,36 @@ export function useSheetSwipe(
       for (const animation of rebound.current) animation.cancel();
       draw(reduced() ? 0 : offset);
       const point = event.touches[0];
+      let scrollable: HTMLElement | null = event.target as HTMLElement;
+      while (scrollable && scrollable !== node) {
+        const { overflowY } = getComputedStyle(scrollable);
+        if (/(auto|scroll)/.test(overflowY) && scrollable.scrollHeight > scrollable.clientHeight)
+          break;
+        scrollable = scrollable.parentElement;
+      }
+      if (scrollable === node) scrollable = null;
       start.current = {
         id: point.identifier,
         x: point.clientX,
         y: point.clientY,
         offset,
         locked: false,
+        scrollable,
       };
+      stopPreventingScroll();
+      preventScroll.current = (move) => {
+        const origin = start.current;
+        const touch = move.touches[0];
+        if (!origin || move.touches.length !== 1 || touch.identifier !== origin.id) return;
+        const dx = touch.clientX - origin.x;
+        const dy = touch.clientY - origin.y;
+        if (
+          (origin.locked || (dy >= 6 && dy > Math.abs(dx) * 1.5)) &&
+          (!origin.scrollable || origin.scrollable.scrollTop <= 0)
+        )
+          move.preventDefault();
+      };
+      node?.addEventListener('touchmove', preventScroll.current, { passive: false });
     },
     onTouchMove(event: TouchEvent<HTMLDivElement>) {
       const origin = start.current;
@@ -89,7 +121,7 @@ export function useSheetSwipe(
         dy = point.clientY - origin.y;
       if (!origin.locked) {
         if (Math.max(Math.abs(dx), Math.abs(dy)) < 6) return;
-        if (Math.abs(dy) <= Math.abs(dx) * 1.5) {
+        if (dy <= 0 || dy <= Math.abs(dx) * 1.5 || (origin.scrollable?.scrollTop ?? 0) > 0) {
           settle();
           return;
         }
@@ -99,6 +131,7 @@ export function useSheetSwipe(
     },
     onTouchEnd(event: TouchEvent<HTMLDivElement>) {
       const origin = start.current;
+      stopPreventingScroll();
       start.current = null;
       if (!origin || event.touches.length) {
         settle();

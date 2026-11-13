@@ -73,6 +73,7 @@ export function Modal({
         />
         <Dialog.Content
           ref={content}
+          {...swipeHandlers}
           className={`modal fixed [top:50%] [left:50%] [transform:translate(-50%,_-50%)] [z-index:91] [width:min(37.5rem,_calc(100vw_-_2.5rem))] [max-height:min(90dvh,_58.75rem)] border border-separator rounded-2xl bg-surface [box-shadow:0_1.75rem_6.25rem_#0005] flex flex-col overflow-hidden text-content [animation:modal-in_0.18s_ease-out] max-[47.5rem]:[top:auto] max-[47.5rem]:[bottom:0] max-[47.5rem]:[left:0] max-[47.5rem]:[transform:none] max-[47.5rem]:w-full max-[47.5rem]:[max-height:94dvh] max-[47.5rem]:[border-radius:1.25rem_1.25rem_0_0] max-[47.5rem]:[border-bottom:0] max-[47.5rem]:[animation:sheet-in_0.2s_ease-out] max-[47.5rem]:[padding-bottom:env(safe-area-inset-bottom)] focus:[outline:none] ${className}`}
           onCloseAutoFocus={
             onRestoreFocus
@@ -83,10 +84,7 @@ export function Modal({
               : undefined
           }
         >
-          <div
-            {...swipeHandlers}
-            className="modal-heading relative max-[47.5rem]:touch-pan-x flex items-start justify-between gap-2.5 [padding:1.375rem_1.5rem_1.1875rem] [border-bottom:0.0625rem_solid_var(--line)] shrink-0 max-[47.5rem]:[padding:1.3125rem_1.25rem_1.0625rem] [&_h2]:[font-size:1.375rem] [&_h2]:[line-height:1.2] [&_h2]:[letter-spacing:-0.025em] [&_h2]:[overflow-wrap:anywhere] [&_h2]:[font-weight:650] [&_p]:[font-size:0.6875rem] [&_p]:text-muted [&_p]:[line-height:1.6] [&_p]:mt-1.5 max-[47.5rem]:[&_h2]:[font-size:1.3125rem]"
-          >
+          <div className="modal-heading relative max-[47.5rem]:touch-pan-x flex items-start justify-between gap-2.5 [padding:1.375rem_1.5rem_1.1875rem] [border-bottom:0.0625rem_solid_var(--line)] shrink-0 max-[47.5rem]:[padding:1.3125rem_1.25rem_1.0625rem] [&_h2]:[font-size:1.375rem] [&_h2]:[line-height:1.2] [&_h2]:[letter-spacing:-0.025em] [&_h2]:[overflow-wrap:anywhere] [&_h2]:[font-weight:650] [&_p]:[font-size:0.6875rem] [&_p]:text-muted [&_p]:[line-height:1.6] [&_p]:mt-1.5 max-[47.5rem]:[&_h2]:[font-size:1.3125rem]">
             <span
               aria-hidden="true"
               className="absolute left-1/2 top-2 hidden h-1 w-8 -translate-x-1/2 rounded-full bg-muted/40 max-[47.5rem]:block"
