@@ -6,6 +6,7 @@ Given('a narrow English planner', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 740 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
+  await page.getByRole('button', { name: 'English', exact: true }).click();
 });
 When('I drag Fisher into the floating must-see zone', async ({ page, isMobile }) => {
   await expect(

@@ -14,7 +14,7 @@ Then('I can cancel resetting before deliberately erasing the plan', async ({ pag
   await expect(
     page
       .getByTestId('2027-04-30-unprioritized')
-      .getByRole('button', { name: 'Fisher · Friday', exact: true })
+      .getByRole('button', { name: 'Fisher · Sexta-feira', exact: true })
   ).toBeVisible();
   const saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem('set.priority:brasil-2027:v1') ?? '{}')

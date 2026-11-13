@@ -60,6 +60,7 @@ Given('a plan containing appearances missing from the current catalog', async ({
   await page.goto('/');
 });
 When('I prioritize Fisher through artist details', async ({ page }) => {
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await page.getByRole('button', { name: 'Fisher · Friday', exact: true }).click();
   await page
     .getByRole('combobox', { name: 'Priority · Friday · Fisher', exact: true })

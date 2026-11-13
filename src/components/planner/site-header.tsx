@@ -40,19 +40,19 @@ export function SiteHeader({ language }: { language: Language }) {
           >
             <button
               type="button"
-              aria-pressed={language === 'en'}
-              aria-label={t.english}
-              onClick={() => setLanguage('en')}
-            >
-              EN
-            </button>
-            <button
-              type="button"
               aria-pressed={language === 'pt-BR'}
               aria-label={t.portuguese}
               onClick={() => setLanguage('pt-BR')}
             >
               PT
+            </button>
+            <button
+              type="button"
+              aria-pressed={language === 'en'}
+              aria-label={t.english}
+              onClick={() => setLanguage('en')}
+            >
+              EN
             </button>
           </fieldset>
           <DisplaySettings language={language} />

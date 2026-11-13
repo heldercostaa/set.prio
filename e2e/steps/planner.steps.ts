@@ -11,6 +11,7 @@ After({ tags: 'not @data' }, async ({ page }) => {
 });
 Given('an English planner with no saved priorities', async ({ page }) => {
   await page.goto('/');
+  await page.getByRole('button', { name: 'English', exact: true }).click();
   await expect(
     page.getByRole('heading', { name: 'Choose the .priority of your Sets', exact: true })
   ).toBeVisible();
