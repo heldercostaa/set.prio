@@ -38,7 +38,7 @@ export function FilterNotice({
           <Info className="size-3.5 shrink-0 text-accent" aria-hidden="true" />
           {language === 'en'
             ? 'Genres are AI-assisted estimates.'
-            : 'Gêneros são estimativas auxiliadas por IA.'}
+            : 'Os gêneros foram estimados com ajuda de IA.'}
         </a>
       </HoverCard.Trigger>
       <HoverCard.Portal>

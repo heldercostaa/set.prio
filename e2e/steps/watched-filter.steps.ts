@@ -26,7 +26,7 @@ Then('watched filters follow recording ratings in the board and catalog', async 
   await filter.selectOption('unwatched');
   await expect(card).toHaveCount(1);
   await page.getByRole('button', { name: 'Português (Brasil)', exact: true }).click();
-  await expect(page.getByRole('combobox', { name: 'Status de visualização' })).toHaveValue(
+  await expect(page.getByRole('combobox', { name: 'Sets que você já viu' })).toHaveValue(
     'unwatched'
   );
 });

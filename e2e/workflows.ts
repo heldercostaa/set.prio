@@ -492,7 +492,7 @@ export const workflows: Record<
       await expect(volkoder.getByRole('slider')).toHaveAttribute('aria-valuenow', '8');
       await expect(dialog.getByRole('combobox')).toHaveValue('P0');
       await expect(
-        dialog.getByLabel('Seu comentário', {
+        dialog.getByLabel('Suas anotações', {
           exact: true,
         })
       ).toHaveValue('Together on Friday');

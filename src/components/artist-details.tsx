@@ -274,7 +274,9 @@ function ResearchDetails({ artists, language }: { artists: Artist[]; language: L
           className="shrink-0 -rotate-90 transition-transform duration-150 group-open:rotate-0 motion-reduce:transition-none"
         />
         <span>
-          {t.setDetails} &amp; {t.genreSources}
+          {t.setDetails}
+          {language === 'en' ? ' & ' : ' e '}
+          {t.genreSources}
         </span>
       </summary>
       {artists.map((artist) => {
