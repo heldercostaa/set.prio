@@ -487,6 +487,21 @@ export async function boardImage(
           fill = gradient;
         }
         box(cx, cy, chip.width, chip.height, 8, fill, chip.bonus ? '#ffd58066' : undefined);
+        if (chip.bonus) {
+          context.fillStyle = '#ffd58066';
+          for (const sx of [cx + 6, cx + chip.width - 6]) {
+            for (const sy of [cy + 5, cy + chip.height - 5]) {
+              context.beginPath();
+              for (let point = 0; point < 8; point++) {
+                const angle = (point * Math.PI) / 4 - Math.PI / 2;
+                const radius = point % 2 ? 1 : 3;
+                context.lineTo(sx + Math.cos(angle) * radius, sy + Math.sin(angle) * radius);
+              }
+              context.closePath();
+              context.fill();
+            }
+          }
+        }
         let flagX = cx + 11;
         for (const flag of chip.flags) {
           label(flag.value, flagX, cy + 9 + (chip.lines.length - 1) * 10.5, 14, 400);

@@ -1,3 +1,4 @@
+import { RatingSparkles } from './rating-sparkles';
 import { Check } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { messages } from '../i18n';
@@ -66,6 +67,7 @@ export function RecordingRating({
         transition={{ type: 'spring', stiffness: 260, damping: 18 }}
         className={`relative isolate mt-5 overflow-hidden rounded-2xl p-5 text-center ${special ? 'bg-linear-130 from-[#3b3023] via-[#352631] to-[#2c293f] inset-ring inset-ring-[#ffd58028] motion-safe:after:absolute motion-safe:after:inset-[-100%] motion-safe:after:pointer-events-none motion-safe:after:bg-linear-110 motion-safe:after:from-transparent motion-safe:after:via-white/10 motion-safe:after:to-transparent motion-safe:after:animate-[rating-sheen_0.9s_ease-out_both]' : 'bg-raised'}`}
       >
+        {special && <RatingSparkles />}
         <output htmlFor={id} className="inline-flex items-baseline gap-2" aria-live="polite">
           <span
             className={`text-6xl font-semibold tracking-tighter tabular-nums ${special ? 'bg-linear-120 from-[#ffe4a3] via-[#ffb7d6] to-[#c8baff] bg-clip-text text-transparent' : 'text-content'}`}
