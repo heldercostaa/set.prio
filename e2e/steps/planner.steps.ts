@@ -86,6 +86,6 @@ When('I mark Fisher as an artist to avoid', async ({ page }) => {
 Then('Fisher remains avoided on Friday after reloading', async ({ page }) => {
   await page.reload();
   const group = page.getByTestId('2027-04-30-P4');
-  await expect(group.getByRole('heading', { name: 'Avoid', exact: true })).toBeVisible();
+  await expect(group.getByRole('heading', { name: 'I’ll skip', exact: true })).toBeVisible();
   await expect(group.getByRole('button', { name: 'Fisher · Friday', exact: true })).toBeVisible();
 });
