@@ -187,25 +187,30 @@ export function App() {
           <SiteHeader language={language} />
           <main
             id="main"
-            className="app-main max-w-384 px-10 pt-7 [margin:auto] max-[68.75rem]:[padding:1.875rem_1.5rem_0] max-[47.5rem]:[padding:1.75rem_1.25rem_0] max-[22.5rem]:[padding:1.5rem_1rem_0]"
+            className="app-main max-w-384 px-10 pt-4 [margin:auto] max-[68.75rem]:[padding:1rem_1.5rem_0] max-[47.5rem]:[padding:1rem_1.25rem_0] max-[22.5rem]:[padding:1rem_1rem_0]"
           >
-            <div className="page-heading mb-6 flex items-center justify-between gap-4 max-[47.5rem]:mb-5 max-[47.5rem]:items-start">
+            <div className="page-heading flex items-start justify-between gap-4 max-[47.5rem]:mb-2">
               <div className="min-w-0">
                 <h1
                   aria-label={t.planHeading}
                   className="text-4xl font-semibold leading-tight tracking-tight max-[47.5rem]:text-3xl"
                 >
-                  {t.planHeading.slice(0, -'Sets.'.length)}
+                  {t.planHeading.split('.')[0]}
                   <span className="whitespace-nowrap">
-                    <span className="rounded-md bg-[#ff453a]/12 px-1 text-[#ff453a]">Sets</span>
                     <span
                       aria-hidden="true"
-                      className="ml-0.5 inline-block size-[0.38086rem] rounded-full bg-[#ff453a] align-baseline max-[22.5rem]:size-[0.32645rem]"
+                      className="mr-0.5 inline-block size-[0.38086rem] rounded-full bg-[#ff453a] align-baseline max-[22.5rem]:size-[0.32645rem]"
                     />
-                    <span className="sr-only">.</span>
+                    {t.planHeading.split('.')[1].split(' ')[0]}
+                  </span>
+                  {t.planHeading
+                    .split('.')[1]
+                    .slice(t.planHeading.split('.')[1].indexOf(' '), -'Sets'.length)}
+                  <span className="whitespace-nowrap">
+                    <span className="rounded-md bg-[#ff453a]/12 px-1 text-[#ff453a]">Sets</span>
                   </span>
                 </h1>
-                <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm max-[47.5rem]:text-xs">
+                <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm max-[47.5rem]:text-xs">
                   <span className="text-content">Tomorrowland Brasil 2027</span>
                   <span aria-hidden="true" className="text-muted max-[47.5rem]:hidden">
                     ·
@@ -237,7 +242,7 @@ export function App() {
                   disabled={!hasFilters}
                   onClick={resetFilters}
                   title={t.resetFilters}
-                  className="inline-flex min-h-11 translate-y-4 items-center justify-center gap-1.5 bg-transparent px-2 text-xs font-medium text-accent disabled:cursor-default disabled:opacity-35"
+                  className="inline-flex min-h-11 items-center justify-center gap-1.5 bg-transparent pl-2 text-xs font-medium text-accent disabled:cursor-default disabled:opacity-35 max-[47.5rem]:px-0 max-[47.5rem]:min-w-11"
                 >
                   <RotateCcw size="0.875rem" aria-hidden="true" />
                   <span className="max-[47.5rem]:sr-only">{t.resetFilters}</span>

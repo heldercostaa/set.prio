@@ -42,7 +42,7 @@ export function PlannerToolbar({
   const individualCount =
     catalog.sourceArtistCount ?? catalog.artists.filter((a) => !a.memberIds?.length).length;
   return (
-    <div className="toolbar relative mb-6 max-[47.5rem]:mb-5">
+    <div className="toolbar relative mb-3">
       <div className="flex flex-wrap items-center gap-2 max-[47.5rem]:flex-col max-[47.5rem]:items-stretch max-[47.5rem]:gap-3.5">
         <fieldset
           className={`view-switch ${controlClassName} flex shrink-0 max-[47.5rem]:w-max`}
