@@ -36,11 +36,11 @@ When('I drag Fisher into the floating must-see zone', async ({ page, isMobile })
   const end = { x: bounds.x + bounds.width / 2, y: bounds.y + bounds.height / 2 };
   if (isMobile) {
     await touch(card, 'touchmove', end.x, end.y);
-    await expect(target).toHaveAccessibleName('Release here · P0 · Must-see');
+    await expect(target).toHaveAccessibleName('Release here · P0 · Can’t miss');
     await touch(card, 'touchend', end.x, end.y);
   } else {
     await page.mouse.move(end.x, end.y, { steps: 12 });
-    await expect(target).toHaveAccessibleName('Release here · P0 · Must-see');
+    await expect(target).toHaveAccessibleName('Release here · P0 · Can’t miss');
     await page.mouse.up();
   }
 });

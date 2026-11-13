@@ -260,11 +260,11 @@ export function messages(language: Language) {
 }
 const priorityLabels = {
   en: {
-    P0: 'Must-see',
-    P1: 'High priority',
-    P2: 'Medium priority',
-    P3: 'If time allows',
-    P4: 'Avoid',
+    P0: 'Can’t miss',
+    P1: 'Really want to see',
+    P2: 'Want to see',
+    P3: 'If there’s time',
+    P4: 'I’ll skip',
   },
   'pt-BR': {
     P0: 'Imperdíveis',
