@@ -291,7 +291,7 @@ export function ArtistChip({
             }}
             aria-label={`${artist.name} · ${dayName(appearance.day, language)}`}
           >
-            {bonus && <RatingSparkles compact />}
+            {bonus && <RatingSparkles compact seed={artist.id} />}
             <span className="inline-flex w-full min-w-0 flex-col items-start gap-1 transition-transform group-hover/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-focus-visible/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] group-active/card:[translate:calc(-1_*_var(--drag-left,_0rem))_0] motion-reduce:transition-none">
               <ArtistRating artist={artist} language={language} name={artist.name} />
             </span>

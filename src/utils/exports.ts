@@ -1,3 +1,4 @@
+import { boardSparkles } from './board-sparkles';
 import { compareArtists, type ArtistSort } from './artist-sort';
 import { artistCountries, countryFlag } from './countries';
 import { publicAsset } from './assets';
@@ -325,6 +326,7 @@ export async function boardImage(
             rowHeight = 0;
           }
           const chip = {
+            artistId: entry.artist.id,
             lines,
             flags,
             flagWidth,
@@ -488,18 +490,19 @@ export async function boardImage(
         }
         box(cx, cy, chip.width, chip.height, 8, fill, chip.bonus ? '#ffd58066' : undefined);
         if (chip.bonus) {
-          context.fillStyle = '#ffd58066';
-          for (const sx of [cx + 6, cx + chip.width - 6]) {
-            for (const sy of [cy + 5, cy + chip.height - 5]) {
-              context.beginPath();
-              for (let point = 0; point < 8; point++) {
-                const angle = (point * Math.PI) / 4 - Math.PI / 2;
-                const radius = point % 2 ? 1 : 3;
-                context.lineTo(sx + Math.cos(angle) * radius, sy + Math.sin(angle) * radius);
-              }
-              context.closePath();
-              context.fill();
+          context.fillStyle = '#ffd58040';
+          for (const star of boardSparkles(chip.artistId)) {
+            const position = star.positions[0];
+            const sx = cx + position.x * (chip.width - 5) + star.size / 2;
+            const sy = cy + position.y * (chip.height - 5) + star.size / 2;
+            context.beginPath();
+            for (let point = 0; point < 8; point++) {
+              const angle = (point * Math.PI) / 4 - Math.PI / 2;
+              const radius = (star.size / 2) * (point % 2 ? 0.3 : 1);
+              context.lineTo(sx + Math.cos(angle) * radius, sy + Math.sin(angle) * radius);
             }
+            context.closePath();
+            context.fill();
           }
         }
         let flagX = cx + 11;
