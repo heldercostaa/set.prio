@@ -3,7 +3,15 @@ import { Info } from 'lucide-react';
 import { useId, useState } from 'react';
 import type { Language } from '../../types';
 
-export function FilterNotice({ language, notice }: { language: Language; notice: string }) {
+export function FilterNotice({
+  language,
+  notice,
+  className = 'mx-3 mt-2 px-1',
+}: {
+  language: Language;
+  notice: string;
+  className?: string;
+}) {
   const [open, setOpen] = useState(false);
   const descriptionId = useId();
   return (
@@ -25,7 +33,7 @@ export function FilterNotice({ language, notice }: { language: Language; notice:
               setOpen((value) => !value);
             }
           }}
-          className="mx-3 mt-2 flex min-h-11 shrink-0 cursor-help items-center gap-1.5 rounded-lg px-1 text-xs font-medium leading-relaxed text-muted focus-visible:outline-2 focus-visible:outline-accent"
+          className={`flex min-h-11 shrink-0 cursor-help items-center gap-1.5 rounded-lg text-xs font-medium leading-relaxed text-muted focus-visible:outline-2 focus-visible:outline-accent ${className}`}
         >
           <Info className="size-3.5 shrink-0 text-accent" aria-hidden="true" />
           {language === 'en'
